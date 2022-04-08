@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using APP.Buscar;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,6 +44,7 @@ namespace APP
             txtCodigo.Text = _marcas.MaxId().ToString();
             txtNombre.Text = null;
             _ = txtNombre.Focus();
+            txtNombre.Enabled = true;
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
         }
@@ -51,7 +53,17 @@ namespace APP
         {
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
-                _marcas.Insertar(txtNombre.Text);
+                DataTable marca = _marcas.BuscarId(txtCodigo.Text);
+                if (marca.Rows.Count > 0)
+                {
+                    // Modificar Marca
+                    _marcas.Editar(txtCodigo.Text, txtNombre.Text);
+                }
+                else
+                {
+                    // Crear Marca
+                    _marcas.Insertar(txtNombre.Text);
+                }
                 btnNuevo.PerformClick();
             }
         }
@@ -60,7 +72,33 @@ namespace APP
         {
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
+                DataTable marca = _marcas.BuscarNombre(txtNombre.Text);
+                if (marca.Rows.Count > 0)
+                {
+                    txtCodigo.Text = marca.Rows[0][0].ToString();
+                    txtNombre.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnModificar.Enabled = true;
+                }
+            }
+        }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Enabled = true;
+            btnSalvar.Enabled = true;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarMarcas frm = new FrmBuscarMarcas();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigo.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                txtNombre.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                txtNombre.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnModificar.Enabled = true;
             }
         }
     }

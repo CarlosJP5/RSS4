@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buscar\FrmBuscarMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarMarcas.Designer.cs">
+      <DependentUpon>FrmBuscarMarcas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Coneccion\FrmClaveAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="zPrincipal.Designer.cs">
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Buscar\FrmBuscarMarcas.resx">
+      <DependentUpon>FrmBuscarMarcas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Coneccion\FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-64-ico.ico" />
+    <None Include="Resources\Borrar-16.png" />
     <None Include="Resources\Salir-16.png" />
     <None Include="Resources\Buscar-16.png" />
     <None Include="Resources\Salvar-16.png" />

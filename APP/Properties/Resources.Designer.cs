@@ -63,6 +63,16 @@ namespace APP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Borrar_16 {
+            get {
+                object obj = ResourceManager.GetObject("Borrar-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Buscar_16 {
             get {
                 object obj = ResourceManager.GetObject("Buscar-16", resourceCulture);
