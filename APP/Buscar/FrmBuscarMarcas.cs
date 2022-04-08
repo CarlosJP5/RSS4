@@ -26,6 +26,7 @@ namespace APP.Buscar
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            dgvListar.Rows.Clear();
             string query = @"SELECT id_marca, nombre_marca FROM ArticuloMarca";
             if (rbtnTodo.Checked)
             {
@@ -42,6 +43,10 @@ namespace APP.Buscar
             }
             query += " ORDER BY nombre_marca";
             DataTable marca = _marca.Buscar(query);
+            if (marca.Rows.Count > 0)
+            {
+                _ = dgvListar.Focus();
+            }
             foreach (DataRow row in marca.Rows)
             {
                 _ = dgvListar.Rows.Add(row[0], row[1]);
@@ -81,6 +86,11 @@ namespace APP.Buscar
                 e.Handled = true;
                 DialogResult = DialogResult.OK;
             }
+        }
+
+        private void rbtnTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            _ = txtBuscar.Focus();
         }
     }
 }

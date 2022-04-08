@@ -95,5 +95,10 @@ namespace APP.Coneccion
                 _ = MessageBox.Show(ex.Message, "Msj", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

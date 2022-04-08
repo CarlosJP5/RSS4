@@ -84,6 +84,9 @@
     <EmbeddedResource Include="Buscar\FrmBuscarMarcas.resx">
       <DependentUpon>FrmBuscarMarcas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Coneccion\FrmClaveAdmin.resx">
+      <DependentUpon>FrmClaveAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Coneccion\FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
     </EmbeddedResource>
