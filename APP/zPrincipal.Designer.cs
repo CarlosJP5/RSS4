@@ -39,8 +39,8 @@ namespace APP
             this.articulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detalleArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itbisDelArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -103,18 +103,19 @@ namespace APP
             this.marcasToolStripMenuItem.Text = "Marcas";
             this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
+            // itbisDelArticuloToolStripMenuItem
+            // 
+            this.itbisDelArticuloToolStripMenuItem.Name = "itbisDelArticuloToolStripMenuItem";
+            this.itbisDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itbisDelArticuloToolStripMenuItem.Text = "Itbis del Articulo";
+            this.itbisDelArticuloToolStripMenuItem.Click += new System.EventHandler(this.itbisDelArticuloToolStripMenuItem_Click);
+            // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
-            // 
-            // itbisDelArticuloToolStripMenuItem
-            // 
-            this.itbisDelArticuloToolStripMenuItem.Name = "itbisDelArticuloToolStripMenuItem";
-            this.itbisDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.itbisDelArticuloToolStripMenuItem.Text = "Itbis del Articulo";
             // 
             // zPrincipal
             // 

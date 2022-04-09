@@ -33,5 +33,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void itbisDelArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArticulosItbis frm = new FrmArticulosItbis();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

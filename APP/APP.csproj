@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buscar\FrmBuscarItbis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarItbis.Designer.cs">
+      <DependentUpon>FrmBuscarItbis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\FrmBuscarMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="zPrincipal.Designer.cs">
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Buscar\FrmBuscarItbis.resx">
+      <DependentUpon>FrmBuscarItbis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarMarcas.resx">
       <DependentUpon>FrmBuscarMarcas.cs</DependentUpon>
     </EmbeddedResource>

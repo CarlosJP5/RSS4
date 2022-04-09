@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="NClasses\NAppSetting.cs" />
     <Compile Include="NClasses\NSqlHelper.cs" />
+    <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

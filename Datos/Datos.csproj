@@ -45,6 +45,7 @@
     <Compile Include="Classes\AppSetting.cs" />
     <Compile Include="Classes\SqlHelper.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DItbis.cs" />
     <Compile Include="DMarcas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
