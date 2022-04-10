@@ -12,6 +12,10 @@ namespace Negocios
     {
         private readonly DItbis _itibis = new DItbis();
 
+        public DataTable Buscar(string Query)
+        {
+            return _itibis.Buscar(Query);
+        }
         public DataTable Listar()
         {
             return _itibis.Listar();

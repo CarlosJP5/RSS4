@@ -10,6 +10,30 @@ namespace Datos
 {
     public class DItbis : Conexion
     {
+        public DataTable Buscar(string Query)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = Query;
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(leer);
+                        return dt;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar()
         {
             using (var conn = GetConnection())
