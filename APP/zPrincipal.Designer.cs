@@ -41,6 +41,7 @@ namespace APP
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itbisDelArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suplidoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +76,8 @@ namespace APP
             // 
             this.datosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.articulosToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.testToolStripMenuItem,
+            this.suplidoresToolStripMenuItem});
             this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
             this.datosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.datosToolStripMenuItem.Text = "Datos";
@@ -93,20 +95,20 @@ namespace APP
             // detalleArticulosToolStripMenuItem
             // 
             this.detalleArticulosToolStripMenuItem.Name = "detalleArticulosToolStripMenuItem";
-            this.detalleArticulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detalleArticulosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.detalleArticulosToolStripMenuItem.Text = "Detalle Articulos";
             // 
             // marcasToolStripMenuItem
             // 
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.marcasToolStripMenuItem.Text = "Marcas";
             this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
             // itbisDelArticuloToolStripMenuItem
             // 
             this.itbisDelArticuloToolStripMenuItem.Name = "itbisDelArticuloToolStripMenuItem";
-            this.itbisDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itbisDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.itbisDelArticuloToolStripMenuItem.Text = "Itbis del Articulo";
             this.itbisDelArticuloToolStripMenuItem.Click += new System.EventHandler(this.itbisDelArticuloToolStripMenuItem_Click);
             // 
@@ -116,6 +118,13 @@ namespace APP
             this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
+            // suplidoresToolStripMenuItem
+            // 
+            this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.suplidoresToolStripMenuItem.Text = "Suplidores";
+            this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
             // zPrincipal
             // 
@@ -152,6 +161,7 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itbisDelArticuloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suplidoresToolStripMenuItem;
     }
 }
 

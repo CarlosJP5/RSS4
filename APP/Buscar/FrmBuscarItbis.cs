@@ -52,5 +52,28 @@ namespace APP.Buscar
                 _ = dgvListar.Rows.Add(dr[0], dr[1], dr[2]);
             }
         }
+
+        private void dgvListar_KeyDown(object sender, KeyEventArgs e)
+        {
+            dgvListar.CurrentRow.Selected = true;
+            e.SuppressKeyPress = true;
+            e.Handled= true;
+            DialogResult = DialogResult.OK;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+
+        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult= DialogResult.OK;
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using Datos;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocios
 {
@@ -16,6 +12,11 @@ namespace Negocios
         {
             return _itibis.Buscar(Query);
         }
+        public DataTable BuscarId(string IdItbis)
+        {
+            int Id = Convert.ToInt32(IdItbis);
+            return _itibis.BuscarId(Id);
+        }
         public DataTable Listar()
         {
             return _itibis.Listar();
@@ -23,6 +24,12 @@ namespace Negocios
         public int MaxId()
         {
             return _itibis.MaxId();
+        }
+        public void Editar(string IdItbis, string Nombre, string Porciento)
+        {
+            int Id = Convert.ToInt32(IdItbis);
+            decimal porciento = Convert.ToDecimal(Porciento);
+            _itibis.Editar(Id, Nombre, porciento);
         }
         public void Insertar(string Nombre, string Porciento)
         {

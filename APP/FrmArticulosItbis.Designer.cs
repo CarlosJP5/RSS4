@@ -29,6 +29,7 @@ namespace APP
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -43,8 +44,12 @@ namespace APP
             this.txtItbis = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPorciento = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPorciento)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -100,6 +105,7 @@ namespace APP
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscar
             // 
@@ -188,6 +194,8 @@ namespace APP
             this.txtItbis.Size = new System.Drawing.Size(100, 20);
             this.txtItbis.TabIndex = 2;
             this.txtItbis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItbis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItbis_KeyPress);
+            this.txtItbis.Validating += new System.ComponentModel.CancelEventHandler(this.txtItbis_Validating);
             // 
             // label2
             // 
@@ -206,6 +214,15 @@ namespace APP
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
+            // 
+            // errorProviderNombre
+            // 
+            this.errorProviderNombre.ContainerControl = this;
+            // 
+            // errorProviderPorciento
+            // 
+            this.errorProviderPorciento.ContainerControl = this;
             // 
             // FrmArticulosItbis
             // 
@@ -224,6 +241,8 @@ namespace APP
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPorciento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,5 +263,7 @@ namespace APP
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.ErrorProvider errorProviderNombre;
+        private System.Windows.Forms.ErrorProvider errorProviderPorciento;
     }
 }

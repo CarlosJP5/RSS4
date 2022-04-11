@@ -47,6 +47,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DItbis.cs" />
     <Compile Include="DMarcas.cs" />
+    <Compile Include="DSuplidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

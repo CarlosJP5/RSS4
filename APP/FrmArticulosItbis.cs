@@ -1,6 +1,7 @@
 ﻿using APP.Buscar;
 using Negocios;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace APP
@@ -31,9 +32,20 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtItbis.Text))
+            DataTable itbis = _itbis.BuscarId(txtCodigo.Text);
+            _ = ValidateChildren();
+            if (txtNombre.AllowDrop == false && txtItbis.AllowDrop == false)
             {
-                _itbis.Insertar(txtNombre.Text, txtItbis.Text);
+                if (itbis.Rows.Count > 0)
+                {
+                    // Editar Itbis
+                    _itbis.Editar(txtCodigo.Text, txtNombre.Text, txtItbis.Text);
+                }
+                else
+                {
+                    // Crear Itbis
+                    _itbis.Insertar(txtNombre.Text, txtItbis.Text);
+                }
                 btnNuevo.PerformClick();
             }
         }
@@ -59,6 +71,51 @@ namespace APP
             btnSalvar.Enabled = true;
             txtNombre.Enabled = true;
             txtItbis.Enabled = true;
+        }
+
+        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorProviderNombre.SetError(txtNombre, "Campo Obligatorio");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorProviderNombre.Clear();
+                txtNombre.AllowDrop = false;
+            }
+        }
+
+        private void txtItbis_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtItbis.Text))
+            {
+                errorProviderPorciento.SetError(txtItbis, "Campo Obligatorio");
+                txtItbis.AllowDrop = true;
+            }
+            else
+            {
+                errorProviderPorciento.Clear();
+                txtItbis.AllowDrop = false;
+            }
+        }
+
+        private void txtItbis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

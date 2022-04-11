@@ -185,11 +185,14 @@ namespace APP.Buscar
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
             this.btnAceptar.Location = new System.Drawing.Point(183, 292);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 25);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
