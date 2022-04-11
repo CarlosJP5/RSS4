@@ -139,6 +139,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
@@ -151,6 +152,7 @@
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnModificar
             // 
@@ -175,6 +177,7 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // txtCelular
             // 
@@ -301,6 +304,7 @@
             // txtVendedor
             // 
             this.txtVendedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtVendedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVendedor.Location = new System.Drawing.Point(364, 93);
             this.txtVendedor.MaxLength = 50;
             this.txtVendedor.Name = "txtVendedor";
@@ -310,6 +314,7 @@
             // txtRnc
             // 
             this.txtRnc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtRnc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRnc.Location = new System.Drawing.Point(364, 41);
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
@@ -332,6 +337,7 @@
             // txtCorreo
             // 
             this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCorreo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCorreo.Location = new System.Drawing.Point(71, 119);
             this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
@@ -341,6 +347,7 @@
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Location = new System.Drawing.Point(71, 67);
             this.txtDireccion.MaxLength = 150;
             this.txtDireccion.Multiline = true;
@@ -351,6 +358,7 @@
             // txtIdSuplidor
             // 
             this.txtIdSuplidor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtIdSuplidor.Enabled = false;
             this.txtIdSuplidor.Location = new System.Drawing.Point(71, 15);
             this.txtIdSuplidor.Name = "txtIdSuplidor";
             this.txtIdSuplidor.Size = new System.Drawing.Size(100, 20);
@@ -359,6 +367,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(71, 41);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
