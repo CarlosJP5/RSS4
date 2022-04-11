@@ -11,6 +11,30 @@ namespace Datos
 {
     public class DSuplidores : Conexion
     {
+        public DataTable Listar()
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "suplidor_listar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void Insertar(ESuplidor suplidor)
         {
             using (var conn = GetConnection())

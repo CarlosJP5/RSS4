@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using APP.Buscar;
+using Entidades;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -64,7 +65,11 @@ namespace APP
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+            FrmBuscarSuplidores frm = new FrmBuscarSuplidores();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }
