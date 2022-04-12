@@ -13,6 +13,10 @@ namespace Negocios
     {
         private readonly DSuplidores _suplidor = new DSuplidores();
 
+        public DataTable Buscar(string Query)
+        {
+            return _suplidor.Buscar(Query);
+        }
         public DataTable Listar()
         {
             return _suplidor.Listar();

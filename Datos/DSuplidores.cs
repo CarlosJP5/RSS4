@@ -11,6 +11,30 @@ namespace Datos
 {
     public class DSuplidores : Conexion
     {
+        public DataTable Buscar(string Query)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = Query;
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar()
         {
             using (var conn = GetConnection())

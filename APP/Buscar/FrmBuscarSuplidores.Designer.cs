@@ -31,14 +31,14 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.rbtnTodo = new System.Windows.Forms.RadioButton();
-            this.rbtnCodigo = new System.Windows.Forms.RadioButton();
-            this.rbtnNombre = new System.Windows.Forms.RadioButton();
-            this.rbtnRNC = new System.Windows.Forms.RadioButton();
             this.rbtnVendedor = new System.Windows.Forms.RadioButton();
+            this.rbtnRNC = new System.Windows.Forms.RadioButton();
+            this.rbtnNombre = new System.Windows.Forms.RadioButton();
+            this.rbtnCodigo = new System.Windows.Forms.RadioButton();
+            this.rbtnTodo = new System.Windows.Forms.RadioButton();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,73 +85,22 @@
             this.panel1.Controls.Add(this.rbtnTodo);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Location = new System.Drawing.Point(12, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(684, 67);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
+            // rbtnVendedor
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.textBox1.Location = new System.Drawing.Point(150, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(332, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Buscar:";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(488, 28);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // rbtnTodo
-            // 
-            this.rbtnTodo.AutoSize = true;
-            this.rbtnTodo.Location = new System.Drawing.Point(153, 8);
-            this.rbtnTodo.Name = "rbtnTodo";
-            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
-            this.rbtnTodo.TabIndex = 3;
-            this.rbtnTodo.TabStop = true;
-            this.rbtnTodo.Text = "Todo";
-            this.rbtnTodo.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCodigo
-            // 
-            this.rbtnCodigo.AutoSize = true;
-            this.rbtnCodigo.Location = new System.Drawing.Point(209, 8);
-            this.rbtnCodigo.Name = "rbtnCodigo";
-            this.rbtnCodigo.Size = new System.Drawing.Size(58, 17);
-            this.rbtnCodigo.TabIndex = 4;
-            this.rbtnCodigo.TabStop = true;
-            this.rbtnCodigo.Text = "Codigo";
-            this.rbtnCodigo.UseVisualStyleBackColor = true;
-            // 
-            // rbtnNombre
-            // 
-            this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Location = new System.Drawing.Point(273, 8);
-            this.rbtnNombre.Name = "rbtnNombre";
-            this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
-            this.rbtnNombre.TabIndex = 5;
-            this.rbtnNombre.TabStop = true;
-            this.rbtnNombre.Text = "Nombre";
-            this.rbtnNombre.UseVisualStyleBackColor = true;
+            this.rbtnVendedor.AutoSize = true;
+            this.rbtnVendedor.Location = new System.Drawing.Point(395, 8);
+            this.rbtnVendedor.Name = "rbtnVendedor";
+            this.rbtnVendedor.Size = new System.Drawing.Size(71, 17);
+            this.rbtnVendedor.TabIndex = 7;
+            this.rbtnVendedor.TabStop = true;
+            this.rbtnVendedor.Text = "Vendedor";
+            this.rbtnVendedor.UseVisualStyleBackColor = true;
             // 
             // rbtnRNC
             // 
@@ -164,16 +113,68 @@
             this.rbtnRNC.Text = "RNC";
             this.rbtnRNC.UseVisualStyleBackColor = true;
             // 
-            // rbtnVendedor
+            // rbtnNombre
             // 
-            this.rbtnVendedor.AutoSize = true;
-            this.rbtnVendedor.Location = new System.Drawing.Point(395, 8);
-            this.rbtnVendedor.Name = "rbtnVendedor";
-            this.rbtnVendedor.Size = new System.Drawing.Size(71, 17);
-            this.rbtnVendedor.TabIndex = 7;
-            this.rbtnVendedor.TabStop = true;
-            this.rbtnVendedor.Text = "Vendedor";
-            this.rbtnVendedor.UseVisualStyleBackColor = true;
+            this.rbtnNombre.AutoSize = true;
+            this.rbtnNombre.Location = new System.Drawing.Point(273, 8);
+            this.rbtnNombre.Name = "rbtnNombre";
+            this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
+            this.rbtnNombre.TabIndex = 5;
+            this.rbtnNombre.TabStop = true;
+            this.rbtnNombre.Text = "Nombre";
+            this.rbtnNombre.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCodigo
+            // 
+            this.rbtnCodigo.AutoSize = true;
+            this.rbtnCodigo.Location = new System.Drawing.Point(209, 8);
+            this.rbtnCodigo.Name = "rbtnCodigo";
+            this.rbtnCodigo.Size = new System.Drawing.Size(58, 17);
+            this.rbtnCodigo.TabIndex = 4;
+            this.rbtnCodigo.TabStop = true;
+            this.rbtnCodigo.Text = "Codigo";
+            this.rbtnCodigo.UseVisualStyleBackColor = true;
+            // 
+            // rbtnTodo
+            // 
+            this.rbtnTodo.AutoSize = true;
+            this.rbtnTodo.Location = new System.Drawing.Point(153, 8);
+            this.rbtnTodo.Name = "rbtnTodo";
+            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
+            this.rbtnTodo.TabIndex = 3;
+            this.rbtnTodo.TabStop = true;
+            this.rbtnTodo.Text = "Todo";
+            this.rbtnTodo.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
+            this.btnBuscar.Location = new System.Drawing.Point(488, 28);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(101, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Buscar:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtBuscar.Location = new System.Drawing.Point(150, 31);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(332, 20);
+            this.txtBuscar.TabIndex = 0;
             // 
             // dgvListar
             // 
@@ -294,7 +295,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.RadioButton rbtnVendedor;
         private System.Windows.Forms.RadioButton rbtnRNC;
         private System.Windows.Forms.RadioButton rbtnNombre;
