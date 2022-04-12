@@ -165,6 +165,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -316,6 +317,7 @@
             this.txtRnc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtRnc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRnc.Location = new System.Drawing.Point(364, 41);
+            this.txtRnc.MaxLength = 15;
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
             this.txtRnc.TabIndex = 5;

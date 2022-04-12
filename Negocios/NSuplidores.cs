@@ -1,11 +1,7 @@
 ﻿using Datos;
 using Entidades;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocios
 {
@@ -17,9 +13,22 @@ namespace Negocios
         {
             return _suplidor.Buscar(Query);
         }
+        public DataTable BuscarId(string IdSuplidor)
+        {
+            int Id = Convert.ToInt32(IdSuplidor);
+            return _suplidor.BuscarId(Id);
+        }
         public DataTable Listar()
         {
             return _suplidor.Listar();
+        }
+        public int MaxId()
+        {
+            return _suplidor.MaxId();
+        }
+        public void Editar(ESuplidor suplidor)
+        {
+            _suplidor.Editar(suplidor);
         }
         public void Insertar(ESuplidor suplidor)
         {

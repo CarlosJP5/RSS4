@@ -26,8 +26,8 @@ namespace APP.Buscar
             DataTable suplidor = _suplidores.Listar();
             foreach (DataRow suplidorRow in suplidor.Rows)
             {
-                dgvListar.Rows.Add(suplidorRow[0], suplidorRow[2], suplidorRow[1],
-                    suplidorRow[6], suplidorRow[4], suplidorRow[7]);
+                _ = dgvListar.Rows.Add(suplidorRow[0], suplidorRow[2], suplidorRow[1], suplidorRow[6],
+                    suplidorRow[4], suplidorRow[7], suplidorRow[3], suplidorRow[5], suplidorRow[8], suplidorRow[9]);
             }
         }
 
@@ -62,9 +62,35 @@ namespace APP.Buscar
             DataTable suplidor = _suplidores.Buscar(query);
             foreach (DataRow suplidorRow in suplidor.Rows)
             {
-                dgvListar.Rows.Add(suplidorRow[0], suplidorRow[2], suplidorRow[1],
-                    suplidorRow[6], suplidorRow[4], suplidorRow[7]);
+                _ = dgvListar.Rows.Add(suplidorRow[0], suplidorRow[2], suplidorRow[1], suplidorRow[6],
+                    suplidorRow[4], suplidorRow[7], suplidorRow[3], suplidorRow[5], suplidorRow[8], suplidorRow[9]);
             }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void dgvListar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dgvListar.CurrentRow.Selected = true;
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

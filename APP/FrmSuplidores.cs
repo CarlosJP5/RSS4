@@ -30,6 +30,8 @@ namespace APP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            txtIdSuplidor.Text = _suplidores.MaxId().ToString();
+            ActivaControles();
             txtNombre.Text = null;
             txtDireccion.Text = null;
             txtCorreo.Text = null;
@@ -58,7 +60,18 @@ namespace APP
                 suplidor.Vendedor = txtVendedor.Text;
                 suplidor.Cell = txtCelular.Text;
                 suplidor.TipoCompra = cboCompraA.Text;
-                _suplidores.Insertar(suplidor);
+                DataTable Sup = _suplidores.BuscarId(txtIdSuplidor.Text);
+                if (Sup.Rows.Count <= 0)
+                {
+                    // Nuevo
+                    _suplidores.Insertar(suplidor);
+                }
+                else
+                {
+                    // Editar
+                    suplidor.IdSuplidor = Convert.ToInt32(txtIdSuplidor.Text);
+                    _suplidores.Editar(suplidor);
+                }
                 btnNuevo.PerformClick();
             }
         }
@@ -68,8 +81,54 @@ namespace APP
             FrmBuscarSuplidores frm = new FrmBuscarSuplidores();
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                txtIdSuplidor.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                txtRnc.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                txtNombre.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
+                txtVendedor.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
+                txtTelefono.Text = frm.dgvListar.SelectedCells[4].Value.ToString();
+                txtCelular.Text = frm.dgvListar.SelectedCells[5].Value.ToString();
+                txtDireccion.Text = frm.dgvListar.SelectedCells[6].Value.ToString();
+                txtCorreo.Text = frm.dgvListar.SelectedCells[7].Value.ToString();
+                cboCompraA.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                cboEstado.SelectedIndex = (bool)frm.dgvListar.SelectedCells[9].Value ? 0 : 1;
 
+                DesactivaControles();
+                btnModificar.Enabled = true;
+                btnSalvar.Enabled = false;
             }
+        }
+
+        public void DesactivaControles()
+        {
+            txtNombre.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtCorreo.Enabled = false;
+            cboEstado.Enabled = false;
+            txtRnc.Enabled = false;
+            txtTelefono.Enabled = false;
+            txtVendedor.Enabled = false;
+            txtCelular.Enabled = false;
+            cboCompraA.Enabled = false;
+        }
+
+        public void ActivaControles()
+        {
+            txtNombre.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtCorreo.Enabled = true;
+            cboEstado.Enabled = true;
+            txtRnc.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtVendedor.Enabled = true;
+            txtCelular.Enabled = true;
+            cboCompraA.Enabled = true;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            ActivaControles();
+            btnSalvar.Enabled = true;
+            _ = txtNombre.Focus();
         }
     }
 }
