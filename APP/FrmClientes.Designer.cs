@@ -135,6 +135,7 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscar
             // 
@@ -173,6 +174,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
