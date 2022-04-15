@@ -130,5 +130,13 @@ namespace APP
             btnSalvar.Enabled = true;
             _ = txtNombre.Focus();
         }
+
+        private void txtRnc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

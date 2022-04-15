@@ -31,6 +31,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.cboTipoCompra = new System.Windows.Forms.ComboBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtLimiteCredito = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtRnc = new System.Windows.Forms.TextBox();
             this.cboTipoComprobante = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -89,6 +89,7 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.txtTelefono);
             this.panelMid.Controls.Add(this.btnSalir);
             this.panelMid.Controls.Add(this.btnBuscar);
             this.panelMid.Controls.Add(this.btnSalvar);
@@ -108,7 +109,6 @@
             this.panelMid.Controls.Add(this.cboTipoCompra);
             this.panelMid.Controls.Add(this.txtDescuento);
             this.panelMid.Controls.Add(this.txtLimiteCredito);
-            this.panelMid.Controls.Add(this.txtTelefono);
             this.panelMid.Controls.Add(this.txtRnc);
             this.panelMid.Controls.Add(this.cboTipoComprobante);
             this.panelMid.Controls.Add(this.txtCorreo);
@@ -124,8 +124,18 @@
             this.panelMid.Size = new System.Drawing.Size(498, 248);
             this.panelMid.TabIndex = 1;
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtTelefono.Location = new System.Drawing.Point(375, 62);
+            this.txtTelefono.Mask = "(999) 000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.TabIndex = 29;
+            // 
             // btnSalir
             // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
             this.btnSalir.Location = new System.Drawing.Point(382, 208);
             this.btnSalir.Name = "btnSalir";
@@ -325,15 +335,6 @@
             this.txtLimiteCredito.TabIndex = 10;
             this.txtLimiteCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTelefono.Location = new System.Drawing.Point(375, 62);
-            this.txtTelefono.MaxLength = 15;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
-            this.txtTelefono.TabIndex = 9;
-            // 
             // txtRnc
             // 
             this.txtRnc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -342,6 +343,7 @@
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
             this.txtRnc.TabIndex = 8;
+            this.txtRnc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // cboTipoComprobante
             // 
@@ -357,6 +359,7 @@
             // txtCorreo
             // 
             this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCorreo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCorreo.Location = new System.Drawing.Point(71, 140);
             this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
@@ -366,6 +369,7 @@
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Location = new System.Drawing.Point(71, 88);
             this.txtDireccion.MaxLength = 150;
             this.txtDireccion.Multiline = true;
@@ -381,6 +385,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(100, 20);
             this.txtCedula.TabIndex = 4;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label3
             // 
@@ -412,6 +417,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(71, 36);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
@@ -423,6 +429,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(498, 278);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
@@ -462,7 +469,6 @@
         private System.Windows.Forms.ComboBox cboTipoCompra;
         private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.TextBox txtLimiteCredito;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtRnc;
         private System.Windows.Forms.ComboBox cboTipoComprobante;
         private System.Windows.Forms.TextBox txtCorreo;
@@ -473,5 +479,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
     }
 }

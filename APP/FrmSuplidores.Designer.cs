@@ -321,6 +321,7 @@
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
             this.txtRnc.TabIndex = 5;
+            this.txtRnc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRnc_KeyPress);
             // 
             // cboEstado
             // 
