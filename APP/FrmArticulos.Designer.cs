@@ -31,6 +31,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPuntoReorden = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -91,6 +93,8 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.label5);
+            this.panelMid.Controls.Add(this.txtPuntoReorden);
             this.panelMid.Controls.Add(this.btnSalir);
             this.panelMid.Controls.Add(this.btnBuscar);
             this.panelMid.Controls.Add(this.btnSalvar);
@@ -125,13 +129,30 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(557, 232);
+            this.panelMid.Size = new System.Drawing.Size(557, 264);
             this.panelMid.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 172);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Punto Reorden";
+            // 
+            // txtPuntoReorden
+            // 
+            this.txtPuntoReorden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtPuntoReorden.Location = new System.Drawing.Point(95, 169);
+            this.txtPuntoReorden.Name = "txtPuntoReorden";
+            this.txtPuntoReorden.Size = new System.Drawing.Size(100, 20);
+            this.txtPuntoReorden.TabIndex = 34;
             // 
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(421, 184);
+            this.btnSalir.Location = new System.Drawing.Point(421, 211);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 33;
@@ -143,7 +164,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(326, 184);
+            this.btnBuscar.Location = new System.Drawing.Point(326, 211);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 32;
@@ -151,11 +172,12 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(231, 184);
+            this.btnSalvar.Location = new System.Drawing.Point(231, 211);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(85, 25);
             this.btnSalvar.TabIndex = 31;
@@ -163,11 +185,12 @@
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(136, 184);
+            this.btnModificar.Location = new System.Drawing.Point(136, 211);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(85, 25);
             this.btnModificar.TabIndex = 30;
@@ -179,7 +202,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(41, 184);
+            this.btnNuevo.Location = new System.Drawing.Point(41, 211);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 29;
@@ -187,6 +210,7 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // ckbPlanilla
             // 
@@ -312,6 +336,9 @@
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "DESACTIVO"});
             this.cboEstado.Location = new System.Drawing.Point(413, 143);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 21);
@@ -344,8 +371,10 @@
             // txtCantidad
             // 
             this.txtCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCantidad.Enabled = false;
             this.txtCantidad.Location = new System.Drawing.Point(413, 39);
             this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.ReadOnly = true;
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 9;
             // 
@@ -411,7 +440,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(78, 13);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(150, 20);
-            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtNombre
             // 
@@ -419,14 +448,14 @@
             this.txtNombre.Location = new System.Drawing.Point(78, 39);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
-            this.txtNombre.TabIndex = 0;
+            this.txtNombre.TabIndex = 1;
             // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(557, 262);
+            this.ClientSize = new System.Drawing.Size(557, 294);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -434,6 +463,7 @@
             this.Name = "FrmArticulos";
             this.ShowIcon = false;
             this.Text = "Articulos";
+            this.Load += new System.EventHandler(this.FrmArticulos_Load);
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
@@ -477,5 +507,7 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtPuntoReorden;
     }
 }

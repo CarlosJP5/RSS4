@@ -54,5 +54,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void detalleArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArticulos frm = new FrmArticulos();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

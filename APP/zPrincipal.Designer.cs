@@ -97,20 +97,21 @@ namespace APP
             // detalleArticulosToolStripMenuItem
             // 
             this.detalleArticulosToolStripMenuItem.Name = "detalleArticulosToolStripMenuItem";
-            this.detalleArticulosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.detalleArticulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.detalleArticulosToolStripMenuItem.Text = "Detalle Articulos";
+            this.detalleArticulosToolStripMenuItem.Click += new System.EventHandler(this.detalleArticulosToolStripMenuItem_Click);
             // 
             // marcasToolStripMenuItem
             // 
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.marcasToolStripMenuItem.Text = "Marcas";
             this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
             // itbisDelArticuloToolStripMenuItem
             // 
             this.itbisDelArticuloToolStripMenuItem.Name = "itbisDelArticuloToolStripMenuItem";
-            this.itbisDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.itbisDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.itbisDelArticuloToolStripMenuItem.Text = "Itbis del Articulo";
             this.itbisDelArticuloToolStripMenuItem.Click += new System.EventHandler(this.itbisDelArticuloToolStripMenuItem_Click);
             // 

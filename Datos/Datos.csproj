@@ -45,6 +45,7 @@
     <Compile Include="Classes\AppSetting.cs" />
     <Compile Include="Classes\SqlHelper.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DArticulos.cs" />
     <Compile Include="DClientes.cs" />
     <Compile Include="DComprobantes.cs" />
     <Compile Include="DItbis.cs" />
