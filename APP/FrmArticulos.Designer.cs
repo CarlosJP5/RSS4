@@ -31,6 +31,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.txtPorcientoItbis = new System.Windows.Forms.Label();
+            this.txtIdArticulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPuntoReorden = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -39,9 +41,9 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.ckbPlanilla = new System.Windows.Forms.CheckBox();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkItbis = new System.Windows.Forms.LinkLabel();
+            this.linkSuplidor = new System.Windows.Forms.LinkLabel();
+            this.linkMarca = new System.Windows.Forms.LinkLabel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -93,6 +95,8 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.txtPorcientoItbis);
+            this.panelMid.Controls.Add(this.txtIdArticulo);
             this.panelMid.Controls.Add(this.label5);
             this.panelMid.Controls.Add(this.txtPuntoReorden);
             this.panelMid.Controls.Add(this.btnSalir);
@@ -101,9 +105,9 @@
             this.panelMid.Controls.Add(this.btnModificar);
             this.panelMid.Controls.Add(this.btnNuevo);
             this.panelMid.Controls.Add(this.ckbPlanilla);
-            this.panelMid.Controls.Add(this.linkLabel3);
-            this.panelMid.Controls.Add(this.linkLabel2);
-            this.panelMid.Controls.Add(this.linkLabel1);
+            this.panelMid.Controls.Add(this.linkItbis);
+            this.panelMid.Controls.Add(this.linkSuplidor);
+            this.panelMid.Controls.Add(this.linkMarca);
             this.panelMid.Controls.Add(this.label12);
             this.panelMid.Controls.Add(this.label11);
             this.panelMid.Controls.Add(this.label10);
@@ -132,6 +136,26 @@
             this.panelMid.Size = new System.Drawing.Size(557, 264);
             this.panelMid.TabIndex = 1;
             // 
+            // txtPorcientoItbis
+            // 
+            this.txtPorcientoItbis.AutoSize = true;
+            this.txtPorcientoItbis.Location = new System.Drawing.Point(201, 172);
+            this.txtPorcientoItbis.Name = "txtPorcientoItbis";
+            this.txtPorcientoItbis.Size = new System.Drawing.Size(74, 13);
+            this.txtPorcientoItbis.TabIndex = 37;
+            this.txtPorcientoItbis.Text = "Porciento Itbis";
+            this.txtPorcientoItbis.Visible = false;
+            // 
+            // txtIdArticulo
+            // 
+            this.txtIdArticulo.AutoSize = true;
+            this.txtIdArticulo.Location = new System.Drawing.Point(234, 16);
+            this.txtIdArticulo.Name = "txtIdArticulo";
+            this.txtIdArticulo.Size = new System.Drawing.Size(51, 13);
+            this.txtIdArticulo.TabIndex = 36;
+            this.txtIdArticulo.Text = "IdArticulo";
+            this.txtIdArticulo.Visible = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -148,6 +172,7 @@
             this.txtPuntoReorden.Name = "txtPuntoReorden";
             this.txtPuntoReorden.Size = new System.Drawing.Size(100, 20);
             this.txtPuntoReorden.TabIndex = 34;
+            this.txtPuntoReorden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // btnSalir
             // 
@@ -160,6 +185,7 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscar
             // 
@@ -198,6 +224,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -222,41 +249,44 @@
             this.ckbPlanilla.Text = "Utilizar Como Planilla";
             this.ckbPlanilla.UseVisualStyleBackColor = true;
             // 
-            // linkLabel3
+            // linkItbis
             // 
-            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(10, 146);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(29, 13);
-            this.linkLabel3.TabIndex = 27;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Itbis:";
-            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkItbis.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkItbis.AutoSize = true;
+            this.linkItbis.Location = new System.Drawing.Point(10, 146);
+            this.linkItbis.Name = "linkItbis";
+            this.linkItbis.Size = new System.Drawing.Size(29, 13);
+            this.linkItbis.TabIndex = 27;
+            this.linkItbis.TabStop = true;
+            this.linkItbis.Text = "Itbis:";
+            this.linkItbis.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkItbis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkItbis_LinkClicked);
             // 
-            // linkLabel2
+            // linkSuplidor
             // 
-            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(10, 120);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(48, 13);
-            this.linkLabel2.TabIndex = 26;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Suplidor:";
-            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkSuplidor.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkSuplidor.AutoSize = true;
+            this.linkSuplidor.Location = new System.Drawing.Point(10, 120);
+            this.linkSuplidor.Name = "linkSuplidor";
+            this.linkSuplidor.Size = new System.Drawing.Size(48, 13);
+            this.linkSuplidor.TabIndex = 26;
+            this.linkSuplidor.TabStop = true;
+            this.linkSuplidor.Text = "Suplidor:";
+            this.linkSuplidor.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkSuplidor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSuplidor_LinkClicked);
             // 
-            // linkLabel1
+            // linkMarca
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(10, 94);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(40, 13);
-            this.linkLabel1.TabIndex = 25;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Marca:";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkMarca.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkMarca.AutoSize = true;
+            this.linkMarca.Location = new System.Drawing.Point(10, 94);
+            this.linkMarca.Name = "linkMarca";
+            this.linkMarca.Size = new System.Drawing.Size(40, 13);
+            this.linkMarca.TabIndex = 25;
+            this.linkMarca.TabStop = true;
+            this.linkMarca.Text = "Marca:";
+            this.linkMarca.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkMarca.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkMarca_LinkClicked);
             // 
             // label12
             // 
@@ -351,6 +381,7 @@
             this.txtBeneficio.Name = "txtBeneficio";
             this.txtBeneficio.Size = new System.Drawing.Size(100, 20);
             this.txtBeneficio.TabIndex = 12;
+            this.txtBeneficio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtPrecio
             // 
@@ -359,6 +390,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 11;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtCosto
             // 
@@ -367,6 +399,7 @@
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 10;
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtCantidad
             // 
@@ -377,12 +410,15 @@
             this.txtCantidad.ReadOnly = true;
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 9;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtItbis
             // 
             this.txtItbis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtItbis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtItbis.Location = new System.Drawing.Point(134, 143);
             this.txtItbis.Name = "txtItbis";
+            this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(194, 20);
             this.txtItbis.TabIndex = 8;
             // 
@@ -393,14 +429,18 @@
             this.txtIdItbis.Name = "txtIdItbis";
             this.txtIdItbis.Size = new System.Drawing.Size(50, 20);
             this.txtIdItbis.TabIndex = 7;
+            this.txtIdItbis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
+            this.txtIdItbis.Leave += new System.EventHandler(this.txtIdItbis_Leave);
             // 
             // txtSuplidor
             // 
             this.txtSuplidor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtSuplidor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSuplidor.Location = new System.Drawing.Point(134, 117);
             this.txtSuplidor.Name = "txtSuplidor";
             this.txtSuplidor.Size = new System.Drawing.Size(194, 20);
             this.txtSuplidor.TabIndex = 6;
+            this.txtSuplidor.Leave += new System.EventHandler(this.txtSuplidor_Leave);
             // 
             // txtIdSuplidor
             // 
@@ -409,14 +449,18 @@
             this.txtIdSuplidor.Name = "txtIdSuplidor";
             this.txtIdSuplidor.Size = new System.Drawing.Size(50, 20);
             this.txtIdSuplidor.TabIndex = 5;
+            this.txtIdSuplidor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
+            this.txtIdSuplidor.Leave += new System.EventHandler(this.txtIdSuplidor_Leave);
             // 
             // txtMarca
             // 
             this.txtMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMarca.Location = new System.Drawing.Point(134, 91);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(194, 20);
             this.txtMarca.TabIndex = 4;
+            this.txtMarca.Leave += new System.EventHandler(this.txtMarca_Leave);
             // 
             // txtIdMarca
             // 
@@ -425,10 +469,13 @@
             this.txtIdMarca.Name = "txtIdMarca";
             this.txtIdMarca.Size = new System.Drawing.Size(50, 20);
             this.txtIdMarca.TabIndex = 3;
+            this.txtIdMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
+            this.txtIdMarca.Leave += new System.EventHandler(this.txtIdMarca_Leave);
             // 
             // txtReferencia
             // 
             this.txtReferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Location = new System.Drawing.Point(78, 65);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(150, 20);
@@ -437,14 +484,17 @@
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Location = new System.Drawing.Point(78, 13);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(150, 20);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(78, 39);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
@@ -499,9 +549,9 @@
         private System.Windows.Forms.TextBox txtIdMarca;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.CheckBox ckbPlanilla;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkItbis;
+        private System.Windows.Forms.LinkLabel linkSuplidor;
+        private System.Windows.Forms.LinkLabel linkMarca;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnSalvar;
@@ -509,5 +559,7 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPuntoReorden;
+        private System.Windows.Forms.Label txtPorcientoItbis;
+        private System.Windows.Forms.Label txtIdArticulo;
     }
 }

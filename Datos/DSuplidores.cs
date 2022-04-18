@@ -56,6 +56,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable BuscarNombre(string Nombre)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "suplidor_buscarNombre";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = Nombre;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar()
         {
             using (var conn = GetConnection())

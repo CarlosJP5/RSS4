@@ -3,12 +3,7 @@ using Entidades;
 using Negocios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP
@@ -18,9 +13,12 @@ namespace APP
         public FrmArticulos()
         {
             InitializeComponent();
+            LlenarMarcas();
+            LlenarSuplidor();
         }
 
         private readonly NArticulos _articulos = new NArticulos();
+        private readonly NMarcas _marca = new NMarcas();
 
         private void FrmArticulos_Load(object sender, EventArgs e)
         {
@@ -29,6 +27,9 @@ namespace APP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            ActivaControles();
+            txtCodigo.Enabled = true;
+            txtIdArticulo.Text = null;
             txtCodigo.Text = null;
             txtCantidad.Text = null;
             if (!ckbPlanilla.Checked)
@@ -44,7 +45,9 @@ namespace APP
                 txtBeneficio.Text = null;
                 cboEstado.SelectedIndex = 0;
             }
-
+            txtIdItbis.Text = "1";
+            txtIdItbis_Leave(sender, e);
+            _ = txtCodigo.Focus();
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
         }
@@ -59,17 +62,25 @@ namespace APP
                     Nombre = txtNombre.Text,
                     Referencia = txtReferencia.Text
                 };
-                if (!string.IsNullOrEmpty(txtMarca.Text))
+
+                if (!string.IsNullOrEmpty(txtIdMarca.Text) && !string.IsNullOrEmpty(txtMarca.Text))
                 {
                     articulo.IdMarca = Convert.ToInt16(txtIdMarca.Text);
+                }
+                else if (string.IsNullOrEmpty(txtIdMarca.Text) && !string.IsNullOrEmpty(txtMarca.Text))
+                {
+                    // Marca nueva
+                    articulo.IdMarca = _marca.Insertar(txtMarca.Text);
+                    LlenarMarcas();
+                }
+
+                if (!string.IsNullOrEmpty(txtSuplidor.Text))
+                {
+                    articulo.IdSuplidor = Convert.ToInt16(txtIdSuplidor.Text);
                 }
                 if (!string.IsNullOrEmpty(txtItbis.Text))
                 {
                     articulo.IdItbis = Convert.ToInt16(txtIdItbis.Text);
-                }
-                if (!string.IsNullOrEmpty(txtSuplidor.Text))
-                {
-                    articulo.IdSuplidor = Convert.ToInt16(txtIdSuplidor.Text);
                 }
                 if (!string.IsNullOrEmpty(txtPuntoReorden.Text))
                 {
@@ -92,7 +103,18 @@ namespace APP
                     articulo.Beneficio = Convert.ToDecimal(txtBeneficio.Text);
                 }
                 articulo.Estado = cboEstado.SelectedIndex == 0;
-                _articulos.Insertar(articulo);
+                if (string.IsNullOrEmpty(txtIdArticulo.Text))
+                {
+                    // Crear
+                    _articulos.Insertar(articulo);
+                }
+                else
+                {
+                    // Editar
+                    articulo.Id = Convert.ToInt32(txtIdArticulo.Text);
+                    _articulos.Editar(articulo);
+
+                }
                 btnNuevo.PerformClick();
             }
         }
@@ -102,7 +124,293 @@ namespace APP
             FrmBuscarArticulos frm = new FrmBuscarArticulos();
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                DataTable articulo = _articulos.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+                txtIdArticulo.Text = articulo.Rows[0][0].ToString();
+                txtIdMarca.Text = articulo.Rows[0][1].ToString();
+                txtIdItbis.Text = articulo.Rows[0][2].ToString();
+                txtIdSuplidor.Text = articulo.Rows[0][3].ToString();
+                txtCodigo.Text = articulo.Rows[0][4].ToString();
+                txtNombre.Text = articulo.Rows[0][5].ToString();
+                txtReferencia.Text = articulo.Rows[0][6].ToString();
+                txtPuntoReorden.Text = articulo.Rows[0][7].ToString();
+                txtCantidad.Text = articulo.Rows[0][8].ToString();
+                txtCosto.Text = articulo.Rows[0][9].ToString();
+                txtPrecio.Text = articulo.Rows[0][10].ToString();
+                txtBeneficio.Text = articulo.Rows[0][11].ToString();
+                cboEstado.SelectedIndex = (bool)articulo.Rows[0][12] ? 0 : 1;
+                txtMarca.Text = articulo.Rows[0][13].ToString();
+                txtItbis.Text = articulo.Rows[0][14].ToString();
+                txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
+                txtSuplidor.Text = articulo.Rows[0][16].ToString();
 
+                DesactivaControles();
+                btnModificar.Enabled = true;
+                btnSalvar.Enabled = false;
+            }
+        }
+
+        private void DesactivaControles()
+        {
+            txtIdArticulo.Enabled = false;
+            txtIdMarca.Enabled = false;
+            txtIdItbis.Enabled = false;
+            txtIdSuplidor.Enabled = false;
+            txtCodigo.Enabled = false;
+            txtNombre.Enabled = false;
+            txtReferencia.Enabled = false;
+            txtPuntoReorden.Enabled = false;
+            txtCantidad.Enabled = false;
+            txtCosto.Enabled = false;
+            txtPrecio.Enabled = false;
+            txtBeneficio.Enabled = false;
+            cboEstado.Enabled = false;
+            txtMarca.Enabled = false;
+            txtItbis.Enabled = false;
+            txtPorcientoItbis.Enabled = false;
+            txtSuplidor.Enabled = false;
+        }
+
+        private void ActivaControles()
+        {
+            txtIdArticulo.Enabled = true;
+            txtIdMarca.Enabled = true;
+            txtIdItbis.Enabled = true;
+            txtIdSuplidor.Enabled = true;
+            //txtCodigo.Enabled = true;
+            txtNombre.Enabled = true;
+            txtReferencia.Enabled = true;
+            txtPuntoReorden.Enabled = true;
+            //txtCantidad.Enabled = true;
+            txtCosto.Enabled = true;
+            txtPrecio.Enabled = true;
+            txtBeneficio.Enabled = true;
+            cboEstado.Enabled = true;
+            txtMarca.Enabled = true;
+            txtItbis.Enabled = true;
+            txtPorcientoItbis.Enabled = true;
+            txtSuplidor.Enabled = true;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            ActivaControles();
+            btnSalvar.Enabled = true;
+            _ = txtNombre.Focus();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                DataTable articulo = _articulos.BuscarCodigo(txtCodigo.Text);
+                if (articulo.Rows.Count > 0)
+                {
+                    txtIdArticulo.Text = articulo.Rows[0][0].ToString();
+                    txtIdMarca.Text = articulo.Rows[0][1].ToString();
+                    txtIdItbis.Text = articulo.Rows[0][2].ToString();
+                    txtIdSuplidor.Text = articulo.Rows[0][3].ToString();
+                    txtCodigo.Text = articulo.Rows[0][4].ToString();
+                    txtNombre.Text = articulo.Rows[0][5].ToString();
+                    txtReferencia.Text = articulo.Rows[0][6].ToString();
+                    txtPuntoReorden.Text = articulo.Rows[0][7].ToString();
+                    txtCantidad.Text = articulo.Rows[0][8].ToString();
+                    txtCosto.Text = articulo.Rows[0][9].ToString();
+                    txtPrecio.Text = articulo.Rows[0][10].ToString();
+                    txtBeneficio.Text = articulo.Rows[0][11].ToString();
+                    cboEstado.SelectedIndex = (bool)articulo.Rows[0][12] ? 0 : 1;
+                    txtMarca.Text = articulo.Rows[0][13].ToString();
+                    txtItbis.Text = articulo.Rows[0][14].ToString();
+                    txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
+                    txtSuplidor.Text = articulo.Rows[0][16].ToString();
+
+                    DesactivaControles();
+                    btnModificar.Enabled = true;
+                    btnSalvar.Enabled = false;
+                }
+            }
+        }
+
+        private void txtIdMarca_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIdMarca.Text))
+            {
+                
+                DataTable marca = _marca.BuscarId(txtIdMarca.Text);
+                if (marca.Rows.Count > 0)
+                {
+                    txtMarca.Text = marca.Rows[0][1].ToString();
+                }
+                else
+                {
+                    txtIdMarca.Text = null;
+                    txtMarca.Text = null;
+                }
+            }
+        }
+
+        private void txtMarca_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtMarca.Text))
+            {
+                NMarcas _marca = new NMarcas();
+                DataTable marca = _marca.BuscarNombre(txtMarca.Text);
+                if (marca.Rows.Count > 0)
+                {
+                    txtIdMarca.Text = marca.Rows[0][0].ToString();
+                }
+                else
+                {
+                    txtIdMarca.Text = null;
+                }
+            }
+        }
+
+        private void LlenarMarcas()
+        {
+            NMarcas _marca = new NMarcas();
+            List<string> strList = null;
+            strList = new List<string>();
+            DataTable data = _marca.Listar();
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                strList.Add(data.Rows[i][1].ToString());
+            }
+            var autoCollection = new AutoCompleteStringCollection();
+            autoCollection.AddRange(strList.ToArray());
+            txtMarca.AutoCompleteCustomSource = autoCollection;
+            txtMarca.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtMarca.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void txtIdSuplidor_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIdSuplidor.Text))
+            {
+                NSuplidores _suplidor = new NSuplidores();
+                DataTable suplidor = _suplidor.BuscarId(txtIdSuplidor.Text);
+                if (suplidor.Rows.Count > 0)
+                {
+                    txtSuplidor.Text = suplidor.Rows[0][1].ToString();
+                }
+                else
+                {
+                    txtIdSuplidor.Text = null;
+                    txtSuplidor.Text = null;
+                }
+            }
+        }
+
+        private void txtSuplidor_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSuplidor.Text))
+            {
+                NSuplidores _suplidor = new NSuplidores();
+                DataTable suplidor = _suplidor.BuscarNombre(txtSuplidor.Text);
+                if (suplidor.Rows.Count > 0)
+                {
+                    txtIdSuplidor.Text = suplidor.Rows[0][0].ToString();
+                }
+                else
+                {
+                    txtIdSuplidor.Text = null;
+                    txtSuplidor.Text = null;
+                }
+            }
+        }
+
+        private void LlenarSuplidor()
+        {
+            NSuplidores _suplidor = new NSuplidores();
+            List<string> strList = null;
+            strList = new List<string>();
+            DataTable data = _suplidor.Listar();
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                strList.Add(data.Rows[i][1].ToString());
+            }
+            var autoCollection = new AutoCompleteStringCollection();
+            autoCollection.AddRange(strList.ToArray());
+            txtSuplidor.AutoCompleteCustomSource = autoCollection;
+            txtSuplidor.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtSuplidor.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void txtIdItbis_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIdItbis.Text))
+            {
+                NItbis _itbis = new NItbis();
+                DataTable itb = _itbis.BuscarId(txtIdItbis.Text);
+                if (itb.Rows.Count > 0)
+                {
+                    txtItbis.Text = itb.Rows[0][1].ToString();
+                    txtPorcientoItbis.Text = itb.Rows[0][2].ToString();
+                }
+                else
+                {
+                    txtIdItbis.Text = null;
+                    txtItbis.Text = null;
+                    txtPorcientoItbis.Text = null;
+                }
+            }
+        }
+
+        private void linkMarca_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarMarcas frm = new FrmBuscarMarcas();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtIdMarca.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                txtMarca.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+            }
+        }
+
+        private void linkSuplidor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarSuplidores frm = new FrmBuscarSuplidores();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtIdSuplidor.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                txtSuplidor.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
+            }
+        }
+
+        private void linkItbis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarItbis frm = new FrmBuscarItbis();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtIdItbis.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                txtItbis.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+            }
+        }
+
+        private void txtIdMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

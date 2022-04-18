@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Negocios;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP.Buscar
@@ -17,9 +12,81 @@ namespace APP.Buscar
             InitializeComponent();
         }
 
+        private readonly NArticulos _articulo = new NArticulos();
+
         private void FrmBuscarArticulos_Load(object sender, EventArgs e)
         {
             rbtnTodo.Checked = true;
+            DataTable articulo = _articulo.Listar();
+            foreach (DataRow rowArt in articulo.Rows)
+            {
+                _ = dgvListar.Rows.Add(rowArt[0], rowArt[1], rowArt[2], rowArt[3],
+                                       rowArt[4], rowArt[5], rowArt[6], rowArt[7]);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvListar.Rows.Clear();
+            string query = @"SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
+	                         nombre_marca, cantidad_articulo, precio_articulo, estado_articulo
+	                         FROM Articulo A LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca";
+            
+            if (rbtnTodo.Checked)
+            {
+                query += string.Format(@" WHERE codigo_articulo LIKE '%'+'{0}'+'%' OR nombre_articulo
+                                          LIKE '%'+'{0}'+'%' OR referencia_articulo LIKE '%'+'{0}'+'%'
+                                          OR nombre_marca LIKE '%'+'{0}'+'%'", txtBuscar.Text);
+            }
+            else if (rbtnCodigo.Checked)
+            {
+                query += string.Format(" WHERE codigo_articulo LIKE '%'+'{0}'+'%'", txtBuscar.Text);
+            }
+            else if (rbtnNombre.Checked)
+            {
+                query += string.Format(" WHERE nombre_articulo LIKE '%'+'{0}'+'%'", txtBuscar.Text);
+            }
+            else if (rbtnReferencia.Checked)
+            {
+                query += string.Format(" WHERE referencia_articulo LIKE '%'+'{0}'+'%'", txtBuscar.Text);
+            }
+            else if (rbtnMarca.Checked)
+            {
+                query += string.Format(" WHERE nombre_marca LIKE '%'+'{0}'+'%'", txtBuscar.Text);
+            }
+            query += " ORDER BY nombre_articulo";
+            DataTable articulo = _articulo.Buscar(query);
+            foreach (DataRow rowArt in articulo.Rows)
+            {
+                _ = dgvListar.Rows.Add(rowArt[0], rowArt[1], rowArt[2], rowArt[3],
+                                       rowArt[4], rowArt[5], rowArt[6], rowArt[7]);
+            }
+        }
+
+        private void dgvListar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dgvListar.CurrentRow.Selected = true;
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

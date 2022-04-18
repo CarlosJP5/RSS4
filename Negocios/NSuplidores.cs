@@ -18,6 +18,10 @@ namespace Negocios
             int Id = Convert.ToInt32(IdSuplidor);
             return _suplidor.BuscarId(Id);
         }
+        public DataTable BuscarNombre(string Nombre)
+        {
+            return _suplidor.BuscarNombre(Nombre);
+        }
         public DataTable Listar()
         {
             return _suplidor.Listar();

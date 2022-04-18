@@ -31,14 +31,14 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.rbtnTodo = new System.Windows.Forms.RadioButton();
+            this.rbtnMarca = new System.Windows.Forms.RadioButton();
+            this.rbtnReferencia = new System.Windows.Forms.RadioButton();
+            this.rbtnNombre = new System.Windows.Forms.RadioButton();
             this.rbtnCodigo = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbtnTodo = new System.Windows.Forms.RadioButton();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,9 +80,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.rbtnMarca);
+            this.panel1.Controls.Add(this.rbtnReferencia);
+            this.panel1.Controls.Add(this.rbtnNombre);
             this.panel1.Controls.Add(this.rbtnCodigo);
             this.panel1.Controls.Add(this.rbtnTodo);
             this.panel1.Controls.Add(this.btnBuscar);
@@ -93,45 +93,38 @@
             this.panel1.Size = new System.Drawing.Size(776, 65);
             this.panel1.TabIndex = 1;
             // 
-            // txtBuscar
+            // rbtnMarca
             // 
-            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtBuscar.Location = new System.Drawing.Point(207, 30);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(340, 20);
-            this.txtBuscar.TabIndex = 0;
+            this.rbtnMarca.AutoSize = true;
+            this.rbtnMarca.Location = new System.Drawing.Point(487, 7);
+            this.rbtnMarca.Name = "rbtnMarca";
+            this.rbtnMarca.Size = new System.Drawing.Size(55, 17);
+            this.rbtnMarca.TabIndex = 7;
+            this.rbtnMarca.TabStop = true;
+            this.rbtnMarca.Text = "Marca";
+            this.rbtnMarca.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // rbtnReferencia
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Buscar:";
+            this.rbtnReferencia.AutoSize = true;
+            this.rbtnReferencia.Location = new System.Drawing.Point(404, 7);
+            this.rbtnReferencia.Name = "rbtnReferencia";
+            this.rbtnReferencia.Size = new System.Drawing.Size(77, 17);
+            this.rbtnReferencia.TabIndex = 6;
+            this.rbtnReferencia.TabStop = true;
+            this.rbtnReferencia.Text = "Referencia";
+            this.rbtnReferencia.UseVisualStyleBackColor = true;
             // 
-            // btnBuscar
+            // rbtnNombre
             // 
-            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(553, 27);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // rbtnTodo
-            // 
-            this.rbtnTodo.AutoSize = true;
-            this.rbtnTodo.Location = new System.Drawing.Point(216, 7);
-            this.rbtnTodo.Name = "rbtnTodo";
-            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
-            this.rbtnTodo.TabIndex = 3;
-            this.rbtnTodo.TabStop = true;
-            this.rbtnTodo.Text = "Todo";
-            this.rbtnTodo.UseVisualStyleBackColor = true;
+            this.rbtnNombre.AutoSize = true;
+            this.rbtnNombre.Location = new System.Drawing.Point(336, 7);
+            this.rbtnNombre.Name = "rbtnNombre";
+            this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
+            this.rbtnNombre.TabIndex = 5;
+            this.rbtnNombre.TabStop = true;
+            this.rbtnNombre.Text = "Nombre";
+            this.rbtnNombre.UseVisualStyleBackColor = true;
             // 
             // rbtnCodigo
             // 
@@ -144,38 +137,47 @@
             this.rbtnCodigo.Text = "Codigo";
             this.rbtnCodigo.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbtnTodo
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(336, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nombre";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtnTodo.AutoSize = true;
+            this.rbtnTodo.Location = new System.Drawing.Point(216, 7);
+            this.rbtnTodo.Name = "rbtnTodo";
+            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
+            this.rbtnTodo.TabIndex = 3;
+            this.rbtnTodo.TabStop = true;
+            this.rbtnTodo.Text = "Todo";
+            this.rbtnTodo.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // btnBuscar
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(404, 7);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 17);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Referencia";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
+            this.btnBuscar.Location = new System.Drawing.Point(553, 27);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // radioButton3
+            // label2
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(487, 7);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(55, 17);
-            this.radioButton3.TabIndex = 7;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Marca";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(158, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Buscar:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBuscar.Location = new System.Drawing.Point(207, 30);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(340, 20);
+            this.txtBuscar.TabIndex = 0;
             // 
             // dgvListar
             // 
@@ -199,6 +201,8 @@
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(776, 245);
             this.dgvListar.TabIndex = 2;
+            this.dgvListar.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellContentDoubleClick);
+            this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
             // 
             // Column1
             // 
@@ -266,6 +270,7 @@
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -278,6 +283,7 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmBuscarArticulos
             // 
@@ -309,9 +315,9 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbtnMarca;
+        private System.Windows.Forms.RadioButton rbtnReferencia;
+        private System.Windows.Forms.RadioButton rbtnNombre;
         private System.Windows.Forms.RadioButton rbtnCodigo;
         private System.Windows.Forms.RadioButton rbtnTodo;
         private System.Windows.Forms.Button btnBuscar;

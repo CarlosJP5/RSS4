@@ -33,9 +33,9 @@ namespace Negocios
             int IdMarca = Convert.ToInt32(Id);
             _marcas.Editar(IdMarca, Nombre);
         }
-        public void Insertar(string Nombre)
+        public int Insertar(string Nombre)
         {
-            _marcas.Insertar(Nombre);
+            return _marcas.Insertar(Nombre);
         }
     }
 }

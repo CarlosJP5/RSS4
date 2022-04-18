@@ -159,7 +159,7 @@ namespace Datos
                 }
             }
         }
-        public void Insertar(string Nombre)
+        public int Insertar(string Nombre)
         {
             using (var conn = GetConnection())
             {
@@ -172,7 +172,7 @@ namespace Datos
                     cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = Nombre;
                     try
                     {
-                        _ = cmd.ExecuteNonQuery();
+                        return (int)cmd.ExecuteScalar();
                     }
                     catch (Exception)
                     {
