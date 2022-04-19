@@ -15,16 +15,25 @@ namespace APP
             zConexion.CadenaConexion = setting.GetConnectionString("cn");
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmConexion frm = new FrmConexion();
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
         private void zPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir del Sistema", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void detalleArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArticulos frm = new FrmArticulos();
+            frm.MdiParent = this;
+            frm.Show();
         }
 
         private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,25 +50,26 @@ namespace APP
             frm.Show();
         }
 
-        private void suplidoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmSuplidores frm = new FrmSuplidores();
-            frm.MdiParent= this;
-            frm.Show();
-        }
-
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void detalleClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmClientes frm = new FrmClientes();
             frm.MdiParent = this;
             frm.Show();
         }
 
-        private void detalleArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void suplidoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmArticulos frm = new FrmArticulos();
+            FrmSuplidores frm = new FrmSuplidores();
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void registroComprobantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistroComprobante frm = new FrmRegistroComprobante();
+            frm.MdiParent= this;
+            frm.Show();
+        }
+
     }
 }

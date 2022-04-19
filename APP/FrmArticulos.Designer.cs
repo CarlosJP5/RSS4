@@ -133,7 +133,7 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(557, 264);
+            this.panelMid.Size = new System.Drawing.Size(557, 251);
             this.panelMid.TabIndex = 1;
             // 
             // txtPorcientoItbis
@@ -505,7 +505,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(557, 294);
+            this.ClientSize = new System.Drawing.Size(557, 281);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
