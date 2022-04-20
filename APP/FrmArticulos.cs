@@ -413,5 +413,44 @@ namespace APP
                 e.Handled = true;
             }
         }
+
+        private void txtPrecio_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                double precio = Convert.ToDouble(txtPrecio.Text);
+                txtPrecio.Text = precio.ToString("N2");
+                if (!string.IsNullOrEmpty(txtCosto.Text))
+                {
+                    double costo = Convert.ToDouble(txtCosto.Text);
+                    txtCosto.Text = costo.ToString("N2");
+                    double beneficio = (precio - costo) / costo * 100;
+                    if (costo == 0)
+                    {
+                        beneficio = 100;
+                    }
+                    txtBeneficio.Text = beneficio.ToString("N2");
+                }
+            }
+        }
+
+        private void txtBeneficio_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBeneficio.Text))
+            {
+                double beneficio = Convert.ToDouble(txtBeneficio.Text);
+                txtBeneficio.Text = beneficio.ToString("N2");
+                if (!string.IsNullOrEmpty(txtCosto.Text))
+                {
+                    double costo = Convert.ToDouble(txtCosto.Text);
+                    txtCosto.Text = costo.ToString("N2");
+                    if (costo != 0)
+                    {
+                        double precio = ((beneficio / 100) + 1) * costo;
+                        txtPrecio.Text = precio.ToString("N2");
+                    }
+                }
+            }
+        }
     }
 }

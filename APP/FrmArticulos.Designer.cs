@@ -31,6 +31,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtPorcientoItbis = new System.Windows.Forms.Label();
             this.txtIdArticulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -95,6 +96,7 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.label6);
             this.panelMid.Controls.Add(this.txtPorcientoItbis);
             this.panelMid.Controls.Add(this.txtIdArticulo);
             this.panelMid.Controls.Add(this.label5);
@@ -136,6 +138,15 @@
             this.panelMid.Size = new System.Drawing.Size(557, 251);
             this.panelMid.TabIndex = 1;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(515, 121);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 13);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "%";
+            // 
             // txtPorcientoItbis
             // 
             this.txtPorcientoItbis.AutoSize = true;
@@ -172,6 +183,7 @@
             this.txtPuntoReorden.Name = "txtPuntoReorden";
             this.txtPuntoReorden.Size = new System.Drawing.Size(100, 20);
             this.txtPuntoReorden.TabIndex = 34;
+            this.txtPuntoReorden.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPuntoReorden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // btnSalir
@@ -381,7 +393,9 @@
             this.txtBeneficio.Name = "txtBeneficio";
             this.txtBeneficio.Size = new System.Drawing.Size(100, 20);
             this.txtBeneficio.TabIndex = 12;
+            this.txtBeneficio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBeneficio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtBeneficio.Validating += new System.ComponentModel.CancelEventHandler(this.txtBeneficio_Validating);
             // 
             // txtPrecio
             // 
@@ -390,7 +404,9 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 11;
+            this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrecio_Validating);
             // 
             // txtCosto
             // 
@@ -399,6 +415,7 @@
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 10;
+            this.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtCantidad
@@ -410,6 +427,7 @@
             this.txtCantidad.ReadOnly = true;
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 9;
+            this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtItbis
@@ -417,6 +435,7 @@
             this.txtItbis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtItbis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtItbis.Location = new System.Drawing.Point(134, 143);
+            this.txtItbis.MaxLength = 40;
             this.txtItbis.Name = "txtItbis";
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(194, 20);
@@ -437,6 +456,7 @@
             this.txtSuplidor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtSuplidor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSuplidor.Location = new System.Drawing.Point(134, 117);
+            this.txtSuplidor.MaxLength = 50;
             this.txtSuplidor.Name = "txtSuplidor";
             this.txtSuplidor.Size = new System.Drawing.Size(194, 20);
             this.txtSuplidor.TabIndex = 6;
@@ -457,6 +477,7 @@
             this.txtMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMarca.Location = new System.Drawing.Point(134, 91);
+            this.txtMarca.MaxLength = 40;
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(194, 20);
             this.txtMarca.TabIndex = 4;
@@ -477,6 +498,7 @@
             this.txtReferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Location = new System.Drawing.Point(78, 65);
+            this.txtReferencia.MaxLength = 50;
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(150, 20);
             this.txtReferencia.TabIndex = 2;
@@ -486,6 +508,7 @@
             this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Location = new System.Drawing.Point(78, 13);
+            this.txtCodigo.MaxLength = 50;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(150, 20);
             this.txtCodigo.TabIndex = 0;
@@ -496,6 +519,7 @@
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(78, 39);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
             this.txtNombre.TabIndex = 1;
@@ -561,5 +585,6 @@
         private System.Windows.Forms.TextBox txtPuntoReorden;
         private System.Windows.Forms.Label txtPorcientoItbis;
         private System.Windows.Forms.Label txtIdArticulo;
+        private System.Windows.Forms.Label label6;
     }
 }

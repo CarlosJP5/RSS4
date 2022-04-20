@@ -67,9 +67,15 @@ namespace APP
         private void registroComprobantesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmRegistroComprobante frm = new FrmRegistroComprobante();
-            frm.MdiParent= this;
+            frm.MdiParent = this;
             frm.Show();
         }
 
+        private void facturacionNormalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFacturacion frm = new FrmFacturacion();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
