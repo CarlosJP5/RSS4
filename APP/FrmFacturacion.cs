@@ -268,5 +268,26 @@ namespace APP
                 e.Handled = true;
             }
         }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                _ = MessageBox.Show("Debe Seleccionar un Cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cboTipoComprobante.SelectedValue.ToString() == "B01")
+            {
+                if (string.IsNullOrEmpty(txtRnc.Text) || (txtRnc.Text.Length != 11 && txtRnc.Text.Length != 9))
+                {
+                    _ = MessageBox.Show("El RNC no es Valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            if (dgvListar.RowCount > 0)
+            {
+
+            }
+        }
     }
 }
