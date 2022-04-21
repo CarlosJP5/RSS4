@@ -78,6 +78,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable SumarCantidad(string IdComprobante)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "comprobante_sumar_cantidad";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idComprobante", SqlDbType.VarChar, 3).Value = IdComprobante;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void BorrarCantidad(int IdRegistro)
         {
             using (var conn = GetConnection())
@@ -89,6 +114,27 @@ namespace Datos
                     cmd.CommandText = "comprobante_borrar_cantidad";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@idRegistro", SqlDbType.Int).Value = IdRegistro;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public void Deshabilitar(int IdRegistro)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = string.Format("UPDATE ComprobantesCantidad SET estado_comprobante = 0 WHERE id_registro = {0}", IdRegistro);
+                    cmd.CommandType = CommandType.Text;
                     try
                     {
                         _ = cmd.ExecuteNonQuery();

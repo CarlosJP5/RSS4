@@ -447,20 +447,26 @@
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
             this.btnImprimir.Location = new System.Drawing.Point(206, 260);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 7;
             this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
             // btnFacturar
             // 
+            this.btnFacturar.Image = global::APP.Properties.Resources.Facturar_16;
             this.btnFacturar.Location = new System.Drawing.Point(297, 260);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(85, 25);
             this.btnFacturar.TabIndex = 8;
             this.btnFacturar.Text = "Facturar";
+            this.btnFacturar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFacturar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFacturar.UseVisualStyleBackColor = true;
             this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
@@ -663,13 +669,14 @@
             this.Column3.HeaderText = "Nombre";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 200;
+            this.Column3.Width = 240;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Marca";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 80;
             // 
             // Column5
             // 
@@ -677,9 +684,9 @@
             dataGridViewCellStyle1.Format = "N2";
             dataGridViewCellStyle1.NullValue = "1";
             this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column5.HeaderText = "Cantidad";
+            this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 70;
+            this.Column5.Width = 55;
             // 
             // Column6
             // 

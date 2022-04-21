@@ -286,7 +286,39 @@ namespace APP
             }
             if (dgvListar.RowCount > 0)
             {
-
+                EFactura Factura = new EFactura()
+                {
+                    IdCliente = Convert.ToInt32(txtIdCliente.Text),
+                    IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
+                    Fecha = DateTime.Now,
+                    TipoCompra = cboTipoCompra.Text,
+                    Nota = txtNota.Text,
+                    Importe = Convert.ToDecimal(txtImporte_fact.Text),
+                    Descuento = Convert.ToDecimal(txtDescuento_fact.Text),
+                    Itbis = Convert.ToDecimal(txtItbis_fact.Text),
+                    Total = Convert.ToDecimal(txtTotal_fact.Text),
+                };
+                DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
+                if (ListaComprobante.Rows.Count > 0)
+                {
+                    DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
+                    if (date > Factura.Fecha)
+                    {
+                        int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
+                        Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+                    }
+                    else
+                    {
+                        _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
+                        _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
         }
     }

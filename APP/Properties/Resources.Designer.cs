@@ -103,9 +103,29 @@ namespace APP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Facturar_16 {
+            get {
+                object obj = ResourceManager.GetObject("Facturar-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nuevo_16 {
             get {
                 object obj = ResourceManager.GetObject("Nuevo-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Print_16 {
+            get {
+                object obj = ResourceManager.GetObject("Print-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

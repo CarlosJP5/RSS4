@@ -19,9 +19,18 @@ namespace Negocios
         {
             return _comprobantes.ComprovantesVentas();
         }
+        public DataTable SumarCantidad(string IdComprobante)
+        {
+            return _comprobantes.SumarCantidad(IdComprobante);
+        }
         public void BorrarCantidad(int IdRegistro)
         {
             _comprobantes.BorrarCantidad(IdRegistro);
+        }
+        public void Deshabilitar(string IdRegistro)
+        {
+            int id = Convert.ToInt32(IdRegistro);
+            _comprobantes.Deshabilitar(id);
         }
         public void InsertarCantidad(string IdComprobante, string Desde, string Hasta, DateTime FechaVecimiento)
         {
