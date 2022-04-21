@@ -20,6 +20,7 @@ namespace APP
         private readonly NArticulos _articulo = new NArticulos();
         private readonly NComprobantes _comprobante = new NComprobantes();
         private readonly NClientes _cliente = new NClientes();
+        private readonly NFacturacion _facturar = new NFacturacion();
 
         private void CalculaTotal()
         {
@@ -59,10 +60,10 @@ namespace APP
                 descuentoTotal += Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                 itbisTotal += Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
             }
-            txtImporte_fact.Text = importeTotal.ToString("N2");
-            txtDescuento_fact.Text = descuentoTotal.ToString("N2");
-            txtItbis_fact.Text = itbisTotal.ToString("N2");
-            txtTotal_fact.Text = (importeTotal - descuentoTotal + itbisTotal).ToString("N2");
+            txtImporteFactura.Text = importeTotal.ToString("N2");
+            txtDescuentoFactura.Text = descuentoTotal.ToString("N2");
+            txtItbisFactura.Text = itbisTotal.ToString("N2");
+            txtTotalFactura.Text = (importeTotal - descuentoTotal + itbisTotal).ToString("N2");
         }
 
         private void FrmFacturacion_Load(object sender, EventArgs e)
@@ -76,6 +77,11 @@ namespace APP
             txtIdCliente_Leave(sender, e);
             dgvListar.Rows.Clear();
             CalculaTotal();
+            btnImprimir.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
+            lblIdFactura.Text = "#";
+            lblNCF.Text = "#";
             _ = txtCodigo.Focus();
         }
 
@@ -293,10 +299,10 @@ namespace APP
                     Fecha = DateTime.Now,
                     TipoCompra = cboTipoCompra.Text,
                     Nota = txtNota.Text,
-                    Importe = Convert.ToDecimal(txtImporte_fact.Text),
-                    Descuento = Convert.ToDecimal(txtDescuento_fact.Text),
-                    Itbis = Convert.ToDecimal(txtItbis_fact.Text),
-                    Total = Convert.ToDecimal(txtTotal_fact.Text),
+                    Importe = Convert.ToDecimal(txtImporteFactura.Text),
+                    Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
+                    Itbis = Convert.ToDecimal(txtItbisFactura.Text),
+                    Total = Convert.ToDecimal(txtTotalFactura.Text),
                 };
                 DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
                 if (ListaComprobante.Rows.Count > 0)
@@ -319,6 +325,67 @@ namespace APP
                     _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                DataTable Detalle = new DataTable();
+                Detalle.Columns.Add("[idArticulo]", typeof(int));
+                Detalle.Columns.Add("[cantidad]", typeof(decimal));
+                Detalle.Columns.Add("[descuento]", typeof(decimal));
+                Detalle.Columns.Add("[precio]", typeof(decimal));
+                Detalle.Columns.Add("[importe]", typeof(decimal));
+                Detalle.Columns.Add("[costo]", typeof(decimal));
+                Detalle.Columns.Add("[totalimporte]", typeof(decimal));
+                Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
+                Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    DataRow row = Detalle.NewRow();
+                    row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                    row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value);
+                    row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                    row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
+                    row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                    row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[8].Value);
+                    row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                    row[7] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                    row[8] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                    Detalle.Rows.Add(row);
+                }
+                int IdFactura = _facturar.Insertar(Factura, Detalle);
+                btnNuevo.PerformClick();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarFactura frm = new FrmBuscarFactura();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                dgvListar.Rows.Clear();
+                DataTable facturaTable = _facturar.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+                lblIdFactura.Text = facturaTable.Rows[0][0].ToString();
+                lblNCF.Text = facturaTable.Rows[0][1].ToString();
+                dtpFecha.Value = (DateTime)facturaTable.Rows[0][2];
+                txtIdCliente.Text = facturaTable.Rows[0][3].ToString();
+                txtNombre.Text = facturaTable.Rows[0][4].ToString();
+                txtDireccion.Text = facturaTable.Rows[0][5].ToString();
+                txtCedula.Text = facturaTable.Rows[0][6].ToString();
+                txtRnc.Text = facturaTable.Rows[0][7].ToString();
+                cboTipoCompra.Text = facturaTable.Rows[0][8].ToString();
+                cboTipoComprobante.SelectedValue = facturaTable.Rows[0][9].ToString();
+                txtDescuento.Text = facturaTable.Rows[0][10].ToString();
+                txtImporteFactura.Text = facturaTable.Rows[0][11].ToString();
+                txtDescuentoFactura.Text = facturaTable.Rows[0][12].ToString();
+                txtItbisFactura.Text = facturaTable.Rows[0][13].ToString();
+                txtTotalFactura.Text = facturaTable.Rows[0][14].ToString();
+                txtNota.Text = facturaTable.Rows[0][15].ToString();
+                for (int i = 0; i < facturaTable.Rows.Count; i++)
+                {
+                    dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
+                        facturaTable.Rows[i][18], facturaTable.Rows[i][19], facturaTable.Rows[i][20],
+                        facturaTable.Rows[i][21], facturaTable.Rows[i][22], facturaTable.Rows[i][23],
+                        facturaTable.Rows[i][24], facturaTable.Rows[i][25], facturaTable.Rows[i][26],
+                        facturaTable.Rows[i][27], facturaTable.Rows[i][28]);
+                }
+                CalculaTotal();
             }
         }
     }

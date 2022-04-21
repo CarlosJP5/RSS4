@@ -76,10 +76,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtTotal_fact = new System.Windows.Forms.TextBox();
-            this.txtItbis_fact = new System.Windows.Forms.TextBox();
-            this.txtDescuento_fact = new System.Windows.Forms.TextBox();
-            this.txtImporte_fact = new System.Windows.Forms.TextBox();
+            this.txtTotalFactura = new System.Windows.Forms.TextBox();
+            this.txtItbisFactura = new System.Windows.Forms.TextBox();
+            this.txtDescuentoFactura = new System.Windows.Forms.TextBox();
+            this.txtImporteFactura = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -397,7 +397,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtIdCliente.Location = new System.Drawing.Point(71, 7);
+            this.txtIdCliente.Location = new System.Drawing.Point(71, 8);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
             this.txtIdCliente.TabIndex = 2;
@@ -430,10 +430,10 @@
             this.panelBot.Controls.Add(this.label18);
             this.panelBot.Controls.Add(this.label17);
             this.panelBot.Controls.Add(this.label16);
-            this.panelBot.Controls.Add(this.txtTotal_fact);
-            this.panelBot.Controls.Add(this.txtItbis_fact);
-            this.panelBot.Controls.Add(this.txtDescuento_fact);
-            this.panelBot.Controls.Add(this.txtImporte_fact);
+            this.panelBot.Controls.Add(this.txtTotalFactura);
+            this.panelBot.Controls.Add(this.txtItbisFactura);
+            this.panelBot.Controls.Add(this.txtDescuentoFactura);
+            this.panelBot.Controls.Add(this.txtImporteFactura);
             this.panelBot.Controls.Add(this.dgvListar);
             this.panelBot.Controls.Add(this.btnBorrar);
             this.panelBot.Controls.Add(this.btnAgregar);
@@ -493,6 +493,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnModificar
             // 
@@ -584,45 +585,45 @@
             this.label16.TabIndex = 18;
             this.label16.Text = "Importe:";
             // 
-            // txtTotal_fact
+            // txtTotalFactura
             // 
-            this.txtTotal_fact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTotal_fact.Location = new System.Drawing.Point(666, 294);
-            this.txtTotal_fact.Name = "txtTotal_fact";
-            this.txtTotal_fact.ReadOnly = true;
-            this.txtTotal_fact.Size = new System.Drawing.Size(100, 20);
-            this.txtTotal_fact.TabIndex = 17;
-            this.txtTotal_fact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotalFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtTotalFactura.Location = new System.Drawing.Point(666, 294);
+            this.txtTotalFactura.Name = "txtTotalFactura";
+            this.txtTotalFactura.ReadOnly = true;
+            this.txtTotalFactura.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalFactura.TabIndex = 17;
+            this.txtTotalFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtItbis_fact
+            // txtItbisFactura
             // 
-            this.txtItbis_fact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtItbis_fact.Location = new System.Drawing.Point(666, 273);
-            this.txtItbis_fact.Name = "txtItbis_fact";
-            this.txtItbis_fact.ReadOnly = true;
-            this.txtItbis_fact.Size = new System.Drawing.Size(100, 20);
-            this.txtItbis_fact.TabIndex = 16;
-            this.txtItbis_fact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItbisFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtItbisFactura.Location = new System.Drawing.Point(666, 273);
+            this.txtItbisFactura.Name = "txtItbisFactura";
+            this.txtItbisFactura.ReadOnly = true;
+            this.txtItbisFactura.Size = new System.Drawing.Size(100, 20);
+            this.txtItbisFactura.TabIndex = 16;
+            this.txtItbisFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtDescuento_fact
+            // txtDescuentoFactura
             // 
-            this.txtDescuento_fact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtDescuento_fact.Location = new System.Drawing.Point(666, 252);
-            this.txtDescuento_fact.Name = "txtDescuento_fact";
-            this.txtDescuento_fact.ReadOnly = true;
-            this.txtDescuento_fact.Size = new System.Drawing.Size(100, 20);
-            this.txtDescuento_fact.TabIndex = 15;
-            this.txtDescuento_fact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescuentoFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtDescuentoFactura.Location = new System.Drawing.Point(666, 252);
+            this.txtDescuentoFactura.Name = "txtDescuentoFactura";
+            this.txtDescuentoFactura.ReadOnly = true;
+            this.txtDescuentoFactura.Size = new System.Drawing.Size(100, 20);
+            this.txtDescuentoFactura.TabIndex = 15;
+            this.txtDescuentoFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtImporte_fact
+            // txtImporteFactura
             // 
-            this.txtImporte_fact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtImporte_fact.Location = new System.Drawing.Point(666, 231);
-            this.txtImporte_fact.Name = "txtImporte_fact";
-            this.txtImporte_fact.ReadOnly = true;
-            this.txtImporte_fact.Size = new System.Drawing.Size(100, 20);
-            this.txtImporte_fact.TabIndex = 14;
-            this.txtImporte_fact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtImporteFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtImporteFactura.Location = new System.Drawing.Point(666, 231);
+            this.txtImporteFactura.Name = "txtImporteFactura";
+            this.txtImporteFactura.ReadOnly = true;
+            this.txtImporteFactura.Size = new System.Drawing.Size(100, 20);
+            this.txtImporteFactura.TabIndex = 14;
+            this.txtImporteFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dgvListar
             // 
@@ -876,10 +877,10 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtTotal_fact;
-        private System.Windows.Forms.TextBox txtItbis_fact;
-        private System.Windows.Forms.TextBox txtDescuento_fact;
-        private System.Windows.Forms.TextBox txtImporte_fact;
+        private System.Windows.Forms.TextBox txtTotalFactura;
+        private System.Windows.Forms.TextBox txtItbisFactura;
+        private System.Windows.Forms.TextBox txtDescuentoFactura;
+        private System.Windows.Forms.TextBox txtImporteFactura;
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnBuscar;

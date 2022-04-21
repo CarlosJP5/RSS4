@@ -61,6 +61,12 @@
     <Compile Include="Buscar\FrmBuscarClientes.Designer.cs">
       <DependentUpon>FrmBuscarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\FrmBuscarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarFactura.Designer.cs">
+      <DependentUpon>FrmBuscarFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\FrmBuscarItbis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarClientes.resx">
       <DependentUpon>FrmBuscarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\FrmBuscarFactura.resx">
+      <DependentUpon>FrmBuscarFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarItbis.resx">
       <DependentUpon>FrmBuscarItbis.cs</DependentUpon>
