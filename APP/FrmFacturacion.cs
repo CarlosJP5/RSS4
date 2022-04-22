@@ -29,18 +29,6 @@ namespace APP
             decimal itbisTotal = 0m;
             for (int i = 0; i < dgvListar.RowCount; i++)
             {
-                if (!decimal.TryParse(dgvListar.Rows[i].Cells[4].Value.ToString(), out _))
-                {
-                    dgvListar.Rows[i].Cells[4].Value = 1m;
-                }
-                if (!decimal.TryParse(dgvListar.Rows[i].Cells[5].Value.ToString(), out _))
-                {
-                    dgvListar.Rows[i].Cells[5].Value = Convert.ToDecimal(txtDescuento.Text);
-                }
-                if (!decimal.TryParse(dgvListar.Rows[i].Cells[6].Value.ToString(), out _))
-                {
-                    dgvListar.Rows[i].Cells[6].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
-                }
                 decimal precioNeto = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
                 decimal cantidad = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value);
                 decimal descuento = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value) / 100;
@@ -73,13 +61,19 @@ namespace APP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            btnBuscar.Enabled = true;
+            btnFacturar.Enabled = true;
+            btnImprimir.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
             txtIdCliente.Text = "0";
             txtIdCliente_Leave(sender, e);
             dgvListar.Rows.Clear();
             CalculaTotal();
-            btnImprimir.Enabled = false;
-            btnModificar.Enabled = false;
-            btnGuardar.Enabled = false;
+            HabilitarControles();
+            cboTipoCompra.Enabled = true;
+            cboTipoComprobante.Enabled = true;
+            linkCotizacion.Enabled = true;
             lblIdFactura.Text = "#";
             lblNCF.Text = "#";
             _ = txtCodigo.Focus();
@@ -96,8 +90,11 @@ namespace APP
                     txtDireccion.Text = cliente.Rows[0][5].ToString();
                     txtCedula.Text = cliente.Rows[0][3].ToString();
                     txtRnc.Text = cliente.Rows[0][4].ToString();
-                    cboTipoCompra.Text = cliente.Rows[0][8].ToString();
-                    cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
+                    if (!btnGuardar.Enabled)
+                    {
+                        cboTipoCompra.Text = cliente.Rows[0][8].ToString();
+                        cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
+                    }
                     txtDescuento.Text = cliente.Rows[0][10].ToString();
                 }
                 else
@@ -106,8 +103,11 @@ namespace APP
                     txtDireccion.Text = null;
                     txtCedula.Text = null;
                     txtRnc.Text = null;
-                    cboTipoCompra.SelectedIndex = 0;
-                    cboTipoComprobante.SelectedIndex = 0;
+                    if (!btnGuardar.Enabled)
+                    {
+                        cboTipoCompra.SelectedIndex = 0;
+                        cboTipoComprobante.SelectedIndex = 0;
+                    }
                     txtDescuento.Text = "0.00";
                 }
                 for (int i = 0; i < dgvListar.RowCount; i++)
@@ -127,9 +127,12 @@ namespace APP
                 txtRnc.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
                 txtNombre.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
                 txtDireccion.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
-                cboTipoComprobante.SelectedValue = frm.dgvListar.SelectedCells[6].Value.ToString();
                 txtCedula.Text = frm.dgvListar.SelectedCells[7].Value.ToString();
-                cboTipoCompra.Text = frm.dgvListar.SelectedCells[9].Value.ToString();
+                if (!btnGuardar.Enabled)
+                {
+                    cboTipoComprobante.SelectedValue = frm.dgvListar.SelectedCells[6].Value.ToString();
+                    cboTipoCompra.Text = frm.dgvListar.SelectedCells[9].Value.ToString();
+                }
                 txtDescuento.Text = frm.dgvListar.SelectedCells[11].Value.ToString();
                 for (int i = 0; i < dgvListar.RowCount; i++)
                 {
@@ -234,9 +237,17 @@ namespace APP
 
         private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (!decimal.TryParse(dgvListar.CurrentRow.Cells[6].Value.ToString(), out _))
+            if (dgvListar.CurrentRow.Cells[4].Value == null || Convert.ToDouble(dgvListar.CurrentRow.Cells[4].Value) <= 0)
             {
-                dgvListar.CurrentRow.Cells[6].Value = Convert.ToDecimal(dgvListar.CurrentRow.Cells[13].Value);
+                dgvListar.CurrentRow.Cells[4].Value = 1m;
+            }
+            if (Convert.ToDouble(dgvListar.CurrentRow.Cells[4].Value) <= 0.01)
+            {
+                dgvListar.CurrentRow.Cells[4].Value = 0.01m;
+            }
+            if (Convert.ToDouble(dgvListar.CurrentRow.Cells[6].Value) <= 0.01)
+            {
+                dgvListar.CurrentRow.Cells[6].Value = 0.01m;
             }
             decimal precio = Convert.ToDecimal(dgvListar.CurrentRow.Cells[6].Value);
             decimal costo = Convert.ToDecimal(dgvListar.CurrentRow.Cells[8].Value);
@@ -386,6 +397,110 @@ namespace APP
                         facturaTable.Rows[i][27], facturaTable.Rows[i][28]);
                 }
                 CalculaTotal();
+
+                txtIdCliente.Enabled = false;
+                btnBuscarClientes.Enabled = false;
+                txtNombre.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtCedula.Enabled = false;
+                txtRnc.Enabled = false;
+                txtDescuento.Enabled = false;
+                cboTipoCompra.Enabled = false;
+                cboTipoComprobante.Enabled = false;
+                linkCotizacion.Enabled = false;
+                linkCodigo.Enabled = false;
+                txtCodigo.Enabled = false;
+                btnAgregar.Enabled = false;
+                btnBorrar.Enabled = false;
+                dgvListar.ReadOnly = true;
+                txtNota.Enabled = false;
+                btnFacturar.Enabled = false;
+                btnModificar.Enabled = true;
+                btnImprimir.Enabled = true;
+            }
+        }
+
+        private void HabilitarControles()
+        {
+            txtIdCliente.Enabled = true;
+            btnBuscarClientes.Enabled = true;
+            txtNombre.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtCedula.Enabled = true;
+            txtRnc.Enabled = true;
+            txtDescuento.Enabled = true;
+            txtCodigo.Enabled = true;
+            linkCodigo.Enabled = true;
+            txtNota.Enabled = true;
+            btnAgregar.Enabled = true;
+            btnBorrar.Enabled = true;
+            dgvListar.ReadOnly = false;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            HabilitarControles();
+            btnGuardar.Enabled = true;
+            btnImprimir.Enabled = false;
+            btnBuscar.Enabled = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                _ = MessageBox.Show("Debe Seleccionar un Cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cboTipoComprobante.SelectedValue.ToString() == "B01")
+            {
+                if (string.IsNullOrEmpty(txtRnc.Text) || (txtRnc.Text.Length != 11 && txtRnc.Text.Length != 9))
+                {
+                    _ = MessageBox.Show("El RNC no es Valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            if (dgvListar.RowCount > 0)
+            {
+                EFactura Factura = new EFactura()
+                {
+                    IdFactura = Convert.ToInt32(lblIdFactura.Text),
+                    IdCliente = Convert.ToInt32(txtIdCliente.Text),
+                    IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
+                    Fecha = DateTime.Now,
+                    TipoCompra = cboTipoCompra.Text,
+                    Nota = txtNota.Text,
+                    Importe = Convert.ToDecimal(txtImporteFactura.Text),
+                    Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
+                    Itbis = Convert.ToDecimal(txtItbisFactura.Text),
+                    Total = Convert.ToDecimal(txtTotalFactura.Text),
+                };
+                DataTable Detalle = new DataTable();
+                Detalle.Columns.Add("[idArticulo]", typeof(int));
+                Detalle.Columns.Add("[cantidad]", typeof(decimal));
+                Detalle.Columns.Add("[descuento]", typeof(decimal));
+                Detalle.Columns.Add("[precio]", typeof(decimal));
+                Detalle.Columns.Add("[importe]", typeof(decimal));
+                Detalle.Columns.Add("[costo]", typeof(decimal));
+                Detalle.Columns.Add("[totalimporte]", typeof(decimal));
+                Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
+                Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    DataRow row = Detalle.NewRow();
+                    row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                    row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value);
+                    row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                    row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
+                    row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                    row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[8].Value);
+                    row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                    row[7] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                    row[8] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                    Detalle.Rows.Add(row);
+                }
+                _facturar.Editar(Factura, Detalle);
+                btnNuevo.PerformClick();
             }
         }
     }

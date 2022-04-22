@@ -26,5 +26,9 @@ namespace Negocios
         {
             return _facturar.Insertar(Factura, Detalle);
         }
+        public void Editar(EFactura Factura, DataTable Detalle)
+        {
+            _facturar.Editar(Factura, Detalle);
+        }
     }
 }

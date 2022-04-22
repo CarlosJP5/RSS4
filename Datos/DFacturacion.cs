@@ -114,5 +114,35 @@ namespace Datos
                 }
             }
         }
+        public void Editar(EFactura Factura, DataTable Detalle)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "factura_editar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFact", SqlDbType.Int).Value = Factura.IdFactura;
+                    cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = Factura.IdCliente;
+                    cmd.Parameters.Add("@tipoCompra", SqlDbType.VarChar).Value = Factura.TipoCompra;
+                    cmd.Parameters.Add("@nota", SqlDbType.VarChar).Value = Factura.Nota;
+                    cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
+                    cmd.Parameters.Add("@descuento", SqlDbType.Decimal).Value = Factura.Descuento;
+                    cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
+                    cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }
