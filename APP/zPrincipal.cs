@@ -77,5 +77,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void compraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompra frm = new FrmCompra();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

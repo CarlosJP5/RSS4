@@ -21,7 +21,7 @@ namespace APP.Buscar
             foreach (DataRow rowArt in articulo.Rows)
             {
                 _ = dgvListar.Rows.Add(rowArt[0], rowArt[1], rowArt[2], rowArt[3],
-                                       rowArt[4], rowArt[5], rowArt[6], rowArt[7]);
+                                       rowArt[4], rowArt[5], rowArt[6], rowArt[7], rowArt[8]);
             }
         }
 
@@ -29,8 +29,9 @@ namespace APP.Buscar
         {
             dgvListar.Rows.Clear();
             string query = @"SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
-	                         nombre_marca, cantidad_articulo, precio_articulo, estado_articulo
-	                         FROM Articulo A LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca";
+	                         nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, I.porciento_itbis 
+	                         FROM Articulo A LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
+                             LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis";
             
             if (rbtnTodo.Checked)
             {
@@ -59,7 +60,7 @@ namespace APP.Buscar
             foreach (DataRow rowArt in articulo.Rows)
             {
                 _ = dgvListar.Rows.Add(rowArt[0], rowArt[1], rowArt[2], rowArt[3],
-                                       rowArt[4], rowArt[5], rowArt[6], rowArt[7]);
+                                       rowArt[4], rowArt[5], rowArt[6], rowArt[7], rowArt[8]);
             }
         }
 
