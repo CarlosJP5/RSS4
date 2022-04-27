@@ -45,6 +45,7 @@
     <Compile Include="NClasses\NAppSetting.cs" />
     <Compile Include="NClasses\NSqlHelper.cs" />
     <Compile Include="NClientes.cs" />
+    <Compile Include="NCompras.cs" />
     <Compile Include="NComprobantes.cs" />
     <Compile Include="NFacturacion.cs" />
     <Compile Include="NItbis.cs" />

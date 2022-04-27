@@ -54,7 +54,8 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!txtCodigo.AllowDrop && !txtNombre.AllowDrop)
+            ValidateChildren();
+            if (!txtCodigo.AllowDrop && !txtNombre.AllowDrop && !txtItbis.AllowDrop)
             {
                 EArticulo articulo = new EArticulo
                 {
@@ -450,6 +451,48 @@ namespace APP
                         txtPrecio.Text = precio.ToString("N2");
                     }
                 }
+            }
+        }
+
+        private void txtCodigo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                errorCodigo.SetError(txtCodigo, "Campo Obligatorio");
+                txtCodigo.AllowDrop = true;
+            }
+            else
+            {
+                errorCodigo.Clear();
+                txtCodigo.AllowDrop = false;
+            }
+        }
+
+        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorNombre.SetError(txtNombre, "Campo Obligatorio");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorNombre.Clear();
+                txtNombre.AllowDrop = false;
+            }
+        }
+
+        private void txtItbis_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtItbis.Text))
+            {
+                errorItbis.SetError(txtItbis, "Campo Obligatorio");
+                txtItbis.AllowDrop = true;
+            }
+            else
+            {
+                errorItbis.Clear();
+                txtItbis.AllowDrop = false;
             }
         }
     }

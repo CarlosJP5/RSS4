@@ -47,6 +47,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DArticulos.cs" />
     <Compile Include="DClientes.cs" />
+    <Compile Include="DCompras.cs" />
     <Compile Include="DComprobantes.cs" />
     <Compile Include="DFacturacion.cs" />
     <Compile Include="DItbis.cs" />

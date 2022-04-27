@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -67,8 +68,14 @@
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -440,6 +447,7 @@
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(194, 20);
             this.txtItbis.TabIndex = 8;
+            this.txtItbis.Validating += new System.ComponentModel.CancelEventHandler(this.txtItbis_Validating);
             // 
             // txtIdItbis
             // 
@@ -513,6 +521,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(150, 20);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
+            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating);
             // 
             // txtNombre
             // 
@@ -523,6 +532,19 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
+            // 
+            // errorCodigo
+            // 
+            this.errorCodigo.ContainerControl = this;
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.ContainerControl = this;
+            // 
+            // errorItbis
+            // 
+            this.errorItbis.ContainerControl = this;
             // 
             // FrmArticulos
             // 
@@ -541,6 +563,9 @@
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -586,5 +611,8 @@
         private System.Windows.Forms.Label txtPorcientoItbis;
         private System.Windows.Forms.Label txtIdArticulo;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ErrorProvider errorCodigo;
+        private System.Windows.Forms.ErrorProvider errorNombre;
+        private System.Windows.Forms.ErrorProvider errorItbis;
     }
 }

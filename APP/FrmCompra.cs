@@ -14,7 +14,7 @@ namespace APP
             InitializeComponent();
         }
 
-        EArticulo Articulo = new EArticulo();
+        private readonly NCompras _compra = new NCompras();
 
         private void FrmCompra_Load(object sender, EventArgs e)
         {
@@ -44,7 +44,7 @@ namespace APP
 
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
-            btnSalvar.Enabled = false;
+            btnGuardar.Enabled = false;
 
         }
 
@@ -157,6 +157,7 @@ namespace APP
                 txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
                 txtNombre.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                 lblItbisPorciento.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                _ = cboItbis.Focus();
             }
             else
             {
@@ -232,7 +233,7 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                _ = txtPrecio.Focus();
+                _ = txtBeneficio.Focus();
             }
         }
 
@@ -241,7 +242,7 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                _ = txtBeneficio.Focus();
+                _ = btnAgregar.Focus();
             }
         }
 
@@ -250,7 +251,7 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                _ = btnAgregar.Focus();
+                _ = txtPrecio.Focus();
             }
         }
 
@@ -267,6 +268,29 @@ namespace APP
                 && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                errorCantidad.SetError(txtCantidad, "Cantidad debe ser mayor que Cero");
+                txtCantidad.AllowDrop = true;
+            }
+            else
+            {
+                decimal cantidad = Convert.ToDecimal(txtCantidad.Text);
+                if (cantidad <= 0)
+                {
+                    errorCantidad.SetError(txtCantidad, "Cantidad debe ser mayor que Cero");
+                    txtCantidad.AllowDrop = true;
+                }
+                else
+                {
+                    errorCantidad.Clear();
+                    txtCantidad.AllowDrop = false;
+                }
             }
         }
 
@@ -310,22 +334,30 @@ namespace APP
             decimal costo = 0m;
             decimal descuento = 0m;
             decimal itbis = Convert.ToDecimal(lblItbisPorciento.Text) / 100;
-            decimal cantidad = 0m;
-            if (string.IsNullOrEmpty(txtCosto.Text) && string.IsNullOrEmpty(txtImporte.Text))
-            {
-                return;
-            }
+            decimal cantidad = 1m;
             if (!string.IsNullOrEmpty(txtCantidad.Text))
             {
                 cantidad = Convert.ToDecimal(txtCantidad.Text);
             }
-            if (!string.IsNullOrEmpty(txtCosto.Text))
+            else
             {
-                costo = Convert.ToDecimal(txtCosto.Text);
+                txtCantidad.Text = cantidad.ToString("N2");
             }
             if (!string.IsNullOrEmpty(txtDescuento.Text))
             {
                 descuento = Convert.ToDecimal(txtDescuento.Text) / 100;
+            }
+            else
+            {
+                txtDescuento.Text = descuento.ToString("N2");
+            }
+            if (string.IsNullOrEmpty(txtCosto.Text) && string.IsNullOrEmpty(txtImporte.Text))
+            {
+                return;
+            }
+            if (!string.IsNullOrEmpty(txtCosto.Text))
+            {
+                costo = Convert.ToDecimal(txtCosto.Text);
             }
             switch (cboItbis.SelectedIndex)
             {
@@ -412,6 +444,11 @@ namespace APP
         {
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
+                _ = ValidateChildren();
+                if (txtCantidad.AllowDrop)
+                {
+                    return;
+                }
                 string itb = "+";
                 switch (cboItbis.SelectedIndex)
                 {
@@ -442,8 +479,12 @@ namespace APP
                             _ = dgvListar.Rows.Add(lblIdArticulo.Text, txtCodigo.Text, txtNombre.Text, itb, txtCantidad.Text,
                                 txtDescuento.Text, txtCosto.Text, txtImporte.Text, lblItbisPorciento.Text, txtCostoFinal.Text,
                                 txtPrecio.Text, txtBeneficio.Text, ImporteTotal, DescuentoTotal, ItbisTotal);
+                            break;
                         }
-                        return;
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
                 if (!existe)
@@ -465,6 +506,74 @@ namespace APP
                 dgvListar.Rows.Remove(dgvListar.CurrentRow);
                 CalculaTotal();
             }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (!txtSuplidorNombre.AllowDrop && dgvListar.Rows.Count > 0)
+            {
+                ECompra Compra = new ECompra()
+                {
+                    IdSuplidor = Convert.ToInt32(txtIdSuplidor.Text),
+                    Fecha = dtpFecha.Value.Date,
+                    TipoCompra = cboTipoCompra.Text,
+                    FacturaNumero = txtFacturaNumero.Text,
+                    NCF = txtNCF.Text,
+                    Importe = Convert.ToDecimal(txtImporteCompra.Text),
+                    Descuento = Convert.ToDecimal(txtDescuentoCompra.Text),
+                    Itbis = Convert.ToDecimal(txtItbisCompra.Text),
+                    Total = Convert.ToDecimal(txtTotalCompra.Text)
+                };
+                DataTable Detalle = new DataTable();
+                Detalle.Columns.Add("idArticulo", typeof(int));
+                Detalle.Columns.Add("tipoItbis", typeof(char));
+                Detalle.Columns.Add("cantidad", typeof(decimal));
+                Detalle.Columns.Add("descuento", typeof(decimal));
+                Detalle.Columns.Add("costo", typeof(decimal));
+                Detalle.Columns.Add("importe", typeof(decimal));
+                Detalle.Columns.Add("precio", typeof(decimal));
+                Detalle.Columns.Add("beneficio", typeof(decimal));
+                Detalle.Columns.Add("costoFinal", typeof(decimal));
+                Detalle.Columns.Add("totalImporte", typeof(decimal));
+                Detalle.Columns.Add("totalDescuento", typeof(decimal));
+                Detalle.Columns.Add("totalItbis", typeof(decimal));
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    DataRow row = Detalle.NewRow();
+                    row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                    row[1] = dgvListar.Rows[i].Cells[3].Value.ToString();
+                    row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value);
+                    row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                    row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
+                    row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                    row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                    row[7] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                    row[8] = Convert.ToDecimal(dgvListar.Rows[i].Cells[9].Value);
+                    row[9] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                    row[10] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
+                    row[11] = Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value);
+                    Detalle.Rows.Add(row);
+                }
+                _compra.Insertar(Compra, Detalle);
+                btnNuevo.PerformClick();
+            }
+        }
+
+        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblIdArticulo.Text = dgvListar.CurrentRow.Cells[0].Value.ToString();
+            txtCodigo.Text = dgvListar.CurrentRow.Cells[1].Value.ToString();
+            txtNombre.Text = dgvListar.CurrentRow.Cells[2].Value.ToString();
+            cboItbis.Text = dgvListar.CurrentRow.Cells[3].Value.ToString();
+            txtCantidad.Text = dgvListar.CurrentRow.Cells[4].Value.ToString();
+            txtDescuento.Text = dgvListar.CurrentRow.Cells[5].Value.ToString();
+            txtCosto.Text = dgvListar.CurrentRow.Cells[6].Value.ToString();
+            txtImporte.Text = dgvListar.CurrentRow.Cells[7].Value.ToString();
+            lblItbisPorciento.Text = dgvListar.CurrentRow.Cells[8].Value.ToString();
+            txtCostoFinal.Text = dgvListar.CurrentRow.Cells[9].Value.ToString();
+            txtPrecio.Text = dgvListar.CurrentRow.Cells[10].Value.ToString();
+            txtBeneficio.Text = dgvListar.CurrentRow.Cells[11].Value.ToString();
+            _ = txtCantidad.Focus();
         }
     }
 }
