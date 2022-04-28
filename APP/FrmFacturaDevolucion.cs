@@ -1,0 +1,177 @@
+﻿using APP.Buscar;
+using Negocios;
+using System;
+using System.Data;
+using System.Windows.Forms;
+
+namespace APP
+{
+    public partial class FrmFacturaDevolucion : Form
+    {
+        public FrmFacturaDevolucion()
+        {
+            InitializeComponent();
+            cboTipoComprobante.DataSource = _comprobante.ComprovantesVentas();
+            cboTipoComprobante.ValueMember = "id_comprobante";
+            cboTipoComprobante.DisplayMember = "nombre_comprobante";
+        }
+
+        private readonly NComprobantes _comprobante = new NComprobantes();
+        private readonly NFacturacion _facturar = new NFacturacion();
+
+        private void FrmFacturaDevolucion_Load(object sender, EventArgs e)
+        {
+            btnNuevo.PerformClick();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            dtpFecha.Value = DateTime.Now;
+            txtIdFactura.Text = null;
+            txtNCF.Text = null;
+            txtFechaFactura.Text = null;
+            lblDias.Text = "0";
+            txtNombre.Text = null;
+            txtDireccion.Text = null;
+            txtCedula.Text = null;
+            txtRNC.Text = null;
+            txtTipoFactura.Text = null;
+            cboTipoComprobante.SelectedIndex = 0;
+            dgvListar.Rows.Clear();
+            txtImporteFactura.Text = null;
+            txtDescuentoFactura.Text = null;
+            txtItbisFactura.Text = null;
+            txtTotalFactura.Text = null;
+
+            btnImprimir.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
+        }
+
+        private void btnBuscarFactura_Click(object sender, EventArgs e)
+        {
+            FrmBuscarFactura frm = new FrmBuscarFactura();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtIdFactura.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                LlenarForm(txtIdFactura.Text);
+            }
+        }
+
+        private void txtIdFactura_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIdFactura.Text))
+            {
+                LlenarForm(txtIdFactura.Text);
+            }
+        }
+
+        private void LlenarForm(string IdFactura)
+        {
+            dgvListar.Rows.Clear();
+            DataTable facturaTable = _facturar.BuscarId(IdFactura);
+            txtIdFactura.Text = facturaTable.Rows[0][0].ToString();
+            txtNCF.Text = facturaTable.Rows[0][1].ToString();
+            DateTime D2 = (DateTime)facturaTable.Rows[0][2];
+            txtFechaFactura.Text = D2.ToString("dd / MM / yyyy - hh:mm tt");
+            lblDias.Text = (DateTime.Now - D2).Days.ToString();
+            txtNombre.Text = facturaTable.Rows[0][4].ToString();
+            txtDireccion.Text = facturaTable.Rows[0][5].ToString();
+            txtCedula.Text = facturaTable.Rows[0][6].ToString();
+            txtRNC.Text = facturaTable.Rows[0][7].ToString();
+            txtTipoFactura.Text = facturaTable.Rows[0][8].ToString();
+            cboTipoComprobante.SelectedValue = facturaTable.Rows[0][9].ToString();
+            for (int i = 0; i < facturaTable.Rows.Count; i++)
+            {
+                dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
+                    facturaTable.Rows[i][18], facturaTable.Rows[i][20], facturaTable.Rows[i][21],
+                    facturaTable.Rows[i][22], "", "", "", facturaTable.Rows[i][25]);
+            }
+        }
+
+        private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvListar.CurrentRow.Cells[7].Value == null)
+            {
+                dgvListar.CurrentRow.Cells[7].Value = "";
+            }
+            bool tryy = decimal.TryParse(dgvListar.CurrentRow.Cells[7].Value.ToString(), out _);
+            if (tryy)
+            {
+                decimal dev = Convert.ToDecimal(dgvListar.CurrentRow.Cells[7].Value);
+                decimal cant = Convert.ToDecimal(dgvListar.CurrentRow.Cells[3].Value);
+                if (dev > cant)
+                {
+                    dev = cant;
+                }
+                dgvListar.CurrentRow.Cells[7].Value = dev.ToString("N2");
+                CalculaTotal();
+            }
+        }
+
+        private void dgvListar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
+            if (dgvListar.CurrentCell.ColumnIndex == 7) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                }
+            }
+        }
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // allowed numeric and one dot  ex. 10.23
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CalculaTotal()
+        {
+            decimal importeTotal = 0m;
+            decimal descuentoTotal = 0m;
+            decimal itbisTotal = 0m;
+            for (int i = 0; i < dgvListar.RowCount; i++)
+            {
+                if (dgvListar.Rows[i].Cells[7].Value == null)
+                {
+                    dgvListar.Rows[i].Cells[7].Value = "";
+                }
+                bool tryy = decimal.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _);
+                if (tryy)
+                {
+                    decimal precioNeto = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                    decimal cantidad = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                    decimal descuento = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value) / 100;
+                    decimal itbis = 1 + (Convert.ToDecimal(dgvListar.Rows[i].Cells[9].Value) / 100);
+                    decimal precio = precioNeto / itbis;
+                    descuento = precio * descuento;
+                    itbis = (precio - descuento) * (itbis - 1);
+                    dgvListar.Rows[i].Cells[5].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                    dgvListar.Rows[i].Cells[8].Value = decimal.Round(cantidad * precioNeto, 2);
+                    dgvListar.Rows[i].Cells[10].Value = decimal.Round(cantidad * precio, 2);
+                    dgvListar.Rows[i].Cells[11].Value = decimal.Round(cantidad * descuento, 2);
+                    dgvListar.Rows[i].Cells[12].Value = decimal.Round(cantidad * itbis, 2);
+
+                    importeTotal += Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                    descuentoTotal += Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                    itbisTotal += Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                }
+            }
+            txtImporteFactura.Text = importeTotal.ToString("N2");
+            txtDescuentoFactura.Text = descuentoTotal.ToString("N2");
+            txtItbisFactura.Text = itbisTotal.ToString("N2");
+            txtTotalFactura.Text = (importeTotal - descuentoTotal + itbisTotal).ToString("N2");
+        }
+    }
+}

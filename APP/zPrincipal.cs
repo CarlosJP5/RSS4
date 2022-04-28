@@ -84,5 +84,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void devolucionSVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFacturaDevolucion frm = new FrmFacturaDevolucion();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -191,6 +191,7 @@
             this.txtPuntoReorden.Size = new System.Drawing.Size(100, 20);
             this.txtPuntoReorden.TabIndex = 34;
             this.txtPuntoReorden.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPuntoReorden.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPuntoReorden_KeyDown);
             this.txtPuntoReorden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // btnSalir
@@ -392,6 +393,7 @@
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 21);
             this.cboEstado.TabIndex = 13;
+            this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboEstado_KeyDown);
             // 
             // txtBeneficio
             // 
@@ -401,6 +403,7 @@
             this.txtBeneficio.Size = new System.Drawing.Size(100, 20);
             this.txtBeneficio.TabIndex = 12;
             this.txtBeneficio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBeneficio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficio_KeyDown);
             this.txtBeneficio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             this.txtBeneficio.Validating += new System.ComponentModel.CancelEventHandler(this.txtBeneficio_Validating);
             // 
@@ -412,6 +415,7 @@
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 11;
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrecio_KeyDown);
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             this.txtPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrecio_Validating);
             // 
@@ -423,6 +427,7 @@
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 10;
             this.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCosto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCosto_KeyDown);
             this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtCantidad
@@ -435,6 +440,7 @@
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 9;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyDown);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtItbis
@@ -447,6 +453,7 @@
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(194, 20);
             this.txtItbis.TabIndex = 8;
+            this.txtItbis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdItbis_KeyDown);
             this.txtItbis.Validating += new System.ComponentModel.CancelEventHandler(this.txtItbis_Validating);
             // 
             // txtIdItbis
@@ -456,6 +463,7 @@
             this.txtIdItbis.Name = "txtIdItbis";
             this.txtIdItbis.Size = new System.Drawing.Size(50, 20);
             this.txtIdItbis.TabIndex = 7;
+            this.txtIdItbis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdItbis_KeyDown);
             this.txtIdItbis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
             this.txtIdItbis.Leave += new System.EventHandler(this.txtIdItbis_Leave);
             // 
@@ -468,6 +476,7 @@
             this.txtSuplidor.Name = "txtSuplidor";
             this.txtSuplidor.Size = new System.Drawing.Size(194, 20);
             this.txtSuplidor.TabIndex = 6;
+            this.txtSuplidor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdSuplidor_KeyDown);
             this.txtSuplidor.Leave += new System.EventHandler(this.txtSuplidor_Leave);
             // 
             // txtIdSuplidor
@@ -477,6 +486,7 @@
             this.txtIdSuplidor.Name = "txtIdSuplidor";
             this.txtIdSuplidor.Size = new System.Drawing.Size(50, 20);
             this.txtIdSuplidor.TabIndex = 5;
+            this.txtIdSuplidor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdSuplidor_KeyDown);
             this.txtIdSuplidor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
             this.txtIdSuplidor.Leave += new System.EventHandler(this.txtIdSuplidor_Leave);
             // 
@@ -489,6 +499,7 @@
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(194, 20);
             this.txtMarca.TabIndex = 4;
+            this.txtMarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdMarca_KeyDown);
             this.txtMarca.Leave += new System.EventHandler(this.txtMarca_Leave);
             // 
             // txtIdMarca
@@ -498,6 +509,7 @@
             this.txtIdMarca.Name = "txtIdMarca";
             this.txtIdMarca.Size = new System.Drawing.Size(50, 20);
             this.txtIdMarca.TabIndex = 3;
+            this.txtIdMarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdMarca_KeyDown);
             this.txtIdMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
             this.txtIdMarca.Leave += new System.EventHandler(this.txtIdMarca_Leave);
             // 
@@ -510,6 +522,7 @@
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(150, 20);
             this.txtReferencia.TabIndex = 2;
+            this.txtReferencia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtReferencia_KeyDown);
             // 
             // txtCodigo
             // 
@@ -520,6 +533,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(150, 20);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating);
             // 
@@ -532,6 +546,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
             // 
             // errorCodigo

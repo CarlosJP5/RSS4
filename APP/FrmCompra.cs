@@ -45,7 +45,20 @@ namespace APP
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Enabled = false;
+            btnBuscar.Enabled = true;
+            btnSalvar.Enabled = true;
 
+            linkSuplidor.Enabled = true;
+            txtIdSuplidor.Enabled = true;
+            cboTipoCompra.Enabled = true;
+            dtpFecha.Enabled = true;
+            txtFacturaNumero.Enabled = true;
+            txtNCF.Enabled = true;
+            linkCodigo.Enabled = true;
+            txtCodigo.Enabled = true;
+            btnAgregar.Enabled = true;
+            btnBorrar.Enabled = true;
+            dgvListar.ReadOnly = false;
         }
 
         private void LimpiarArticulo()
@@ -574,6 +587,114 @@ namespace APP
             txtPrecio.Text = dgvListar.CurrentRow.Cells[10].Value.ToString();
             txtBeneficio.Text = dgvListar.CurrentRow.Cells[11].Value.ToString();
             _ = txtCantidad.Focus();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarCompras frm = new FrmBuscarCompras();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                dgvListar.Rows.Clear();
+                lblIdCompra.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                DataTable compra = _compra.BuscarId(lblIdCompra.Text);
+                if (compra.Rows.Count > 0)
+                {
+                    txtIdSuplidor.Text = compra.Rows[0][1].ToString();
+                    txtSuplidorNombre.Text = compra.Rows[0][2].ToString();
+                    cboTipoCompra.Text = compra.Rows[0][3].ToString();
+                    dtpFecha.Value = DateTime.Parse(compra.Rows[0][4].ToString());
+                    txtFacturaNumero.Text = compra.Rows[0][5].ToString();
+                    txtNCF.Text = compra.Rows[0][6].ToString();
+                    txtImporteCompra.Text = compra.Rows[0][7].ToString();
+                    txtDescuentoCompra.Text = compra.Rows[0][8].ToString();
+                    txtItbisCompra.Text = compra.Rows[0][9].ToString();
+                    txtTotalCompra.Text = compra.Rows[0][10].ToString();
+                    for (int i = 0; i < compra.Rows.Count; i++)
+                    {
+                        _ = dgvListar.Rows.Add(compra.Rows[i][11], compra.Rows[i][12], compra.Rows[i][13],
+                            compra.Rows[i][14], compra.Rows[i][15], compra.Rows[i][16], compra.Rows[i][17],
+                            compra.Rows[i][18], compra.Rows[i][19], compra.Rows[i][20], compra.Rows[i][21],
+                            compra.Rows[i][22], compra.Rows[i][23], compra.Rows[i][24], compra.Rows[i][25]);
+                    }
+                    CalculaTotal();
+                }
+
+                linkSuplidor.Enabled = false;
+                txtIdSuplidor.Enabled = false;
+                cboTipoCompra.Enabled = false;
+                dtpFecha.Enabled = false;
+                txtFacturaNumero.Enabled = false;
+                txtNCF.Enabled = false;
+                linkCodigo.Enabled = false;
+                txtCodigo.Enabled = false;
+                btnAgregar.Enabled = false;
+                btnBorrar.Enabled = false;
+                dgvListar.ReadOnly = true;
+                btnImprimir.Enabled = true;
+                btnModificar.Enabled = true;
+                btnSalvar.Enabled = false;
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            btnBuscar.Enabled = false;
+            btnImprimir.Enabled = false;
+            btnGuardar.Enabled = true;
+            dgvListar.ReadOnly = false;
+            linkCodigo.Enabled = true;
+            txtCodigo.Enabled = true;
+            btnAgregar.Enabled = true;
+            btnBorrar.Enabled = true;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!txtSuplidorNombre.AllowDrop && dgvListar.Rows.Count > 0)
+            {
+                ECompra Compra = new ECompra()
+                {
+                    IdCompra = Convert.ToInt32(lblIdCompra.Text),
+                    IdSuplidor = Convert.ToInt32(txtIdSuplidor.Text),
+                    TipoCompra = cboTipoCompra.Text,
+                    Importe = Convert.ToDecimal(txtImporteCompra.Text),
+                    Descuento = Convert.ToDecimal(txtDescuentoCompra.Text),
+                    Itbis = Convert.ToDecimal(txtItbisCompra.Text),
+                    Total = Convert.ToDecimal(txtTotalCompra.Text)
+                };
+                DataTable Detalle = new DataTable();
+                Detalle.Columns.Add("idArticulo", typeof(int));
+                Detalle.Columns.Add("tipoItbis", typeof(char));
+                Detalle.Columns.Add("cantidad", typeof(decimal));
+                Detalle.Columns.Add("descuento", typeof(decimal));
+                Detalle.Columns.Add("costo", typeof(decimal));
+                Detalle.Columns.Add("importe", typeof(decimal));
+                Detalle.Columns.Add("precio", typeof(decimal));
+                Detalle.Columns.Add("beneficio", typeof(decimal));
+                Detalle.Columns.Add("costoFinal", typeof(decimal));
+                Detalle.Columns.Add("totalImporte", typeof(decimal));
+                Detalle.Columns.Add("totalDescuento", typeof(decimal));
+                Detalle.Columns.Add("totalItbis", typeof(decimal));
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    DataRow row = Detalle.NewRow();
+                    row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                    row[1] = dgvListar.Rows[i].Cells[3].Value.ToString();
+                    row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value);
+                    row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                    row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
+                    row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                    row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                    row[7] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                    row[8] = Convert.ToDecimal(dgvListar.Rows[i].Cells[9].Value);
+                    row[9] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                    row[10] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
+                    row[11] = Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value);
+                    Detalle.Rows.Add(row);
+                }
+                _compra.Editar(Compra, Detalle);
+                btnNuevo.PerformClick();
+            }
         }
     }
 }

@@ -495,5 +495,113 @@ namespace APP
                 txtItbis.AllowDrop = false;
             }
         }
+
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtNombre.Focus();
+            }
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtReferencia.Focus();
+            }
+        }
+
+        private void txtReferencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtIdMarca.Focus();
+            }
+        }
+
+        private void txtIdMarca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtIdSuplidor.Focus();
+            }
+        }
+
+        private void txtIdSuplidor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtIdItbis.Focus();
+            }
+        }
+
+        private void txtIdItbis_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtPuntoReorden.Focus();
+            }
+        }
+
+        private void txtPuntoReorden_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCosto.Focus();
+            }
+        }
+
+        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCosto.Focus();
+            }
+        }
+
+        private void txtCosto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtPrecio.Focus();
+            }
+        }
+
+        private void txtPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtBeneficio.Focus();
+            }
+        }
+
+        private void txtBeneficio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = cboEstado.Focus();
+            }
+        }
+
+        private void cboEstado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnSalvar.Focus();
+            }
+        }
     }
 }
