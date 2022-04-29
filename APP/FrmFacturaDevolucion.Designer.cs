@@ -28,16 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFacturaDevolucion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -77,24 +91,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIdCliente = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -122,6 +123,7 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.txtIdCliente);
             this.panelMid.Controls.Add(this.dgvListar);
             this.panelMid.Controls.Add(this.btnImprimir);
             this.panelMid.Controls.Add(this.btnSalvar);
@@ -157,6 +159,140 @@
             this.panelMid.Size = new System.Drawing.Size(753, 420);
             this.panelMid.TabIndex = 1;
             // 
+            // dgvListar
+            // 
+            this.dgvListar.AllowUserToAddRows = false;
+            this.dgvListar.AllowUserToDeleteRows = false;
+            this.dgvListar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13});
+            this.dgvListar.Location = new System.Drawing.Point(10, 130);
+            this.dgvListar.Name = "dgvListar";
+            this.dgvListar.RowHeadersVisible = false;
+            this.dgvListar.Size = new System.Drawing.Size(729, 185);
+            this.dgvListar.TabIndex = 48;
+            this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
+            this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IdArticulo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Codigo";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 90;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Nombre";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 250;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column4.HeaderText = "Cant.";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 60;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column5.HeaderText = "Desc.";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 50;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column6.HeaderText = "Precio";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 90;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column7.HeaderText = "";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 5;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column8.HeaderText = "Devuelta";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 70;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column9.HeaderText = "Importe";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 90;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "ItbisPorciento";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "totalImporte";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "totalDescuento";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "totalItbis";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
+            // 
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
@@ -180,6 +316,7 @@
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnGuardar
             // 
@@ -552,139 +689,15 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Fecha:";
             // 
-            // dgvListar
+            // txtIdCliente
             // 
-            this.dgvListar.AllowUserToAddRows = false;
-            this.dgvListar.AllowUserToDeleteRows = false;
-            this.dgvListar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13});
-            this.dgvListar.Location = new System.Drawing.Point(10, 130);
-            this.dgvListar.Name = "dgvListar";
-            this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.Size = new System.Drawing.Size(729, 185);
-            this.dgvListar.TabIndex = 48;
-            this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
-            this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IdArticulo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Codigo";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 90;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Nombre";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 250;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column4.HeaderText = "Cant.";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 60;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column5.HeaderText = "Desc.";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 50;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column6.HeaderText = "Precio";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 90;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column7.HeaderText = "";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 5;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column8.HeaderText = "Devuelta";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 70;
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column9.HeaderText = "Importe";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 90;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "ItbisPorciento";
-            this.Column10.Name = "Column10";
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "totalImporte";
-            this.Column11.Name = "Column11";
-            this.Column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "totalDescuento";
-            this.Column12.Name = "Column12";
-            this.Column12.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "totalItbis";
-            this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
+            this.txtIdCliente.AutoSize = true;
+            this.txtIdCliente.Location = new System.Drawing.Point(315, 11);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(48, 13);
+            this.txtIdCliente.TabIndex = 49;
+            this.txtIdCliente.Text = "IdCliente";
+            this.txtIdCliente.Visible = false;
             // 
             // FrmFacturaDevolucion
             // 
@@ -703,9 +716,9 @@
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -768,5 +781,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.Label txtIdCliente;
     }
 }

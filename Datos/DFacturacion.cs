@@ -114,6 +114,37 @@ namespace Datos
                 }
             }
         }
+        public int InsertarDevolucion(EFactura Factura, DataTable Detalle)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_insertar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFactura", SqlDbType.Int).Value = Factura.IdFactura;
+                    cmd.Parameters.Add("@idcliente", SqlDbType.Int).Value = Factura.IdCliente;
+                    cmd.Parameters.Add("@idComprobante", SqlDbType.VarChar).Value = Factura.IdComprobante;
+                    cmd.Parameters.Add("@ncf", SqlDbType.VarChar).Value = Factura.Ncf;
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Factura.Fecha;
+                    cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
+                    cmd.Parameters.Add("@descuento", SqlDbType.Decimal).Value = Factura.Descuento;
+                    cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
+                    cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        return (int)cmd.ExecuteScalar();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void Editar(EFactura Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())
