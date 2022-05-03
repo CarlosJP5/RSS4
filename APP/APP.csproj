@@ -145,6 +145,12 @@
     <Compile Include="FrmFacturaDevolucion.Designer.cs">
       <DependentUpon>FrmFacturaDevolucion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReciboIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReciboIngreso.Designer.cs">
+      <DependentUpon>FrmReciboIngreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistroComprobante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturaDevolucion.resx">
       <DependentUpon>FrmFacturaDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReciboIngreso.resx">
+      <DependentUpon>FrmReciboIngreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroComprobante.resx">
       <DependentUpon>FrmRegistroComprobante.cs</DependentUpon>

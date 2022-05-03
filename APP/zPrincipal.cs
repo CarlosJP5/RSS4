@@ -91,5 +91,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void reciboIngresoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReciboIngreso frm = new FrmReciboIngreso();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
