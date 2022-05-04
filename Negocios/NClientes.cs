@@ -9,6 +9,11 @@ namespace Negocios
     {
         private readonly DClientes _cliente = new DClientes();
 
+        public DataTable BalancePendiente(string IdCliente)
+        {
+            int id = Convert.ToInt32(IdCliente);
+            return _cliente.BalancePendiente(id);
+        }
         public DataTable Buscar(string Query)
         {
             return _cliente.Buscar(Query);
