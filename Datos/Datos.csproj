@@ -52,6 +52,7 @@
     <Compile Include="DFacturacion.cs" />
     <Compile Include="DItbis.cs" />
     <Compile Include="DMarcas.cs" />
+    <Compile Include="DReciboIngreso.cs" />
     <Compile Include="DSuplidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

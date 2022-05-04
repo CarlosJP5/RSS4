@@ -28,13 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDiferencia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,22 +71,6 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -82,7 +85,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(904, 30);
+            this.panel1.Size = new System.Drawing.Size(872, 30);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -91,7 +94,7 @@
             this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(902, 28);
+            this.label1.Size = new System.Drawing.Size(870, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Recibo Ingreso";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,8 +124,94 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(904, 341);
+            this.panel2.Size = new System.Drawing.Size(872, 322);
             this.panel2.TabIndex = 1;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
+            this.btnImprimir.Location = new System.Drawing.Point(377, 280);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(85, 25);
+            this.btnImprimir.TabIndex = 14;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
+            this.btnSalvar.Location = new System.Drawing.Point(473, 280);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(85, 25);
+            this.btnSalvar.TabIndex = 15;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Image = global::APP.Properties.Resources.Salvar_16;
+            this.btnGuardar.Location = new System.Drawing.Point(281, 280);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(85, 25);
+            this.btnGuardar.TabIndex = 19;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
+            this.btnBuscar.Location = new System.Drawing.Point(569, 280);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(85, 25);
+            this.btnBuscar.TabIndex = 16;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
+            this.btnModificar.Location = new System.Drawing.Point(185, 280);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(85, 25);
+            this.btnModificar.TabIndex = 18;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
+            this.btnNuevo.Location = new System.Drawing.Point(89, 280);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(85, 25);
+            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
+            this.btnSalir.Location = new System.Drawing.Point(665, 280);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(85, 25);
+            this.btnSalir.TabIndex = 20;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // dgvListar
             // 
@@ -145,6 +234,79 @@
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.Size = new System.Drawing.Size(851, 185);
             this.dgvListar.TabIndex = 12;
+            this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
+            this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Fact. Nº";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "NCF";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Fecha";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column4.HeaderText = "Días";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 50;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column5.HeaderText = "Total";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle15;
+            this.Column6.HeaderText = "Balance";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle16;
+            this.Column7.HeaderText = "Pago";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Column8.HeaderText = "Restante";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Column9.HeaderText = "Estado";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 70;
             // 
             // groupBox1
             // 
@@ -227,6 +389,7 @@
             this.btnAplicar.Size = new System.Drawing.Size(30, 26);
             this.btnAplicar.TabIndex = 9;
             this.btnAplicar.UseVisualStyleBackColor = true;
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
             // 
             // txtMonto
             // 
@@ -235,6 +398,9 @@
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(116, 20);
             this.txtMonto.TabIndex = 8;
+            this.txtMonto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMonto_KeyDown);
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
+            this.txtMonto.Leave += new System.EventHandler(this.txtMonto_Leave);
             // 
             // label5
             // 
@@ -248,6 +414,7 @@
             // dtpFecha
             // 
             this.dtpFecha.CustomFormat = "dd / MM / yyyy";
+            this.dtpFecha.Enabled = false;
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFecha.Location = new System.Drawing.Point(360, 13);
             this.dtpFecha.Name = "dtpFecha";
@@ -297,6 +464,8 @@
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
             this.txtIdCliente.TabIndex = 1;
+            this.txtIdCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCliente_KeyDown);
+            this.txtIdCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdCliente_KeyPress);
             this.txtIdCliente.Leave += new System.EventHandler(this.txtIdCliente_Leave);
             // 
             // label2
@@ -308,160 +477,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Codigo:";
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(310, 282);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(85, 25);
-            this.btnImprimir.TabIndex = 14;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(404, 282);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(85, 25);
-            this.btnSalvar.TabIndex = 15;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnGuardar.Location = new System.Drawing.Point(216, 282);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(85, 25);
-            this.btnGuardar.TabIndex = 19;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(498, 282);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(85, 25);
-            this.btnBuscar.TabIndex = 16;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(122, 282);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(85, 25);
-            this.btnModificar.TabIndex = 18;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(28, 282);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(85, 25);
-            this.btnNuevo.TabIndex = 17;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(592, 282);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(85, 25);
-            this.btnSalir.TabIndex = 20;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Fact. Nº";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "NCF";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fecha";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Días";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 50;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column5.HeaderText = "Total";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column6.HeaderText = "Balance";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column7.HeaderText = "Pago";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Restante";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Estado";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 70;
-            // 
             // FrmReciboIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(904, 371);
+            this.ClientSize = new System.Drawing.Size(872, 352);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

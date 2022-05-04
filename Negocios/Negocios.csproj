@@ -50,6 +50,7 @@
     <Compile Include="NFacturacion.cs" />
     <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />
+    <Compile Include="NReciboIngreso.cs" />
     <Compile Include="NSuplidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
