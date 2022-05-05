@@ -129,5 +129,22 @@ namespace APP.Buscar
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void txtIdCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnBuscar.Focus();
+            }
+        }
+
+        private void txtIdFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

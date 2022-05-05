@@ -1,15 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
     public class DReciboIngreso : Conexion
     {
+        public DataTable Buscar(string Query)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = Query;
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable Listar(DateTime Desde, DateTime Hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_listar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.Date).Value = Desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = Hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public int Insertar(int IdCliente, DateTime Fecha, DataTable Detalle)
         {
             using (var conn = GetConnection())

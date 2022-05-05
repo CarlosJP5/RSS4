@@ -85,6 +85,12 @@
     <Compile Include="Buscar\FrmBuscarMarcas.Designer.cs">
       <DependentUpon>FrmBuscarMarcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\FrmBuscarReciboIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarReciboIngreso.Designer.cs">
+      <DependentUpon>FrmBuscarReciboIngreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\FrmBuscarSuplidores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarMarcas.resx">
       <DependentUpon>FrmBuscarMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\FrmBuscarReciboIngreso.resx">
+      <DependentUpon>FrmBuscarReciboIngreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarSuplidores.resx">
       <DependentUpon>FrmBuscarSuplidores.cs</DependentUpon>

@@ -83,6 +83,20 @@ namespace APP
             CalculaTotal();
         }
 
+        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorCliente.SetError(txtNombre, "NO hay Cliente Seleccionado");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorCliente.Clear();
+                txtNombre.AllowDrop = false;
+            }
+        }
+
         private void txtIdCliente_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -234,14 +248,37 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            ValidateChildren();
+            if (txtNombre.AllowDrop)
+            {
+                return;
+            }
             if (dgvListar.RowCount <= 0)
             {
                 _ = MessageBox.Show("Este Cliente no Posee Factura Pendiente", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (!string.IsNullOrEmpty(txtIdCliente.Text) && !string.IsNullOrEmpty(txtNombre.Text)
-                && !string.IsNullOrEmpty(txtMonto.Text) && dgvListar.RowCount > 0 && txtDiferencia.Text == "0.00")
+            if (string.IsNullOrEmpty(txtMonto.Text))
+            {
+                errorMonto.SetIconAlignment(txtMonto, ErrorIconAlignment.MiddleLeft);
+                errorMonto.SetError(txtMonto, "Falta el Monto pagado por el Cliente");
+                return;
+            }
+            else
+            {
+                errorMonto.Clear();
+            }
+            if (txtDiferencia.Text != "0.00")
+            {
+                errorDiferencia.SetError(txtDiferencia, "Hay Diferencia en el Monto Pagado y el Aplicado");
+                return;
+            }
+            else
+            {
+                errorDiferencia.Clear();
+            }
+            if (!string.IsNullOrEmpty(txtIdCliente.Text) && !string.IsNullOrEmpty(txtNombre.Text))
             {
                 DataTable detalleRecibo = new DataTable();
                 detalleRecibo.Columns.Add("idFactura", typeof(int));
@@ -262,6 +299,15 @@ namespace APP
                 NReciboIngreso _recibo = new NReciboIngreso();
                 _ = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
                 btnNuevo.PerformClick();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarReciboIngreso frm = new FrmBuscarReciboIngreso();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
             }
         }
     }
