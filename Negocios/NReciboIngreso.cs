@@ -12,6 +12,11 @@ namespace Negocios
         {
             return _recibo.Buscar(Query);
         }
+        public DataTable BuscarId(string IdRecibo)
+        {
+            int id = Convert.ToInt32(IdRecibo);
+            return _recibo.BuscarId(id);
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             return _recibo.Listar(Desde, Hasta);
@@ -20,6 +25,11 @@ namespace Negocios
         {
             int id = Convert.ToInt32(IdCliente);
             return _recibo.Insertar(id, Fecha, Detalle);
+        }
+        public void Anular(string IdRecibo)
+        {
+            int id = Convert.ToInt32(IdRecibo);
+            _recibo.Anular(id);
         }
     }
 }

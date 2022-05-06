@@ -30,6 +30,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable BuscarId(int IdRecibo)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_buscarId";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idRecibo", SqlDbType.Int).Value = IdRecibo;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())
@@ -73,6 +98,28 @@ namespace Datos
                     {
                         int idRecibo = (int)cmd.ExecuteScalar();
                         return idRecibo;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public void Anular(int IdRecibo)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_anular";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idRecibo", SqlDbType.Int).Value = IdRecibo;
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
                     }
                     catch (Exception)
                     {
