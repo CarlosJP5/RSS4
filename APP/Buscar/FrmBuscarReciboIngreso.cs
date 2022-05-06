@@ -1,12 +1,6 @@
 ﻿using Negocios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP.Buscar
@@ -109,6 +103,41 @@ namespace APP.Buscar
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtIdRecibo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnBuscar.Focus();
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void dgvListar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dgvListar.CurrentRow.Selected = true;
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

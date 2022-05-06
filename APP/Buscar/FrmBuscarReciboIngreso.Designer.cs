@@ -114,6 +114,7 @@
             this.txtIdRecibo.Name = "txtIdRecibo";
             this.txtIdRecibo.Size = new System.Drawing.Size(100, 20);
             this.txtIdRecibo.TabIndex = 8;
+            this.txtIdRecibo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdRecibo_KeyDown);
             this.txtIdRecibo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdRecibo_KeyPress);
             // 
             // label4
@@ -210,6 +211,8 @@
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(506, 157);
             this.dgvListar.TabIndex = 3;
+            this.dgvListar.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellContentDoubleClick);
+            this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
             // 
             // Column1
             // 
@@ -252,6 +255,7 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -264,12 +268,14 @@
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // FrmBuscarReciboIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(532, 312);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

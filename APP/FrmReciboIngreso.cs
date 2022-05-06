@@ -32,7 +32,7 @@ namespace APP
             dgvListar.Rows.Clear();
 
             btnImprimir.Enabled = false;
-            btnModificar.Enabled = false;
+            btnAnular.Enabled = false;
             btnGuardar.Enabled = false;
         }
 
@@ -308,6 +308,25 @@ namespace APP
             if (frm.ShowDialog() == DialogResult.OK)
             {
 
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Close();
             }
         }
     }

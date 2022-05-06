@@ -38,6 +38,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.txtIdCliente = new System.Windows.Forms.Label();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,7 +92,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIdCliente = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -158,6 +158,16 @@
             this.panelMid.Name = "panelMid";
             this.panelMid.Size = new System.Drawing.Size(753, 420);
             this.panelMid.TabIndex = 1;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.AutoSize = true;
+            this.txtIdCliente.Location = new System.Drawing.Point(315, 11);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(48, 13);
+            this.txtIdCliente.TabIndex = 49;
+            this.txtIdCliente.Text = "IdCliente";
+            this.txtIdCliente.Visible = false;
             // 
             // dgvListar
             // 
@@ -378,6 +388,7 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label19
             // 
@@ -688,16 +699,6 @@
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Fecha:";
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.AutoSize = true;
-            this.txtIdCliente.Location = new System.Drawing.Point(315, 11);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(48, 13);
-            this.txtIdCliente.TabIndex = 49;
-            this.txtIdCliente.Text = "IdCliente";
-            this.txtIdCliente.Visible = false;
             // 
             // FrmFacturaDevolucion
             // 
