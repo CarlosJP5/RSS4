@@ -7,6 +7,40 @@ namespace Datos
 {
     public class DFacturacion : Conexion
     {
+        public bool TieneMovimientos(int IdFactura)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = string.Format(@"SELECT FD.id_devolucion, RI.id_ri FROM Factura F LEFT JOIN FacturaDevolucion FD
+                                                      ON F.id_factura = FD.id_factura LEFT JOIN ReciboIngreso
+                                                      RI ON F.id_factura = RI.id_factura WHERE 
+                                                      F.id_factura = {0}", IdFactura);
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        string devolucion = table.Rows[0][0].ToString();
+                        string recibo = table.Rows[0][1].ToString();
+                        if (string.IsNullOrEmpty(devolucion) && string.IsNullOrEmpty(recibo))
+                        {
+                            return false;
+                        }
+                        else
+                            return true;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Buscar(string Query)
         {
             using (var conn = GetConnection())
@@ -56,6 +90,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable BuscarDevoluionId(int IdDevolucion)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_buscarId";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idDevolucion", SqlDbType.Int).Value = IdDevolucion;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())
@@ -68,6 +127,32 @@ namespace Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = Desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value= Hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable ListarDevolucion(DateTime Desde, DateTime Hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_listar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.Date).Value = Desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = Hasta;
                     try
                     {
                         SqlDataReader leer = cmd.ExecuteReader();

@@ -8,7 +8,12 @@ namespace Negocios
     public class NFacturacion
     {
         private readonly DFacturacion _facturar = new DFacturacion();
-
+        
+        public bool TieneMovimientos(string IdFactura)
+        {
+            int Id = Convert.ToInt32(IdFactura);
+            return _facturar.TieneMovimientos(Id);
+        }
         public DataTable Buscar(string Query)
         {
             return _facturar.Buscar(Query);
@@ -18,9 +23,18 @@ namespace Negocios
             int Id = Convert.ToInt32(IdFactura);
             return _facturar.BuscarId(Id);
         }
+        public DataTable BuscarDevoluionId(string IdDevolucion)
+        {
+            int Id = Convert.ToInt32(IdDevolucion);
+            return _facturar.BuscarDevoluionId(Id);
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             return _facturar.Listar(Desde, Hasta);
+        }
+        public DataTable ListarDevolucion(DateTime Desde, DateTime Hasta)
+        {
+            return _facturar.ListarDevolucion(Desde, Hasta);
         }
         public int Insertar(EFactura Factura, DataTable Detalle)
         {

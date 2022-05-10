@@ -439,10 +439,18 @@ namespace APP
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            HabilitarControles();
-            btnGuardar.Enabled = true;
-            btnImprimir.Enabled = false;
-            btnBuscar.Enabled = false;
+            if (_facturar.TieneMovimientos(lblIdFactura.Text))
+            {
+                MessageBox.Show("Esta Factura tiene movimientos\nNo puede ser modificada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                MessageBox.Show("No Tiene");
+                HabilitarControles();
+                btnGuardar.Enabled = true;
+                btnImprimir.Enabled = false;
+                btnBuscar.Enabled = false;
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

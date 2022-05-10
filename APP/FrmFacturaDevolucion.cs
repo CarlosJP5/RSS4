@@ -43,6 +43,12 @@ namespace APP
             txtDescuentoFactura.Text = null;
             txtItbisFactura.Text = null;
             txtTotalFactura.Text = null;
+            lblIdDevolucion.Visible = false;
+            lblNCF.Visible = false;
+
+            txtIdFactura.Enabled = true;
+            btnBuscarFactura.Enabled = true;
+            dgvListar.ReadOnly = false;
 
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
@@ -201,6 +207,7 @@ namespace APP
                         IdCliente = Convert.ToInt32(txtIdCliente.Text),
                         IdComprobante = "B04",
                         Fecha = DateTime.Now,
+                        TipoCompra = txtTipoFactura.Text,
                         Importe = Convert.ToDecimal(txtImporteFactura.Text),
                         Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
                         Itbis = Convert.ToDecimal(txtItbisFactura.Text),
@@ -238,14 +245,17 @@ namespace APP
                         Detalle.Columns.Add("[totalitbis]", typeof(decimal));
                         for (int i = 0; i < dgvListar.RowCount; i++)
                         {
-                            DataRow row = Detalle.NewRow();
-                            row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
-                            row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
-                            row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
-                            row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
-                            row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
-                            row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
-                            Detalle.Rows.Add(row);
+                            if (double.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _))
+                            {
+                                DataRow row = Detalle.NewRow();
+                                row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                                row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                                row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                                row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                                row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                                row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                                Detalle.Rows.Add(row);
+                            }
                         }
                         _facturar.InsertarDevolucion(Factura, Detalle);
                         btnNuevo.PerformClick();
@@ -265,6 +275,96 @@ namespace APP
             if (msj == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarDevolucion frm = new FrmBuscarDevolucion();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                lblIdDevolucion.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                lblNCF.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                lblIdDevolucion.Visible = true;
+                lblNCF.Visible = true;
+                DataTable dev = _facturar.BuscarDevoluionId(lblIdDevolucion.Text);
+                LlenarForm(dev.Rows[0][0].ToString());
+                for (int i = 0; i < dgvListar.Rows.Count; i++)
+                {
+                    foreach (DataRow row in dev.Rows)
+                    {
+                        if (dgvListar.Rows[i].Cells[0].Value.ToString() == row[1].ToString())
+                        {
+                            dgvListar.Rows[i].Cells[7].Value = row[2];
+                        }
+                    }
+                }
+                CalculaTotal();
+
+                txtIdFactura.Enabled = false;
+                btnBuscarFactura.Enabled = false;
+                dgvListar.ReadOnly = true;
+
+                btnSalvar.Enabled = false;
+                btnImprimir.Enabled = true;
+                //btnModificar.Enabled = true;
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            btnImprimir.Enabled = false;
+            btnGuardar.Enabled = true;
+            dgvListar.ReadOnly = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtTotalFactura.Text) && !string.IsNullOrEmpty(txtNombre.Text))
+            {
+                bool tryy = decimal.TryParse(txtTotalFactura.Text, out _);
+                if (tryy)
+                {
+                    EFactura Factura = new EFactura()
+                    {
+                        IdDevolucion = Convert.ToInt32(lblIdDevolucion.Text),
+                        Importe = Convert.ToDecimal(txtImporteFactura.Text),
+                        Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
+                        Itbis = Convert.ToDecimal(txtItbisFactura.Text),
+                        Total = Convert.ToDecimal(txtTotalFactura.Text),
+                    };
+                    if (Factura.Total > 0)
+                    {
+                        DataTable Detalle = new DataTable();
+                        Detalle.Columns.Add("[idArticulo]", typeof(int));
+                        Detalle.Columns.Add("[cantidad]", typeof(decimal));
+                        Detalle.Columns.Add("[precio]", typeof(decimal));
+                        Detalle.Columns.Add("[totalimporte]", typeof(decimal));
+                        Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
+                        Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                        for (int i = 0; i < dgvListar.RowCount; i++)
+                        {
+                            if (double.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _))
+                            {
+                                DataRow row = Detalle.NewRow();
+                                row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                                row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                                row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
+                                row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
+                                row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
+                                row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                                Detalle.Rows.Add(row);
+                            }
+                        }
+                        //_facturar.InsertarDevolucion(Factura, Detalle);
+                        btnNuevo.PerformClick();
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("No hay Monto para devolver", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
             }
         }
     }
