@@ -51,6 +51,7 @@
     <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />
     <Compile Include="NReciboIngreso.cs" />
+    <Compile Include="NReportes\NrptEmpresa.cs" />
     <Compile Include="NSuplidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,5 +65,6 @@
       <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

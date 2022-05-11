@@ -45,6 +45,7 @@
     <Compile Include="ECliente.cs" />
     <Compile Include="ECompra.cs" />
     <Compile Include="EFactura.cs" />
+    <Compile Include="EReportes\ErptEmpresa.cs" />
     <Compile Include="ESuplidor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="zConexion.cs" />

@@ -10,6 +10,7 @@ namespace Entidades
         public string IdComprobante { get; set; }
         public string Ncf { get; set; }
         public DateTime Fecha { get; set; }
+        public DateTime FechaVencimiento { get; set; }
         public string TipoCompra { get; set; }
         public string Nota { get; set; }
         public decimal Importe { get; set; }

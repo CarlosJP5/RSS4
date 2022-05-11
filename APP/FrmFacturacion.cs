@@ -1,6 +1,8 @@
 ﻿using APP.Buscar;
 using Entidades;
+using Microsoft.Reporting.WinForms;
 using Negocios;
+using Negocios.NReportes;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -323,6 +325,7 @@ namespace APP
                     {
                         int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
                         Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+                        Factura.FechaVencimiento = date;
                     }
                     else
                     {
@@ -518,6 +521,20 @@ namespace APP
             if (msj == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            using (LocalReport localReport = new LocalReport())
+            {
+                NrptEmpresa nEmpresa = new NrptEmpresa();
+                nEmpresa.LlenaEmpresa();
+                localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
+                localReport.DataSources.Clear();
+                localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                localReport.PrintToPrinter();
+                btnNuevo.PerformClick();
             }
         }
     }
