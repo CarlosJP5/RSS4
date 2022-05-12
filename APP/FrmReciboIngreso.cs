@@ -1,5 +1,7 @@
 ﻿using APP.Buscar;
+using Microsoft.Reporting.WinForms;
 using Negocios;
+using Negocios.NReportes;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace APP
         }
 
         private readonly NClientes _cliente = new NClientes();
+        private readonly NReciboIngreso _recibo = new NReciboIngreso();
 
         private void FrmReciboIngreso_Load(object sender, EventArgs e)
         {
@@ -255,7 +258,7 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            ValidateChildren();
+            _ = ValidateChildren();
             if (txtNombre.AllowDrop)
             {
                 return;
@@ -303,8 +306,23 @@ namespace APP
                         detalleRecibo.Rows.Add(row);
                     }
                 }
-                NReciboIngreso _recibo = new NReciboIngreso();
-                _ = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
+                int idRecibo = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
+                DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (msj == DialogResult.Yes)
+                {
+                    using (LocalReport localReport = new LocalReport())
+                    {
+                        NrptEmpresa nEmpresa = new NrptEmpresa();
+                        nEmpresa.LlenaEmpresa();
+                        _recibo.ImprimirRecibo(idRecibo.ToString());
+                        localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
+                        localReport.DataSources.Clear();
+                        localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                        localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
+                        localReport.PrintToPrinter();
+                        btnNuevo.PerformClick();
+                    }
+                }
                 btnNuevo.PerformClick();
             }
         }
@@ -314,7 +332,6 @@ namespace APP
             FrmBuscarReciboIngreso frm = new FrmBuscarReciboIngreso();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                NReciboIngreso _recibo = new NReciboIngreso();
                 DataTable recibo = _recibo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
                 txtIdCliente.Text = recibo.Rows[0][0].ToString();
                 txtNombre.Text = recibo.Rows[0][1].ToString();
@@ -344,7 +361,18 @@ namespace APP
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-
+            using (LocalReport localReport = new LocalReport())
+            {
+                NrptEmpresa nEmpresa = new NrptEmpresa();
+                nEmpresa.LlenaEmpresa();
+                _recibo.ImprimirRecibo(lblIdRecibo.Text);
+                localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
+                localReport.DataSources.Clear();
+                localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
+                localReport.PrintToPrinter();
+                btnNuevo.PerformClick();
+            }
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -352,7 +380,6 @@ namespace APP
             DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (msj == DialogResult.Yes)
             {
-                NReciboIngreso _recibo = new NReciboIngreso();
                 _recibo.Anular(lblIdRecibo.Text);
                 btnNuevo.PerformClick();
             }

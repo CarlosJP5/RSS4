@@ -276,6 +276,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reportes\rptFactura.rdlc" />
+    <EmbeddedResource Include="Reportes\rptReciboIngreso.rdlc" />
     <EmbeddedResource Include="zPrincipal.resx">
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +284,7 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEmpresa.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFactura.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaDetalle.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngreso.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
