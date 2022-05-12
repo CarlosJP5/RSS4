@@ -529,10 +529,14 @@ namespace APP
             using (LocalReport localReport = new LocalReport())
             {
                 NrptEmpresa nEmpresa = new NrptEmpresa();
+                NrptFactura nFactura = new NrptFactura();
                 nEmpresa.LlenaEmpresa();
-                localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
+                nFactura.Facturas(lblIdFactura.Text);
+                localReport.ReportPath = @"C:\Users\Carlo\source\repos\RSS4\APP\Reportes\rptFactura.rdlc";
                 localReport.DataSources.Clear();
                 localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
+                localReport.DataSources.Add(new ReportDataSource("dsFacturaDetalle", nFactura.FacturaDetalles));
                 localReport.PrintToPrinter();
                 btnNuevo.PerformClick();
             }

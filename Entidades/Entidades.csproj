@@ -47,6 +47,7 @@
     <Compile Include="EFactura.cs" />
     <Compile Include="EReportes\ErptEmpresa.cs" />
     <Compile Include="EReportes\ErptFactura.cs" />
+    <Compile Include="EReportes\ErptFacturaDetalle.cs" />
     <Compile Include="ESuplidor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="zConexion.cs" />

@@ -54,6 +54,7 @@
     <Compile Include="DMarcas.cs" />
     <Compile Include="DReciboIngreso.cs" />
     <Compile Include="DReportes\DrptEmpresa.cs" />
+    <Compile Include="DReportes\DrptFactura.cs" />
     <Compile Include="DSuplidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,23 +7,24 @@ namespace Negocios.NReportes
 {
     public class NrptEmpresa
     {
-        public List<ErptEmpresa> Empresa { get; set; }
+        public List<ErptEmpresa> Empresa { get; private set; }
 
         public void LlenaEmpresa()
         {
             DrptEmpresa _empresa = new DrptEmpresa();
             DataTable tableEmpresa = _empresa.Empresa();
             Empresa = new List<ErptEmpresa>();
-            foreach (DataRow row in tableEmpresa.Rows)
+            ErptEmpresa empresaModel = new ErptEmpresa()
             {
-                ErptEmpresa empresaModel = new ErptEmpresa()
-                {
-                    IdEmpresa = (int)tableEmpresa.Rows[0][0],
-                    NombreEmpresa = tableEmpresa.Rows[0][1].ToString(),
-
-                };
-                Empresa.Add(empresaModel);
-            }
+                IdEmpresa = (int)tableEmpresa.Rows[0][0],
+                NombreEmpresa = tableEmpresa.Rows[0][1].ToString(),
+                DireccionEmpresa = tableEmpresa.Rows[0][2].ToString(),
+                RncEmpresa = tableEmpresa.Rows[0][3].ToString(),
+                TelefonoEmpresa = tableEmpresa.Rows[0][4].ToString(),
+                CellEmpresa = tableEmpresa.Rows[0][5].ToString(),
+                CorreoEmpresa = tableEmpresa.Rows[0][6].ToString()
+            };
+            Empresa.Add(empresaModel);
         }
     }
 }
