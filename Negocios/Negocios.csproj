@@ -51,6 +51,7 @@
     <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />
     <Compile Include="NReciboIngreso.cs" />
+    <Compile Include="NReciboPago.cs" />
     <Compile Include="NReportes\NrptEmpresa.cs" />
     <Compile Include="NReportes\NrptFactura.cs" />
     <Compile Include="NSuplidores.cs" />

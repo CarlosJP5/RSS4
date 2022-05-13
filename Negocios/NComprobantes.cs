@@ -23,6 +23,10 @@ namespace Negocios
         {
             return _comprobantes.SumarCantidad(IdComprobante);
         }
+        public DataTable Reporte607(string Query)
+        {
+            return _comprobantes.Reporte607(Query);
+        }
         public void BorrarCantidad(int IdRegistro)
         {
             _comprobantes.BorrarCantidad(IdRegistro);

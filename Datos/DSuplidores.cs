@@ -7,6 +7,31 @@ namespace Datos
 {
     public class DSuplidores : Conexion
     {
+        public DataTable BalancePendiente(int IdSuplidor)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "suplidor_balancePendiente";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idSuplidor", SqlDbType.Int).Value = IdSuplidor;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Buscar(string Query)
         {
             using (var conn = GetConnection())

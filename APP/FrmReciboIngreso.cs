@@ -41,6 +41,7 @@ namespace APP
             dgvListar.ReadOnly = false;
             btnSalvar.Enabled = true;
             btnBuscar.Enabled = true;
+            _ = txtIdCliente.Focus();
 
             btnImprimir.Enabled = false;
             btnAnular.Enabled = false;
@@ -332,6 +333,7 @@ namespace APP
             FrmBuscarReciboIngreso frm = new FrmBuscarReciboIngreso();
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                btnNuevo.PerformClick();
                 DataTable recibo = _recibo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
                 txtIdCliente.Text = recibo.Rows[0][0].ToString();
                 txtNombre.Text = recibo.Rows[0][1].ToString();
@@ -377,7 +379,7 @@ namespace APP
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
-            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult msj = MessageBox.Show("Desea Anular", "Anular", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (msj == DialogResult.Yes)
             {
                 _recibo.Anular(lblIdRecibo.Text);

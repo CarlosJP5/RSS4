@@ -30,12 +30,12 @@ namespace APP
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelmid = new System.Windows.Forms.Panel();
@@ -56,6 +56,7 @@ namespace APP
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDiferencia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -156,6 +157,7 @@ namespace APP
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnSalvar
             // 
@@ -181,6 +183,7 @@ namespace APP
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAnular
             // 
@@ -193,6 +196,7 @@ namespace APP
             this.btnAnular.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnNuevo
             // 
@@ -218,6 +222,7 @@ namespace APP
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvListar
             // 
@@ -234,7 +239,8 @@ namespace APP
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9});
+            this.Column9,
+            this.Column10});
             this.dgvListar.Location = new System.Drawing.Point(10, 79);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
@@ -263,8 +269,8 @@ namespace APP
             // 
             // Column4
             // 
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column4.HeaderText = "Días";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -272,47 +278,53 @@ namespace APP
             // 
             // Column5
             // 
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle86.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle87.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column6.HeaderText = "Balance";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle88.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column7.HeaderText = "Pago";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle89.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle17;
             this.Column8.HeaderText = "Restante";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.Red;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle18;
             this.Column9.HeaderText = "Estado";
             this.Column9.Name = "Column9";
             this.Column9.Width = 70;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "IdCompra";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
             // 
             // groupBox1
             // 
@@ -537,15 +549,6 @@ namespace APP
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgvListar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDiferencia;
         private System.Windows.Forms.Label label7;
@@ -566,5 +569,15 @@ namespace APP
         private System.Windows.Forms.ErrorProvider errorCliente;
         private System.Windows.Forms.ErrorProvider errorMonto;
         private System.Windows.Forms.ErrorProvider errorDiferencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

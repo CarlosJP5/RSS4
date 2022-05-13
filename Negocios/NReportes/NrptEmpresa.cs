@@ -7,9 +7,10 @@ namespace Negocios.NReportes
 {
     public class NrptEmpresa
     {
+        public string Nombre { get; private set; }
         public List<ErptEmpresa> Empresa { get; private set; }
 
-        public void LlenaEmpresa()
+        public string LlenaEmpresa()
         {
             DrptEmpresa _empresa = new DrptEmpresa();
             DataTable tableEmpresa = _empresa.Empresa();
@@ -25,6 +26,7 @@ namespace Negocios.NReportes
                 CorreoEmpresa = tableEmpresa.Rows[0][6].ToString()
             };
             Empresa.Add(empresaModel);
+            return tableEmpresa.Rows[0][1].ToString();
         }
     }
 }

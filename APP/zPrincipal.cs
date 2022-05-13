@@ -98,5 +98,19 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void reciboDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReciboPago frm = new FrmReciboPago();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reporteVentas607ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteComprobantes607 frm = new FrmReporteComprobantes607();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

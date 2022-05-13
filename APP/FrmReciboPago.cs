@@ -22,6 +22,7 @@ namespace APP
         }
 
         private readonly NSuplidores _suplidor = new NSuplidores();
+        private readonly NReciboPago _recibo = new NReciboPago();
 
         private void FrmReciboPago_Load(object sender, EventArgs e)
         {
@@ -46,6 +47,7 @@ namespace APP
             dgvListar.ReadOnly = false;
             btnSalvar.Enabled = true;
             btnBuscar.Enabled = true;
+            _ = txtIdCliente.Focus();
 
             btnImprimir.Enabled = false;
             btnAnular.Enabled = false;
@@ -58,7 +60,7 @@ namespace APP
                 DataTable cliente = _suplidor.BuscarId(txtIdCliente.Text);
                 if (cliente.Rows.Count > 0)
                 {
-                    txtNombre.Text = cliente.Rows[0][2].ToString();
+                    txtNombre.Text = cliente.Rows[0][1].ToString();
                     LlenarDGV(txtIdCliente.Text);
                 }
                 else
@@ -84,17 +86,17 @@ namespace APP
         private void LlenarDGV(string IdCliente)
         {
             dgvListar.Rows.Clear();
-            //DataTable balance = _suplidor.BalancePendiente(IdCliente);
-            //if (balance.Rows.Count > 0)
-            //{
-            //    DateTime d2 = DateTime.Now.Date;
-            //    for (int i = 0; i < balance.Rows.Count; i++)
-            //    {
-            //        DateTime d1 = DateTime.Parse(balance.Rows[i][8].ToString());
-            //        _ = dgvListar.Rows.Add(balance.Rows[i][1], balance.Rows[i][17], d1.ToString("dd/MM/yyyy"),
-            //            (d2 - d1.Date).Days.ToString("N0"), balance.Rows[i][14], balance.Rows[i][3], "", "", "");
-            //    }
-            //}
+            DataTable balance = _suplidor.BalancePendiente(IdCliente);
+            if (balance.Rows.Count > 0)
+            {
+                DateTime d2 = DateTime.Now.Date;
+                for (int i = 0; i < balance.Rows.Count; i++)
+                {
+                    DateTime d1 = DateTime.Parse(balance.Rows[i][2].ToString());
+                    _ = dgvListar.Rows.Add(balance.Rows[i][0], balance.Rows[i][1], d1.ToString("dd/MM/yyyy"),
+                        (d2 - d1.Date).Days.ToString("N0"), balance.Rows[i][3], balance.Rows[i][4], "", "", "", balance.Rows[i][5]);
+                }
+            }
             CalculaTotal();
         }
 
@@ -153,6 +155,11 @@ namespace APP
         private void txtMonto_Leave(object sender, EventArgs e)
         {
             CalculaTotal();
+            if (!string.IsNullOrEmpty(txtMonto.Text))
+            {
+                decimal monto = Convert.ToDecimal(txtMonto.Text);
+                txtMonto.Text = monto.ToString("N2");
+            }
         }
 
         private void btnAplicar_Click(object sender, EventArgs e)
@@ -263,56 +270,56 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            //_ = ValidateChildren();
-            //if (txtNombre.AllowDrop)
-            //{
-            //    return;
-            //}
-            //if (dgvListar.RowCount <= 0)
-            //{
-            //    _ = MessageBox.Show("Este Cliente no Posee Factura Pendiente", "Info",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
-            //if (string.IsNullOrEmpty(txtMonto.Text))
-            //{
-            //    errorMonto.SetIconAlignment(txtMonto, ErrorIconAlignment.MiddleLeft);
-            //    errorMonto.SetError(txtMonto, "Falta el Monto pagado por el Cliente");
-            //    return;
-            //}
-            //else
-            //{
-            //    errorMonto.Clear();
-            //}
-            //if (txtDiferencia.Text != "0.00")
-            //{
-            //    errorDiferencia.SetError(txtDiferencia, "Hay Diferencia en el Monto Pagado y el Aplicado");
-            //    return;
-            //}
-            //else
-            //{
-            //    errorDiferencia.Clear();
-            //}
-            //if (!string.IsNullOrEmpty(txtIdCliente.Text) && !string.IsNullOrEmpty(txtNombre.Text))
-            //{
-            //    DataTable detalleRecibo = new DataTable();
-            //    detalleRecibo.Columns.Add("idFactura", typeof(int));
-            //    detalleRecibo.Columns.Add("pago", typeof(decimal));
-            //    detalleRecibo.Columns.Add("estado", typeof(string));
-            //    for (int i = 0; i < dgvListar.RowCount; i++)
-            //    {
-            //        bool tryy = double.TryParse(dgvListar.Rows[i].Cells[6].Value.ToString(), out _);
-            //        if (tryy)
-            //        {
-            //            DataRow row = detalleRecibo.NewRow();
-            //            row[0] = (int)dgvListar.Rows[i].Cells[0].Value;
-            //            row[1] = Convert.ToDouble(dgvListar.Rows[i].Cells[6].Value);
-            //            row[2] = dgvListar.Rows[i].Cells[8].Value.ToString();
-            //            detalleRecibo.Rows.Add(row);
-            //        }
-            //    }
-            //    int idRecibo = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
-            //    DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            _ = ValidateChildren();
+            if (txtNombre.AllowDrop)
+            {
+                return;
+            }
+            if (dgvListar.RowCount <= 0)
+            {
+                _ = MessageBox.Show("Este Cliente no Posee Factura Pendiente", "Info",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtMonto.Text))
+            {
+                errorMonto.SetIconAlignment(txtMonto, ErrorIconAlignment.MiddleLeft);
+                errorMonto.SetError(txtMonto, "Falta el Monto pagado por el Cliente");
+                return;
+            }
+            else
+            {
+                errorMonto.Clear();
+            }
+            if (txtDiferencia.Text != "0.00")
+            {
+                errorDiferencia.SetError(txtDiferencia, "Hay Diferencia en el Monto Pagado y el Aplicado");
+                return;
+            }
+            else
+            {
+                errorDiferencia.Clear();
+            }
+            if (!string.IsNullOrEmpty(txtIdCliente.Text) && !string.IsNullOrEmpty(txtNombre.Text))
+            {
+                DataTable detalleRecibo = new DataTable();
+                detalleRecibo.Columns.Add("idFactura", typeof(int));
+                detalleRecibo.Columns.Add("pago", typeof(decimal));
+                detalleRecibo.Columns.Add("estado", typeof(string));
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    bool tryy = double.TryParse(dgvListar.Rows[i].Cells[6].Value.ToString(), out _);
+                    if (tryy)
+                    {
+                        DataRow row = detalleRecibo.NewRow();
+                        row[0] = (int)dgvListar.Rows[i].Cells[9].Value;
+                        row[1] = Convert.ToDouble(dgvListar.Rows[i].Cells[6].Value);
+                        row[2] = dgvListar.Rows[i].Cells[8].Value.ToString();
+                        detalleRecibo.Rows.Add(row);
+                    }
+                }
+                int idRecibo = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
+                //DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             //    if (msj == DialogResult.Yes)
             //    {
             //        using (LocalReport localReport = new LocalReport())
@@ -328,8 +335,65 @@ namespace APP
             //            btnNuevo.PerformClick();
             //        }
             //    }
-            //    btnNuevo.PerformClick();
-            //}
+                btnNuevo.PerformClick();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarReciboPago frm = new FrmBuscarReciboPago();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                btnNuevo.PerformClick();
+                DataTable recibo = _recibo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+                txtIdCliente.Text = recibo.Rows[0][0].ToString();
+                txtNombre.Text = recibo.Rows[0][1].ToString();
+                dtpFecha.Value = DateTime.Parse(recibo.Rows[0][2].ToString());
+                lblIdRecibo.Text = recibo.Rows[0][3].ToString();
+                decimal total = 0m;
+                foreach (DataRow row in recibo.Rows)
+                {
+                    total += Convert.ToDecimal(row[6].ToString());
+                    DateTime d1 = DateTime.Parse(row[5].ToString());
+                    dgvListar.Rows.Add(row[4], "", d1.ToString("dd/MM/yyyy"), (dtpFecha.Value.Date - d1.Date).Days.ToString("N0"),
+                        "", "", row[6], "", row[7]);
+                }
+                txtPago.Text = total.ToString("N2");
+
+                txtIdCliente.Enabled = false;
+                btnBuscarCliente.Enabled = false;
+                txtMonto.Enabled = false;
+                btnAplicar.Enabled = false;
+                dgvListar.ReadOnly = true;
+                btnSalvar.Enabled = false;
+                btnBuscar.Enabled = false;
+                btnAnular.Enabled = true;
+                btnImprimir.Enabled = true;
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Anular", "Anular", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (msj == DialogResult.Yes)
+            {
+                _recibo.Anular(lblIdRecibo.Text);
+                btnNuevo.PerformClick();
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

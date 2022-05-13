@@ -103,6 +103,30 @@ namespace Datos
                 }
             }
         }
+        public DataTable Reporte607(string Query)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = Query;
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void BorrarCantidad(int IdRegistro)
         {
             using (var conn = GetConnection())

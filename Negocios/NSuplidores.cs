@@ -9,6 +9,11 @@ namespace Negocios
     {
         private readonly DSuplidores _suplidor = new DSuplidores();
 
+        public DataTable BalancePendiente(string IdSuplidor)
+        {
+            int id = Convert.ToInt32(IdSuplidor);
+            return _suplidor.BalancePendiente(id);
+        }
         public DataTable Buscar(string Query)
         {
             return _suplidor.Buscar(Query);
