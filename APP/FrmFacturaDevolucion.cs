@@ -223,6 +223,7 @@ namespace APP
                             {
                                 int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
                                 Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+                                Factura.FechaVencimiento = date;
                             }
                             else
                             {
