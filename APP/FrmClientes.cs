@@ -183,7 +183,7 @@ namespace APP
         {
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
-                errorNombre.SetError(txtRnc, "El RNC no es Valido");
+                errorNombre.SetError(txtNombre, "Nombre del Cliente Requerido");
                 txtNombre.AllowDrop = true;
             }
             else
