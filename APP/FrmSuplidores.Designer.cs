@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -56,8 +57,10 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtIdSuplidor = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -189,6 +192,7 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(100, 20);
             this.txtCelular.TabIndex = 8;
+            this.txtCelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCelular_KeyDown);
             // 
             // txtTelefono
             // 
@@ -198,6 +202,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(100, 20);
             this.txtTelefono.TabIndex = 6;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // label11
             // 
@@ -302,6 +307,7 @@
             this.cboCompraA.Name = "cboCompraA";
             this.cboCompraA.Size = new System.Drawing.Size(100, 21);
             this.cboCompraA.TabIndex = 9;
+            this.cboCompraA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboCompraA_KeyDown);
             // 
             // txtVendedor
             // 
@@ -312,6 +318,7 @@
             this.txtVendedor.Name = "txtVendedor";
             this.txtVendedor.Size = new System.Drawing.Size(130, 20);
             this.txtVendedor.TabIndex = 7;
+            this.txtVendedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVendedor_KeyDown);
             // 
             // txtRnc
             // 
@@ -322,6 +329,7 @@
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
             this.txtRnc.TabIndex = 5;
+            this.txtRnc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRnc_KeyDown);
             this.txtRnc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRnc_KeyPress);
             // 
             // cboEstado
@@ -337,6 +345,7 @@
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 21);
             this.cboEstado.TabIndex = 4;
+            this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboEstado_KeyDown);
             // 
             // txtCorreo
             // 
@@ -347,6 +356,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(200, 20);
             this.txtCorreo.TabIndex = 3;
+            this.txtCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
             // 
             // txtDireccion
             // 
@@ -358,6 +368,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(200, 46);
             this.txtDireccion.TabIndex = 2;
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // txtIdSuplidor
             // 
@@ -377,6 +388,12 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.ContainerControl = this;
             // 
             // FrmSuplidores
             // 
@@ -395,6 +412,7 @@
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,5 +447,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.ErrorProvider errorNombre;
     }
 }

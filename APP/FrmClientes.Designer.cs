@@ -136,7 +136,8 @@
             this.txtTelefono.Mask = "(999) 000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(100, 20);
-            this.txtTelefono.TabIndex = 29;
+            this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // btnSalir
             // 
@@ -307,6 +308,7 @@
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(100, 21);
             this.cboEstado.TabIndex = 13;
+            this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboEstado_KeyDown);
             // 
             // cboTipoCompra
             // 
@@ -321,6 +323,7 @@
             this.cboTipoCompra.Name = "cboTipoCompra";
             this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
             this.cboTipoCompra.TabIndex = 12;
+            this.cboTipoCompra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboTipoCompra_KeyDown);
             // 
             // txtDescuento
             // 
@@ -331,6 +334,8 @@
             this.txtDescuento.Size = new System.Drawing.Size(100, 20);
             this.txtDescuento.TabIndex = 11;
             this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescuento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyDown);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteCredito_KeyPress);
             // 
             // txtLimiteCredito
             // 
@@ -341,6 +346,8 @@
             this.txtLimiteCredito.Size = new System.Drawing.Size(100, 20);
             this.txtLimiteCredito.TabIndex = 10;
             this.txtLimiteCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLimiteCredito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLimiteCredito_KeyDown);
+            this.txtLimiteCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteCredito_KeyPress);
             // 
             // txtRnc
             // 
@@ -351,6 +358,7 @@
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
             this.txtRnc.TabIndex = 8;
+            this.txtRnc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRnc_KeyDown);
             this.txtRnc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             this.txtRnc.Validating += new System.ComponentModel.CancelEventHandler(this.txtRnc_Validating);
             // 
@@ -364,6 +372,7 @@
             this.cboTipoComprobante.Name = "cboTipoComprobante";
             this.cboTipoComprobante.Size = new System.Drawing.Size(200, 21);
             this.cboTipoComprobante.TabIndex = 7;
+            this.cboTipoComprobante.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboTipoComprobante_KeyDown);
             // 
             // txtCorreo
             // 
@@ -374,6 +383,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(200, 20);
             this.txtCorreo.TabIndex = 6;
+            this.txtCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
             // 
             // txtDireccion
             // 
@@ -385,6 +395,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(200, 46);
             this.txtDireccion.TabIndex = 5;
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // txtCedula
             // 
@@ -395,6 +406,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(100, 20);
             this.txtCedula.TabIndex = 4;
+            this.txtCedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCedula_KeyDown);
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label3
@@ -433,6 +445,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
             // 
             // errorRNC

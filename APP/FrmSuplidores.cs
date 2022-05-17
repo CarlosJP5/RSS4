@@ -41,6 +41,7 @@ namespace APP
             txtCelular.Text = null;
             cboEstado.SelectedIndex = 0;
             cboCompraA.SelectedIndex = 1;
+            _ = txtNombre.Focus();
 
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
@@ -145,6 +146,101 @@ namespace APP
             if (msj == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void txtNombre_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorNombre.SetError(txtNombre, "Campo Requerido");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorNombre.Clear();
+                txtNombre.AllowDrop = false;
+            }
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtDireccion.Focus();
+            }
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCorreo.Focus();
+            }
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = cboEstado.Focus();
+            }
+        }
+
+        private void cboEstado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtRnc.Focus();
+            }
+        }
+
+        private void txtRnc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtTelefono.Focus();
+            }
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtVendedor.Focus();
+            }
+        }
+
+        private void txtVendedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCelular.Focus();
+            }
+        }
+
+        private void txtCelular_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = cboCompraA.Focus();
+            }
+        }
+
+        private void cboCompraA_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnSalvar.Focus();
             }
         }
     }

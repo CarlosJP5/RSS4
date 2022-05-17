@@ -18,7 +18,24 @@ namespace APP
             cboTipoComprobante.ValueMember = "id_comprobante";
             cboTipoComprobante.DisplayMember = "nombre_comprobante";
         }
-        
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            //if (keyData == Keys.F1)
+            //{
+                
+            //    return true;    // indicate that you handled this keystroke
+            //}
+            if (keyData == Keys.F5)
+            {
+                btnFacturar.PerformClick();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private readonly NArticulos _articulo = new NArticulos();
         private readonly NComprobantes _comprobante = new NComprobantes();
         private readonly NClientes _cliente = new NClientes();
@@ -465,7 +482,6 @@ namespace APP
             }
             else
             {
-                MessageBox.Show("No Tiene");
                 HabilitarControles();
                 btnGuardar.Enabled = true;
                 btnImprimir.Enabled = false;

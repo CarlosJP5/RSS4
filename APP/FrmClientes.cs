@@ -41,6 +41,7 @@ namespace APP
             txtDescuento.Text = null;
             cboTipoCompra.SelectedIndex = 0;
             cboEstado.SelectedIndex = 0;
+            _ = txtNombre.Focus();
 
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
@@ -49,6 +50,8 @@ namespace APP
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             ValidateChildren();
+            if (txtRnc.AllowDrop) _ = txtRnc.Focus();
+            if (txtNombre.AllowDrop) _ = txtNombre.Focus();
             if (!txtNombre.AllowDrop && !txtRnc.AllowDrop)
             {
                 cliente.Nombre = txtNombre.Text;
@@ -190,6 +193,117 @@ namespace APP
             {
                 errorNombre.Clear();
                 txtNombre.AllowDrop = false;
+            }
+        }
+
+        private void txtLimiteCredito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCedula.Focus();
+            }
+        }
+
+        private void txtCedula_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtDireccion.Focus();
+            }
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCorreo.Focus();
+            }
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = cboTipoComprobante.Focus();
+            }
+        }
+
+        private void cboTipoComprobante_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtRnc.Focus();
+            }
+        }
+
+        private void txtRnc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtTelefono.Focus();
+            }
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtLimiteCredito.Focus();
+            }
+        }
+
+        private void txtLimiteCredito_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtDescuento.Focus();
+            }
+        }
+
+        private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = cboTipoCompra.Focus();
+            }
+        }
+
+        private void cboTipoCompra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = cboEstado.Focus();
+            }
+        }
+
+        private void cboEstado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnSalvar.Focus();
             }
         }
     }

@@ -62,8 +62,8 @@ namespace APP
         {
             NrptEmpresa _empresa = new NrptEmpresa();
             string NombreEmpresa = _empresa.LlenaEmpresa();
-            double itbis = 0;
-            double monto = 0;
+            //double itbis = 0;
+            //double monto = 0;
             for (int i = 0; i < detalle.Rows.Count; i++)
             {
                 string Tp = "";
@@ -89,9 +89,9 @@ namespace APP
                         Tp = "";
                         break;
                 }
-                string fecha = DateTime.Parse(detalle.Rows[i][3].ToString()).ToString("dd / MMM / yy");
-                itbis += Convert.ToDouble(detalle.Rows[i][4]);
-                monto += Convert.ToDouble(detalle.Rows[i][5]);
+                string fecha = DateTime.Parse(detalle.Rows[i][3].ToString()).ToString("dd / MM / yyyy");
+                //itbis += Convert.ToDouble(detalle.Rows[i][4]);
+                //monto += Convert.ToDouble(detalle.Rows[i][5]);
                 _ = dgvListar.Rows.Add(RNC, Tp, detalle.Rows[i][2], fecha, detalle.Rows[i][4], detalle.Rows[i][5],
                     detalle.Rows[i][6], i + 1, detalle.Rows[i][7], detalle.Rows[i][4], detalle.Rows[i][5], NombreEmpresa, ncfModifica);
             }
@@ -128,11 +128,12 @@ namespace APP
                     ws.Cells[Fila, 5] = dgvListar.Rows[i].Cells[3].Value.ToString();
                     ws.Cells[Fila, 6] = dgvListar.Rows[i].Cells[4].Value.ToString();
                     ws.Cells[Fila, 7] = dgvListar.Rows[i].Cells[5].Value.ToString();
-                    ws.Cells[Fila, 8] = dgvListar.Rows[i].Cells[7].Value.ToString();
+                    ws.Cells[Fila, 8] = 
                     ws.Cells[Fila, 9] = dgvListar.Rows[i].Cells[6].Value.ToString();
                     ws.Cells[Fila, 10] = dgvListar.Rows[i].Cells[8].Value.ToString();
                     ws.Cells[Fila, 11] = dgvListar.Rows[i].Cells[11].Value.ToString();
                 }
+                ws.Columns.AutoFit();
                 ws.SaveAs(filename);
                 excel.Quit();
             }
