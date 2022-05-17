@@ -338,6 +338,7 @@
   <ItemGroup>
     <Content Include="Logo-64-ico.ico" />
     <None Include="Resources\Facturar-16.png" />
+    <None Include="Resources\Pay-24.png" />
     <Content Include="Resources\Print-16.png" />
     <None Include="Resources\Aceptar-16.png" />
     <None Include="Resources\Borrar-16.png" />

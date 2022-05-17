@@ -123,6 +123,16 @@ namespace APP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pay_24 {
+            get {
+                object obj = ResourceManager.GetObject("Pay-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Print_16 {
             get {
                 object obj = ResourceManager.GetObject("Print-16", resourceCulture);
