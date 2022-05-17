@@ -99,40 +99,48 @@ namespace APP
 
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            string filename = ((DatoArchivo)e.Argument).FileName;
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-            Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
-            Worksheet ws = (Worksheet)excel.ActiveSheet;
-            int Fila = 1;
-            int proceso = dgvListar.RowCount;
-            ws.Cells[1, 1] = "Rnc";
-            ws.Cells[1, 2] = "Tipo";
-            ws.Cells[1, 3] = "NCF";
-            ws.Cells[1, 4] = "NCF2";
-            ws.Cells[1, 5] = "Fecha";
-            ws.Cells[1, 6] = "itbisp";
-            ws.Cells[1, 7] = "monto";
-            ws.Cells[1, 8] = "sec";
-            ws.Cells[1, 9] = "factura";
-            ws.Cells[1, 10] = "Cliente";
-            ws.Cells[1, 11] = "compañia";
-            for (int i = 0; i < dgvListar.RowCount; i++)
-            {
-                backgroundWorker.ReportProgress(Fila++ * 100 / proceso);
-                ws.Cells[Fila, 1] = dgvListar.Rows[i].Cells[0].Value.ToString();
-                ws.Cells[Fila, 2] = dgvListar.Rows[i].Cells[1].Value.ToString();
-                ws.Cells[Fila, 3] = dgvListar.Rows[i].Cells[2].Value.ToString();
-                ws.Cells[Fila, 4] = dgvListar.Rows[i].Cells[12].Value.ToString();
-                ws.Cells[Fila, 5] = dgvListar.Rows[i].Cells[3].Value.ToString();
-                ws.Cells[Fila, 6] = dgvListar.Rows[i].Cells[4].Value.ToString();
-                ws.Cells[Fila, 7] = dgvListar.Rows[i].Cells[5].Value.ToString();
-                ws.Cells[Fila, 8] = dgvListar.Rows[i].Cells[7].Value.ToString();
-                ws.Cells[Fila, 9] = dgvListar.Rows[i].Cells[6].Value.ToString();
-                ws.Cells[Fila, 10] = dgvListar.Rows[i].Cells[8].Value.ToString();
-                ws.Cells[Fila, 11] = dgvListar.Rows[i].Cells[11].Value.ToString();
+            try
+            {            
+                string filename = ((DatoArchivo)e.Argument).FileName;
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
+                Worksheet ws = (Worksheet)excel.ActiveSheet;
+                int Fila = 1;
+                int proceso = dgvListar.RowCount;
+                ws.Cells[1, 1] = "Rnc";
+                ws.Cells[1, 2] = "Tipo";
+                ws.Cells[1, 3] = "NCF";
+                ws.Cells[1, 4] = "NCF2";
+                ws.Cells[1, 5] = "Fecha";
+                ws.Cells[1, 6] = "itbisp";
+                ws.Cells[1, 7] = "monto";
+                ws.Cells[1, 8] = "sec";
+                ws.Cells[1, 9] = "factura";
+                ws.Cells[1, 10] = "Cliente";
+                ws.Cells[1, 11] = "compañia";
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    backgroundWorker.ReportProgress(Fila++ * 100 / proceso);
+                    ws.Cells[Fila, 1] = dgvListar.Rows[i].Cells[0].Value.ToString();
+                    ws.Cells[Fila, 2] = dgvListar.Rows[i].Cells[1].Value.ToString();
+                    ws.Cells[Fila, 3] = dgvListar.Rows[i].Cells[2].Value.ToString();
+                    ws.Cells[Fila, 4] = dgvListar.Rows[i].Cells[12].Value.ToString();
+                    ws.Cells[Fila, 5] = dgvListar.Rows[i].Cells[3].Value.ToString();
+                    ws.Cells[Fila, 6] = dgvListar.Rows[i].Cells[4].Value.ToString();
+                    ws.Cells[Fila, 7] = dgvListar.Rows[i].Cells[5].Value.ToString();
+                    ws.Cells[Fila, 8] = dgvListar.Rows[i].Cells[7].Value.ToString();
+                    ws.Cells[Fila, 9] = dgvListar.Rows[i].Cells[6].Value.ToString();
+                    ws.Cells[Fila, 10] = dgvListar.Rows[i].Cells[8].Value.ToString();
+                    ws.Cells[Fila, 11] = dgvListar.Rows[i].Cells[11].Value.ToString();
+                }
+                ws.SaveAs(filename);
+                excel.Quit();
             }
-            ws.SaveAs(filename);
-            excel.Quit();
+            catch (Exception)
+            {
+                _ = MessageBox.Show("Microsoft Office no Instalado");
+                throw;
+            }
         }
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
