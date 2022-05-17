@@ -49,7 +49,7 @@ namespace APP
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             ValidateChildren();
-            if (!txtNombre.AllowDrop)
+            if (!txtNombre.AllowDrop && !txtRnc.AllowDrop)
             {
                 cliente.Nombre = txtNombre.Text;
                 cliente.Cedula = txtCedula.Text;
@@ -155,6 +155,41 @@ namespace APP
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtRnc_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtRnc.Text))
+            {
+                if (txtRnc.Text.Length != 11 && txtRnc.Text.Length != 9)
+                {
+                    errorRNC.SetError(txtRnc, "El RNC no es Valido");
+                    txtRnc.AllowDrop = true;
+                }
+                else
+                {
+                    errorRNC.Clear();
+                    txtRnc.AllowDrop = false;
+                }
+            }
+            else
+            {
+                txtRnc.AllowDrop = false;
+            }
+        }
+
+        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorNombre.SetError(txtNombre, "Nombre del Cliente Requerido");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorNombre.Clear();
+                txtNombre.AllowDrop = false;
             }
         }
     }

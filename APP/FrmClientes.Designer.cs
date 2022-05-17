@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -60,8 +61,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.errorRNC = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRNC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -320,6 +325,7 @@
             // txtDescuento
             // 
             this.txtDescuento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtDescuento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescuento.Location = new System.Drawing.Point(375, 114);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(100, 20);
@@ -329,6 +335,7 @@
             // txtLimiteCredito
             // 
             this.txtLimiteCredito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtLimiteCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLimiteCredito.Location = new System.Drawing.Point(375, 88);
             this.txtLimiteCredito.Name = "txtLimiteCredito";
             this.txtLimiteCredito.Size = new System.Drawing.Size(100, 20);
@@ -338,12 +345,14 @@
             // txtRnc
             // 
             this.txtRnc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtRnc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRnc.Location = new System.Drawing.Point(375, 36);
             this.txtRnc.MaxLength = 15;
             this.txtRnc.Name = "txtRnc";
             this.txtRnc.Size = new System.Drawing.Size(100, 20);
             this.txtRnc.TabIndex = 8;
             this.txtRnc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
+            this.txtRnc.Validating += new System.ComponentModel.CancelEventHandler(this.txtRnc_Validating);
             // 
             // cboTipoComprobante
             // 
@@ -380,6 +389,7 @@
             // txtCedula
             // 
             this.txtCedula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCedula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCedula.Location = new System.Drawing.Point(71, 62);
             this.txtCedula.MaxLength = 15;
             this.txtCedula.Name = "txtCedula";
@@ -423,6 +433,15 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
+            // 
+            // errorRNC
+            // 
+            this.errorRNC.ContainerControl = this;
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.ContainerControl = this;
             // 
             // FrmClientes
             // 
@@ -442,6 +461,8 @@
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRNC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -480,5 +501,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
+        private System.Windows.Forms.ErrorProvider errorRNC;
+        private System.Windows.Forms.ErrorProvider errorNombre;
     }
 }

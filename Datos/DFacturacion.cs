@@ -215,6 +215,7 @@ namespace Datos
                     cmd.Parameters.Add("@idComprobante", SqlDbType.VarChar).Value = Factura.IdComprobante;
                     cmd.Parameters.Add("@ncf", SqlDbType.VarChar).Value = Factura.Ncf;
                     cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Factura.Fecha;
+                    cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = Factura.FechaVencimiento;
                     cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
                     cmd.Parameters.Add("@descuento", SqlDbType.Decimal).Value = Factura.Descuento;
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
