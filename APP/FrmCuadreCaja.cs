@@ -20,7 +20,11 @@ namespace APP
         private void FrmCuadreCaja_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
