@@ -316,7 +316,7 @@ namespace APP
                         NrptEmpresa nEmpresa = new NrptEmpresa();
                         nEmpresa.LlenaEmpresa();
                         _recibo.ImprimirRecibo(idRecibo.ToString());
-                        localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
+                        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptReciboIngreso.rdlc";
                         localReport.DataSources.Clear();
                         localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
                         localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
@@ -368,7 +368,7 @@ namespace APP
                 NrptEmpresa nEmpresa = new NrptEmpresa();
                 nEmpresa.LlenaEmpresa();
                 _recibo.ImprimirRecibo(lblIdRecibo.Text);
-                localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
+                localReport.ReportPath = Application.StartupPath + @"\Reportes\rptReciboIngreso.rdlc";
                 localReport.DataSources.Clear();
                 localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
                 localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));

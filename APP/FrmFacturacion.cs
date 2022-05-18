@@ -390,7 +390,7 @@ namespace APP
                         NrptFactura nFactura = new NrptFactura();
                         nEmpresa.LlenaEmpresa();
                         nFactura.Facturas(IdFactura.ToString());
-                        localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptFactura.rdlc";
+                        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
                         localReport.DataSources.Clear();
                         localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
                         localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
@@ -553,7 +553,7 @@ namespace APP
                         NrptFactura nFactura = new NrptFactura();
                         nEmpresa.LlenaEmpresa();
                         nFactura.Facturas(lblIdFactura.Text);
-                        localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptFactura.rdlc";
+                        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
                         localReport.DataSources.Clear();
                         localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
                         localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
@@ -582,7 +582,7 @@ namespace APP
                 NrptFactura nFactura = new NrptFactura();
                 nEmpresa.LlenaEmpresa();
                 nFactura.Facturas(lblIdFactura.Text);
-                localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptFactura.rdlc";
+                localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
                 localReport.DataSources.Clear();
                 localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
                 localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));

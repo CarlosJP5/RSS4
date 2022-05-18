@@ -82,7 +82,7 @@ namespace APP
                 NrptEmpresa nEmpresa = new NrptEmpresa();
                 NrptFactura nFactura = new NrptFactura();
                 nEmpresa.LlenaEmpresa();
-                localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptCuadreCaja.rdlc";
+                localReport.ReportPath = Application.StartupPath + @"\Reportes\rptCuadreCaja.rdlc";
                 localReport.DataSources.Clear();
                 localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
                 localReport.DataSources.Add(new ReportDataSource("dsCaja", _reporte.Cuadre));
