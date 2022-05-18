@@ -3,9 +3,6 @@ using Entidades.EReportes;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocios.NReportes
 {
@@ -71,7 +68,7 @@ namespace Negocios.NReportes
             }
             TotalDevoluciones = count * -1;
 
-            TotalTotal = TotalReciboIngreso + TotalVentasContado - TotalDevoluciones;
+            TotalTotal = TotalReciboIngreso + TotalVentasContado + TotalDevoluciones;
 
             Cuadre = new List<ErptCuadreCaja>();
             ErptCuadreCaja cuadreModel = new ErptCuadreCaja()
