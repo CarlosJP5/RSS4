@@ -112,5 +112,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void cuadreCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCuadreCaja frm = new FrmCuadreCaja();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace APP.Buscar
 {
     public partial class FrmBuscarFactura : Form
     {
+
         public FrmBuscarFactura()
         {
             InitializeComponent();
@@ -60,7 +61,6 @@ namespace APP.Buscar
                 DateTime fecha = DateTime.Parse(row[1].ToString());
                 _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4], row[5]);
             }
-            richTextBox1.Text = query;
         }
 
         private void linkCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnHoy = new System.Windows.Forms.Button();
-            this.btn7Dias = new System.Windows.Forms.Button();
-            this.btnMes = new System.Windows.Forms.Button();
-            this.btnPersonalizada = new System.Windows.Forms.Button();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.btnPersonalizada = new System.Windows.Forms.Button();
+            this.btnMes = new System.Windows.Forms.Button();
+            this.btn7Dias = new System.Windows.Forms.Button();
+            this.btnHoy = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblReciboIngreso = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblVentasContado = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,16 +60,15 @@
             this.lblTotalIngresos = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.reporteGanancias = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblCantidadRecibos = new System.Windows.Forms.Label();
-            this.lblCantidadFacturas = new System.Windows.Forms.Label();
             this.lblCantidadDevoluciones = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.lblCantidadFacturas = new System.Windows.Forms.Label();
+            this.lblCantidadRecibos = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.chartGanancias = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTop15 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,8 +76,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteGanancias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGanancias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTop15)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -119,61 +119,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 40);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnHoy
+            // btnImprimir
             // 
-            this.btnHoy.Location = new System.Drawing.Point(389, 5);
-            this.btnHoy.Name = "btnHoy";
-            this.btnHoy.Size = new System.Drawing.Size(95, 26);
-            this.btnHoy.TabIndex = 0;
-            this.btnHoy.Text = "Hoy";
-            this.btnHoy.UseVisualStyleBackColor = true;
-            // 
-            // btn7Dias
-            // 
-            this.btn7Dias.Location = new System.Drawing.Point(490, 5);
-            this.btn7Dias.Name = "btn7Dias";
-            this.btn7Dias.Size = new System.Drawing.Size(95, 26);
-            this.btn7Dias.TabIndex = 1;
-            this.btn7Dias.Text = "Ultimos 7 Dias";
-            this.btn7Dias.UseVisualStyleBackColor = true;
-            // 
-            // btnMes
-            // 
-            this.btnMes.Location = new System.Drawing.Point(591, 5);
-            this.btnMes.Name = "btnMes";
-            this.btnMes.Size = new System.Drawing.Size(95, 26);
-            this.btnMes.TabIndex = 2;
-            this.btnMes.Text = "Este Mes";
-            this.btnMes.UseVisualStyleBackColor = true;
-            // 
-            // btnPersonalizada
-            // 
-            this.btnPersonalizada.Location = new System.Drawing.Point(288, 5);
-            this.btnPersonalizada.Name = "btnPersonalizada";
-            this.btnPersonalizada.Size = new System.Drawing.Size(95, 26);
-            this.btnPersonalizada.TabIndex = 3;
-            this.btnPersonalizada.Text = "Personalizada";
-            this.btnPersonalizada.UseVisualStyleBackColor = true;
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.CustomFormat = "dd / MM / yyyy";
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHasta.Location = new System.Drawing.Point(179, 9);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpHasta.TabIndex = 4;
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.CustomFormat = "dd / MM / yyyy";
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDesde.Location = new System.Drawing.Point(70, 9);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpDesde.TabIndex = 5;
+            this.btnImprimir.Location = new System.Drawing.Point(692, 5);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(95, 26);
+            this.btnImprimir.TabIndex = 7;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // label2
             // 
@@ -185,25 +140,73 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Fecha:";
             // 
+            // dtpDesde
+            // 
+            this.dtpDesde.CustomFormat = "dd / MM / yyyy";
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDesde.Location = new System.Drawing.Point(70, 9);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(100, 20);
+            this.dtpDesde.TabIndex = 5;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.CustomFormat = "dd / MM / yyyy";
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHasta.Location = new System.Drawing.Point(179, 9);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(100, 20);
+            this.dtpHasta.TabIndex = 4;
+            // 
+            // btnPersonalizada
+            // 
+            this.btnPersonalizada.Location = new System.Drawing.Point(288, 5);
+            this.btnPersonalizada.Name = "btnPersonalizada";
+            this.btnPersonalizada.Size = new System.Drawing.Size(95, 26);
+            this.btnPersonalizada.TabIndex = 3;
+            this.btnPersonalizada.Text = "Personalizada";
+            this.btnPersonalizada.UseVisualStyleBackColor = true;
+            this.btnPersonalizada.Click += new System.EventHandler(this.btnPersonalizada_Click);
+            // 
+            // btnMes
+            // 
+            this.btnMes.Location = new System.Drawing.Point(591, 5);
+            this.btnMes.Name = "btnMes";
+            this.btnMes.Size = new System.Drawing.Size(95, 26);
+            this.btnMes.TabIndex = 2;
+            this.btnMes.Text = "Este Mes";
+            this.btnMes.UseVisualStyleBackColor = true;
+            this.btnMes.Click += new System.EventHandler(this.btnMes_Click);
+            // 
+            // btn7Dias
+            // 
+            this.btn7Dias.Location = new System.Drawing.Point(490, 5);
+            this.btn7Dias.Name = "btn7Dias";
+            this.btn7Dias.Size = new System.Drawing.Size(95, 26);
+            this.btn7Dias.TabIndex = 1;
+            this.btn7Dias.Text = "Ultimos 7 Dias";
+            this.btn7Dias.UseVisualStyleBackColor = true;
+            this.btn7Dias.Click += new System.EventHandler(this.btn7Dias_Click);
+            // 
+            // btnHoy
+            // 
+            this.btnHoy.Location = new System.Drawing.Point(389, 5);
+            this.btnHoy.Name = "btnHoy";
+            this.btnHoy.Size = new System.Drawing.Size(95, 26);
+            this.btnHoy.TabIndex = 0;
+            this.btnHoy.Text = "Hoy";
+            this.btnHoy.UseVisualStyleBackColor = true;
+            this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.lblReciboIngreso);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(12, 71);
+            this.panel2.Location = new System.Drawing.Point(16, 71);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 58);
             this.panel2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Recibos de Ingreso";
             // 
             // lblReciboIngreso
             // 
@@ -215,12 +218,22 @@
             this.lblReciboIngreso.TabIndex = 1;
             this.lblReciboIngreso.Text = "Ventas a Credito";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Recibos de Ingreso";
+            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.lblVentasContado);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(208, 71);
+            this.panel3.Location = new System.Drawing.Point(215, 71);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(170, 58);
             this.panel3.TabIndex = 3;
@@ -250,7 +263,7 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.lblDevoluciones);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(404, 71);
+            this.panel4.Location = new System.Drawing.Point(414, 71);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(170, 58);
             this.panel4.TabIndex = 4;
@@ -280,7 +293,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.lblTotalIngresos);
             this.panel5.Controls.Add(this.label10);
-            this.panel5.Location = new System.Drawing.Point(600, 71);
+            this.panel5.Location = new System.Drawing.Point(613, 71);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(170, 58);
             this.panel5.TabIndex = 3;
@@ -317,119 +330,8 @@
             this.panel8.Controls.Add(this.label13);
             this.panel8.Location = new System.Drawing.Point(12, 423);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(372, 118);
+            this.panel8.Size = new System.Drawing.Size(282, 118);
             this.panel8.TabIndex = 7;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(5, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 19);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Cantidades";
-            // 
-            // reporteGanancias
-            // 
-            this.reporteGanancias.BorderlineColor = System.Drawing.Color.Black;
-            this.reporteGanancias.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.Name = "ChartArea1";
-            this.reporteGanancias.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.reporteGanancias.Legends.Add(legend1);
-            this.reporteGanancias.Location = new System.Drawing.Point(12, 135);
-            this.reporteGanancias.Name = "reporteGanancias";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.reporteGanancias.Series.Add(series1);
-            this.reporteGanancias.Size = new System.Drawing.Size(372, 282);
-            this.reporteGanancias.TabIndex = 8;
-            this.reporteGanancias.Text = "reporteGanancias";
-            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title1.Name = "Reporte de Ganancias";
-            title1.Text = "Reporte de Ganancias";
-            this.reporteGanancias.Titles.Add(title1);
-            // 
-            // chart1
-            // 
-            this.chart1.BorderlineColor = System.Drawing.Color.Black;
-            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(390, 135);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(395, 406);
-            this.chart1.TabIndex = 9;
-            this.chart1.Text = "chart1";
-            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title2.Name = "Reporte de Ganancias";
-            title2.Text = "Top 15 producotos vendidos";
-            this.chart1.Titles.Add(title2);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Schoolbook", 12F);
-            this.label11.Location = new System.Drawing.Point(5, 35);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(165, 20);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Total Recibo Ingreso:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Schoolbook", 12F);
-            this.label12.Location = new System.Drawing.Point(5, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(122, 20);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Total Facturas:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Schoolbook", 12F);
-            this.label14.Location = new System.Drawing.Point(5, 85);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(153, 20);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Total Devoluciones:";
-            // 
-            // lblCantidadRecibos
-            // 
-            this.lblCantidadRecibos.AutoSize = true;
-            this.lblCantidadRecibos.Font = new System.Drawing.Font("Century Schoolbook", 12F);
-            this.lblCantidadRecibos.Location = new System.Drawing.Point(165, 35);
-            this.lblCantidadRecibos.Name = "lblCantidadRecibos";
-            this.lblCantidadRecibos.Size = new System.Drawing.Size(165, 20);
-            this.lblCantidadRecibos.TabIndex = 7;
-            this.lblCantidadRecibos.Text = "Total Recibo Ingreso:";
-            // 
-            // lblCantidadFacturas
-            // 
-            this.lblCantidadFacturas.AutoSize = true;
-            this.lblCantidadFacturas.Font = new System.Drawing.Font("Century Schoolbook", 12F);
-            this.lblCantidadFacturas.Location = new System.Drawing.Point(165, 60);
-            this.lblCantidadFacturas.Name = "lblCantidadFacturas";
-            this.lblCantidadFacturas.Size = new System.Drawing.Size(165, 20);
-            this.lblCantidadFacturas.TabIndex = 8;
-            this.lblCantidadFacturas.Text = "Total Recibo Ingreso:";
             // 
             // lblCantidadDevoluciones
             // 
@@ -441,14 +343,122 @@
             this.lblCantidadDevoluciones.TabIndex = 9;
             this.lblCantidadDevoluciones.Text = "Total Recibo Ingreso:";
             // 
-            // btnImprimir
+            // lblCantidadFacturas
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(692, 5);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(95, 26);
-            this.btnImprimir.TabIndex = 7;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.lblCantidadFacturas.AutoSize = true;
+            this.lblCantidadFacturas.Font = new System.Drawing.Font("Century Schoolbook", 12F);
+            this.lblCantidadFacturas.Location = new System.Drawing.Point(165, 60);
+            this.lblCantidadFacturas.Name = "lblCantidadFacturas";
+            this.lblCantidadFacturas.Size = new System.Drawing.Size(165, 20);
+            this.lblCantidadFacturas.TabIndex = 8;
+            this.lblCantidadFacturas.Text = "Total Recibo Ingreso:";
+            // 
+            // lblCantidadRecibos
+            // 
+            this.lblCantidadRecibos.AutoSize = true;
+            this.lblCantidadRecibos.Font = new System.Drawing.Font("Century Schoolbook", 12F);
+            this.lblCantidadRecibos.Location = new System.Drawing.Point(165, 35);
+            this.lblCantidadRecibos.Name = "lblCantidadRecibos";
+            this.lblCantidadRecibos.Size = new System.Drawing.Size(165, 20);
+            this.lblCantidadRecibos.TabIndex = 7;
+            this.lblCantidadRecibos.Text = "Total Recibo Ingreso:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Schoolbook", 12F);
+            this.label14.Location = new System.Drawing.Point(5, 85);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(153, 20);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Total Devoluciones:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Schoolbook", 12F);
+            this.label12.Location = new System.Drawing.Point(5, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(122, 20);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Total Facturas:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Schoolbook", 12F);
+            this.label11.Location = new System.Drawing.Point(5, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(165, 20);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Total Recibo Ingreso:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(5, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 19);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Cantidades";
+            // 
+            // chartGanancias
+            // 
+            this.chartGanancias.BorderlineColor = System.Drawing.Color.Black;
+            this.chartGanancias.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea5.Name = "ChartArea1";
+            this.chartGanancias.ChartAreas.Add(chartArea5);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend5.Name = "Legend1";
+            this.chartGanancias.Legends.Add(legend5);
+            this.chartGanancias.Location = new System.Drawing.Point(12, 135);
+            this.chartGanancias.Name = "chartGanancias";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series5.IsValueShownAsLabel = true;
+            series5.LabelFormat = "N2";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartGanancias.Series.Add(series5);
+            this.chartGanancias.Size = new System.Drawing.Size(282, 282);
+            this.chartGanancias.TabIndex = 8;
+            this.chartGanancias.Text = "chartGanancias";
+            title5.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title5.Name = "Reporte de Ganancias";
+            title5.Text = "Reporte de Ganancias";
+            this.chartGanancias.Titles.Add(title5);
+            // 
+            // chartTop15
+            // 
+            this.chartTop15.BorderlineColor = System.Drawing.Color.Black;
+            this.chartTop15.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea6.BorderColor = System.Drawing.Color.Maroon;
+            chartArea6.Name = "ChartArea1";
+            this.chartTop15.ChartAreas.Add(chartArea6);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend6.Name = "Legend1";
+            this.chartTop15.Legends.Add(legend6);
+            this.chartTop15.Location = new System.Drawing.Point(300, 135);
+            this.chartTop15.Name = "chartTop15";
+            this.chartTop15.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            series6.IsValueShownAsLabel = true;
+            series6.IsVisibleInLegend = false;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartTop15.Series.Add(series6);
+            this.chartTop15.Size = new System.Drawing.Size(491, 406);
+            this.chartTop15.TabIndex = 9;
+            this.chartTop15.Text = "chartTop15";
+            title6.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title6.Name = "Reporte de Ganancias";
+            title6.Text = "Top 15 producotos vendidos";
+            this.chartTop15.Titles.Add(title6);
             // 
             // FrmCuadreCaja
             // 
@@ -456,8 +466,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(803, 559);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.reporteGanancias);
+            this.Controls.Add(this.chartTop15);
+            this.Controls.Add(this.chartGanancias);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -483,8 +493,8 @@
             this.panel5.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteGanancias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGanancias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTop15)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -515,14 +525,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataVisualization.Charting.Chart reporteGanancias;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGanancias;
         private System.Windows.Forms.Label lblCantidadDevoluciones;
         private System.Windows.Forms.Label lblCantidadFacturas;
         private System.Windows.Forms.Label lblCantidadRecibos;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTop15;
         private System.Windows.Forms.Button btnImprimir;
     }
 }
