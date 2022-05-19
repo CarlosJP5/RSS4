@@ -47,6 +47,9 @@ namespace APP
             }
             txtIdItbis.Text = "1";
             txtIdItbis_Leave(sender, e);
+            errorCodigo.Clear();
+            errorItbis.Clear();
+            errorNombre.Clear();
             _ = txtCodigo.Focus();
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
@@ -54,7 +57,36 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            ValidateChildren();
+            if (string.IsNullOrEmpty(txtItbis.Text))
+            {
+                errorItbis.SetError(txtItbis, "Campo Obligatorio");
+                txtItbis.AllowDrop = true;
+            }
+            else
+            {
+                errorItbis.Clear();
+                txtItbis.AllowDrop = false;
+            }
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                errorCodigo.SetError(txtCodigo, "Campo Obligatorio");
+                txtCodigo.AllowDrop = true;
+            }
+            else
+            {
+                errorCodigo.Clear();
+                txtCodigo.AllowDrop = false;
+            }
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorNombre.SetError(txtNombre, "Campo Obligatorio");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorNombre.Clear();
+                txtNombre.AllowDrop = false;
+            }
             if (!txtCodigo.AllowDrop && !txtNombre.AllowDrop && !txtItbis.AllowDrop)
             {
                 EArticulo articulo = new EArticulo
@@ -456,12 +488,7 @@ namespace APP
 
         private void txtCodigo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCodigo.Text))
-            {
-                errorCodigo.SetError(txtCodigo, "Campo Obligatorio");
-                txtCodigo.AllowDrop = true;
-            }
-            else
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
             {
                 errorCodigo.Clear();
                 txtCodigo.AllowDrop = false;
@@ -470,12 +497,7 @@ namespace APP
 
         private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                errorNombre.SetError(txtNombre, "Campo Obligatorio");
-                txtNombre.AllowDrop = true;
-            }
-            else
+            if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 errorNombre.Clear();
                 txtNombre.AllowDrop = false;
@@ -484,12 +506,7 @@ namespace APP
 
         private void txtItbis_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtItbis.Text))
-            {
-                errorItbis.SetError(txtItbis, "Campo Obligatorio");
-                txtItbis.AllowDrop = true;
-            }
-            else
+            if (!string.IsNullOrEmpty(txtItbis.Text))
             {
                 errorItbis.Clear();
                 txtItbis.AllowDrop = false;

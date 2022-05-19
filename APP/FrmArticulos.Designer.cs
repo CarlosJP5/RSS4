@@ -454,7 +454,6 @@
             this.txtItbis.Size = new System.Drawing.Size(194, 20);
             this.txtItbis.TabIndex = 8;
             this.txtItbis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdItbis_KeyDown);
-            this.txtItbis.Validating += new System.ComponentModel.CancelEventHandler(this.txtItbis_Validating);
             // 
             // txtIdItbis
             // 
@@ -547,7 +546,6 @@
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
-            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
             // 
             // errorCodigo
             // 
