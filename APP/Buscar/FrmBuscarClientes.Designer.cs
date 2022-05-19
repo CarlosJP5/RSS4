@@ -107,6 +107,7 @@
             this.rbtnTelefono.TabStop = true;
             this.rbtnTelefono.Text = "Telefono";
             this.rbtnTelefono.UseVisualStyleBackColor = true;
+            this.rbtnTelefono.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnRnc
             // 
@@ -118,6 +119,7 @@
             this.rbtnRnc.TabStop = true;
             this.rbtnRnc.Text = "Rnc \\ Cedula";
             this.rbtnRnc.UseVisualStyleBackColor = true;
+            this.rbtnRnc.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnNombre
             // 
@@ -129,6 +131,7 @@
             this.rbtnNombre.TabStop = true;
             this.rbtnNombre.Text = "Nombre";
             this.rbtnNombre.UseVisualStyleBackColor = true;
+            this.rbtnNombre.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnCodigo
             // 
@@ -140,6 +143,7 @@
             this.rbtnCodigo.TabStop = true;
             this.rbtnCodigo.Text = "Codigo";
             this.rbtnCodigo.UseVisualStyleBackColor = true;
+            this.rbtnCodigo.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnTodo
             // 
@@ -151,6 +155,7 @@
             this.rbtnTodo.TabStop = true;
             this.rbtnTodo.Text = "Todo";
             this.rbtnTodo.UseVisualStyleBackColor = true;
+            this.rbtnTodo.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // label2
             // 
@@ -181,6 +186,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(369, 20);
             this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
             // dgvListar
             // 
@@ -312,6 +318,7 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
             this.btnSalir.Location = new System.Drawing.Point(626, 357);
             this.btnSalir.Name = "btnSalir";
@@ -328,6 +335,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(722, 397);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAceptar);

@@ -51,6 +51,10 @@ namespace APP.Buscar
             {
                 _ = dgvListar.Rows.Add(dr[0], dr[1], dr[2]);
             }
+            if (dgvListar.RowCount > 0)
+            {
+                dgvListar.Focus();
+            }
         }
 
         private void dgvListar_KeyDown(object sender, KeyEventArgs e)
@@ -74,6 +78,20 @@ namespace APP.Buscar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnBuscar.PerformClick();
+            }
+        }
+
+        private void rbtnTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            _ = txtBuscar.Focus();
         }
     }
 }

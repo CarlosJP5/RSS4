@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,8 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +51,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -106,6 +106,7 @@
             this.rbtnMarca.TabStop = true;
             this.rbtnMarca.Text = "Marca";
             this.rbtnMarca.UseVisualStyleBackColor = true;
+            this.rbtnMarca.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnReferencia
             // 
@@ -117,6 +118,7 @@
             this.rbtnReferencia.TabStop = true;
             this.rbtnReferencia.Text = "Referencia";
             this.rbtnReferencia.UseVisualStyleBackColor = true;
+            this.rbtnReferencia.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnNombre
             // 
@@ -128,6 +130,7 @@
             this.rbtnNombre.TabStop = true;
             this.rbtnNombre.Text = "Nombre";
             this.rbtnNombre.UseVisualStyleBackColor = true;
+            this.rbtnNombre.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnCodigo
             // 
@@ -139,6 +142,7 @@
             this.rbtnCodigo.TabStop = true;
             this.rbtnCodigo.Text = "Codigo";
             this.rbtnCodigo.UseVisualStyleBackColor = true;
+            this.rbtnCodigo.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // rbtnTodo
             // 
@@ -150,6 +154,7 @@
             this.rbtnTodo.TabStop = true;
             this.rbtnTodo.Text = "Todo";
             this.rbtnTodo.UseVisualStyleBackColor = true;
+            this.rbtnTodo.CheckedChanged += new System.EventHandler(this.rbtnTodo_CheckedChanged);
             // 
             // btnBuscar
             // 
@@ -181,6 +186,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(340, 20);
             this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
             // dgvListar
             // 
@@ -207,32 +213,6 @@
             this.dgvListar.TabIndex = 2;
             this.dgvListar.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellContentDoubleClick);
             this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(612, 363);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
-            this.btnAceptar.TabIndex = 3;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnCancelar.Location = new System.Drawing.Point(703, 363);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 25);
-            this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Column1
             // 
@@ -268,9 +248,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column6.HeaderText = "Cantidad";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -278,9 +258,9 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -302,11 +282,38 @@
             this.Column9.ReadOnly = true;
             this.Column9.Visible = false;
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAceptar.Location = new System.Drawing.Point(612, 363);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
+            this.btnAceptar.TabIndex = 3;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
+            this.btnCancelar.Location = new System.Drawing.Point(703, 363);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(85, 25);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FrmBuscarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(800, 403);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

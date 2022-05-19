@@ -255,6 +255,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
             this.btnCancelar.Location = new System.Drawing.Point(512, 306);
             this.btnCancelar.Name = "btnCancelar";
@@ -284,6 +285,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(614, 343);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

@@ -20,7 +20,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>0.1in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>2.9in</Width>
         <Style>
@@ -51,7 +51,7 @@
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
         <Top>0.3in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>2.9in</Width>
         <ZIndex>1</ZIndex>
@@ -83,7 +83,7 @@
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
         <Top>0.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>2.9in</Width>
         <ZIndex>2</ZIndex>
@@ -115,7 +115,7 @@
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
         <Top>0.7in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>2.9in</Width>
         <ZIndex>3</ZIndex>
@@ -152,7 +152,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>0.9in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>2.9in</Width>
         <ZIndex>4</ZIndex>
@@ -181,15 +181,15 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Center</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Fecha</rd:DefaultName>
         <Top>1.1in</Top>
-        <Left>2.2in</Left>
+        <Left>1.95in</Left>
         <Height>0.2in</Height>
-        <Width>0.8in</Width>
+        <Width>0.875in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -221,7 +221,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
         <Top>1.1in</Top>
-        <Left>1.5in</Left>
+        <Left>1.25in</Left>
         <Height>0.2in</Height>
         <Width>0.7in</Width>
         <ZIndex>6</ZIndex>
@@ -253,7 +253,7 @@
         </Paragraphs>
         <rd:DefaultName>IdRecibo</rd:DefaultName>
         <Top>1.3in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>1.45in</Width>
         <ZIndex>7</ZIndex>
@@ -285,7 +285,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.051in</Left>
         <Height>0.2in</Height>
         <Width>0.6in</Width>
         <ZIndex>8</ZIndex>
@@ -317,7 +317,7 @@
         </Paragraphs>
         <rd:DefaultName>IdCliente</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.7in</Left>
+        <Left>0.65in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>9</ZIndex>
@@ -349,7 +349,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
         <Top>1.7in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.2in</Height>
         <Width>2.9in</Width>
         <ZIndex>10</ZIndex>
@@ -682,9 +682,9 @@
         </TablixRowHierarchy>
         <DataSetName>dsReciboIngreso</DataSetName>
         <Top>1.96944in</Top>
-        <Left>0.1in</Left>
+        <Left>0.05in</Left>
         <Height>0.4in</Height>
-        <Width>2.9in</Width>
+        <Width>2.90001in</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -712,7 +712,7 @@
         </Paragraphs>
         <rd:DefaultName>Pago1</rd:DefaultName>
         <Top>2.43889in</Top>
-        <Left>2in</Left>
+        <Left>1.875in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>12</ZIndex>
@@ -745,7 +745,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
         <Top>2.43889in</Top>
-        <Left>0.98in</Left>
+        <Left>0.855in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>13</ZIndex>

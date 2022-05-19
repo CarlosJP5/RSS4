@@ -52,6 +52,10 @@ namespace APP.Buscar
             {
                 dgvListar.Rows.Add(dr[0], dr[1], dr[2], dr[3]);
             }
+            if (dgvListar.RowCount > 0)
+            {
+                dgvListar.Focus();
+            }
         }
 
         private void linkCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

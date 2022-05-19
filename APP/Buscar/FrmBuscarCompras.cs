@@ -58,6 +58,10 @@ namespace APP.Buscar
                 DateTime fecha = DateTime.Parse(row[2].ToString());
                 _ = dgvListar.Rows.Add(row[0], row[1], fecha.ToString("dd / MM / yyy"), row[3], row[4], row[5], row[6]);
             }
+            if (dgvListar.RowCount > 0)
+            {
+                dgvListar.Focus();
+            }
         }
 
         private void linkCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

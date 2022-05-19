@@ -51,6 +51,10 @@ namespace APP.Buscar
             {
                 _ = dgvListar.Rows.Add(row[0], row[1]);
             }
+            if (dgvListar.RowCount > 0)
+            {
+                dgvListar.Focus();
+            }
         }
 
         private void txtBuscar_KeyDown(object sender, KeyEventArgs e)

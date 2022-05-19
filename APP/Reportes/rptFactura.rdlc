@@ -36,6 +36,7 @@
         </Style>
       </Textbox>
       <Textbox Name="DireccionEmpresa">
+        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -43,7 +44,7 @@
               <TextRun>
                 <Value>=First(Fields!DireccionEmpresa.Value, "dsEmpresa")</Value>
                 <Style>
-                  <FontSize>9pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -75,7 +76,7 @@
               <TextRun>
                 <Value>="TEL: " + First(Fields!TelefonoEmpresa.Value, "dsEmpresa")</Value>
                 <Style>
-                  <FontSize>9pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -107,7 +108,7 @@
               <TextRun>
                 <Value>="RNC: " + First(Fields!RncEmpresa.Value, "dsEmpresa")</Value>
                 <Style>
-                  <FontSize>9pt</FontSize>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -220,9 +221,9 @@
         </Paragraphs>
         <rd:DefaultName>FechaFactura</rd:DefaultName>
         <Top>1.1in</Top>
-        <Left>1.55in</Left>
+        <Left>1.6in</Left>
         <Height>0.2in</Height>
-        <Width>1.40138in</Width>
+        <Width>1.35in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -255,7 +256,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>1.1in</Top>
-        <Left>0.48056in</Left>
+        <Left>0.58in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>7</ZIndex>
@@ -288,7 +289,7 @@
         <Top>1.7in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>1.5in</Width>
+        <Width>1.42098in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -348,15 +349,15 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Center</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaVencimiento</rd:DefaultName>
         <Top>1.7in</Top>
-        <Left>1.95138in</Left>
+        <Left>2.05in</Left>
         <Height>0.2in</Height>
-        <Width>1in</Width>
+        <Width>0.9in</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -388,9 +389,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.7in</Top>
-        <Left>1.29042in</Left>
+        <Left>1.53in</Left>
         <Height>0.2in</Height>
-        <Width>0.6in</Width>
+        <Width>0.5in</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -895,6 +896,7 @@
               <TextRun>
                 <Value>=Sum(Fields!ImporteFactura.Value, "dsFactura")</Value>
                 <Style>
+                  <FontSize>9pt</FontSize>
                   <Format>#,0.00;(#,0.00)</Format>
                 </Style>
               </TextRun>
@@ -1030,7 +1032,9 @@
             <TextRuns>
               <TextRun>
                 <Value>Importe</Value>
-                <Style />
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
