@@ -14,6 +14,35 @@ namespace APP
             InitializeComponent();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                FrmBuscarArticulos frm = new FrmBuscarArticulos();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    lblIdArticulo.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                    txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                    txtNombre.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
+                    lblItbisPorciento.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                    _ = cboItbis.Focus();
+                }
+                else
+                {
+                    txtCodigo.Text = null;
+                    txtNombre.Text = null;
+                }
+            }
+            if (keyData == Keys.F5)
+            {
+                btnSalvar.PerformClick();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private readonly NCompras _compra = new NCompras();
 
         private void FrmCompra_Load(object sender, EventArgs e)
@@ -41,7 +70,8 @@ namespace APP
             lblItems.Text = "0";
             lblItbisPorciento.Text = "0";
             lblIdArticulo.Text = "0";
-
+            errorCantidad.Clear();
+            errorNcf.Clear();
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Enabled = false;
@@ -189,6 +219,8 @@ namespace APP
                 txtCodigo.Text = articulo.Rows[0][4].ToString();
                 txtNombre.Text = articulo.Rows[0][5].ToString();
                 lblItbisPorciento.Text = articulo.Rows[0][15].ToString();
+                txtPrecioActual.Text = articulo.Rows[0][10].ToString();
+                txtBeneficioActual.Text = articulo.Rows[0][11].ToString();
             }
             else
             {
@@ -324,6 +356,19 @@ namespace APP
 
         private void txtCosto_Leave(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(txtDescuento.Text))
+            {
+                decimal des = Convert.ToDecimal(txtDescuento.Text);
+                if (des > 99.99m)
+                {
+                    des = 99.99m;
+                }
+                else if (des < 0)
+                {
+                    des = 0m;
+                }
+                txtDescuento.Text = des.ToString("N2");
+            }
             if (!string.IsNullOrEmpty(txtCosto.Text))
             {
                 decimal costo = Convert.ToDecimal(txtCosto.Text);
@@ -455,8 +500,13 @@ namespace APP
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNombre.Text))
+            if (string.IsNullOrEmpty(txtNombre.Text))
             {
+                errorArticulo.SetError(txtCodigo, "NO hay articulo");
+            }
+            else
+            {
+                errorArticulo.Clear();
                 _ = ValidateChildren();
                 if (txtCantidad.AllowDrop)
                 {
@@ -523,6 +573,12 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            _ = ValidateChildren();
+            errorCantidad.Clear();
+            if (txtNCF.AllowDrop)
+            {
+                return;
+            }
             if (!txtSuplidorNombre.AllowDrop && dgvListar.Rows.Count > 0)
             {
                 ECompra Compra = new ECompra()
@@ -703,6 +759,52 @@ namespace APP
             if (msj == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void txtNCF_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!ckbComprobante.Checked)
+            {
+                if (string.IsNullOrEmpty(txtNCF.Text))
+                {
+                    errorNcf.SetError(txtNCF, "Comprobante Invalido");
+                    txtNCF.AllowDrop = true;
+                    return;
+                }
+                string ncf = txtNCF.Text.Substring(0, 3);
+                string numero = txtNCF.Text.Substring(3);
+                if (ncf != "B01" && ncf != "B02")
+                {
+                    errorNcf.SetError(txtNCF, "Comprobante Invalido");
+                    txtNCF.AllowDrop = true;
+                }
+                else
+                {
+                    if (numero.Length == 8)
+                    {
+                        if (!int.TryParse(numero, out _))
+                        {
+                            errorNcf.SetError(txtNCF, "Comprobante Invalido");
+                            txtNCF.AllowDrop = true;
+                        }
+                        else
+                        {
+                            errorNcf.Clear();
+                            txtNCF.AllowDrop = false;
+                        }
+                    }
+                    else
+                    {
+                        errorNcf.SetError(txtNCF, "Comprobante Invalido");
+                        txtNCF.AllowDrop = true;
+                    }
+                }
+            }
+            else
+            {
+                errorNcf.Clear();
+                txtNCF.AllowDrop = false;
             }
         }
     }

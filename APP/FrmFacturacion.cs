@@ -21,11 +21,30 @@ namespace APP
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            //if (keyData == Keys.F1)
-            //{
-                
-            //    return true;    // indicate that you handled this keystroke
-            //}
+            if (keyData == Keys.F1)
+            {
+                FrmBuscarArticulos frm = new FrmBuscarArticulos();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    DataTable dataArt = _articulo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+                    if ((bool)dataArt.Rows[0][12])
+                    {
+                        _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
+                            dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
+                            dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
+                            dataArt.Rows[0][10]);
+                        CalculaTotal();
+                        txtCodigo.Text = null;
+                        _ = txtCodigo.Focus();
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("Articulo desactivado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtCodigo.Text = null;
+                        _ = txtCodigo.Focus();
+                    }
+                }
+            }
             if (keyData == Keys.F5)
             {
                 btnFacturar.PerformClick();

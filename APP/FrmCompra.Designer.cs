@@ -118,6 +118,8 @@
             this.txtIdSuplidor = new System.Windows.Forms.TextBox();
             this.linkSuplidor = new System.Windows.Forms.LinkLabel();
             this.errorCantidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNcf = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorArticulo = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -126,6 +128,8 @@
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNcf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -983,6 +987,7 @@
             this.txtNCF.Size = new System.Drawing.Size(121, 20);
             this.txtNCF.TabIndex = 11;
             this.txtNCF.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNCF_KeyDown);
+            this.txtNCF.Validating += new System.ComponentModel.CancelEventHandler(this.txtNCF_Validating);
             // 
             // label5
             // 
@@ -1053,6 +1058,14 @@
             // 
             this.errorCantidad.ContainerControl = this;
             // 
+            // errorNcf
+            // 
+            this.errorNcf.ContainerControl = this;
+            // 
+            // errorArticulo
+            // 
+            this.errorArticulo.ContainerControl = this;
+            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1080,6 +1093,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNcf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorArticulo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1170,5 +1185,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.ErrorProvider errorNcf;
+        private System.Windows.Forms.ErrorProvider errorArticulo;
     }
 }
