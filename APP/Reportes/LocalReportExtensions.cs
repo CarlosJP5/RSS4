@@ -17,14 +17,14 @@ namespace Microsoft.Reporting.WinForms
             pageSettings.Margins = report.GetDefaultPageSettings().Margins;
             Print(report, pageSettings);
         }
-
+        
         public static void Print(this LocalReport report, PageSettings pageSettings)
         {
             string deviceInfo =
                 $@"<DeviceInfo>
                     <OutputFormat>EMF</OutputFormat>
                     <PageWidth>{pageSettings.PaperSize.Width * 100}in</PageWidth>
-                    <PageHeight>{pageSettings.PaperSize.Height * 100}in</PageHeight>
+                    <PageHeight>{pageSettings.PaperSize.Height * 100}in</PageHeight>            
                     <MarginTop>0in</MarginTop>
                     <MarginLeft>0in</MarginLeft>
                     <MarginRight>0in</MarginRight>

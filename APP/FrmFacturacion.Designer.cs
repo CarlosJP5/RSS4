@@ -824,6 +824,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmFacturacion";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación";
             this.Load += new System.EventHandler(this.FrmFacturacion_Load);
             this.panelTop.ResumeLayout(false);
