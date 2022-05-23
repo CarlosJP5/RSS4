@@ -22,7 +22,7 @@
         <Top>0.1in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>2.9in</Width>
+        <Width>2.8in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -53,7 +53,7 @@
         <Top>0.3in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>2.9in</Width>
+        <Width>2.8in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -85,7 +85,7 @@
         <Top>0.5in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>2.9in</Width>
+        <Width>2.8in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -117,7 +117,7 @@
         <Top>0.7in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>2.9in</Width>
+        <Width>2.8in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -154,7 +154,7 @@
         <Top>0.9in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>2.9in</Width>
+        <Width>2.8in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -351,7 +351,7 @@
         <Top>1.7in</Top>
         <Left>0.05in</Left>
         <Height>0.2in</Height>
-        <Width>2.9in</Width>
+        <Width>2.8in</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -367,13 +367,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.96667in</Width>
+              <Width>0.93333in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.96667in</Width>
+              <Width>0.93333in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.96667in</Width>
+              <Width>0.93333in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -684,7 +684,7 @@
         <Top>1.96944in</Top>
         <Left>0.05in</Left>
         <Height>0.4in</Height>
-        <Width>2.90001in</Width>
+        <Width>2.8in</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -711,10 +711,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Pago1</rd:DefaultName>
-        <Top>2.43889in</Top>
-        <Left>1.875in</Left>
+        <Top>2.4in</Top>
+        <Left>1.8in</Left>
         <Height>0.2in</Height>
-        <Width>1in</Width>
+        <Width>0.975in</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -744,8 +744,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
-        <Top>2.43889in</Top>
-        <Left>0.855in</Left>
+        <Top>2.4in</Top>
+        <Left>0.8in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>13</ZIndex>
@@ -759,8 +759,71 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Balance">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Balance.Value, "dsReciboIngreso")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Balance</rd:DefaultName>
+        <Top>2.8in</Top>
+        <Left>0.05in</Left>
+        <Height>0.2in</Height>
+        <Width>1in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Double</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Balance Pendiente:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>2.6in</Top>
+        <Left>0.05in</Left>
+        <Height>0.2in</Height>
+        <Width>1.28125in</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3in</Height>
+    <Height>3.08208in</Height>
     <Style />
   </Body>
   <Width>3.15in</Width>
@@ -834,6 +897,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="Balance">
+          <DataField>Balance</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="Estado">
           <DataField>Estado</DataField>
           <rd:TypeName>System.String</rd:TypeName>

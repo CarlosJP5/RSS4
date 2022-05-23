@@ -334,6 +334,7 @@ namespace APP
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 btnNuevo.PerformClick();
+                _ = dgvListar.Focus();
                 DataTable recibo = _recibo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
                 txtIdCliente.Text = recibo.Rows[0][0].ToString();
                 txtNombre.Text = recibo.Rows[0][1].ToString();

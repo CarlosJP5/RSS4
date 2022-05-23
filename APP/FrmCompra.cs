@@ -25,6 +25,7 @@ namespace APP
                     txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
                     txtNombre.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                     lblItbisPorciento.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                    txtBeneficioActual.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
                     _ = cboItbis.Focus();
                 }
                 else
@@ -200,6 +201,7 @@ namespace APP
                 txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
                 txtNombre.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                 lblItbisPorciento.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                txtBeneficioActual.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
                 _ = cboItbis.Focus();
             }
             else

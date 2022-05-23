@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Microsoft.Reporting.WinForms
 {
@@ -20,11 +21,12 @@ namespace Microsoft.Reporting.WinForms
         
         public static void Print(this LocalReport report, PageSettings pageSettings)
         {
+            //MessageBox.Show((pageSettings.PaperSize.Height * 100).ToString());
             string deviceInfo =
                 $@"<DeviceInfo>
                     <OutputFormat>EMF</OutputFormat>
                     <PageWidth>{pageSettings.PaperSize.Width * 100}in</PageWidth>
-                    <PageHeight>{pageSettings.PaperSize.Height * 100}in</PageHeight>            
+                    <PageHeight>{pageSettings.PaperSize.Height * 100}in</PageHeight>
                     <MarginTop>0in</MarginTop>
                     <MarginLeft>0in</MarginLeft>
                     <MarginRight>0in</MarginRight>

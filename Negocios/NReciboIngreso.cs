@@ -40,6 +40,14 @@ namespace Negocios
             int id = Convert.ToInt32(IdRecibo);
             DataTable tbRecibo = _recibo.BuscarId(id);
             ReciboIngresos = new List<ErptReciboIngreso>();
+            string query = string.Format(@"SELECT SUM(balance_cxc) balance FROM CuentaCobrar
+                                           WHERE id_cliente = {0} AND balance_cxc > 0", tbRecibo.Rows[0][0].ToString());
+            DataTable tbalance = _recibo.Buscar(query);
+            decimal balance = 0m;
+            if (!string.IsNullOrEmpty(tbalance.Rows[0][0].ToString()))
+            {
+                balance = Convert.ToDecimal(tbalance.Rows[0][0].ToString());
+            }
             foreach (DataRow row in tbRecibo.Rows)
             {
                 ErptReciboIngreso reciboModel = new ErptReciboIngreso()
@@ -50,7 +58,8 @@ namespace Negocios
                     IdRecibo = (int)row[3],
                     IdFactura = (int)row[4],
                     Pago = (decimal)row[6],
-                    Estado = row[7].ToString()
+                    Estado = row[7].ToString(),
+                    Balance = balance   
                 };
                 ReciboIngresos.Add(reciboModel);
             }

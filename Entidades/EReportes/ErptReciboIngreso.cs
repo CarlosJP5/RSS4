@@ -11,5 +11,6 @@ namespace Entidades.EReportes
         public decimal Pago { get; set; }
         public string Estado { get; set; }
         public string NombreCliente { get; set; }
+        public decimal Balance { get; set; }
     }
 }
