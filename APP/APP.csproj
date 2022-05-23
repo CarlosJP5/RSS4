@@ -150,6 +150,12 @@
     <Compile Include="FrmArticulos.Designer.cs">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmArticulosAjusteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticulosAjusteInventario.Designer.cs">
+      <DependentUpon>FrmArticulosAjusteInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmArticulosItbis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArticulosAjusteInventario.resx">
+      <DependentUpon>FrmArticulosAjusteInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulosItbis.resx">
       <DependentUpon>FrmArticulosItbis.cs</DependentUpon>

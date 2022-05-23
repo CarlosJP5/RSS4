@@ -119,5 +119,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void ajusteInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArticulosAjusteInventario frm = new FrmArticulosAjusteInventario();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
