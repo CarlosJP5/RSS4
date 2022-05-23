@@ -76,7 +76,9 @@ namespace Negocios.NReportes
                 TotalRecibo = TotalReciboIngreso,
                 TotalVentaContado = TotalVentasContado,
                 TotalDevolicion = TotalDevoluciones,
-                TotalTotal = TotalTotal
+                TotalTotal = TotalTotal,
+                Desde = Desde,
+                Hasta = Hasta
             };
             Cuadre.Add(cuadreModel);
         }
@@ -104,9 +106,7 @@ namespace Negocios.NReportes
             DFacturacion _factura = new DFacturacion();
             ReporteGanancias = new List<KeyValuePair<string, decimal>>();
 
-            string query = string.Format(@"SELECT SUM(FD.importe_factura - FD.totalDescuento_factura) AS PRECIO,
-                                           SUM(FD.costo_factura * FD.cantidad_factura) AS COSTO FROM Factura F 
-                                           LEFT JOIN FacturaDetalle FD ON F.id_factura = FD.id_factura
+            string query = string.Format(@"SELECT SUM(FD.importe_factura - (FD.importe_factura * FD.descuento_factura / 100)) AS Precio, SUM(FD.costo_factura * FD.cantidad_factura) AS Costo FROM Factura F LEFT JOIN FacturaDetalle FD ON F.id_factura = FD.id_factura
                                            WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'", Desde, Hasta);
             DataTable data = _factura.Buscar(query);
             decimal venta = 0m;

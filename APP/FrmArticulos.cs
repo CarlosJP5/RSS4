@@ -40,6 +40,7 @@ namespace APP
                 txtIdMarca.Text = null;
                 txtIdSuplidor.Text = null;
                 txtSuplidor.Text = null;
+                txtPuntoReorden.Text = null;
                 txtCosto.Text = null;
                 txtPrecio.Text = null;
                 txtBeneficio.Text = null;

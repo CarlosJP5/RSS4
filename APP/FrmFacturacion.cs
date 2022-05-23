@@ -404,7 +404,7 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFactura frm = new rptFactura(lblIdFactura.Text);
+                    rptFactura frm = new rptFactura(IdFactura.ToString());
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         frm.Close();

@@ -40,6 +40,7 @@ namespace APP
         {
             txtCodigo.Text = _marcas.MaxId().ToString();
             txtNombre.Text = null;
+            errorProvider1.Clear();
             _ = txtNombre.Focus();
             txtNombre.Enabled = true;
             btnModificar.Enabled = false;
@@ -48,7 +49,16 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            ValidateChildren();
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorProvider1.SetError(txtNombre, "Campo Obligatorio");
+                txtNombre.AllowDrop = true;
+            }
+            else
+            {
+                errorProvider1.Clear();
+                txtNombre.AllowDrop = false;
+            }
             if (!txtNombre.AllowDrop)
             {
                 DataTable marca = _marcas.BuscarId(txtCodigo.Text);
@@ -112,20 +122,6 @@ namespace APP
                 e.SuppressKeyPress = true;
                 e.Handled = true;
                 _ = btnSalvar.Focus();
-            }
-        }
-
-        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                errorProvider1.SetError(txtNombre, "Campo Obligatorio");
-                txtNombre.AllowDrop = true;
-            }
-            else
-            {
-                errorProvider1.Clear();
-                txtNombre.AllowDrop = false;
             }
         }
     }

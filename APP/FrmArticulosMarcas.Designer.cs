@@ -191,7 +191,6 @@ namespace APP
             this.txtNombre.TabIndex = 0;
             this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
-            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
             // 
             // errorProvider1
             // 
