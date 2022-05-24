@@ -172,5 +172,28 @@ namespace Datos
                 }
             }
         }
+        public void InsertarAjuste(DateTime Fecha, DataTable Detalle)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "articulo_ajusteInventario_insert";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Fecha;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

@@ -22,6 +22,10 @@ namespace APP
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.Delete)
+            {
+                btnBorrar.PerformClick();
+            }
             if (keyData == Keys.F1)
             {
                 FrmBuscarArticulos frm = new FrmBuscarArticulos();

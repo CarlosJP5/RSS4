@@ -1,11 +1,7 @@
 ﻿using Datos;
 using Entidades;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocios
 {
@@ -37,6 +33,10 @@ namespace Negocios
         public void Insertar(EArticulo articulo)
         {
             _articulos.Insertar(articulo);
+        }
+        public void InsertarAjuste(DateTime Fecha, DataTable Detalle)
+        {
+            _articulos.InsertarAjuste(Fecha, Detalle);
         }
     }
 }

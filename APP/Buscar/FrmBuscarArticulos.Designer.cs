@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,6 +53,7 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -203,7 +204,8 @@
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9});
+            this.Column9,
+            this.Column10});
             this.dgvListar.Location = new System.Drawing.Point(12, 107);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
@@ -248,9 +250,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column6.HeaderText = "Cantidad";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -258,9 +260,9 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -297,6 +299,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
             this.btnCancelar.Location = new System.Drawing.Point(703, 363);
             this.btnCancelar.Name = "btnCancelar";
@@ -307,6 +310,13 @@
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Costo";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
             // 
             // FrmBuscarArticulos
             // 
@@ -359,5 +369,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }
