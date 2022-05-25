@@ -1,5 +1,6 @@
 CREATE PROC articulo_ajusteInventario_insert
 @fecha date,
+@nota varchar(50),
 @detalle type_ajuste_inventario readonly
 AS
 BEGIN
@@ -9,8 +10,8 @@ BEGIN
 		SET @Id = 1 + (SELECT MAX(id_ajuste) FROM ArticuloAjuste)
 
 	INSERT INTO ArticuloAjuste (id_ajuste, id_articulo, fecha_ajuste,
-	cantidad_ajuste, tipo_ajuste, costo_ajuste)
-	SELECT  @Id, D.idArticulo, @fecha, D.cantidad, D.tipoAjuste, D.costo
+	nota_ajuste, cantidad_ajuste, tipo_ajuste, costo_ajuste)
+	SELECT  @Id, D.idArticulo, @fecha, @nota, D.cantidad, D.tipoAjuste, D.costo
 	FROM @detalle D
 
 	SELECT MAX(id_ajuste) FROM ArticuloAjuste

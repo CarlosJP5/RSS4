@@ -32,6 +32,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNota = new System.Windows.Forms.TextBox();
             this.txtIdArticulo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -83,6 +85,8 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.label2);
+            this.panelMid.Controls.Add(this.txtNota);
             this.panelMid.Controls.Add(this.txtIdArticulo);
             this.panelMid.Controls.Add(this.btnSalir);
             this.panelMid.Controls.Add(this.btnBuscar);
@@ -99,8 +103,27 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(569, 244);
+            this.panelMid.Size = new System.Drawing.Size(569, 273);
             this.panelMid.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(51, 207);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Nota:";
+            // 
+            // txtNota
+            // 
+            this.txtNota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNota.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNota.Location = new System.Drawing.Point(90, 204);
+            this.txtNota.MaxLength = 50;
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(406, 20);
+            this.txtNota.TabIndex = 13;
             // 
             // txtIdArticulo
             // 
@@ -115,7 +138,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(451, 206);
+            this.btnSalir.Location = new System.Drawing.Point(451, 233);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 25);
             this.btnSalir.TabIndex = 11;
@@ -127,7 +150,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(347, 206);
+            this.btnBuscar.Location = new System.Drawing.Point(347, 233);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 25);
             this.btnBuscar.TabIndex = 10;
@@ -139,7 +162,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnGuardar.Location = new System.Drawing.Point(243, 206);
+            this.btnGuardar.Location = new System.Drawing.Point(243, 233);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 25);
             this.btnGuardar.TabIndex = 9;
@@ -152,7 +175,7 @@
             // btnBorrar
             // 
             this.btnBorrar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnBorrar.Location = new System.Drawing.Point(139, 206);
+            this.btnBorrar.Location = new System.Drawing.Point(139, 233);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 25);
             this.btnBorrar.TabIndex = 8;
@@ -165,7 +188,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(35, 206);
+            this.btnNuevo.Location = new System.Drawing.Point(35, 233);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 25);
             this.btnNuevo.TabIndex = 7;
@@ -315,7 +338,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(569, 274);
+            this.ClientSize = new System.Drawing.Size(569, 303);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -358,5 +381,7 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label txtIdArticulo;
         private System.Windows.Forms.ErrorProvider errorCodigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNota;
     }
 }

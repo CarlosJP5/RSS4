@@ -34,9 +34,9 @@ namespace Negocios
         {
             _articulos.Insertar(articulo);
         }
-        public void InsertarAjuste(DateTime Fecha, DataTable Detalle)
+        public void InsertarAjuste(DateTime Fecha, string Nota, DataTable Detalle)
         {
-            _articulos.InsertarAjuste(Fecha, Detalle);
+            _articulos.InsertarAjuste(Fecha, Nota, Detalle);
         }
     }
 }

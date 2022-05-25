@@ -172,7 +172,7 @@ namespace Datos
                 }
             }
         }
-        public void InsertarAjuste(DateTime Fecha, DataTable Detalle)
+        public void InsertarAjuste(DateTime Fecha, string Nota, DataTable Detalle)
         {
             using (var conn = GetConnection())
             {
@@ -183,6 +183,7 @@ namespace Datos
                     cmd.CommandText = "articulo_ajusteInventario_insert";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Fecha;
+                    cmd.Parameters.Add("@nota", SqlDbType.VarChar, 50).Value = Nota;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try
                     {

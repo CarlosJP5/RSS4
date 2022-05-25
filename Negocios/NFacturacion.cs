@@ -28,6 +28,11 @@ namespace Negocios
             int Id = Convert.ToInt32(IdDevolucion);
             return _facturar.BuscarDevoluionId(Id);
         }
+        public DataTable DevolucionCargar(string IdFactura)
+        {
+            int id = Convert.ToInt32(IdFactura);
+            return _facturar.DevolucionCargar(id);
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             return _facturar.Listar(Desde, Hasta);

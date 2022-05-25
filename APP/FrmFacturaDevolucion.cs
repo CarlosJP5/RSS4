@@ -91,11 +91,22 @@ namespace APP
                 txtRNC.Text = facturaTable.Rows[0][7].ToString();
                 txtTipoFactura.Text = facturaTable.Rows[0][8].ToString();
                 cboTipoComprobante.SelectedValue = facturaTable.Rows[0][9].ToString();
+                DataTable CargarDev = _facturar.DevolucionCargar(IdFactura);
                 for (int i = 0; i < facturaTable.Rows.Count; i++)
                 {
                     dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
                         facturaTable.Rows[i][18], facturaTable.Rows[i][20], facturaTable.Rows[i][21],
                         facturaTable.Rows[i][22], "", "", "", facturaTable.Rows[i][25]);
+                }
+                for (int y = 0; y < CargarDev.Rows.Count; y++)
+                {
+                    for (int i = 0; i < dgvListar.RowCount; i++)
+                    {
+                        if (dgvListar.Rows[i].Cells[0].Value.ToString() == CargarDev.Rows[y][0].ToString())
+                        {
+                            dgvListar.Rows[i].Cells[3].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[3].Value) - Convert.ToDecimal(CargarDev.Rows[y][1]);
+                        }
+                    }
                 }
             }
             else

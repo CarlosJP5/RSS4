@@ -36,6 +36,7 @@ namespace APP
             cboAj.SelectedIndex = 0;
             txtCantidad.Text = null;
             txtCosto.Text = null;
+            txtNota.Text = null;
             errorCodigo.Clear();
             dgvListar.Rows.Clear();
         }
@@ -189,7 +190,7 @@ namespace APP
                     }
                     _articulos.Buscar(query);
                 }
-                _articulos.InsertarAjuste(DateTime.Now, Detalle);
+                _articulos.InsertarAjuste(DateTime.Now, txtNota.Text, Detalle);
                 btnNuevo.PerformClick();
             }
             else

@@ -115,6 +115,33 @@ namespace Datos
                 }
             }
         }
+        public DataTable DevolucionCargar(int IdFactura)
+        {
+            //Carga las devoluciones que tenga una Factura para determinas
+            //Las cantidades disponibles para devolver
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_cargar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFactura", SqlDbType.Int).Value = IdFactura;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())
