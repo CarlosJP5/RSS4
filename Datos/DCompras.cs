@@ -56,6 +56,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable DetalleArticulo(int IdArticulo)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "compra_detalleArticulo";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idArticulo", SqlDbType.Int).Value = IdArticulo;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())

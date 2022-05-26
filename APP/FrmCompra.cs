@@ -73,6 +73,7 @@ namespace APP
             lblIdArticulo.Text = "0";
             errorCantidad.Clear();
             errorNcf.Clear();
+            panelDetalle.Visible = false;
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Enabled = false;
@@ -197,11 +198,8 @@ namespace APP
             FrmBuscarArticulos frm = new FrmBuscarArticulos();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                lblIdArticulo.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
                 txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
-                txtNombre.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
-                lblItbisPorciento.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
-                txtBeneficioActual.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                txtCodigo.Focus();
                 _ = cboItbis.Focus();
             }
             else
@@ -382,6 +380,17 @@ namespace APP
                 }
                 CalculaCostoFinal();
             }
+            else
+            {
+                decimal costo = 0.000000000001m;
+                txtCosto.Text = costo.ToString("N2");
+                if (!string.IsNullOrEmpty(txtCantidad.Text))
+                {
+                    decimal importe = costo * Convert.ToDecimal(txtCantidad.Text);
+                    txtImporte.Text = importe.ToString("N2");
+                }
+                CalculaCostoFinal();
+            }
         }
 
         private decimal ImporteTotal { get; set; }
@@ -467,7 +476,14 @@ namespace APP
             {
                 decimal precio = Convert.ToDecimal(txtPrecio.Text);
                 decimal costo = Convert.ToDecimal(txtCostoFinal.Text);
-                txtBeneficio.Text = ((precio - costo) / costo * 100).ToString("N2");
+                if (costo != 0)
+                {
+                    txtBeneficio.Text = ((precio - costo) / costo * 100).ToString("N2");
+                }
+                else
+                {
+                    txtBeneficio.Text = "100.00";
+                }
                 txtPrecio.Text = precio.ToString("N2");
             }
         }
@@ -514,6 +530,7 @@ namespace APP
                 {
                     return;
                 }
+                panelDetalle.Visible = false;
                 string itb = "+";
                 switch (cboItbis.SelectedIndex)
                 {
@@ -581,7 +598,16 @@ namespace APP
             {
                 return;
             }
-            if (!txtSuplidorNombre.AllowDrop && dgvListar.Rows.Count > 0)
+            if (string.IsNullOrEmpty(txtSuplidorNombre.Text))
+            {
+                errorSuplidor.SetError(txtSuplidorNombre, "Debe seleccionar un Suplidor");
+                return;
+            }
+            else
+            {
+                errorSuplidor.Clear();
+            }
+            if (dgvListar.Rows.Count > 0)
             {
                 ECompra Compra = new ECompra()
                 {
@@ -627,6 +653,11 @@ namespace APP
                 }
                 _compra.Insertar(Compra, Detalle);
                 btnNuevo.PerformClick();
+            }
+            else
+            {
+                MessageBox.Show("No hay articulos en la lista de compra", "Inf", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -808,6 +839,26 @@ namespace APP
                 errorNcf.Clear();
                 txtNCF.AllowDrop = false;
             }
+        }
+
+        private void txtCantidad_Enter(object sender, EventArgs e)
+        {
+            dgvDetalle.Rows.Clear();
+            if (!string.IsNullOrEmpty(txtNombre.Text))
+            {
+                DataTable Detalle = _compra.DetalleArticulo(lblIdArticulo.Text);
+                foreach (DataRow row in Detalle.Rows)
+                {
+                    DateTime fecha = DateTime.Parse(row[0].ToString());
+                    _ = dgvDetalle.Rows.Add(fecha.ToString("dd/MM/yyyy"), row[1], row[2]);
+                }
+                panelDetalle.Visible = true;
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            panelDetalle.Visible = false;
         }
     }
 }

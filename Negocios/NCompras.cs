@@ -17,6 +17,11 @@ namespace Negocios
             int Id = Convert.ToInt32(IdCompra);
             return _compra.BuscarId(Id);
         }
+        public DataTable DetalleArticulo(string IdArticulo)
+        {
+            int Id = Convert.ToInt32(IdArticulo);
+            return _compra.DetalleArticulo(Id);
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             return _compra.Listar(Desde, Hasta);

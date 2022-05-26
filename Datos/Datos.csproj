@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBUpdate\CREATE PROC articulo_ajusteInventario_insert.sql" />
+    <Content Include="DBUpdate\CREATE PROC compra_detalleArticulo.sql" />
     <Content Include="DBUpdate\CREATE PROC facturaDevolucion_cargar.sql" />
     <Content Include="DBUpdate\CreateTableAjusteInventario.sql" />
     <Content Include="DBUpdate\CreateType_ajuste_inventario.sql" />
