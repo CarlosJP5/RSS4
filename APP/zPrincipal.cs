@@ -126,5 +126,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void devolucionSCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompraDevolucion frm = new FrmCompraDevolucion();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
