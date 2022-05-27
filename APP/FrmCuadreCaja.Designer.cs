@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -407,58 +407,61 @@
             // 
             this.chartGanancias.BorderlineColor = System.Drawing.Color.Black;
             this.chartGanancias.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea5.Name = "ChartArea1";
-            this.chartGanancias.ChartAreas.Add(chartArea5);
-            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend5.Name = "Legend1";
-            this.chartGanancias.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chartGanancias.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chartGanancias.Legends.Add(legend1);
             this.chartGanancias.Location = new System.Drawing.Point(12, 135);
             this.chartGanancias.Name = "chartGanancias";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.IsValueShownAsLabel = true;
-            series5.LabelFormat = "N2";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chartGanancias.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.LabelFormat = "N2";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartGanancias.Series.Add(series1);
             this.chartGanancias.Size = new System.Drawing.Size(282, 282);
             this.chartGanancias.TabIndex = 8;
             this.chartGanancias.Text = "chartGanancias";
-            title5.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title5.Name = "Reporte de Ganancias";
-            title5.Text = "Reporte de Ganancias";
-            this.chartGanancias.Titles.Add(title5);
+            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title1.Name = "Reporte de Ganancias";
+            title1.Text = "Reporte de Ganancias";
+            this.chartGanancias.Titles.Add(title1);
             // 
             // chartTop15
             // 
             this.chartTop15.BorderlineColor = System.Drawing.Color.Black;
             this.chartTop15.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea6.BorderColor = System.Drawing.Color.Maroon;
-            chartArea6.Name = "ChartArea1";
-            this.chartTop15.ChartAreas.Add(chartArea6);
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend6.Name = "Legend1";
-            this.chartTop15.Legends.Add(legend6);
+            this.chartTop15.BorderSkin.BorderColor = System.Drawing.Color.Red;
+            this.chartTop15.BorderSkin.PageColor = System.Drawing.Color.Gray;
+            chartArea2.BorderColor = System.Drawing.Color.Maroon;
+            chartArea2.Name = "ChartArea1";
+            this.chartTop15.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chartTop15.Legends.Add(legend2);
             this.chartTop15.Location = new System.Drawing.Point(300, 135);
             this.chartTop15.Name = "chartTop15";
-            this.chartTop15.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            series6.IsValueShownAsLabel = true;
-            series6.IsVisibleInLegend = false;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartTop15.Series.Add(series6);
-            this.chartTop15.Size = new System.Drawing.Size(491, 406);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            series2.IsValueShownAsLabel = true;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.YValuesPerPoint = 6;
+            this.chartTop15.Series.Add(series2);
+            this.chartTop15.Size = new System.Drawing.Size(493, 406);
             this.chartTop15.TabIndex = 9;
             this.chartTop15.Text = "chartTop15";
-            title6.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title6.Name = "Reporte de Ganancias";
-            title6.Text = "Top 15 producotos vendidos";
-            this.chartTop15.Titles.Add(title6);
+            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title2.Name = "Reporte de Ganancias";
+            title2.Text = "Top 15 producotos vendidos";
+            this.chartTop15.Titles.Add(title2);
             // 
             // FrmCuadreCaja
             // 
