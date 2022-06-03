@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblIdCompra = new System.Windows.Forms.Label();
             this.txtSuplidorNombre = new System.Windows.Forms.TextBox();
             this.txtIdSuplidor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,9 +51,9 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnBuscarCompra = new System.Windows.Forms.Button();
             this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.lblIdCompra = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +61,22 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtTotalCompra = new System.Windows.Forms.TextBox();
+            this.txtItbisCompra = new System.Windows.Forms.TextBox();
+            this.txtDescuentoCompra = new System.Windows.Forms.TextBox();
+            this.txtImporteCompra = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -71,7 +90,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(762, 30);
+            this.panelTop.Size = new System.Drawing.Size(783, 30);
             this.panelTop.TabIndex = 0;
             // 
             // label1
@@ -80,7 +99,7 @@
             this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(760, 28);
+            this.label1.Size = new System.Drawing.Size(781, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Devolucion Compra";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,8 +120,17 @@
             this.panel1.Controls.Add(this.btnBuscarCompra);
             this.panel1.Location = new System.Drawing.Point(12, 36);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(738, 64);
+            this.panel1.Size = new System.Drawing.Size(761, 64);
             this.panel1.TabIndex = 1;
+            // 
+            // lblIdCompra
+            // 
+            this.lblIdCompra.AutoSize = true;
+            this.lblIdCompra.Location = new System.Drawing.Point(521, 8);
+            this.lblIdCompra.Name = "lblIdCompra";
+            this.lblIdCompra.Size = new System.Drawing.Size(52, 13);
+            this.lblIdCompra.TabIndex = 10;
+            this.lblIdCompra.Text = "IdCompra";
             // 
             // txtSuplidorNombre
             // 
@@ -207,28 +235,29 @@
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
             this.Column7,
             this.Column8,
             this.Column9,
-            this.Column10});
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18});
             this.dgvListar.Location = new System.Drawing.Point(12, 106);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.Size = new System.Drawing.Size(738, 245);
-            this.dgvListar.TabIndex = 2;
-            // 
-            // lblIdCompra
-            // 
-            this.lblIdCompra.AutoSize = true;
-            this.lblIdCompra.Location = new System.Drawing.Point(521, 8);
-            this.lblIdCompra.Name = "lblIdCompra";
-            this.lblIdCompra.Size = new System.Drawing.Size(52, 13);
-            this.lblIdCompra.TabIndex = 10;
-            this.lblIdCompra.Text = "IdCompra";
-            this.lblIdCompra.Visible = false;
+            this.dgvListar.Size = new System.Drawing.Size(761, 245);
+            this.dgvListar.TabIndex = 3;
+            this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
+            this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
             // 
             // Column1
             // 
@@ -241,77 +270,233 @@
             this.Column2.HeaderText = "Codigo";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 90;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Nombre";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 245;
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Nombre";
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle49;
+            this.Column4.HeaderText = "ITB";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 220;
+            this.Column4.Visible = false;
+            this.Column4.Width = 30;
             // 
             // Column5
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column5.HeaderText = "Cantidad";
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle50.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle50;
+            this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 70;
+            this.Column5.Width = 75;
             // 
             // Column6
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle51.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle51;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 50;
+            this.Column6.Width = 55;
             // 
             // Column7
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle52.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle52;
             this.Column7.HeaderText = "Costo";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 90;
             // 
             // Column8
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column8.HeaderText = " ";
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle53.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle53;
+            this.Column8.HeaderText = "Importe";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 10;
+            this.Column8.Visible = false;
             // 
             // Column9
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column9.HeaderText = "Dev.";
+            this.Column9.HeaderText = "ITB%";
             this.Column9.Name = "Column9";
-            this.Column9.Width = 70;
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            this.Column9.Width = 35;
             // 
             // Column10
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column10.HeaderText = "Importe";
+            this.Column10.HeaderText = "CostoFinal";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Precio";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Beneficio";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "TotalImporte";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "TotalDescuento";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "TotalItbis";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            // 
+            // Column16
+            // 
+            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle54;
+            this.Column16.HeaderText = "";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 10;
+            // 
+            // Column17
+            // 
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle55.Format = "N2";
+            this.Column17.DefaultCellStyle = dataGridViewCellStyle55;
+            this.Column17.HeaderText = "Dev.";
+            this.Column17.Name = "Column17";
+            this.Column17.Width = 75;
+            // 
+            // Column18
+            // 
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle56.Format = "N2";
+            this.Column18.DefaultCellStyle = dataGridViewCellStyle56;
+            this.Column18.HeaderText = "Importe";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Width = 90;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(605, 423);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 13);
+            this.label19.TabIndex = 41;
+            this.label19.Text = "Total:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(605, 402);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.TabIndex = 40;
+            this.label18.Text = "ITBIS:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(605, 381);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(62, 13);
+            this.label21.TabIndex = 39;
+            this.label21.Text = "Descuento:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(605, 360);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 38;
+            this.label22.Text = "Importe:";
+            // 
+            // txtTotalCompra
+            // 
+            this.txtTotalCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtTotalCompra.Location = new System.Drawing.Point(673, 420);
+            this.txtTotalCompra.Name = "txtTotalCompra";
+            this.txtTotalCompra.ReadOnly = true;
+            this.txtTotalCompra.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalCompra.TabIndex = 37;
+            this.txtTotalCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtItbisCompra
+            // 
+            this.txtItbisCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtItbisCompra.Location = new System.Drawing.Point(673, 399);
+            this.txtItbisCompra.Name = "txtItbisCompra";
+            this.txtItbisCompra.ReadOnly = true;
+            this.txtItbisCompra.Size = new System.Drawing.Size(100, 20);
+            this.txtItbisCompra.TabIndex = 36;
+            this.txtItbisCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtDescuentoCompra
+            // 
+            this.txtDescuentoCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtDescuentoCompra.Location = new System.Drawing.Point(673, 378);
+            this.txtDescuentoCompra.Name = "txtDescuentoCompra";
+            this.txtDescuentoCompra.ReadOnly = true;
+            this.txtDescuentoCompra.Size = new System.Drawing.Size(100, 20);
+            this.txtDescuentoCompra.TabIndex = 35;
+            this.txtDescuentoCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtImporteCompra
+            // 
+            this.txtImporteCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtImporteCompra.Location = new System.Drawing.Point(673, 357);
+            this.txtImporteCompra.Name = "txtImporteCompra";
+            this.txtImporteCompra.ReadOnly = true;
+            this.txtImporteCompra.Size = new System.Drawing.Size(100, 20);
+            this.txtImporteCompra.TabIndex = 34;
+            this.txtImporteCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmCompraDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(762, 467);
+            this.ClientSize = new System.Drawing.Size(783, 458);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txtTotalCompra);
+            this.Controls.Add(this.txtItbisCompra);
+            this.Controls.Add(this.txtDescuentoCompra);
+            this.Controls.Add(this.txtImporteCompra);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
@@ -326,6 +511,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -344,10 +530,11 @@
         private System.Windows.Forms.TextBox txtSuplidorNombre;
         private System.Windows.Forms.TextBox txtIdSuplidor;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.Label lblIdCompra;
+        private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
@@ -355,5 +542,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtTotalCompra;
+        private System.Windows.Forms.TextBox txtItbisCompra;
+        private System.Windows.Forms.TextBox txtDescuentoCompra;
+        private System.Windows.Forms.TextBox txtImporteCompra;
     }
 }
