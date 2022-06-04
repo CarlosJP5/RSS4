@@ -105,6 +105,29 @@ namespace Datos
                 }
             }
         }
+        public void CambiarCodigo(int IdArticulo, string Codigo)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "articulo_cambiarCodigo";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idArticulo", SqlDbType.Int).Value = IdArticulo;
+                    cmd.Parameters.Add("@codigo", SqlDbType.VarChar, 50).Value = Codigo;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void Editar(EArticulo articulo)
         {
             using (var conn = GetConnection())

@@ -26,6 +26,11 @@ namespace Negocios
         {
             return _articulos.Listar();
         }
+        public void CambiarCodigo(string IdArticulo, string Codigo)
+        {
+            int id = Convert.ToInt32(IdArticulo);
+            _articulos.CambiarCodigo(id, Codigo);
+        }
         public void Editar(EArticulo articulo)
         {
             _articulos.Editar(articulo);

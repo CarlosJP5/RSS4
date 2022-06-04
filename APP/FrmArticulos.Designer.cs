@@ -212,9 +212,9 @@
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
             this.btnBuscar.Location = new System.Drawing.Point(326, 211);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(85, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(87, 25);
             this.btnBuscar.TabIndex = 32;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar [F1]";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -223,11 +223,11 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(231, 211);
+            this.btnSalvar.Location = new System.Drawing.Point(229, 211);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(85, 25);
+            this.btnSalvar.Size = new System.Drawing.Size(90, 25);
             this.btnSalvar.TabIndex = 31;
-            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Text = "Salvar [F5]";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;

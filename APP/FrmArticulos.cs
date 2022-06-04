@@ -17,6 +17,19 @@ namespace APP
             LlenarSuplidor();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F5)
+            {
+                btnSalvar.PerformClick();
+            }
+            if (keyData == Keys.F1)
+            {
+                btnBuscar.PerformClick();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private readonly NArticulos _articulos = new NArticulos();
         private readonly NMarcas _marca = new NMarcas();
 

@@ -133,5 +133,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void cambiarCodigoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArticulosCambiarCodigo frm = new FrmArticulosCambiarCodigo();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

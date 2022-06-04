@@ -463,9 +463,9 @@
             this.btnFacturar.Image = global::APP.Properties.Resources.Facturar_16;
             this.btnFacturar.Location = new System.Drawing.Point(297, 260);
             this.btnFacturar.Name = "btnFacturar";
-            this.btnFacturar.Size = new System.Drawing.Size(85, 25);
+            this.btnFacturar.Size = new System.Drawing.Size(92, 25);
             this.btnFacturar.TabIndex = 8;
-            this.btnFacturar.Text = "Facturar";
+            this.btnFacturar.Text = "Facturar [F5]";
             this.btnFacturar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFacturar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFacturar.UseVisualStyleBackColor = true;
@@ -487,7 +487,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(388, 260);
+            this.btnBuscar.Location = new System.Drawing.Point(395, 260);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 9;
