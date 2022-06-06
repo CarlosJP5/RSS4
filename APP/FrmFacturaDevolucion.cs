@@ -126,8 +126,7 @@ namespace APP
             {
                 dgvListar.CurrentRow.Cells[7].Value = "";
             }
-            bool tryy = decimal.TryParse(dgvListar.CurrentRow.Cells[7].Value.ToString(), out _);
-            if (tryy)
+            if (decimal.TryParse(dgvListar.CurrentRow.Cells[7].Value.ToString(), out _))
             {
                 decimal dev = Convert.ToDecimal(dgvListar.CurrentRow.Cells[7].Value);
                 decimal cant = Convert.ToDecimal(dgvListar.CurrentRow.Cells[3].Value);

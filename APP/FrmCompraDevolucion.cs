@@ -81,7 +81,40 @@ namespace APP
 
         private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvListar.CurrentRow.Cells[16].Value == null)
+            {
+                dgvListar.CurrentRow.Cells[16].Value = 0m;
+            }
+            if (decimal.TryParse(dgvListar.CurrentRow.Cells[16].Value.ToString(), out _))
+            {
+                decimal cantidad = Convert.ToDecimal(dgvListar.CurrentRow.Cells[16].Value);
+                decimal cantidadComprada = Convert.ToDecimal(dgvListar.CurrentRow.Cells[4].Value);
+                if (cantidad > cantidadComprada)
+                {
+                    cantidad = cantidadComprada;
+                }
+                decimal costo = Convert.ToDecimal(dgvListar.CurrentRow.Cells[6].Value);
+                dgvListar.CurrentRow.Cells[16].Value = cantidad;
+                dgvListar.CurrentRow.Cells[17].Value = cantidad * costo;
+                CalcularTotal();
+            }
+        }
 
+        private void CalcularTotal()
+        {
+            decimal importe = 0m;
+            decimal descuento = 0m;
+            decimal itbis = 0;
+            for (int i = 0; i < dgvListar.RowCount; i++)
+            {
+                importe += (Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+                descuento += (Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+                itbis += (Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+            }
+            txtImporteCompra.Text = importe.ToString("N2");
+            txtDescuentoCompra.Text = descuento.ToString("N2");
+            txtItbisCompra.Text = itbis.ToString("N2");
+            txtTotalCompra.Text = (importe - descuento + itbis).ToString("N2");
         }
     }
 }
