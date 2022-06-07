@@ -34,5 +34,9 @@ namespace Negocios
         {
             _compra.Insertar(Compra, Detalle);
         }
+        public void InsertarDevolucion(ECompra Compra, DataTable Detalle)
+        {
+            _compra.InsertarDevolucion(Compra, Detalle);
+        }
     }
 }

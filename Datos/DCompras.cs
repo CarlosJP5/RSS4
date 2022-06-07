@@ -167,5 +167,34 @@ namespace Datos
                 }
             }
         }
+        public void InsertarDevolucion(ECompra Compra, DataTable Detalle)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "compraDevolucion_insertar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@id_compra", SqlDbType.Int).Value = Compra.IdCompra;
+                    cmd.Parameters.Add("@id_suplidor", SqlDbType.Int).Value = Compra.IdSuplidor;
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Compra.Fecha;
+                    cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Compra.Importe;
+                    cmd.Parameters.Add("@descuento", SqlDbType.Decimal).Value = Compra.Descuento;
+                    cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Compra.Itbis;
+                    cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Compra.Total;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

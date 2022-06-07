@@ -1,4 +1,5 @@
 ﻿using APP.Buscar;
+using Entidades;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,27 @@ namespace APP
 
         private void FrmCompraDevolucion_Load(object sender, EventArgs e)
         {
+            btnNuevo.PerformClick();
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            dtpFecha.Value = DateTime.Now;
+            btnBuscarCompra.Enabled = true;
+            txtFacturaNumero.Text = null;
+            txtNCF.Text = null;
+            txtIdSuplidor.Text = null;
+            txtSuplidorNombre.Text = null;
+            lblIdCompra.Text = null;
+            dgvListar.Rows.Clear();
+            txtImporteCompra.Text = null;
+            txtDescuentoCompra.Text = null;
+            txtItbisCompra.Text = null;
+            txtTotalCompra.Text = null;
+
+            btnImprimir.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
         }
 
         private void btnBuscarCompra_Click(object sender, EventArgs e)
@@ -115,6 +136,37 @@ namespace APP
             txtDescuentoCompra.Text = descuento.ToString("N2");
             txtItbisCompra.Text = itbis.ToString("N2");
             txtTotalCompra.Text = (importe - descuento + itbis).ToString("N2");
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            ECompra compra = new ECompra()
+            {
+                IdCompra = Convert.ToInt32(lblIdCompra.Text),
+                IdSuplidor = Convert.ToInt32(txtIdSuplidor.Text),
+                Fecha = dtpFecha.Value,
+                Importe = Convert.ToDecimal(txtImporteCompra.Text),
+                Descuento = Convert.ToDecimal(txtDescuentoCompra.Text),
+                Itbis = Convert.ToDecimal(txtItbisCompra.Text),
+                Total = Convert.ToDecimal(txtTotalCompra.Text)
+            };
+            DataTable Detalle = new DataTable();
+            Detalle.Columns.Add("id_articulo", typeof(int));
+            Detalle.Columns.Add("cantidad", typeof(decimal));
+            Detalle.Columns.Add("importe", typeof(decimal));
+            for (int i = 0; i < dgvListar.RowCount; i++)
+            {
+                if (Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value) > 0)
+                {
+                    DataRow row = Detalle.NewRow();
+                    row[0] = Convert.ToInt16(dgvListar.Rows[i].Cells[0].Value);
+                    row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+                    row[2] = Convert.ToDecimal(dgvListar.Rows[i].Cells[17].Value);
+                    Detalle.Rows.Add(row);
+                }
+            }
+            _compra.InsertarDevolucion(compra, Detalle);
+            btnNuevo.PerformClick();
         }
     }
 }
