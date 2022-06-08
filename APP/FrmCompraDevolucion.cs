@@ -41,6 +41,7 @@ namespace APP
             txtDescuentoCompra.Text = null;
             txtItbisCompra.Text = null;
             txtTotalCompra.Text = null;
+            errorSuplidor.Clear();
 
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
@@ -67,7 +68,22 @@ namespace APP
                             compra.Rows[i][14], compra.Rows[i][15], compra.Rows[i][16], compra.Rows[i][17],
                             compra.Rows[i][18], compra.Rows[i][19], compra.Rows[i][20], compra.Rows[i][21],
                             compra.Rows[i][22], compra.Rows[i][23], compra.Rows[i][24], compra.Rows[i][25],
-                            "",0m,0m);
+                            "",0m,0m, compra.Rows[i][15]);
+                    }
+
+                    DataTable Select = _compra.SelectDevluciones(lblIdCompra.Text);
+                    if (Select.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dgvListar.RowCount; i++)
+                        {
+                            for (int x = 0; x < Select.Rows.Count; x++)
+                            {
+                                if (dgvListar.Rows[i].Cells[0].Value.ToString() == Select.Rows[x][0].ToString())
+                                {
+                                    dgvListar.Rows[i].Cells[4].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value) - Convert.ToDecimal(Select.Rows[x][1].ToString());
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -128,9 +144,13 @@ namespace APP
             decimal itbis = 0;
             for (int i = 0; i < dgvListar.RowCount; i++)
             {
-                importe += (Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
-                descuento += (Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
-                itbis += (Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+                if (Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value) != 0)
+                {
+                    importe += (Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[18].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+                    descuento += (Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[18].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+                    itbis += (Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value) / Convert.ToDecimal(dgvListar.Rows[i].Cells[18].Value)) * Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
+
+                }
             }
             txtImporteCompra.Text = importe.ToString("N2");
             txtDescuentoCompra.Text = descuento.ToString("N2");
@@ -140,6 +160,20 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSuplidorNombre.Text))
+            {
+                errorSuplidor.SetError(txtSuplidorNombre, "NO hay compra seleccionada");
+                return;
+            }
+            else
+            {
+                errorSuplidor.Clear();
+            }
+            if (string.IsNullOrEmpty(txtTotalCompra.Text) || txtTotalCompra.Text == "0.00")
+            {
+                _ = MessageBox.Show("No hay Articulos Para Devolver", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ECompra compra = new ECompra()
             {
                 IdCompra = Convert.ToInt32(lblIdCompra.Text),

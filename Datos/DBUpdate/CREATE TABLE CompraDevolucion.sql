@@ -53,6 +53,33 @@ BEGIN
 	SELECT @Id, D.id_articulo, D.cantidad, D.importe
 	FROM @detalle D
 
+	IF (SELECT balance_cxp FROM CuentaPagar WHERE id_compra = @id_compra) = @total
+		UPDATE CuentaPagar SET estado_cxp = 'SALDO' WHERE id_compra = @id_compra
+
+	UPDATE CuentaPagar SET balance_cxp = balance_cxp - @total WHERE id_compra = @id_compra
+
 	SELECT MAX(id_devolucionCompra) FROM CompraDevolucion
+END
+GO
+
+CREATE TRIGGER compraDevolucionInsertar 
+   ON  CompraDevolucionDetalle 
+   AFTER INSERT
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE A SET A.cantidad_articulo = A.cantidad_articulo - CD.cantidad_devolucionCompra
+	FROM Articulo A INNER JOIN inserted CD ON A.id_articulo = CD.id_articulo
+END
+GO
+
+CREATE PROC compraDevolucion_select
+@idCompra int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT CD.id_articulo, CD.cantidad_devolucionCompra FROM CompraDevolucion C
+	LEFT JOIN CompraDevolucionDetalle CD ON C.id_devolucionCompra = CD.id_devolucionCompra
+	WHERE C.id_compra = @idCompra
 END
 GO

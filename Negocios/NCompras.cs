@@ -26,6 +26,11 @@ namespace Negocios
         {
             return _compra.Listar(Desde, Hasta);
         }
+        public DataTable SelectDevluciones(string IdCompra)
+        {
+            int id = Convert.ToInt32(IdCompra);
+            return _compra.SelectDevluciones(id);
+        }
         public void Editar(ECompra Compra, DataTable Detalle)
         {
             _compra.Editar(Compra, Detalle);

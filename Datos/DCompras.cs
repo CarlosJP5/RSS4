@@ -107,6 +107,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable SelectDevluciones(int IdCompra)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "compraDevolucion_select";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idCompra", SqlDbType.Int).Value = IdCompra;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void Editar(ECompra Compra, DataTable Detalle)
         {
             using (var conn = GetConnection())

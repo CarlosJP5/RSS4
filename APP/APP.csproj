@@ -333,9 +333,6 @@
     <EmbeddedResource Include="FrmRegistroComprobante.resx">
       <DependentUpon>FrmRegistroComprobante.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteComprobantes607.resx">
-      <DependentUpon>FrmReporteComprobantes607.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmSuplidores.resx">
       <DependentUpon>FrmSuplidores.cs</DependentUpon>
     </EmbeddedResource>
