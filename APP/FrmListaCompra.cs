@@ -16,5 +16,10 @@ namespace APP
         {
             InitializeComponent();
         }
+
+        private void FrmListaCompra_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
