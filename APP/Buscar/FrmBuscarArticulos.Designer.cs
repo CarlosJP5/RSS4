@@ -51,9 +51,9 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -100,7 +100,7 @@
             // rbtnMarca
             // 
             this.rbtnMarca.AutoSize = true;
-            this.rbtnMarca.Location = new System.Drawing.Point(487, 7);
+            this.rbtnMarca.Location = new System.Drawing.Point(470, 7);
             this.rbtnMarca.Name = "rbtnMarca";
             this.rbtnMarca.Size = new System.Drawing.Size(55, 17);
             this.rbtnMarca.TabIndex = 7;
@@ -112,7 +112,7 @@
             // rbtnReferencia
             // 
             this.rbtnReferencia.AutoSize = true;
-            this.rbtnReferencia.Location = new System.Drawing.Point(404, 7);
+            this.rbtnReferencia.Location = new System.Drawing.Point(387, 7);
             this.rbtnReferencia.Name = "rbtnReferencia";
             this.rbtnReferencia.Size = new System.Drawing.Size(77, 17);
             this.rbtnReferencia.TabIndex = 6;
@@ -124,7 +124,7 @@
             // rbtnNombre
             // 
             this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Location = new System.Drawing.Point(336, 7);
+            this.rbtnNombre.Location = new System.Drawing.Point(319, 7);
             this.rbtnNombre.Name = "rbtnNombre";
             this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
             this.rbtnNombre.TabIndex = 5;
@@ -136,7 +136,7 @@
             // rbtnCodigo
             // 
             this.rbtnCodigo.AutoSize = true;
-            this.rbtnCodigo.Location = new System.Drawing.Point(272, 7);
+            this.rbtnCodigo.Location = new System.Drawing.Point(255, 7);
             this.rbtnCodigo.Name = "rbtnCodigo";
             this.rbtnCodigo.Size = new System.Drawing.Size(58, 17);
             this.rbtnCodigo.TabIndex = 4;
@@ -148,7 +148,7 @@
             // rbtnTodo
             // 
             this.rbtnTodo.AutoSize = true;
-            this.rbtnTodo.Location = new System.Drawing.Point(216, 7);
+            this.rbtnTodo.Location = new System.Drawing.Point(199, 7);
             this.rbtnTodo.Name = "rbtnTodo";
             this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
             this.rbtnTodo.TabIndex = 3;
@@ -160,7 +160,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(553, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(536, 27);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 25);
             this.btnBuscar.TabIndex = 2;
@@ -173,7 +173,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 33);
+            this.label2.Location = new System.Drawing.Point(141, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 1;
@@ -183,7 +183,7 @@
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscar.Location = new System.Drawing.Point(207, 30);
+            this.txtBuscar.Location = new System.Drawing.Point(190, 30);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(340, 20);
             this.txtBuscar.TabIndex = 0;
@@ -284,6 +284,13 @@
             this.Column9.ReadOnly = true;
             this.Column9.Visible = false;
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Costo";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
@@ -310,13 +317,6 @@
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Costo";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
             // 
             // FrmBuscarArticulos
             // 

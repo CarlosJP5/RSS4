@@ -140,5 +140,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void listaDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListaCompra frm = new FrmListaCompra();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
