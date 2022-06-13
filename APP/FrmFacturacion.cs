@@ -112,6 +112,8 @@ namespace APP
             txtIdCliente.Text = "0";
             txtIdCliente_Leave(sender, e);
             dgvListar.Rows.Clear();
+            txtNota.Text = null;
+            txtCodigo.Text = null;
             CalculaTotal();
             HabilitarControles();
             cboTipoCompra.Enabled = true;
@@ -577,19 +579,24 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    using (LocalReport localReport = new LocalReport())
+                    rptFactura frm = new rptFactura(lblIdFactura.Text);
+                    if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        NrptEmpresa nEmpresa = new NrptEmpresa();
-                        NrptFactura nFactura = new NrptFactura();
-                        nEmpresa.LlenaEmpresa();
-                        nFactura.Facturas(lblIdFactura.Text);
-                        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
-                        localReport.DataSources.Clear();
-                        localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
-                        localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
-                        localReport.DataSources.Add(new ReportDataSource("dsFacturaDetalle", nFactura.FacturaDetalles));
-                        localReport.PrintToPrinter();
+                        frm.Close();
                     }
+                    //using (LocalReport localReport = new LocalReport())
+                    //{
+                    //    NrptEmpresa nEmpresa = new NrptEmpresa();
+                    //    NrptFactura nFactura = new NrptFactura();
+                    //    nEmpresa.LlenaEmpresa();
+                    //    nFactura.Facturas(lblIdFactura.Text);
+                    //    localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
+                    //    localReport.DataSources.Clear();
+                    //    localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                    //    localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
+                    //    localReport.DataSources.Add(new ReportDataSource("dsFacturaDetalle", nFactura.FacturaDetalles));
+                    //    localReport.PrintToPrinter();
+                    //}
                 }
                 btnNuevo.PerformClick();
             }
