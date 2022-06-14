@@ -129,16 +129,37 @@ namespace APP
 
         private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            decimal pedido = Convert.ToDecimal(dgvListar.CurrentRow.Cells[7].Value);
-            if (pedido > 0)
+            if (dgvListar.CurrentRow.Cells[7].Value == null)
             {
-                dgvListar.CurrentRow.Cells[8].Value = 1;
+                dgvListar.CurrentRow.Cells[7].Value = 0m;
+                dgvListar.CurrentRow.Cells[8].Value = 0;
             }
             else
             {
-                dgvListar.CurrentRow.Cells[8].Value = 0;
+                if (decimal.TryParse(dgvListar.CurrentRow.Cells[7].Value.ToString(), out _))
+                {
+                    decimal pedido = Convert.ToDecimal(dgvListar.CurrentRow.Cells[7].Value);
+                    if (pedido > 0)
+                    {
+                        dgvListar.CurrentRow.Cells[8].Value = 1;
+                    }
+                    else
+                    {
+                        dgvListar.CurrentRow.Cells[8].Value = 0;
+                    }
+                    dgvListar.CurrentRow.Cells[7].Value = pedido;
+                }
+                else
+                {
+                    dgvListar.CurrentRow.Cells[7].Value = 0m;
+                    dgvListar.CurrentRow.Cells[8].Value = 0;
+                }
             }
-            dgvListar.CurrentRow.Cells[7].Value = pedido;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
