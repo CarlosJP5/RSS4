@@ -30,6 +30,11 @@ namespace Negocios
         {
             return _articulos.ListaDeCompras();
         }
+        public DataTable ListaDeCompras(string IdSup)
+        {
+            int id = Convert.ToInt32(IdSup);
+            return _articulos.ListaDeCompras(id);
+        }
         public void CambiarCodigo(string IdArticulo, string Codigo)
         {
             int id = Convert.ToInt32(IdArticulo);

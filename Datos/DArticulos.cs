@@ -129,6 +129,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable ListaDeCompras(int IdSup)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "articulo_listaDeComprasIdSup";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@IdSup", SqlDbType.Int).Value = IdSup;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void CambiarCodigo(int IdArticulo, string Codigo)
         {
             using (var conn = GetConnection())

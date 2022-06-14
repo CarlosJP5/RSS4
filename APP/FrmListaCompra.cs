@@ -88,13 +88,24 @@ namespace APP
 
         private void btnGenerarLista_Click(object sender, EventArgs e)
         {
+            dgvListar.Rows.Clear();
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
                 GenerarLista();
             }
             else
             {
+                NArticulos _articulo = new NArticulos();
+                DataTable Articulo = _articulo.ListaDeCompras(txtIdSuplidor.Text);
+                foreach (DataRow row in Articulo.Rows)
+                {
 
+                    _ = dgvListar.Rows.Add(row[0], row[1],
+                        string.IsNullOrEmpty(row[2].ToString()) ? "" : row[2],
+                        string.IsNullOrEmpty(row[3].ToString()) ? "" : row[3],
+                        string.IsNullOrEmpty(row[4].ToString()) ? "" : row[4],
+                        row[5], row[6], 0m, 0);
+                }
             }
         }
 
@@ -106,10 +117,28 @@ namespace APP
                 DataTable Articulo = _articulo.ListaDeCompras();
                 foreach (DataRow row in Articulo.Rows)
                 {
-                    _ = dgvListar.Rows.Add(row[0], row[1], row[2], row[3],
-                        row[4], row[5], row[6]);
+                    
+                    _ = dgvListar.Rows.Add(row[0], row[1],
+                        string.IsNullOrEmpty(row[2].ToString()) ? "" : row[2],
+                        string.IsNullOrEmpty(row[3].ToString()) ? "" : row[3],
+                        string.IsNullOrEmpty(row[4].ToString()) ? "" : row[4],
+                        row[5], row[6], 0m, 0);
                 }
             }
+        }
+
+        private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            decimal pedido = Convert.ToDecimal(dgvListar.CurrentRow.Cells[7].Value);
+            if (pedido > 0)
+            {
+                dgvListar.CurrentRow.Cells[8].Value = 1;
+            }
+            else
+            {
+                dgvListar.CurrentRow.Cells[8].Value = 0;
+            }
+            dgvListar.CurrentRow.Cells[7].Value = pedido;
         }
     }
 }

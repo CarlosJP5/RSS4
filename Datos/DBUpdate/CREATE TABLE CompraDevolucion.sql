@@ -95,3 +95,16 @@ BEGIN
 	WHERE puntoReorden_articulo >= cantidad_articulo
 END
 GO
+
+CREATE PROC articulo_listaDeComprasIdSup
+@IdSup int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT A.id_articulo, A.codigo_articulo, A.referencia_articulo, A.nombre_articulo,
+	M.nombre_marca, A.cantidad_articulo, A.costo_articulo
+	FROM Articulo A
+	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
+	WHERE puntoReorden_articulo >= cantidad_articulo AND A.id_suplidor = @IdSup
+END
+GO
