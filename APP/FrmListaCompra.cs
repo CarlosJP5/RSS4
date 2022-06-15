@@ -1,4 +1,5 @@
 ﻿using APP.Buscar;
+using APP.Reportes;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -159,7 +160,36 @@ namespace APP
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-
+            DataTable Detalle = new DataTable();
+            Detalle.Columns.Add("Codigo", typeof(string));
+            Detalle.Columns.Add("Referencia", typeof(string));
+            Detalle.Columns.Add("Nombre", typeof(string));
+            Detalle.Columns.Add("Marca", typeof(string));
+            Detalle.Columns.Add("Cantidad", typeof(decimal));
+            Detalle.Columns.Add("Costo", typeof(decimal));
+            Detalle.Columns.Add("Importe", typeof(decimal));
+            for (int i = 0; i < dgvListar.RowCount; i++)
+            {
+                if (Convert.ToBoolean(dgvListar.Rows[i].Cells[8].Value))
+                {
+                    DataRow row = Detalle.NewRow();
+                    row[0] = Convert.ToString(dgvListar.Rows[i].Cells[1].Value);
+                    row[1] = Convert.ToString(dgvListar.Rows[i].Cells[2].Value);
+                    row[2] = Convert.ToString(dgvListar.Rows[i].Cells[3].Value);
+                    row[3] = Convert.ToString(dgvListar.Rows[i].Cells[4].Value);
+                    row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value);
+                    row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
+                    row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[7].Value) * Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
+                    Detalle.Rows.Add(row);
+                }
+            }
+            rptListaCompra frm = new rptListaCompra(Detalle);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtIdSuplidor.Text = null;
+                txtNombre.Text = null;
+                btnGenerarLista.PerformClick();
+            }
         }
     }
 }

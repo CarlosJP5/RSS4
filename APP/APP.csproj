@@ -255,6 +255,12 @@
     <Compile Include="Reportes\rptFactura.Designer.cs">
       <DependentUpon>rptFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptListaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptListaCompra.Designer.cs">
+      <DependentUpon>rptListaCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="zPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,10 @@
     <EmbeddedResource Include="Reportes\rptFactura.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.resx">
       <DependentUpon>rptFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptListaCompra.rdlc" />
+    <EmbeddedResource Include="Reportes\rptListaCompra.resx">
+      <DependentUpon>rptListaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReciboIngreso.rdlc" />
     <EmbeddedResource Include="zPrincipal.resx">
