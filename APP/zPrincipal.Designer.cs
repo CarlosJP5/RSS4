@@ -67,7 +67,6 @@ namespace APP
             this.cotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.cuadreCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cxCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reciboIngresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -318,8 +317,7 @@ namespace APP
             this.toolStripSeparator4,
             this.cotizacionesToolStripMenuItem,
             this.toolStripSeparator5,
-            this.cuadreCajaToolStripMenuItem,
-            this.reporteVentasToolStripMenuItem});
+            this.cuadreCajaToolStripMenuItem});
             this.facturacionToolStripMenuItem.Name = "facturacionToolStripMenuItem";
             this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.facturacionToolStripMenuItem.Text = "Facturacion";
@@ -360,12 +358,6 @@ namespace APP
             this.cuadreCajaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.cuadreCajaToolStripMenuItem.Text = "Cuadre Caja";
             this.cuadreCajaToolStripMenuItem.Click += new System.EventHandler(this.cuadreCajaToolStripMenuItem_Click);
-            // 
-            // reporteVentasToolStripMenuItem
-            // 
-            this.reporteVentasToolStripMenuItem.Name = "reporteVentasToolStripMenuItem";
-            this.reporteVentasToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.reporteVentasToolStripMenuItem.Text = "Reporte Ventas";
             // 
             // cxCToolStripMenuItem
             // 
@@ -561,7 +553,6 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem cotizacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem cuadreCajaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cxCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reciboIngresoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;

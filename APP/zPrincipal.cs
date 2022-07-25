@@ -11,6 +11,7 @@ namespace APP
         public zPrincipal()
         {
             InitializeComponent();
+            ControlBox = false;
             NAppSetting setting = new NAppSetting();
             zConexion.CadenaConexion = setting.GetConnectionString("cn");
         }

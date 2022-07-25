@@ -14,6 +14,41 @@ namespace APP.Buscar
 
         private readonly NArticulos _articulo = new NArticulos();
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+            if (!txtBuscar.Focused)
+            {
+                if (keyData == Keys.NumPad0 || keyData == Keys.NumPad1 || keyData == Keys.NumPad2 || keyData == Keys.NumPad3 ||
+                    keyData == Keys.NumPad4 || keyData == Keys.NumPad5 || keyData == Keys.NumPad6 || keyData == Keys.NumPad7 ||
+                    keyData == Keys.NumPad8 || keyData == Keys.NumPad9 || keyData == Keys.Q || keyData == Keys.W ||
+                    keyData == Keys.E || keyData == Keys.R || keyData == Keys.T || keyData == Keys.Y ||
+                    keyData == Keys.U || keyData == Keys.I || keyData == Keys.O || keyData == Keys.P ||
+                    keyData == Keys.A || keyData == Keys.S || keyData == Keys.D || keyData == Keys.F ||
+                    keyData == Keys.K || keyData == Keys.J || keyData == Keys.H || keyData == Keys.G ||
+                    keyData == Keys.L || keyData == Keys.Z || keyData == Keys.X || keyData == Keys.C ||
+                    keyData == Keys.M || keyData == Keys.N || keyData == Keys.B || keyData == Keys.V)
+                {
+                    txtBuscar.Focus();
+                    txtBuscar.Text = keyData.ToString();
+                }
+                if (keyData >= Keys.D0 && keyData <= Keys.D9)
+                {
+                    txtBuscar.Focus();
+                    txtBuscar.Text = keyData.ToString();
+                }
+                if (keyData == Keys.Back || keyData == Keys.Space)
+                {
+                    txtBuscar.Focus();
+                }
+                txtBuscar.SelectionStart = txtBuscar.Text.Length;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void FrmBuscarArticulos_Load(object sender, EventArgs e)
         {
             rbtnTodo.Checked = true;
