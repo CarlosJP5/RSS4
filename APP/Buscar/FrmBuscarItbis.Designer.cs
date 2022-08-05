@@ -171,6 +171,7 @@
             // 
             this.dgvListar.AllowUserToAddRows = false;
             this.dgvListar.AllowUserToDeleteRows = false;
+            this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
