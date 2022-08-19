@@ -196,12 +196,13 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(421, 211);
+            this.btnSalir.Location = new System.Drawing.Point(394, 212);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(85, 25);
+            this.btnSalir.Size = new System.Drawing.Size(90, 25);
             this.btnSalir.TabIndex = 33;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Text = "Salir [Esc]";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -210,9 +211,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(326, 211);
+            this.btnBuscar.Location = new System.Drawing.Point(298, 212);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(87, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(90, 25);
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.Text = "Buscar [F1]";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -223,7 +224,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(229, 211);
+            this.btnSalvar.Location = new System.Drawing.Point(202, 212);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(90, 25);
             this.btnSalvar.TabIndex = 31;
@@ -236,11 +237,11 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(136, 211);
+            this.btnModificar.Location = new System.Drawing.Point(106, 211);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(85, 25);
+            this.btnModificar.Size = new System.Drawing.Size(90, 25);
             this.btnModificar.TabIndex = 30;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "Editar [F4]";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -249,9 +250,9 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(41, 211);
+            this.btnNuevo.Location = new System.Drawing.Point(10, 211);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(85, 25);
+            this.btnNuevo.Size = new System.Drawing.Size(90, 25);
             this.btnNuevo.TabIndex = 29;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -564,6 +565,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(557, 281);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
