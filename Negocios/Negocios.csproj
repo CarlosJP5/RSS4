@@ -57,6 +57,7 @@
     <Compile Include="NReportes\NrptFactura.cs" />
     <Compile Include="NReportes\NrptListaCompra.cs" />
     <Compile Include="NSuplidores.cs" />
+    <Compile Include="NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

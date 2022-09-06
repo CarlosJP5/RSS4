@@ -148,5 +148,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void detalleUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios frm = new FrmUsuarios();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

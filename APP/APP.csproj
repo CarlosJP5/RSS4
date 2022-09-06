@@ -132,6 +132,12 @@
     <Compile Include="Buscar\FrmBuscarSuplidores.Designer.cs">
       <DependentUpon>FrmBuscarSuplidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\FrmBuscarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarUsuarios.designer.cs">
+      <DependentUpon>FrmBuscarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Coneccion\FrmClaveAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,12 @@
     <Compile Include="FrmSuplidores.Designer.cs">
       <DependentUpon>FrmSuplidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\LocalReportExtensions.cs" />
@@ -302,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarSuplidores.resx">
       <DependentUpon>FrmBuscarSuplidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\FrmBuscarUsuarios.resx">
+      <DependentUpon>FrmBuscarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Coneccion\FrmClaveAdmin.resx">
       <DependentUpon>FrmClaveAdmin.cs</DependentUpon>
@@ -359,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSuplidores.resx">
       <DependentUpon>FrmSuplidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

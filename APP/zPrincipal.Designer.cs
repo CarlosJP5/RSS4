@@ -147,7 +147,7 @@ namespace APP
             this.toolStripSeparator2,
             this.reportesToolStripMenuItem});
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "Articulos";
             // 
             // detalleArticulosToolStripMenuItem
@@ -237,7 +237,7 @@ namespace APP
             this.toolStripSeparator3,
             this.listadoClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // detalleClientesToolStripMenuItem
@@ -261,7 +261,7 @@ namespace APP
             // suplidoresToolStripMenuItem
             // 
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
@@ -271,19 +271,20 @@ namespace APP
             this.detalleUsuarioToolStripMenuItem,
             this.permisoUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // detalleUsuarioToolStripMenuItem
             // 
             this.detalleUsuarioToolStripMenuItem.Name = "detalleUsuarioToolStripMenuItem";
-            this.detalleUsuarioToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.detalleUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.detalleUsuarioToolStripMenuItem.Text = "Detalle Usuario";
+            this.detalleUsuarioToolStripMenuItem.Click += new System.EventHandler(this.detalleUsuarioToolStripMenuItem_Click);
             // 
             // permisoUsuarioToolStripMenuItem
             // 
             this.permisoUsuarioToolStripMenuItem.Name = "permisoUsuarioToolStripMenuItem";
-            this.permisoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.permisoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.permisoUsuarioToolStripMenuItem.Text = "Permiso Usuario";
             // 
             // nCFToolStripMenuItem
@@ -292,7 +293,7 @@ namespace APP
             this.registroComprobantesToolStripMenuItem,
             this.reporteVentas607ToolStripMenuItem});
             this.nCFToolStripMenuItem.Name = "nCFToolStripMenuItem";
-            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nCFToolStripMenuItem.Text = "NCF";
             // 
             // registroComprobantesToolStripMenuItem

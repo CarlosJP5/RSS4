@@ -1,110 +1,220 @@
-CREATE TABLE CompraDevolucion
-(
-	id_devolucionCompra int,
-	id_compra int,
-	id_suplidor int,
-	fecha_devolucionCompra date,
-	importe_devolucionCompra decimal(18,2),
-	descuento_devolucionCompra decimal(18,2),
-	itbis_devolucionCompra decimal(18,2),
-	total_devolucionCompra decimal(18,2)
-)
+USE [PachecoMotors]
 GO
 
-CREATE TABLE CompraDevolucionDetalle
-(
-	id_devolucionCompra int,
-	id_articulo int,
-	cantidad_devolucionCompra decimal(16,2),
-	importeUnitario_devolucionCompra decimal(16,2)
-)
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 9/6/2022 5:21:44 PM ******/
+SET ANSI_NULLS ON
 GO
 
-CREATE TYPE type_detalle_devolucion AS TABLE
-(
-	id_articulo int,
-	cantidad decimal(16,2),
-	importe decimal(16,2)
-)
+SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROC compraDevolucion_insertar
-@id_compra int,
-@id_suplidor int,
-@fecha date,
-@importe decimal(18,2),
-@descuento decimal(18,2),
-@itbis decimal(18,2),
-@total decimal(18,2),
-@detalle type_detalle_devolucion readonly
+CREATE TABLE [dbo].[Usuarios](
+	[id_usuario] [int] NOT NULL,
+	[usuario_usuario] [varchar](50) NULL,
+	[nombre_usuario] [varchar](50) NULL,
+	[cedula_usuario] [varchar](15) NULL,
+	[direccion_usuario] [varchar](155) NULL,
+	[telefono_usuario] [varchar](15) NULL,
+	[correo_usuario] [varchar](50) NULL,
+	[fechaIngreso_usuario] [date] NULL,
+	[clave_usuario] [varchar](max) NULL,
+	[estado_usuario] [bit] NULL,
+ CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED 
+(
+	[id_usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_buscar]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC  [dbo].[usuario_buscar]
+@buscar VARCHAR(50)
 AS
 BEGIN
-	SET NOCOUNT ON
-	
-	DECLARE @Id int = 1
-	IF EXISTS (SELECT id_devolucionCompra FROM CompraDevolucion)
-		SET @Id = 1 + (SELECT MAX(id_devolucionCompra) FROM CompraDevolucion)
-
-	INSERT INTO CompraDevolucion VALUES(@Id, @id_compra, @id_suplidor,
-	@fecha,	@importe, @descuento, @itbis, @total)
-
-	INSERT INTO CompraDevolucionDetalle (id_devolucionCompra, id_articulo,
-	cantidad_devolucionCompra, importeUnitario_devolucionCompra)
-	SELECT @Id, D.id_articulo, D.cantidad, D.importe
-	FROM @detalle D
-
-	IF (SELECT balance_cxp FROM CuentaPagar WHERE id_compra = @id_compra) = @total
-		UPDATE CuentaPagar SET estado_cxp = 'SALDO' WHERE id_compra = @id_compra
-
-	UPDATE CuentaPagar SET balance_cxp = balance_cxp - @total WHERE id_compra = @id_compra
-
-	SELECT MAX(id_devolucionCompra) FROM CompraDevolucion
+    SET NOCOUNT ON
+    SELECT id_usuario, usuario_usuario, nombre_usuario,cedula_usuario,
+    direccion_usuario, telefono_usuario,correo_usuario,
+    fechaIngreso_usuario,clave_usuario,estado_usuario
+    FROM Usuarios
+    WHERE id_usuario LIKE '%'+@buscar+'%' OR
+    usuario_usuario LIKE '%'+@buscar+'%' OR
+    nombre_usuario LIKE '%'+@buscar+'%' OR
+    cedula_usuario LIKE '%'+@buscar+'%' OR
+    correo_usuario LIKE '%'+@buscar+'%'
 END
 GO
-
-CREATE TRIGGER compraDevolucionInsertar 
-   ON  CompraDevolucionDetalle 
-   AFTER INSERT
-AS 
+/****** Object:  StoredProcedure [dbo].[usuario_buscarCedula]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC  [dbo].[usuario_buscarCedula]
+@buscar VARCHAR(50)
+AS
 BEGIN
+    SET NOCOUNT ON
+    SELECT id_usuario, usuario_usuario, nombre_usuario,cedula_usuario,
+    direccion_usuario, telefono_usuario,correo_usuario,
+    fechaIngreso_usuario,clave_usuario,estado_usuario
+    FROM Usuarios
+    WHERE cedula_usuario LIKE '%'+@buscar+'%'
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_buscarCorreo]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC  [dbo].[usuario_buscarCorreo]
+@buscar VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON
+    SELECT id_usuario, usuario_usuario, nombre_usuario,cedula_usuario,
+    direccion_usuario, telefono_usuario,correo_usuario,
+    fechaIngreso_usuario,clave_usuario,estado_usuario
+    FROM Usuarios
+    WHERE correo_usuario LIKE '%'+@buscar+'%'
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_buscarNombre]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC  [dbo].[usuario_buscarNombre]
+@buscar VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON
+    SELECT id_usuario, usuario_usuario, nombre_usuario,cedula_usuario,
+    direccion_usuario, telefono_usuario,correo_usuario,
+    fechaIngreso_usuario,clave_usuario,estado_usuario
+    FROM Usuarios
+    WHERE nombre_usuario LIKE '%'+@buscar+'%'
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_buscarUsuario]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC  [dbo].[usuario_buscarUsuario]
+@buscar VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON
+    SELECT id_usuario, usuario_usuario, nombre_usuario,cedula_usuario,
+    direccion_usuario, telefono_usuario,correo_usuario,
+    fechaIngreso_usuario,clave_usuario,estado_usuario
+    FROM Usuarios
+    WHERE usuario_usuario LIKE '%'+@buscar+'%'
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_editar]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[usuario_editar] 
+	-- Add the parameters for the stored procedure here
+	@id int,
+	@nombre varchar(50),
+	@cedula varchar(15),
+	@direccion varchar(155),
+	@telefono varchar(15),
+	@correo varchar(50),
+	@clave varchar(max),
+	@estado bit
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	UPDATE A SET A.cantidad_articulo = A.cantidad_articulo - CD.cantidad_devolucionCompra
-	FROM Articulo A INNER JOIN inserted CD ON A.id_articulo = CD.id_articulo
+	UPDATE Usuarios SET nombre_usuario = @nombre, cedula_usuario = @cedula,
+    direccion_usuario = @direccion, telefono_usuario = @telefono,
+    correo_usuario = @correo, clave_usuario = @clave, estado_usuario = @estado
+    WHERE id_usuario = @id
 END
 GO
+/****** Object:  StoredProcedure [dbo].[usuario_insertar]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[usuario_insertar] 
+	-- Add the parameters for the stored procedure here
+	@usuario varchar(50),
+	@nombre varchar(50),
+	@cedula varchar(15),
+	@direccion varchar(155),
+	@telefono varchar(15),
+	@correo varchar(50),
+	@fecha date,
+	@clave varchar(max),
+	@estado bit
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @id int = 1
+	IF EXISTS(SELECT id_usuario FROM Usuarios)
+		SET @id = 1 + (SELECT max(id_usuario) FROM Usuarios)
 
-CREATE PROC compraDevolucion_select
-@idCompra int
+    -- Insert statements for procedure here
+	INSERT INTO Usuarios VALUES
+	(@id, @usuario, @nombre, @cedula,
+	@direccion, @telefono, @correo,
+	@fecha, @clave, @estado)
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_login]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[usuario_login]
+	-- Add the parameters for the stored procedure here
+	@usuario varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON
+	SELECT * FROM Usuarios
+	WHERE usuario_usuario = @usuario
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usuario_maxId]    Script Date: 9/6/2022 5:19:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[usuario_maxId]
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT CD.id_articulo, CD.cantidad_devolucionCompra FROM CompraDevolucion C
-	LEFT JOIN CompraDevolucionDetalle CD ON C.id_devolucionCompra = CD.id_devolucionCompra
-	WHERE C.id_compra = @idCompra
-END
-GO
-
-CREATE PROC articulo_listaDeCompras
-AS
-BEGIN
-	SET NOCOUNT ON
-	SELECT A.id_articulo, A.codigo_articulo, A.referencia_articulo, A.nombre_articulo,
-	M.nombre_marca, A.cantidad_articulo, A.costo_articulo
-	FROM Articulo A
-	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
-	WHERE puntoReorden_articulo >= cantidad_articulo
-END
-GO
-
-CREATE PROC articulo_listaDeComprasIdSup
-@IdSup int
-AS
-BEGIN
-	SET NOCOUNT ON
-	SELECT A.id_articulo, A.codigo_articulo, A.referencia_articulo, A.nombre_articulo,
-	M.nombre_marca, A.cantidad_articulo, A.costo_articulo
-	FROM Articulo A
-	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
-	WHERE puntoReorden_articulo >= cantidad_articulo AND A.id_suplidor = @IdSup
+	SELECT MAX(id_usuario) ID FROM Usuarios
 END
 GO

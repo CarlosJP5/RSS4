@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EArticulo.cs" />
+    <Compile Include="EClases\EAutenticacion.cs" />
+    <Compile Include="EClases\EParametro.cs" />
     <Compile Include="ECliente.cs" />
     <Compile Include="ECompra.cs" />
     <Compile Include="EFactura.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="EReportes\ErptFacturaDetalle.cs" />
     <Compile Include="EReportes\ErptReciboIngreso.cs" />
     <Compile Include="ESuplidor.cs" />
+    <Compile Include="EUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="zConexion.cs" />
     <Compile Include="zStatic.cs" />
