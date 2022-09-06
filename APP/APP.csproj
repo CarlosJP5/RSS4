@@ -216,6 +216,12 @@
     <Compile Include="FrmListaCompra.Designer.cs">
       <DependentUpon>FrmListaCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReciboIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     <EmbeddedResource Include="FrmListaCompra.resx">
       <DependentUpon>FrmListaCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReciboIngreso.resx">
       <DependentUpon>FrmReciboIngreso.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +417,8 @@
     <Content Include="Logo-64-ico.ico" />
     <None Include="Resources\Facturar-16.png" />
     <None Include="Resources\Pay-24.png" />
+    <None Include="Resources\Logo-128.png" />
+    <None Include="Resources\conexion-24.png" />
     <Content Include="Resources\Print-16.png" />
     <None Include="Resources\Aceptar-16.png" />
     <None Include="Resources\Borrar-16.png" />

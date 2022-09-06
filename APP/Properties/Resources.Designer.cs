@@ -93,6 +93,16 @@ namespace APP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conexion_24 {
+            get {
+                object obj = ResourceManager.GetObject("conexion-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit_16 {
             get {
                 object obj = ResourceManager.GetObject("Edit-16", resourceCulture);
@@ -106,6 +116,16 @@ namespace APP.Properties {
         internal static System.Drawing.Bitmap Facturar_16 {
             get {
                 object obj = ResourceManager.GetObject("Facturar-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_128 {
+            get {
+                object obj = ResourceManager.GetObject("Logo-128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

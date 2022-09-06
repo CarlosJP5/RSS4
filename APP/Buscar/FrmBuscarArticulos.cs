@@ -33,7 +33,12 @@ namespace APP.Buscar
                     keyData == Keys.M || keyData == Keys.N || keyData == Keys.B || keyData == Keys.V)
                 {
                     txtBuscar.Focus();
-                    txtBuscar.Text = keyData.ToString();
+                    string key = keyData.ToString();
+                    if (key.StartsWith("NumPad"))
+                    {
+                        key = key.Substring(6);
+                    }
+                    txtBuscar.Text = key;
                 }
                 if (keyData >= Keys.D0 && keyData <= Keys.D9)
                 {
