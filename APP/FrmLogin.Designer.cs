@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.lblPrueba = new System.Windows.Forms.Label();
             this.linkOlvideClave = new System.Windows.Forms.LinkLabel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@
             // 
             // panelRight
             // 
+            this.panelRight.Controls.Add(this.lblPrueba);
             this.panelRight.Controls.Add(this.linkOlvideClave);
             this.panelRight.Controls.Add(this.btnSalir);
             this.panelRight.Controls.Add(this.btnIniciar);
@@ -120,6 +122,16 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(400, 450);
             this.panelRight.TabIndex = 0;
+            // 
+            // lblPrueba
+            // 
+            this.lblPrueba.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrueba.Location = new System.Drawing.Point(0, 40);
+            this.lblPrueba.Name = "lblPrueba";
+            this.lblPrueba.Size = new System.Drawing.Size(400, 20);
+            this.lblPrueba.TabIndex = 11;
+            this.lblPrueba.Text = "Periodo de Prueba :";
+            this.lblPrueba.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkOlvideClave
             // 
@@ -183,7 +195,6 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(300, 20);
             this.txtClave.TabIndex = 5;
-            this.txtClave.Text = "1654";
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
@@ -216,7 +227,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(300, 20);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.Text = "CHE";
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // label4
@@ -251,6 +261,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panelLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelRight.ResumeLayout(false);
@@ -277,5 +288,6 @@
         private System.Windows.Forms.LinkLabel linkOlvideClave;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblPrueba;
     }
 }

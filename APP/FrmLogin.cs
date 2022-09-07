@@ -56,5 +56,18 @@ namespace APP
                 btnIniciar.PerformClick();
             }
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            DateTime vence = DateTime.Parse("06/09/2022");
+            int dias = Convert.ToInt16((hoy - vence).Days.ToString());
+            lblPrueba.Text = string.Format("Dias de Prueba {0}", dias);
+            if (dias > 31)
+            {
+                MessageBox.Show("Periodo de Prueba Terminado\nContactar al Ingeniero", "Prueba", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Application.Exit();
+            }
+        }
     }
 }

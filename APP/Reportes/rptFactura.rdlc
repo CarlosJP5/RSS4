@@ -821,7 +821,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PrecioFacturado.Value</Value>
+                              <Value>=Fields!PrecioFacturado.Value - Fields!TotalItbis.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>

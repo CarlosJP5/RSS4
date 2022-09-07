@@ -172,6 +172,11 @@ namespace APP
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(txtCodigo.Text) && txtCodigo.Text == "0")
+            {
+                MessageBox.Show("Este usuario no puede ser modificado");
+                return;
+            }
             editar = true;
             Habilitar();
             btnBuscar.Enabled = false;
