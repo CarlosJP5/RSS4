@@ -216,7 +216,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -257,7 +257,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -295,7 +295,15 @@ namespace APP
                 dgvListar.CurrentRow.Cells[6].Value = 0.01m;
             }
             decimal precio = Convert.ToDecimal(dgvListar.CurrentRow.Cells[6].Value);
+            decimal beneficioMinimo = Convert.ToDecimal(dgvListar.CurrentRow.Cells[14].Value);
             decimal costo = Convert.ToDecimal(dgvListar.CurrentRow.Cells[8].Value);
+            decimal beneficio = (precio - costo) / costo * 100;
+            if (beneficio < beneficioMinimo)
+            {
+                _ = MessageBox.Show("Ajustar precio al Minimo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                precio = ((beneficioMinimo / 100) + 1) * costo;
+                dgvListar.CurrentRow.Cells[6].Value = precio;
+            }
             if (precio < costo)
             {
                 _ = MessageBox.Show("Precio Menor al Costo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);

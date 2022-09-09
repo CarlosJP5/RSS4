@@ -200,6 +200,7 @@ namespace Datos
                     cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = articulo.Precio;
                     cmd.Parameters.Add("@beneficio", SqlDbType.Decimal).Value = articulo.Beneficio;
                     cmd.Parameters.Add("@estado", SqlDbType.Bit).Value = articulo.Estado;
+                    cmd.Parameters.Add("@minimo", SqlDbType.Decimal).Value = articulo.BeneficioMinimo;
                     try
                     {
                         _ = cmd.ExecuteNonQuery();
@@ -233,6 +234,7 @@ namespace Datos
                     cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = articulo.Precio;
                     cmd.Parameters.Add("@beneficio", SqlDbType.Decimal).Value = articulo.Beneficio;
                     cmd.Parameters.Add("@estado", SqlDbType.Bit).Value = articulo.Estado;
+                    cmd.Parameters.Add("@minimo", SqlDbType.Decimal).Value = articulo.BeneficioMinimo;
                     try
                     {
                         _ = cmd.ExecuteNonQuery();
