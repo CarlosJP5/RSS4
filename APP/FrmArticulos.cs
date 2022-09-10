@@ -58,7 +58,7 @@ namespace APP
                 txtPrecio.Text = null;
                 txtBeneficio.Text = null;
                 cboEstado.SelectedIndex = 0;
-                txtBeneficioMinimo.Text = "20.0";
+                txtBeneficioMinimo.Text = "20.00";
             }
             txtIdItbis.Text = "1";
             txtIdItbis_Leave(sender, e);
@@ -194,6 +194,7 @@ namespace APP
                 txtItbis.Text = articulo.Rows[0][14].ToString();
                 txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                 txtSuplidor.Text = articulo.Rows[0][16].ToString();
+                txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
 
                 DesactivaControles();
                 btnModificar.Enabled = true;
@@ -285,6 +286,7 @@ namespace APP
                     txtItbis.Text = articulo.Rows[0][14].ToString();
                     txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                     txtSuplidor.Text = articulo.Rows[0][16].ToString();
+                    txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
 
                     DesactivaControles();
                     btnModificar.Enabled = true;
@@ -629,6 +631,15 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
+                _ = txtBeneficioMinimo.Focus();
+            }
+        }
+
+        private void txtBeneficioMinimo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
                 _ = cboEstado.Focus();
             }
         }
@@ -641,5 +652,6 @@ namespace APP
                 _ = btnSalvar.Focus();
             }
         }
+
     }
 }
