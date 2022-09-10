@@ -58,7 +58,6 @@ namespace APP
                 txtPrecio.Text = null;
                 txtBeneficio.Text = null;
                 cboEstado.SelectedIndex = 0;
-                txtBeneficioMinimo.Text = "20.0";
             }
             txtIdItbis.Text = "1";
             txtIdItbis_Leave(sender, e);
@@ -150,10 +149,6 @@ namespace APP
                 {
                     articulo.Beneficio = Convert.ToDecimal(txtBeneficio.Text);
                 }
-                if (!string.IsNullOrEmpty(txtBeneficioMinimo.Text))
-                {
-                    articulo.BeneficioMinimo = Convert.ToDecimal(txtBeneficioMinimo.Text);
-                }
                 articulo.Estado = cboEstado.SelectedIndex == 0;
                 if (string.IsNullOrEmpty(txtIdArticulo.Text))
                 {
@@ -220,7 +215,6 @@ namespace APP
             txtItbis.Enabled = false;
             txtPorcientoItbis.Enabled = false;
             txtSuplidor.Enabled = false;
-            txtBeneficioMinimo.Enabled = false;
         }
 
         private void ActivaControles()
@@ -242,7 +236,6 @@ namespace APP
             txtItbis.Enabled = true;
             txtPorcientoItbis.Enabled = true;
             txtSuplidor.Enabled = true;
-            txtBeneficioMinimo.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
