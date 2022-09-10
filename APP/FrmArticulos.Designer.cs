@@ -348,7 +348,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(353, 172);
+            this.label12.Location = new System.Drawing.Point(353, 175);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 24;
@@ -426,7 +426,7 @@
             this.cboEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "DESACTIVO"});
-            this.cboEstado.Location = new System.Drawing.Point(413, 169);
+            this.cboEstado.Location = new System.Drawing.Point(413, 172);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 21);
             this.cboEstado.TabIndex = 13;
@@ -665,8 +665,8 @@
         private System.Windows.Forms.ErrorProvider errorCodigo;
         private System.Windows.Forms.ErrorProvider errorNombre;
         private System.Windows.Forms.ErrorProvider errorItbis;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBeneficioMinimo;
+        private System.Windows.Forms.Label label7;
     }
 }
