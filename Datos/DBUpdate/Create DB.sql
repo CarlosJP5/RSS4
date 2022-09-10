@@ -19,6 +19,7 @@ CREATE TABLE [dbo].[Articulo](
 	[precio_articulo] [decimal](18, 2) NULL,
 	[beneficio_articulo] [decimal](18, 2) NULL,
 	[estado_articulo] [bit] NULL,
+	[beneficio_minimo] [decimal](18, 2) NULL,
  CONSTRAINT [PK__Articulo__3F6E8288AF52858D] PRIMARY KEY CLUSTERED 
 (
 	[id_articulo] ASC
@@ -561,7 +562,7 @@ BEGIN
 	codigo_articulo, nombre_articulo, referencia_articulo, puntoReorden_articulo,
 	cantidad_articulo, costo_articulo, precio_articulo, beneficio_articulo, 
 	estado_articulo, nombre_marca, nombre_itbis, porciento_itbis,
-	nombre_suplidor
+	nombre_suplidor, beneficio_minimo
 	FROM Articulo A
 	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
 	LEFT JOIN Suplidores S ON A.id_suplidor = S.id_suplidor
@@ -584,7 +585,7 @@ BEGIN
 	codigo_articulo, nombre_articulo, referencia_articulo, puntoReorden_articulo,
 	cantidad_articulo, costo_articulo, precio_articulo, beneficio_articulo, 
 	estado_articulo, nombre_marca, nombre_itbis, porciento_itbis,
-	nombre_suplidor
+	nombre_suplidor, beneficio_minimo
 	FROM Articulo A
 	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
 	LEFT JOIN Suplidores S ON A.id_suplidor = S.id_suplidor
@@ -625,7 +626,8 @@ CREATE PROC [dbo].[articulo_editar]
 @costo decimal(18,2),
 @precio decimal(18,2),
 @beneficio decimal(18,2),
-@estado bit
+@estado bit,
+@minimo decimal(18,2)
 AS
 BEGIN
 	SET NOCOUNT ON
@@ -635,7 +637,8 @@ BEGIN
 	nombre_articulo = @nombre, referencia_articulo = @referencia,
 	puntoReorden_articulo = @puntoReorden, cantidad_articulo = @cantidad,
 	costo_articulo = @costo, precio_articulo = @precio,
-	beneficio_articulo = @beneficio, estado_articulo = @estado
+	beneficio_articulo = @beneficio, estado_articulo = @estado,
+	beneficio_minimo = @minimo
 	WHERE id_articulo = @id
 END
 GO
@@ -656,7 +659,8 @@ CREATE PROC [dbo].[articulo_insertar]
 @costo decimal(18,2),
 @precio decimal(18,2),
 @beneficio decimal(18,2),
-@estado bit
+@estado bit,
+@minimo decimal(18,2)
 AS
 BEGIN
 	SET NOCOUNT ON
@@ -667,7 +671,7 @@ BEGIN
 
 	INSERT INTO Articulo VALUES (@id, @idMarca, @idSuplidor, @idItbis, 
 	@codigo, @nombre, @referencia, @puntoReorden, @cantidad, @costo,
-	@precio, @beneficio, @estado)
+	@precio, @beneficio, @estado, @minimo)
 END
 GO
 /****** Object:  StoredProcedure [dbo].[articulo_listaDeCompras]    Script Date: 9/7/2022 11:16:17 AM ******/
@@ -716,7 +720,8 @@ BEGIN
 	SET NOCOUNT ON
 
 	SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
-	nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, porciento_itbis, A.costo_articulo
+	nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, porciento_itbis,
+	A.costo_articulo, A.beneficio_minimo
 	FROM Articulo A
 	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
 	LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis

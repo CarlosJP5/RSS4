@@ -15,5 +15,6 @@
         public decimal Precio { get; set; } = 0;
         public decimal Beneficio { get; set; } = 0;
         public bool Estado { get; set; }
+        public decimal BeneficioMinimo { get; set; } = 0;
     }
 }

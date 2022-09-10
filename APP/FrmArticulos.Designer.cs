@@ -71,6 +71,9 @@
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBeneficioMinimo = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
@@ -103,6 +106,9 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.label7);
+            this.panelMid.Controls.Add(this.label13);
+            this.panelMid.Controls.Add(this.txtBeneficioMinimo);
             this.panelMid.Controls.Add(this.label6);
             this.panelMid.Controls.Add(this.txtPorcientoItbis);
             this.panelMid.Controls.Add(this.txtIdArticulo);
@@ -312,7 +318,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(353, 146);
+            this.label12.Location = new System.Drawing.Point(353, 172);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 24;
@@ -390,7 +396,7 @@
             this.cboEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "DESACTIVO"});
-            this.cboEstado.Location = new System.Drawing.Point(413, 143);
+            this.cboEstado.Location = new System.Drawing.Point(413, 169);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 21);
             this.cboEstado.TabIndex = 13;
@@ -560,6 +566,36 @@
             // 
             this.errorItbis.ContainerControl = this;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(515, 147);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(15, 13);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "%";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(353, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 13);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Beneficio Minimo:";
+            // 
+            // txtBeneficioMinimo
+            // 
+            this.txtBeneficioMinimo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtBeneficioMinimo.Location = new System.Drawing.Point(449, 143);
+            this.txtBeneficioMinimo.Name = "txtBeneficioMinimo";
+            this.txtBeneficioMinimo.Size = new System.Drawing.Size(64, 20);
+            this.txtBeneficioMinimo.TabIndex = 39;
+            this.txtBeneficioMinimo.Text = "20.00";
+            this.txtBeneficioMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBeneficioMinimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficioMinimo_KeyDown);
+            this.txtBeneficioMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,5 +665,8 @@
         private System.Windows.Forms.ErrorProvider errorCodigo;
         private System.Windows.Forms.ErrorProvider errorNombre;
         private System.Windows.Forms.ErrorProvider errorItbis;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtBeneficioMinimo;
     }
 }
