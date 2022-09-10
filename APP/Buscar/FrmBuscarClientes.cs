@@ -113,5 +113,10 @@ namespace APP.Buscar
         {
             _ = txtBuscar.Focus();
         }
+
+        private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }

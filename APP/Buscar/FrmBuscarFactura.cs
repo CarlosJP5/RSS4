@@ -147,5 +147,10 @@ namespace APP.Buscar
                 _ = btnBuscar.Focus();
             }
         }
+
+        private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }
