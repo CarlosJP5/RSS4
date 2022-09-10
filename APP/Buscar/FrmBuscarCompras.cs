@@ -144,5 +144,10 @@ namespace APP.Buscar
                 e.Handled = true;
             }
         }
+
+        private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }
