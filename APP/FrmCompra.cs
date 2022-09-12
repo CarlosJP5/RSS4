@@ -232,8 +232,26 @@ namespace APP
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true;
-                _ = cboItbis.Focus();
+                if (string.IsNullOrWhiteSpace(txtCodigo.Text))
+                {
+                    FrmBuscarArticulos frm = new FrmBuscarArticulos();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                        txtCodigo.Focus();
+                        _ = cboItbis.Focus();
+                    }
+                    else
+                    {
+                        txtCodigo.Text = null;
+                        txtNombre.Text = null;
+                    }
+                }
+                else
+                {
+                    e.SuppressKeyPress = true;
+                    _ = cboItbis.Focus();
+                }
             }
         }
 

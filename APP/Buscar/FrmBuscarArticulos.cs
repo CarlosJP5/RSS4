@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using Entidades.EClases;
+using Negocios;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -7,9 +8,11 @@ namespace APP.Buscar
 {
     public partial class FrmBuscarArticulos : Form
     {
+
         public FrmBuscarArticulos()
         {
             InitializeComponent();
+            txtBuscar.Text = EParametro.BuscaArticulo;
         }
 
         private readonly NArticulos _articulo = new NArticulos();
@@ -117,22 +120,20 @@ namespace APP.Buscar
                 dgvListar.CurrentRow.Selected = true;
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+                EParametro.BuscaArticulo = txtBuscar.Text;
                 DialogResult = DialogResult.OK;
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-        }
-
-        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
+            EParametro.BuscaArticulo = txtBuscar.Text;
             DialogResult = DialogResult.OK;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            EParametro.BuscaArticulo = txtBuscar.Text;
             DialogResult = DialogResult.Cancel;
         }
 
@@ -152,6 +153,7 @@ namespace APP.Buscar
 
         private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            EParametro.BuscaArticulo = txtBuscar.Text;
             DialogResult = DialogResult.OK;
         }
     }
