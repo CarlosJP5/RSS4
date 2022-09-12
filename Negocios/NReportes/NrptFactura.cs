@@ -39,6 +39,7 @@ namespace Negocios.NReportes
                 FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][17].ToString()),
                 NombreComprobante = tbFactura.Rows[0][18].ToString()
             };
+            facturaModel.FechaVenceCredito = facturaModel.FechaFactura.AddDays(30);
             Factura.Add(facturaModel);
 
             DataTable detalle = _factura.FacturaDetalle(id);

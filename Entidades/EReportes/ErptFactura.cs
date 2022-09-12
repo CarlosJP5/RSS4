@@ -23,5 +23,6 @@ namespace Entidades.EReportes
         public string NcfComprobante { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public string NombreComprobante { get; set; }
+        public DateTime FechaVenceCredito { get; set; }
     }
 }

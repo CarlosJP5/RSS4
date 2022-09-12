@@ -134,7 +134,6 @@ namespace APP
             this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
             this.datosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.datosToolStripMenuItem.Text = "Datos";
-            this.datosToolStripMenuItem.Visible = false;
             // 
             // articulosToolStripMenuItem
             // 
@@ -428,7 +427,6 @@ namespace APP
             this.cxPToolStripMenuItem.Name = "cxPToolStripMenuItem";
             this.cxPToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.cxPToolStripMenuItem.Text = "CxP";
-            this.cxPToolStripMenuItem.Visible = false;
             // 
             // compraToolStripMenuItem
             // 
