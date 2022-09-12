@@ -20,7 +20,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>0.1in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <Style>
@@ -51,7 +51,7 @@
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
         <Top>0.3in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>1</ZIndex>
@@ -83,7 +83,7 @@
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
         <Top>0.5in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>2</ZIndex>
@@ -115,7 +115,7 @@
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
         <Top>0.7in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>3</ZIndex>
@@ -152,7 +152,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>0.9in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>4</ZIndex>
@@ -253,7 +253,7 @@
         </Paragraphs>
         <rd:DefaultName>IdRecibo</rd:DefaultName>
         <Top>1.3in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>1.45in</Width>
         <ZIndex>7</ZIndex>
@@ -285,7 +285,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.051in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>0.6in</Width>
         <ZIndex>8</ZIndex>
@@ -317,7 +317,7 @@
         </Paragraphs>
         <rd:DefaultName>IdCliente</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.65in</Left>
+        <Left>0.7in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>9</ZIndex>
@@ -349,7 +349,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
         <Top>1.7in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>10</ZIndex>
@@ -682,9 +682,9 @@
         </TablixRowHierarchy>
         <DataSetName>dsReciboIngreso</DataSetName>
         <Top>1.96944in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.4in</Height>
-        <Width>2.8in</Width>
+        <Width>2.79999in</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -775,7 +775,7 @@
         </Paragraphs>
         <rd:DefaultName>Balance</rd:DefaultName>
         <Top>2.8in</Top>
-        <Left>0.05in</Left>
+        <Left>0.15in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>14</ZIndex>
@@ -808,7 +808,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>2.6in</Top>
-        <Left>0.05in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>1.28125in</Width>
         <ZIndex>15</ZIndex>
@@ -823,7 +823,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.08208in</Height>
+    <Height>3.10291in</Height>
     <Style />
   </Body>
   <Width>3.15in</Width>
