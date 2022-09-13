@@ -132,6 +132,7 @@
             this.lblPrueba.TabIndex = 11;
             this.lblPrueba.Text = "Periodo de Prueba :";
             this.lblPrueba.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrueba.Visible = false;
             // 
             // linkOlvideClave
             // 
@@ -195,7 +196,6 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(300, 20);
             this.txtClave.TabIndex = 5;
-            this.txtClave.Text = "c@rl0s";
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
@@ -228,7 +228,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(300, 20);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.Text = "CHE";
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // label4

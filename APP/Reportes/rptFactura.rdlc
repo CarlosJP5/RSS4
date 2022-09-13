@@ -22,7 +22,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>0.1in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <Style>
@@ -53,7 +53,7 @@
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
         <Top>0.3in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>1</ZIndex>
@@ -85,7 +85,7 @@
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
         <Top>0.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>2</ZIndex>
@@ -117,7 +117,7 @@
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
         <Top>0.7in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>3</ZIndex>
@@ -149,7 +149,7 @@
         </Paragraphs>
         <rd:DefaultName>TipoCompra</rd:DefaultName>
         <Top>0.9in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>4</ZIndex>
@@ -186,7 +186,7 @@
         </Paragraphs>
         <rd:DefaultName>IdFactura</rd:DefaultName>
         <Top>1.7in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>5</ZIndex>
@@ -320,7 +320,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreComprobante</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>9</ZIndex>
@@ -421,7 +421,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>2.1in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>0.6in</Width>
         <ZIndex>12</ZIndex>
@@ -452,7 +452,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
         <Top>2.3in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>13</ZIndex>
@@ -484,7 +484,7 @@
         </Paragraphs>
         <rd:DefaultName>RncCliente</rd:DefaultName>
         <Top>2.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.34375in</Width>
         <ZIndex>14</ZIndex>
@@ -551,7 +551,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
         <Top>2.7in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>16</ZIndex>
@@ -979,7 +979,7 @@
         </TablixRowHierarchy>
         <DataSetName>dsFacturaDetalle</DataSetName>
         <Top>2.9in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.85in</Height>
         <Width>2.80001in</Width>
         <ZIndex>17</ZIndex>
@@ -1274,7 +1274,7 @@
         </Paragraphs>
         <rd:DefaultName>NotaFactura</rd:DefaultName>
         <Top>4.65in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.73125in</Width>
         <ZIndex>26</ZIndex>
@@ -1309,7 +1309,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>4.85in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.73125in</Width>
         <ZIndex>27</ZIndex>
@@ -1382,7 +1382,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>5.05in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.73125in</Width>
         <ZIndex>29</ZIndex>
@@ -1419,7 +1419,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>5.51459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>30</ZIndex>
@@ -1451,7 +1451,7 @@
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
         <Top>5.71459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>31</ZIndex>
@@ -1483,7 +1483,7 @@
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
         <Top>5.91459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>32</ZIndex>
@@ -1515,7 +1515,7 @@
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
         <Top>6.11459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>33</ZIndex>
@@ -1547,7 +1547,7 @@
         </Paragraphs>
         <rd:DefaultName>TipoCompra</rd:DefaultName>
         <Top>6.31459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>34</ZIndex>
@@ -1584,7 +1584,7 @@
         </Paragraphs>
         <rd:DefaultName>IdFactura</rd:DefaultName>
         <Top>7.11459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>35</ZIndex>
@@ -1685,7 +1685,7 @@
         </Paragraphs>
         <rd:DefaultName>NcfComprobante</rd:DefaultName>
         <Top>7.31459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>1.355in</Width>
         <ZIndex>38</ZIndex>
@@ -1718,7 +1718,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreComprobante</rd:DefaultName>
         <Top>6.91459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>39</ZIndex>
@@ -1819,7 +1819,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>7.51459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>0.6in</Width>
         <ZIndex>42</ZIndex>
@@ -1850,7 +1850,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
         <Top>7.71459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>43</ZIndex>
@@ -1882,7 +1882,7 @@
         </Paragraphs>
         <rd:DefaultName>RncCliente</rd:DefaultName>
         <Top>7.91459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.34375in</Width>
         <ZIndex>44</ZIndex>
@@ -1949,7 +1949,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
         <Top>8.11459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>46</ZIndex>
@@ -2377,7 +2377,7 @@
         </TablixRowHierarchy>
         <DataSetName>dsFacturaDetalle</DataSetName>
         <Top>8.31459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.85in</Height>
         <Width>2.80001in</Width>
         <ZIndex>47</ZIndex>
@@ -2672,7 +2672,7 @@
         </Paragraphs>
         <rd:DefaultName>NotaFactura</rd:DefaultName>
         <Top>10.06459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.73125in</Width>
         <ZIndex>56</ZIndex>
@@ -2707,7 +2707,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>10.26459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.73125in</Width>
         <ZIndex>57</ZIndex>
@@ -2780,7 +2780,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>10.46459in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.73125in</Width>
         <ZIndex>59</ZIndex>

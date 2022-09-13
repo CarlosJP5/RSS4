@@ -21,7 +21,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>0.225in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.25in</Height>
         <Width>2.35in</Width>
         <Style>
@@ -189,7 +189,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>0.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.25in</Height>
         <Width>2.35in</Width>
         <ZIndex>5</ZIndex>
@@ -225,7 +225,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>1.2in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.25in</Height>
         <Width>1.21875in</Width>
         <ZIndex>6</ZIndex>
@@ -255,7 +255,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.25in</Height>
         <Width>1.21875in</Width>
         <ZIndex>7</ZIndex>
@@ -285,7 +285,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.8in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>8</ZIndex>
@@ -327,7 +327,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>2.1in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>10</ZIndex>
@@ -357,7 +357,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.75in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>11</ZIndex>
@@ -391,7 +391,7 @@
         </Paragraphs>
         <rd:DefaultName>Desde</rd:DefaultName>
         <Top>0.95in</Top>
-        <Left>0.1in</Left>
+        <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>12</ZIndex>
