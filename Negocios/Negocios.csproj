@@ -47,6 +47,7 @@
     <Compile Include="NClientes.cs" />
     <Compile Include="NCompras.cs" />
     <Compile Include="NComprobantes.cs" />
+    <Compile Include="NCotizacion.cs" />
     <Compile Include="NFacturacion.cs" />
     <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />

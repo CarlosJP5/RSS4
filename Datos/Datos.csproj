@@ -49,6 +49,7 @@
     <Compile Include="DClientes.cs" />
     <Compile Include="DCompras.cs" />
     <Compile Include="DComprobantes.cs" />
+    <Compile Include="DCotizacion.cs" />
     <Compile Include="DFacturacion.cs" />
     <Compile Include="DItbis.cs" />
     <Compile Include="DMarcas.cs" />

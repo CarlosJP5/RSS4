@@ -156,5 +156,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void cotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCotizacion frm = new FrmCotizacion();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

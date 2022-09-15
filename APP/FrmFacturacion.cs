@@ -297,6 +297,10 @@ namespace APP
             decimal precio = Convert.ToDecimal(dgvListar.CurrentRow.Cells[6].Value);
             decimal beneficioMinimo = Convert.ToDecimal(dgvListar.CurrentRow.Cells[14].Value);
             decimal costo = Convert.ToDecimal(dgvListar.CurrentRow.Cells[8].Value);
+            if (costo == 0)
+            {
+                costo = 0.01m;
+            }
             decimal beneficio = (precio - costo) / costo * 100;
             if (beneficio < beneficioMinimo)
             {
