@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -94,13 +94,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.lblNCF = new System.Windows.Forms.Label();
             this.lblIdFactura = new System.Windows.Forms.Label();
-            this.linkCotizacion = new System.Windows.Forms.LinkLabel();
             this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCotizacion = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panelBot.SuspendLayout();
@@ -430,18 +426,18 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle85.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle19;
             this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
             this.Column5.Width = 55;
             // 
             // Column6
             // 
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle86.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle20;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -449,25 +445,25 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle87.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle21;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle88.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle22;
             this.Column8.HeaderText = "Importe";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            dataGridViewCellStyle89.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle23.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle23;
             this.Column9.HeaderText = "costo";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -510,8 +506,8 @@
             // 
             // Column15
             // 
-            dataGridViewCellStyle90.NullValue = "0";
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle24.NullValue = "0";
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle24;
             this.Column15.HeaderText = "minimo";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
@@ -732,13 +728,9 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.dtpFecha);
-            this.panel1.Controls.Add(this.lblNCF);
             this.panel1.Controls.Add(this.lblIdFactura);
-            this.panel1.Controls.Add(this.linkCotizacion);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtCotizacion);
             this.panel1.Location = new System.Drawing.Point(580, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 105);
@@ -749,85 +741,38 @@
             this.dtpFecha.CustomFormat = "dd / MM / yyyy";
             this.dtpFecha.Enabled = false;
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecha.Location = new System.Drawing.Point(72, 52);
+            this.dtpFecha.Location = new System.Drawing.Point(72, 48);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(113, 20);
             this.dtpFecha.TabIndex = 5;
-            // 
-            // lblNCF
-            // 
-            this.lblNCF.AutoSize = true;
-            this.lblNCF.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNCF.Location = new System.Drawing.Point(69, 33);
-            this.lblNCF.Name = "lblNCF";
-            this.lblNCF.Size = new System.Drawing.Size(56, 13);
-            this.lblNCF.TabIndex = 3;
-            this.lblNCF.Text = "Factura #:";
-            this.lblNCF.Visible = false;
             // 
             // lblIdFactura
             // 
             this.lblIdFactura.AutoSize = true;
             this.lblIdFactura.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblIdFactura.Location = new System.Drawing.Point(69, 9);
+            this.lblIdFactura.Location = new System.Drawing.Point(82, 13);
             this.lblIdFactura.Name = "lblIdFactura";
             this.lblIdFactura.Size = new System.Drawing.Size(56, 13);
             this.lblIdFactura.TabIndex = 1;
             this.lblIdFactura.Text = "Factura #:";
-            this.lblIdFactura.Visible = false;
-            // 
-            // linkCotizacion
-            // 
-            this.linkCotizacion.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkCotizacion.AutoSize = true;
-            this.linkCotizacion.Location = new System.Drawing.Point(7, 81);
-            this.linkCotizacion.Name = "linkCotizacion";
-            this.linkCotizacion.Size = new System.Drawing.Size(59, 13);
-            this.linkCotizacion.TabIndex = 6;
-            this.linkCotizacion.TabStop = true;
-            this.linkCotizacion.Text = "Cotizacion:";
-            this.linkCotizacion.Visible = false;
-            this.linkCotizacion.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 57);
+            this.label14.Location = new System.Drawing.Point(7, 53);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 13);
             this.label14.TabIndex = 4;
             this.label14.Text = "Fecha:";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "NCF:";
-            this.label12.Visible = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 9);
+            this.label10.Location = new System.Drawing.Point(7, 13);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 13);
+            this.label10.Size = new System.Drawing.Size(69, 13);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Factura #:";
-            this.label10.Visible = false;
-            // 
-            // txtCotizacion
-            // 
-            this.txtCotizacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtCotizacion.Enabled = false;
-            this.txtCotizacion.Location = new System.Drawing.Point(72, 78);
-            this.txtCotizacion.Name = "txtCotizacion";
-            this.txtCotizacion.Size = new System.Drawing.Size(75, 20);
-            this.txtCotizacion.TabIndex = 7;
-            this.txtCotizacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCotizacion.Visible = false;
+            this.label10.Text = "Cotizacion #:";
             // 
             // FrmCotizacion
             // 
@@ -862,13 +807,9 @@
         private System.Windows.Forms.Panel panelMid;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Label lblNCF;
         private System.Windows.Forms.Label lblIdFactura;
-        private System.Windows.Forms.LinkLabel linkCotizacion;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCotizacion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Button btnBuscarClientes;

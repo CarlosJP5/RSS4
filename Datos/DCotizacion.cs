@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -119,12 +120,12 @@ namespace Datos
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
                 {
+
                     cmd.Connection = conn;
                     cmd.CommandText = "citizacion_insertar";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = Factura.IdCliente;
                     cmd.Parameters.Add("@idComprobante", SqlDbType.VarChar).Value = Factura.IdComprobante;
-                    cmd.Parameters.Add("@ncf", SqlDbType.VarChar).Value = Factura.Ncf;
                     cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = Factura.Fecha;
                     cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = Factura.FechaVencimiento;
                     cmd.Parameters.Add("@tipoCompra", SqlDbType.VarChar).Value = Factura.TipoCompra;

@@ -1,21 +1,26 @@
 ﻿using Negocios;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP.Buscar
 {
-    public partial class FrmBuscarFactura : Form
+    public partial class FrmBuscarCotizacion : Form
     {
-
-        public FrmBuscarFactura()
+        public FrmBuscarCotizacion()
         {
             InitializeComponent();
         }
 
-        private readonly NFacturacion _facturar = new NFacturacion();
+        private readonly NCotizacion _facturar = new NCotizacion();
 
-        private void FrmBuscarFactura_Load(object sender, EventArgs e)
+        private void FrmBuscarCotizacion_Load(object sender, EventArgs e)
         {
             cboTipoCompra.SelectedIndex = 2;
             dtpDesde.Value = DateTime.Today;
@@ -24,42 +29,40 @@ namespace APP.Buscar
             foreach (DataRow row in dt.Rows)
             {
                 DateTime fecha = DateTime.Parse(row[1].ToString());
-                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4], row[5]);
+                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4]);
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvListar.Rows.Clear();
-            string query = @"SELECT F.id_factura, F.fecha_factura, CD.ncf_comprobante,
-	                         C.nombre_cliente, F.total_factura, F.tipoCompra_factura
-	                         FROM Factura F LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
-	                         LEFT JOIN ComprobantesDetalle CD ON F.id_comprobante = 
-                             F.id_comprobante AND F.id_factura = CD.id_documento ";
+            string query = @"SELECT F.id_cotizacion, F.fecha_cotizacion, 
+                             C.nombre_cliente, F.total_cotizacion, F.tipoCompra_cotizacion
+                             FROM Cotizacion F LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente";
             if (!string.IsNullOrEmpty(txtIdFactura.Text))
             {
                 // Buscar Por IdFactura;
-                query += string.Format(" WHERE F.id_factura = {0}", txtIdFactura.Text);
+                query += string.Format(" WHERE F.id_cotizacion = {0}", txtIdFactura.Text);
             }
             else
             {
                 // Si no es por IdFactura, todas las demas busquedas toman en cuenta la fecha
-                query += string.Format(" WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);
+                query += string.Format(" WHERE F.fecha_cotizacion BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);
                 if (!string.IsNullOrEmpty(txtNombre.Text))
                 {
                     query += string.Format(" AND F.id_cliente = {0}", txtIdCliente.Text);
                 }
                 if (cboTipoCompra.SelectedIndex != 2)
                 {
-                    query += string.Format(" AND F.tipoCompra_factura = '{0}'", cboTipoCompra.Text);
+                    query += string.Format(" AND F.tipoCompra_cotizacion = '{0}'", cboTipoCompra.Text);
                 }
             }
-            query += " ORDER BY F.id_factura DESC";
+            query += " ORDER BY F.id_cotizacion DESC";
             DataTable dt = _facturar.Buscar(query);
             foreach (DataRow row in dt.Rows)
             {
                 DateTime fecha = DateTime.Parse(row[1].ToString());
-                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4], row[5]);
+                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4]);
             }
             if (dgvListar.RowCount > 0)
             {
