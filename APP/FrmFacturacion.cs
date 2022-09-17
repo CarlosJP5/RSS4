@@ -105,6 +105,8 @@ namespace APP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            dtpFecha.Value = DateTime.Now;
+            txtCotizacion.Text = string.Empty;
             btnBuscar.Enabled = true;
             btnFacturar.Enabled = true;
             btnImprimir.Enabled = false;
@@ -420,6 +422,10 @@ namespace APP
                     Detalle.Rows.Add(row);
                 }
                 int IdFactura = _facturar.Insertar(Factura, Detalle);
+                if (!string.IsNullOrEmpty(txtCotizacion.Text))
+                {
+                    _cotizacion.Facturado(txtCotizacion.Text);
+                }
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
@@ -655,32 +661,39 @@ namespace APP
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 dgvListar.Rows.Clear();
-                DataTable facturaTable = _cotizacion.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
-                txtCotizacion.Text = facturaTable.Rows[0][0].ToString();
-                dtpFecha.Value = (DateTime)facturaTable.Rows[0][1];
-                txtIdCliente.Text = facturaTable.Rows[0][2].ToString();
-                txtNombre.Text = facturaTable.Rows[0][3].ToString();
-                txtDireccion.Text = facturaTable.Rows[0][4].ToString();
-                txtCedula.Text = facturaTable.Rows[0][5].ToString();
-                txtRnc.Text = facturaTable.Rows[0][6].ToString();
-                cboTipoCompra.Text = facturaTable.Rows[0][7].ToString();
-                cboTipoComprobante.SelectedValue = facturaTable.Rows[0][8].ToString();
-                txtDescuento.Text = facturaTable.Rows[0][9].ToString();
-                txtImporteFactura.Text = facturaTable.Rows[0][10].ToString();
-                txtDescuentoFactura.Text = facturaTable.Rows[0][11].ToString();
-                txtItbisFactura.Text = facturaTable.Rows[0][12].ToString();
-                txtTotalFactura.Text = facturaTable.Rows[0][13].ToString();
-                txtNota.Text = facturaTable.Rows[0][14].ToString();
-                for (int i = 0; i < facturaTable.Rows.Count; i++)
+                if (frm.dgvListar.SelectedCells[4].Value.ToString() == "Pendiente")
                 {
-                    dgvListar.Rows.Add(facturaTable.Rows[i][15], facturaTable.Rows[i][16],
-                        facturaTable.Rows[i][17], facturaTable.Rows[i][18], facturaTable.Rows[i][19],
-                        facturaTable.Rows[i][20], facturaTable.Rows[i][21], facturaTable.Rows[i][22],
-                        facturaTable.Rows[i][27], facturaTable.Rows[i][23], facturaTable.Rows[i][24],
-                        facturaTable.Rows[i][25], facturaTable.Rows[i][26], facturaTable.Rows[i][29],
-                        facturaTable.Rows[i][28]);
+                    DataTable facturaTable = _cotizacion.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+                    txtCotizacion.Text = facturaTable.Rows[0][0].ToString();
+                    dtpFecha.Value = (DateTime)facturaTable.Rows[0][1];
+                    txtIdCliente.Text = facturaTable.Rows[0][2].ToString();
+                    txtNombre.Text = facturaTable.Rows[0][3].ToString();
+                    txtDireccion.Text = facturaTable.Rows[0][4].ToString();
+                    txtCedula.Text = facturaTable.Rows[0][5].ToString();
+                    txtRnc.Text = facturaTable.Rows[0][6].ToString();
+                    cboTipoCompra.Text = facturaTable.Rows[0][7].ToString();
+                    cboTipoComprobante.SelectedValue = facturaTable.Rows[0][8].ToString();
+                    txtDescuento.Text = facturaTable.Rows[0][9].ToString();
+                    txtImporteFactura.Text = facturaTable.Rows[0][10].ToString();
+                    txtDescuentoFactura.Text = facturaTable.Rows[0][11].ToString();
+                    txtItbisFactura.Text = facturaTable.Rows[0][12].ToString();
+                    txtTotalFactura.Text = facturaTable.Rows[0][13].ToString();
+                    txtNota.Text = facturaTable.Rows[0][14].ToString();
+                    for (int i = 0; i < facturaTable.Rows.Count; i++)
+                    {
+                        dgvListar.Rows.Add(facturaTable.Rows[i][15], facturaTable.Rows[i][16],
+                            facturaTable.Rows[i][17], facturaTable.Rows[i][18], facturaTable.Rows[i][19],
+                            facturaTable.Rows[i][20], facturaTable.Rows[i][21], facturaTable.Rows[i][22],
+                            facturaTable.Rows[i][27], facturaTable.Rows[i][23], facturaTable.Rows[i][24],
+                            facturaTable.Rows[i][25], facturaTable.Rows[i][26], facturaTable.Rows[i][29],
+                            facturaTable.Rows[i][28]);
+                    }
+                    CalculaTotal();
                 }
-                CalculaTotal();
+                else
+                {
+                    _ = MessageBox.Show("Esta cotizacion ya fue facturada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }

@@ -176,5 +176,19 @@ namespace Datos
                 }
             }
         }
+        public void Facturado(int idCotizacion)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = string.Format("UPDATE Cotizacion SET estado_cotizacion = 'Fact. Completo' WHERE id_cotizacion = '{0}'", idCotizacion);
+                    cmd.CommandType = CommandType.Text;
+                    _ = cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

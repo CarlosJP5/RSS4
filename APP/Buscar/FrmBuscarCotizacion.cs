@@ -37,7 +37,7 @@ namespace APP.Buscar
         {
             dgvListar.Rows.Clear();
             string query = @"SELECT F.id_cotizacion, F.fecha_cotizacion, 
-                             C.nombre_cliente, F.total_cotizacion, F.tipoCompra_cotizacion
+                             C.nombre_cliente, F.total_cotizacion, F.estado_cotizacion
                              FROM Cotizacion F LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente";
             if (!string.IsNullOrEmpty(txtIdFactura.Text))
             {

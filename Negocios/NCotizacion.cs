@@ -40,5 +40,10 @@ namespace Negocios
         {
             dCotizacion.Editar(Factura, Detalle);
         }
+        public void Facturado(string idCotizacion)
+        {
+            int id = Convert.ToInt16(idCotizacion);
+            dCotizacion.Facturado(id);
+        }
     }
 }
