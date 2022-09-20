@@ -115,8 +115,6 @@ namespace APP
             txtCodigo.Text = null;
             CalculaTotal();
             HabilitarControles();
-            cboTipoCompra.Enabled = true;
-            cboTipoComprobante.Enabled = true;
             lblIdFactura.Text = "#";
             _ = txtCodigo.Focus();
         }
@@ -132,11 +130,8 @@ namespace APP
                     txtDireccion.Text = cliente.Rows[0][5].ToString();
                     txtCedula.Text = cliente.Rows[0][3].ToString();
                     txtRnc.Text = cliente.Rows[0][4].ToString();
-                    if (!btnGuardar.Enabled)
-                    {
-                        cboTipoCompra.Text = cliente.Rows[0][8].ToString();
-                        cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
-                    }
+                    cboTipoCompra.Text = cliente.Rows[0][8].ToString();
+                    cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
                     txtDescuento.Text = cliente.Rows[0][10].ToString();
                 }
                 else
@@ -170,11 +165,8 @@ namespace APP
                 txtNombre.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
                 txtDireccion.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                 txtCedula.Text = frm.dgvListar.SelectedCells[7].Value.ToString();
-                if (!btnGuardar.Enabled)
-                {
-                    cboTipoComprobante.SelectedValue = frm.dgvListar.SelectedCells[6].Value.ToString();
-                    cboTipoCompra.Text = frm.dgvListar.SelectedCells[9].Value.ToString();
-                }
+                cboTipoComprobante.SelectedValue = frm.dgvListar.SelectedCells[6].Value.ToString();
+                cboTipoCompra.Text = frm.dgvListar.SelectedCells[9].Value.ToString();
                 txtDescuento.Text = frm.dgvListar.SelectedCells[11].Value.ToString();
                 for (int i = 0; i < dgvListar.RowCount; i++)
                 {
@@ -479,6 +471,8 @@ namespace APP
             btnAgregar.Enabled = true;
             btnBorrar.Enabled = true;
             dgvListar.ReadOnly = false;
+            cboTipoCompra.Enabled = true;
+            cboTipoComprobante.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -518,7 +512,6 @@ namespace APP
                     IdFactura = Convert.ToInt32(lblIdFactura.Text),
                     IdCliente = Convert.ToInt32(txtIdCliente.Text),
                     IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
-                    Fecha = DateTime.Now,
                     TipoCompra = cboTipoCompra.Text,
                     Nota = txtNota.Text,
                     Importe = Convert.ToDecimal(txtImporteFactura.Text),

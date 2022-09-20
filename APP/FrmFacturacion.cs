@@ -563,7 +563,6 @@ namespace APP
                     IdFactura = Convert.ToInt32(lblIdFactura.Text),
                     IdCliente = Convert.ToInt32(txtIdCliente.Text),
                     IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
-                    Fecha = DateTime.Now,
                     TipoCompra = cboTipoCompra.Text,
                     Nota = txtNota.Text,
                     Importe = Convert.ToDecimal(txtImporteFactura.Text),

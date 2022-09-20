@@ -406,6 +406,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptCotizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rptCuadreCaja.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.resx">

@@ -47,6 +47,8 @@
     <Compile Include="ECliente.cs" />
     <Compile Include="ECompra.cs" />
     <Compile Include="EFactura.cs" />
+    <Compile Include="EReportes\ErptCotizacion.cs" />
+    <Compile Include="EReportes\ErptCotizacionDetalle.cs" />
     <Compile Include="EReportes\ErptCuadreCaja.cs" />
     <Compile Include="EReportes\ErptEmpresa.cs" />
     <Compile Include="EReportes\ErptFactura.cs" />
