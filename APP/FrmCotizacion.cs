@@ -372,7 +372,7 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFactura frm = new rptFactura(IdFactura.ToString());
+                    rptCotizacion frm = new rptCotizacion(IdFactura.ToString());
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         frm.Close();
@@ -547,7 +547,7 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFactura frm = new rptFactura(lblIdFactura.Text);
+                    rptCotizacion frm = new rptCotizacion(lblIdFactura.Text);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         frm.Close();
@@ -583,7 +583,7 @@ namespace APP
         {
             using (LocalReport localReport = new LocalReport())
             {
-                rptFactura frm = new rptFactura(lblIdFactura.Text);
+                rptCotizacion frm = new rptCotizacion(lblIdFactura.Text);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     frm.Close();
