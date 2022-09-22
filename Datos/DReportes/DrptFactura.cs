@@ -69,5 +69,57 @@ namespace Datos.DReportes
                 }
             }
         }
+
+        public DataTable Cotizacion(int IdCotizacion)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "citizacion_reporte";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = IdCotizacion;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
+        public DataTable CotizacionDetalle(int IdCotizacion)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "citizacion_reporte_detalle";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = IdCotizacion;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

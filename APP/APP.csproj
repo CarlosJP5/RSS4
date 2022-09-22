@@ -421,6 +421,8 @@
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacion.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacionDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCuadreCaja.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEmpresa.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFactura.datasource" />
