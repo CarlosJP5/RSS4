@@ -715,6 +715,7 @@
             // 
             this.Column1.HeaderText = "idArticulo";
             this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             // 
             // Column2
             // 
@@ -779,36 +780,42 @@
             this.Column9.HeaderText = "costo";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "itbisporciento";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "totalImporte";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "totalDescuento";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "totalItbis";
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
             // 
             // Column14
             // 
             this.Column14.HeaderText = "precio1";
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
             // 
             // Column15
             // 
@@ -817,6 +824,7 @@
             this.Column15.HeaderText = "minimo";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
             // 
             // FrmFacturacion
             // 

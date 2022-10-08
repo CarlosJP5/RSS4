@@ -24,7 +24,7 @@ namespace APP
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult msj = MessageBox.Show("Desea Salir del Sistema", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult msj = MessageBox.Show("Desea Salir del sistema", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (msj == DialogResult.Yes)
             {
                 Application.Exit();
