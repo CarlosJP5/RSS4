@@ -228,6 +228,12 @@
     <Compile Include="FrmFacturaDevolucion.Designer.cs">
       <DependentUpon>FrmFacturaDevolucion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFacturaServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFacturaServicio.designer.cs">
+      <DependentUpon>FrmFacturaServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListaCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +387,9 @@
     <EmbeddedResource Include="FrmFacturaDevolucion.resx">
       <DependentUpon>FrmFacturaDevolucion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmFacturaServicio.resx">
+      <DependentUpon>FrmFacturaServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListaCompra.resx">
       <DependentUpon>FrmListaCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +476,7 @@
     <None Include="Resources\Pay-24.png" />
     <None Include="Resources\Logo-128.png" />
     <None Include="Resources\conexion-24.png" />
+    <None Include="Resources\Imprimir-16.png" />
     <Content Include="Resources\Print-16.png" />
     <None Include="Resources\Aceptar-16.png" />
     <None Include="Resources\Borrar-16.png" />

@@ -163,5 +163,12 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void facturarServicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFacturaServicio frm = new FrmFacturaServicio();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
