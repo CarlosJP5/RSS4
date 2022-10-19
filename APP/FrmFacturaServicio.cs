@@ -21,6 +21,19 @@ namespace APP
 
         private readonly NComprobantes _comprobante = new NComprobantes();
 
+        private void CalculaTotal()
+        {
+            decimal importe = 0m;
+            for (int i = 0; i < dgvListar.Rows.Count - 1; i++)
+            {
+                importe += Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
+            }
+            decimal itbis = importe / 1.18m;
+            txtImporte.Text = itbis.ToString("N2");
+            txtItbis.Text = (importe - itbis).ToString("N2");
+            txtTotal.Text = importe.ToString("N2");
+        }
+
         private void FrmFacturaServicio_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
@@ -76,7 +89,7 @@ namespace APP
 
         private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)dgvListar.CurrentRow.Cells[1].Value))
+            if (dgvListar.CurrentRow.Cells[1].Value != null)
             {
                 if (decimal.TryParse(dgvListar.CurrentRow.Cells[1].Value.ToString(), out _))
                 {
@@ -92,6 +105,44 @@ namespace APP
             {
                 dgvListar.CurrentRow.Cells[1].Value = 0;
             }
+            CalculaTotal();
+        }
+
+        private void dgvListar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
+            if (dgvListar.CurrentCell.ColumnIndex == 1) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                }
+            }
+        }
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // allowed numeric and one dot  ex. 10.23
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dgvListar_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CalculaTotal();
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
