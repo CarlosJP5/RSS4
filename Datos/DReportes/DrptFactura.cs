@@ -20,7 +20,7 @@ namespace Datos.DReportes
                                         C.direccion_cliente, C.telefono_cliente, C.correo_cliente, CD.ncf_comprobante,
                                         CD.fechaVencimiento_comprobante, CC.nombre_comprobante FROM Factura F
                                         LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
-                                        LEFT JOIN ComprobantesDetalle CD ON F.id_factura = CD.id_documento AND F.id_comprobante = CD.id_comprobante
+                                        LEFT JOIN ComprobantesDetalle CD ON cast(F.id_factura as varchar(50)) = CD.id_documento AND F.id_comprobante = CD.id_comprobante
                                         LEFT JOIN Comprobantes CC ON F.id_comprobante = CC.id_comprobante
                                         WHERE F.id_factura = {0}", IdFactura);
                     cmd.CommandType = CommandType.Text;

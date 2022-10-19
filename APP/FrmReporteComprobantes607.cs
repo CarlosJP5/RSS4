@@ -30,7 +30,7 @@ namespace APP
             string query = @"SELECT C.rnc_cliente, C.cedula_cliente, CD.ncf_comprobante, F.fecha_factura,
                              F.itbis_factura, (F.total_factura - F.itbis_factura) AS Monto, F.id_factura,
                              C.nombre_cliente, F.total_factura, F.id_comprobante FROM Factura F
-                             LEFT JOIN ComprobantesDetalle CD ON F.id_factura = CD.id_documento AND
+                             LEFT JOIN ComprobantesDetalle CD ON CAST(F.id_factura as varchar) = CD.id_documento AND
                              F.id_comprobante = CD.id_comprobante LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente";
             query += string.Format(@" WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);
             switch (cboTipoComprobante.SelectedIndex)
@@ -49,7 +49,7 @@ namespace APP
             query = @"SELECT C.rnc_cliente, C.cedula_cliente, CD.ncf_comprobante, F.fecha_devolucion,
                     F.itbis_devolucion, (F.total_devolucion - F.itbis_devolucion) AS Monto, F.id_devolucion,
                     C.nombre_cliente, F.total_devolucion, CDD.ncf_comprobante, F.id_comprobante FROM FacturaDevolucion F
-                    LEFT JOIN ComprobantesDetalle CD ON F.id_devolucion = CD.id_documento AND
+                    LEFT JOIN ComprobantesDetalle CD ON cast(F.id_devolucion as varchar(30)) = CD.id_documento AND
                     F.id_comprobante = CD.id_comprobante LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
                     LEFT JOIN ComprobantesDetalle CDD ON F.id_factura = CDD.id_documento";
             query += string.Format(@" WHERE F.fecha_devolucion BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);

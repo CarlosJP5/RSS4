@@ -20,6 +20,7 @@ namespace APP
         }
 
         private readonly NComprobantes _comprobante = new NComprobantes();
+        private readonly NServicio nservicio = new NServicio();
 
         private void CalculaTotal()
         {
@@ -142,7 +143,72 @@ namespace APP
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                _ = MessageBox.Show("Debe Seleccionar un Cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cboTipoComprobante.SelectedValue.ToString() == "B01")
+            {
+                if (string.IsNullOrEmpty(txtRnc.Text) || (txtRnc.Text.Length != 11 && txtRnc.Text.Length != 9))
+                {
+                    _ = MessageBox.Show("El RNC no es Valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            if (!string.IsNullOrEmpty(txtTotal.Text))
+            {
+                decimal total = decimal.Parse(txtTotal.Text);
+                if (total > 0)
+                {
+                    EServicio Factura = new EServicio()
+                    {
+                        Fecha = DateTime.Now,
+                        IdCliente = int.Parse(txtIdCliente.Text),
+                        NombreCliente = txtNombre.Text,
+                        Cedula = txtCedula.Text,
+                        Rnc = txtRnc.Text,
+                        IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
+                        NombreComprobante = cboTipoComprobante.Text,
+                        Importe = decimal.Parse(txtImporte.Text),
+                        Itbis = decimal.Parse(txtItbis.Text),
+                        Total = decimal.Parse(txtTotal.Text)
+                    };
+                    DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
+                    if (ListaComprobante.Rows.Count > 0)
+                    {
+                        DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
+                        if (date > Factura.Fecha)
+                        {
+                            int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
+                            Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+                            Factura.FechaVencimiento = date;
+                        }
+                        else
+                        {
+                            _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
+                            _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    DataTable Detalle = new DataTable();
+                    Detalle.Columns.Add("[descripcion]", typeof(string));
+                    Detalle.Columns.Add("[precio]", typeof(decimal));
+                    for (int i = 0; i < dgvListar.RowCount - 1; i++)
+                    {
+                        DataRow row = Detalle.NewRow();
+                        row[0] = Convert.ToString(dgvListar.Rows[i].Cells[0].Value);
+                        row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
+                        Detalle.Rows.Add(row);
+                    }
+                    int idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+                }
+            }
         }
     }
 }
