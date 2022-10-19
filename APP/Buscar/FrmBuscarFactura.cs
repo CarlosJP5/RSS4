@@ -35,7 +35,7 @@ namespace APP.Buscar
 	                         C.nombre_cliente, F.total_factura, F.tipoCompra_factura
 	                         FROM Factura F LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
 	                         LEFT JOIN ComprobantesDetalle CD ON F.id_comprobante = 
-                             F.id_comprobante AND F.id_factura = CD.id_documento ";
+                             F.id_comprobante AND cast(F.id_factura as varchar) = CD.id_documento ";
             if (!string.IsNullOrEmpty(txtIdFactura.Text))
             {
                 // Buscar Por IdFactura;
