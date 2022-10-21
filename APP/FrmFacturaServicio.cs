@@ -207,7 +207,17 @@ namespace APP
                         Detalle.Rows.Add(row);
                     }
                     int idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+                    btnNuevo.PerformClick();
                 }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarFacturaServicio frm = new FrmBuscarFacturaServicio();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
             }
         }
     }

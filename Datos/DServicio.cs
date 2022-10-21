@@ -1,16 +1,90 @@
 ﻿using Entidades;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
     public  class DServicio : Conexion
     {
+        public DataTable Buscar(DateTime desde, DateTime hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[facturaServicio_buscar_fecha]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable Buscar_cliente(DateTime desde, DateTime hasta, int idCliente)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[facturaServicio_buscar_cliente]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
+                    cmd.Parameters.Add("@cliente", SqlDbType.Int).Value = idCliente;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable Buscar_idFactura(string idfactura)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[facturaServicio_buscar_idFactura]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idfact", SqlDbType.NVarChar).Value = idfactura;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public int Insertar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())

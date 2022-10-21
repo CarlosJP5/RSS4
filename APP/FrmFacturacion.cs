@@ -538,6 +538,7 @@ namespace APP
                 btnGuardar.Enabled = true;
                 btnImprimir.Enabled = false;
                 btnBuscar.Enabled = false;
+                btnModificar.Enabled = false;
             }
         }
 

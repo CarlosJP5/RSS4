@@ -51,7 +51,7 @@ namespace APP
                     C.nombre_cliente, F.total_devolucion, CDD.ncf_comprobante, F.id_comprobante FROM FacturaDevolucion F
                     LEFT JOIN ComprobantesDetalle CD ON cast(F.id_devolucion as varchar(30)) = CD.id_documento AND
                     F.id_comprobante = CD.id_comprobante LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
-                    LEFT JOIN ComprobantesDetalle CDD ON F.id_factura = CDD.id_documento";
+                    LEFT JOIN ComprobantesDetalle CDD ON CAST(F.id_factura as varchar) = CDD.id_documento";
             query += string.Format(@" WHERE F.fecha_devolucion BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);
             query += " ORDER BY CD.ncf_comprobante";
             detalle = _comprobante.Reporte607(query);
