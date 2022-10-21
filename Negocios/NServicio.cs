@@ -25,6 +25,11 @@ namespace Negocios
             return dservicio.Buscar_idFactura(idfactura);
         }
 
+        public DataTable Listar(string idfactura)
+        {
+            return dservicio.Listar(idfactura);
+        }
+
         public int Insertar(EServicio Factura, DataTable Detalle)
         {
             return dservicio.Insertar(Factura, Detalle);

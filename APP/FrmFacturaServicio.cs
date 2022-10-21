@@ -217,7 +217,23 @@ namespace APP
             FrmBuscarFacturaServicio frm = new FrmBuscarFacturaServicio();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-
+                DataTable factura = nservicio.Listar(frm.dgvListar.SelectedCells[0].Value.ToString());
+                txtIdCliente.Text = factura.Rows[0][2].ToString();
+                txtNombre.Text = factura.Rows[0][3].ToString();
+                cboTipoComprobante.SelectedValue = factura.Rows[0][6].ToString();
+                dtpFecha.Value = DateTime.Parse(factura.Rows[0][1].ToString());
+                txtCedula.Text = factura.Rows[0][4].ToString();
+                txtRnc.Text = factura.Rows[0][5].ToString();
+                txtImporte.Text = factura.Rows[0][8].ToString();
+                txtItbis.Text = factura.Rows[0][9].ToString();
+                txtTotal.Text = factura.Rows[0][10].ToString();
+                lblIdFactura.Text = factura.Rows[0][11].ToString();
+                lblNcf.Text = factura.Rows[0][14].ToString();
+                lblidFactura_int.Text = factura.Rows[0][0].ToString();
+                foreach (DataRow row in factura.Rows)
+                {
+                    _ = dgvListar.Rows.Add(row[17], row[18]);
+                }
             }
         }
     }
