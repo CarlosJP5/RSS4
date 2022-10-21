@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblidFactura_int = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblIdFactura = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblNcf = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -62,16 +68,10 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblIdFactura = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblNcf = new System.Windows.Forms.Label();
-            this.lblidFactura_int = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -134,6 +134,75 @@
             this.panel1.Size = new System.Drawing.Size(474, 419);
             this.panel1.TabIndex = 1;
             // 
+            // lblidFactura_int
+            // 
+            this.lblidFactura_int.AutoSize = true;
+            this.lblidFactura_int.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidFactura_int.Location = new System.Drawing.Point(18, 321);
+            this.lblidFactura_int.Name = "lblidFactura_int";
+            this.lblidFactura_int.Size = new System.Drawing.Size(101, 16);
+            this.lblidFactura_int.TabIndex = 28;
+            this.lblidFactura_int.Text = "IdFactura_int";
+            this.lblidFactura_int.Visible = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label10);
+            this.flowLayoutPanel1.Controls.Add(this.lblIdFactura);
+            this.flowLayoutPanel1.Controls.Add(this.label12);
+            this.flowLayoutPanel1.Controls.Add(this.lblNcf);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 100);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 22);
+            this.flowLayoutPanel1.TabIndex = 27;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 16);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Factura Nº:";
+            // 
+            // lblIdFactura
+            // 
+            this.lblIdFactura.AutoSize = true;
+            this.lblIdFactura.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdFactura.Location = new System.Drawing.Point(88, 0);
+            this.lblIdFactura.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lblIdFactura.Name = "lblIdFactura";
+            this.lblIdFactura.Size = new System.Drawing.Size(39, 16);
+            this.lblIdFactura.TabIndex = 1;
+            this.lblIdFactura.Text = "~ ~ ~";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Blue;
+            this.label12.Location = new System.Drawing.Point(133, 0);
+            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label12.Name = "label12";
+            this.label12.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.label12.Size = new System.Drawing.Size(56, 16);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "NCF:";
+            // 
+            // lblNcf
+            // 
+            this.lblNcf.AutoSize = true;
+            this.lblNcf.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNcf.ForeColor = System.Drawing.Color.Blue;
+            this.lblNcf.Location = new System.Drawing.Point(189, 0);
+            this.lblNcf.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lblNcf.Name = "lblNcf";
+            this.lblNcf.Size = new System.Drawing.Size(31, 16);
+            this.lblNcf.TabIndex = 3;
+            this.lblNcf.Text = "~~~";
+            // 
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
@@ -183,6 +252,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -280,8 +350,8 @@
             // 
             // Column0
             // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column0.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column0.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column0.HeaderText = "Descripcion";
             this.Column0.MaxInputLength = 150;
             this.Column0.Name = "Column0";
@@ -289,9 +359,9 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "Precio";
             this.Column1.Name = "Column1";
             // 
@@ -424,75 +494,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label10);
-            this.flowLayoutPanel1.Controls.Add(this.lblIdFactura);
-            this.flowLayoutPanel1.Controls.Add(this.label12);
-            this.flowLayoutPanel1.Controls.Add(this.lblNcf);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 100);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 22);
-            this.flowLayoutPanel1.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 16);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Factura Nº:";
-            // 
-            // lblIdFactura
-            // 
-            this.lblIdFactura.AutoSize = true;
-            this.lblIdFactura.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdFactura.Location = new System.Drawing.Point(88, 0);
-            this.lblIdFactura.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.lblIdFactura.Name = "lblIdFactura";
-            this.lblIdFactura.Size = new System.Drawing.Size(39, 16);
-            this.lblIdFactura.TabIndex = 1;
-            this.lblIdFactura.Text = "~ ~ ~";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Blue;
-            this.label12.Location = new System.Drawing.Point(133, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.label12.Size = new System.Drawing.Size(56, 16);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "NCF:";
-            // 
-            // lblNcf
-            // 
-            this.lblNcf.AutoSize = true;
-            this.lblNcf.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNcf.ForeColor = System.Drawing.Color.Blue;
-            this.lblNcf.Location = new System.Drawing.Point(189, 0);
-            this.lblNcf.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.lblNcf.Name = "lblNcf";
-            this.lblNcf.Size = new System.Drawing.Size(31, 16);
-            this.lblNcf.TabIndex = 3;
-            this.lblNcf.Text = "~~~";
-            // 
-            // lblidFactura_int
-            // 
-            this.lblidFactura_int.AutoSize = true;
-            this.lblidFactura_int.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidFactura_int.Location = new System.Drawing.Point(18, 321);
-            this.lblidFactura_int.Name = "lblidFactura_int";
-            this.lblidFactura_int.Size = new System.Drawing.Size(101, 16);
-            this.lblidFactura_int.TabIndex = 28;
-            this.lblidFactura_int.Text = "IdFactura_int";
-            this.lblidFactura_int.Visible = false;
-            // 
             // FrmFacturaServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,9 +511,9 @@
             this.panelTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
 
         }

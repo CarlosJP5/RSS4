@@ -35,6 +35,28 @@ namespace APP
             txtTotal.Text = importe.ToString("N2");
         }
 
+        private void desabilita_controles()
+        {
+            txtIdCliente.Enabled = false;
+            btnBuscarClientes.Enabled = false;
+            txtNombre.Enabled = false;
+            cboTipoComprobante.Enabled = false;
+            txtCedula.Enabled = false;
+            txtRnc.Enabled = false;
+            dgvListar.ReadOnly = true;
+        }
+
+        private void habilita_controles()
+        {
+            txtIdCliente.Enabled = true;
+            btnBuscarClientes.Enabled = true;
+            txtNombre.Enabled = true;
+            cboTipoComprobante.Enabled = true;
+            txtCedula.Enabled = true;
+            txtRnc.Enabled = true;
+            dgvListar.ReadOnly = false;
+        }
+
         private void FrmFacturaServicio_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
@@ -52,9 +74,15 @@ namespace APP
             txtImporte.Text = string.Empty;
             txtItbis.Text = string.Empty;
             txtTotal.Text = string.Empty;
+            lblidFactura_int.Text = string.Empty;
+            lblIdFactura.Text = "~~~";
+            lblNcf.Text = "~~~";
 
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
+            btnFacturar.Enabled = true;
+            btnBuscar.Enabled = true;
+            habilita_controles();
             _ = txtIdCliente.Focus();
         }
 
@@ -206,7 +234,17 @@ namespace APP
                         row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
                         Detalle.Rows.Add(row);
                     }
-                    int idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+                    if (string.IsNullOrEmpty(lblidFactura_int.Text))
+                    {
+                        // Insertar
+                        int idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+                    }
+                    else
+                    {
+                        // Editar
+                        Factura.IdFactura = int.Parse(lblidFactura_int.Text);
+                        nservicio.Editar(Factura, Detalle);
+                    }
                     btnNuevo.PerformClick();
                 }
             }
@@ -234,7 +272,21 @@ namespace APP
                 {
                     _ = dgvListar.Rows.Add(row[17], row[18]);
                 }
+
+                desabilita_controles();
+                btnFacturar.Enabled = false;
+                btnImprimir.Enabled = true;
+                btnModificar.Enabled = true;
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            habilita_controles();
+            btnImprimir.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnFacturar.Enabled = true;
+            btnModificar.Enabled = false;
         }
     }
 }

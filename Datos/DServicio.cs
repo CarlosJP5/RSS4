@@ -110,6 +110,36 @@ namespace Datos
                 }
             }
         }
+        public async void Editar(EServicio Factura, DataTable Detalle)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[facturaServicio_editar]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFact", SqlDbType.Int).Value = Factura.IdFactura;
+                    cmd.Parameters.Add("@id_cliente", SqlDbType.Int).Value = Factura.IdCliente;
+                    cmd.Parameters.Add("@nombre_cliente", SqlDbType.NVarChar).Value = Factura.NombreCliente;
+                    cmd.Parameters.Add("@cedula", SqlDbType.NVarChar).Value = Factura.Cedula;
+                    cmd.Parameters.Add("@rnc", SqlDbType.NVarChar).Value = Factura.Rnc;
+                    cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
+                    cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
+                    cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        _ = await cmd.ExecuteScalarAsync();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public int Insertar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())

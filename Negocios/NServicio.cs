@@ -30,6 +30,11 @@ namespace Negocios
             return dservicio.Listar(idfactura);
         }
 
+        public void Editar(EServicio Factura, DataTable Detalle)
+        {
+            dservicio.Editar(Factura, Detalle);
+        }
+
         public int Insertar(EServicio Factura, DataTable Detalle)
         {
             return dservicio.Insertar(Factura, Detalle);
