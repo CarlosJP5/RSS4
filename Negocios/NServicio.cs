@@ -35,7 +35,7 @@ namespace Negocios
             dservicio.Editar(Factura, Detalle);
         }
 
-        public int Insertar(EServicio Factura, DataTable Detalle)
+        public string Insertar(EServicio Factura, DataTable Detalle)
         {
             return dservicio.Insertar(Factura, Detalle);
         }

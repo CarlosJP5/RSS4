@@ -303,6 +303,12 @@
     <Compile Include="Reportes\rptFactura.Designer.cs">
       <DependentUpon>rptFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptFacturaServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptFacturaServicio.Designer.cs">
+      <DependentUpon>rptFacturaServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptListaCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +445,10 @@
     <EmbeddedResource Include="Reportes\rptFactura.resx">
       <DependentUpon>rptFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptFacturaServicio.rdlc" />
+    <EmbeddedResource Include="Reportes\rptFacturaServicio.resx">
+      <DependentUpon>rptFacturaServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptListaCompra.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaCompra.resx">
       <DependentUpon>rptListaCompra.cs</DependentUpon>
@@ -454,6 +464,8 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEmpresa.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFactura.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaDetalle.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicio.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicioDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngreso.datasource" />
     <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja.datasource" />
     <None Include="Properties\Settings.settings">

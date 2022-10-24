@@ -1,4 +1,5 @@
 ﻿using APP.Buscar;
+using APP.Reportes;
 using Entidades;
 using Negocios;
 using System;
@@ -186,6 +187,7 @@ namespace APP
             }
             if (!string.IsNullOrEmpty(txtTotal.Text))
             {
+                string idFacuraServicio = "";
                 decimal total = decimal.Parse(txtTotal.Text);
                 if (total > 0)
                 {
@@ -237,13 +239,23 @@ namespace APP
                     if (string.IsNullOrEmpty(lblidFactura_int.Text))
                     {
                         // Insertar
-                        int idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+                        idFacuraServicio = nservicio.Insertar(Factura, Detalle);
                     }
                     else
                     {
                         // Editar
                         Factura.IdFactura = int.Parse(lblidFactura_int.Text);
                         nservicio.Editar(Factura, Detalle);
+                        idFacuraServicio = lblIdFactura.Text;
+                    }
+                    DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (msj == DialogResult.Yes)
+                    {
+                        rptFacturaServicio frm = new rptFacturaServicio(idFacuraServicio);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
                     }
                     btnNuevo.PerformClick();
                 }
@@ -287,6 +299,32 @@ namespace APP
             btnBuscar.Enabled = false;
             btnFacturar.Enabled = true;
             btnModificar.Enabled = false;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblIdFactura.Text))
+            {
+                DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (msj == DialogResult.Yes)
+                {
+                    rptFacturaServicio frm = new rptFacturaServicio(lblIdFactura.Text);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        frm.Close();
+                    }
+                }
+                btnNuevo.PerformClick();
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

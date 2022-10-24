@@ -18,7 +18,7 @@ namespace APP.Reportes
         {
             NrptEmpresa nEmpresa = new NrptEmpresa();
             NrptFactura nFactura = new NrptFactura();
-            nEmpresa.LlenaEmpresa();
+            _ = nEmpresa.LlenaEmpresa();
             nFactura.Facturas(IdFactura);
             erptEmpresaBindingSource.DataSource = nEmpresa.Empresa;
             erptFacturaBindingSource.DataSource = nFactura.Factura;

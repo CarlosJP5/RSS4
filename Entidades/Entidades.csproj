@@ -53,6 +53,8 @@
     <Compile Include="EReportes\ErptEmpresa.cs" />
     <Compile Include="EReportes\ErptFactura.cs" />
     <Compile Include="EReportes\ErptFacturaDetalle.cs" />
+    <Compile Include="EReportes\ErptFacturaServicio.cs" />
+    <Compile Include="EReportes\ErptFacturaServicioDetalle.cs" />
     <Compile Include="EReportes\ErptReciboIngreso.cs" />
     <Compile Include="EServicio.cs" />
     <Compile Include="ESuplidor.cs" />

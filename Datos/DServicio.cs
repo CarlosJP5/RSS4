@@ -140,7 +140,7 @@ namespace Datos
                 }
             }
         }
-        public int Insertar(EServicio Factura, DataTable Detalle)
+        public string Insertar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())
             {
@@ -165,7 +165,7 @@ namespace Datos
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try
                     {
-                        return (int)cmd.ExecuteScalar();
+                        return (string)cmd.ExecuteScalar();
                     }
                     catch (Exception)
                     {
