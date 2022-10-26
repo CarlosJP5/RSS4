@@ -25,15 +25,30 @@ namespace APP
 
         private void CalculaTotal()
         {
-            decimal importe = 0m;
-            for (int i = 0; i < dgvListar.Rows.Count - 1; i++)
+            if (cboTipoComprobante.SelectedValue.ToString() != "B02")
             {
-                importe += Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
+                decimal importe = 0m;
+                for (int i = 0; i < dgvListar.Rows.Count - 1; i++)
+                {
+                    importe += Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
+                }
+                decimal itbis = importe * 0.18m;
+                txtImporte.Text = importe.ToString("N2");
+                txtItbis.Text = itbis.ToString("N2");
+                txtTotal.Text = (importe + itbis).ToString("N2");
             }
-            decimal itbis = importe * 0.18m;
-            txtImporte.Text = importe.ToString("N2");
-            txtItbis.Text = itbis.ToString("N2");
-            txtTotal.Text = (importe + itbis).ToString("N2");
+            else
+            {
+                decimal importe = 0m;
+                for (int i = 0; i < dgvListar.Rows.Count - 1; i++)
+                {
+                    importe += Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
+                }
+                decimal itbis = 0m;
+                txtImporte.Text = importe.ToString("N2");
+                txtItbis.Text = itbis.ToString("N2");
+                txtTotal.Text = (importe + itbis).ToString("N2");
+            }
         }
 
         private void desabilita_controles()
@@ -335,6 +350,11 @@ namespace APP
                 e.Handled = true;
                 _ = dgvListar.Focus();
             }
+        }
+
+        private void cboTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculaTotal();
         }
     }
 }
