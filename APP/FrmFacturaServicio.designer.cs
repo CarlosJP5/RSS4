@@ -298,6 +298,7 @@
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 20;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -316,6 +317,7 @@
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(100, 20);
             this.txtItbis.TabIndex = 18;
+            this.txtItbis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -334,6 +336,7 @@
             this.txtImporte.ReadOnly = true;
             this.txtImporte.Size = new System.Drawing.Size(100, 20);
             this.txtImporte.TabIndex = 16;
+            this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dgvListar
             // 
@@ -485,6 +488,7 @@
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
             this.txtIdCliente.TabIndex = 1;
+            this.txtIdCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCliente_KeyDown);
             this.txtIdCliente.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCliente_Validating);
             // 
             // label2

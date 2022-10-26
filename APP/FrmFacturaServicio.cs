@@ -30,10 +30,10 @@ namespace APP
             {
                 importe += Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
             }
-            decimal itbis = importe / 1.18m;
-            txtImporte.Text = itbis.ToString("N2");
-            txtItbis.Text = (importe - itbis).ToString("N2");
-            txtTotal.Text = importe.ToString("N2");
+            decimal itbis = importe * 0.18m;
+            txtImporte.Text = importe.ToString("N2");
+            txtItbis.Text = itbis.ToString("N2");
+            txtTotal.Text = (importe + itbis).ToString("N2");
         }
 
         private void desabilita_controles()
@@ -324,6 +324,16 @@ namespace APP
             if (msj == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void txtIdCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                _ = dgvListar.Focus();
             }
         }
     }

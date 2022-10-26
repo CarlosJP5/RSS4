@@ -18,8 +18,8 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            //FrmLogin frm = new FrmLogin();
-            //frm.ShowDialog();
+            FrmLogin frm = new FrmLogin();
+            frm.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
