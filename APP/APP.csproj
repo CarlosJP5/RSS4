@@ -216,6 +216,12 @@
     <Compile Include="FrmCotizacion.Designer.cs">
       <DependentUpon>FrmCotizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCotizacionServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCotizacionServicio.Designer.cs">
+      <DependentUpon>FrmCotizacionServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCuadreCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCotizacion.resx">
       <DependentUpon>FrmCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCotizacionServicio.resx">
+      <DependentUpon>FrmCotizacionServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCuadreCaja.resx">
       <DependentUpon>FrmCuadreCaja.cs</DependentUpon>

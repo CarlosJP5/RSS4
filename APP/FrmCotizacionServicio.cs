@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace APP
 {
-    public partial class FrmFacturaServicio : Form
+    public partial class FrmCotizacionServicio : Form
     {
-        public FrmFacturaServicio()
+        public FrmCotizacionServicio()
         {
             InitializeComponent();
             cboTipoComprobante.DataSource = _comprobante.ComprovantesVentas();
@@ -19,7 +19,7 @@ namespace APP
         }
 
         private readonly NComprobantes _comprobante = new NComprobantes();
-        private readonly NServicio nservicio = new NServicio();
+        private readonly NCotizacionServicio nservicio = new NCotizacionServicio();
 
         private void CalculaTotal()
         {
@@ -71,7 +71,7 @@ namespace APP
             dgvListar.ReadOnly = false;
         }
 
-        private void FrmFacturaServicio_Load(object sender, EventArgs e)
+        private void FrmCotizacionServicio_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
         }
