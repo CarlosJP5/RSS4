@@ -263,7 +263,7 @@ namespace APP
                     DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (msj == DialogResult.Yes)
                     {
-                        rptFacturaServicio frm = new rptFacturaServicio(idFacuraServicio);
+                        rtpCotizacionServicio frm = new rtpCotizacionServicio(idFacuraServicio);
                         if (frm.ShowDialog() == DialogResult.OK)
                         {
                             frm.Close();
@@ -319,7 +319,7 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFacturaServicio frm = new rptFacturaServicio(lblIdFactura.Text);
+                    rtpCotizacionServicio frm = new rtpCotizacionServicio(lblIdFactura.Text);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         frm.Close();

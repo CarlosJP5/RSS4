@@ -327,6 +327,12 @@
     <Compile Include="Reportes\rptListaCompra.Designer.cs">
       <DependentUpon>rptListaCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rtpCotizacionServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rtpCotizacionServicio.Designer.cs">
+      <DependentUpon>rtpCotizacionServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="zPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +478,10 @@
       <DependentUpon>rptListaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReciboIngreso.rdlc" />
+    <EmbeddedResource Include="Reportes\rtpCotizacionServicio.rdlc" />
+    <EmbeddedResource Include="Reportes\rtpCotizacionServicio.resx">
+      <DependentUpon>rtpCotizacionServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="zPrincipal.resx">
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </EmbeddedResource>

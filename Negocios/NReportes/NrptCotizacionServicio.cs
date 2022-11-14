@@ -28,7 +28,7 @@ namespace Negocios.NReportes
                 IdComprobante = tbFactura.Rows[0][6].ToString(),
                 NombreComprobante = tbFactura.Rows[0][7].ToString(),
                 NumeroComprobante = tbFactura.Rows[0][14].ToString(),
-                FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][15].ToString()),
+                FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][1].ToString()),
                 Importe = (decimal)tbFactura.Rows[0][8],
                 Itbis = (decimal)tbFactura.Rows[0][9],
                 Total = (decimal)tbFactura.Rows[0][10]
@@ -40,8 +40,8 @@ namespace Negocios.NReportes
             {
                 ErptFacturaServicioDetalle detalleModel = new ErptFacturaServicioDetalle()
                 {
-                    Descripcion = row[17].ToString(),
-                    Precio = (decimal)row[18],
+                    Descripcion = row[13].ToString(),
+                    Precio = (decimal)row[14],
                 };
                 Detalle.Add(detalleModel);
             }
