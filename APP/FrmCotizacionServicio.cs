@@ -90,7 +90,6 @@ namespace APP
             txtTotal.Text = string.Empty;
             lblidFactura_int.Text = string.Empty;
             lblIdFactura.Text = "~~~";
-            lblNcf.Text = "~~~";
 
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
@@ -277,7 +276,7 @@ namespace APP
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FrmBuscarFacturaServicio frm = new FrmBuscarFacturaServicio();
+            FrmBuscarCotizacionServicio frm = new FrmBuscarCotizacionServicio();
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 DataTable factura = nservicio.Listar(frm.dgvListar.SelectedCells[0].Value.ToString());
@@ -291,11 +290,10 @@ namespace APP
                 txtItbis.Text = factura.Rows[0][9].ToString();
                 txtTotal.Text = factura.Rows[0][10].ToString();
                 lblIdFactura.Text = factura.Rows[0][11].ToString();
-                lblNcf.Text = factura.Rows[0][14].ToString();
                 lblidFactura_int.Text = factura.Rows[0][0].ToString();
                 foreach (DataRow row in factura.Rows)
                 {
-                    _ = dgvListar.Rows.Add(row[17], row[18]);
+                    _ = dgvListar.Rows.Add(row[13], row[14]);
                 }
 
                 desabilita_controles();

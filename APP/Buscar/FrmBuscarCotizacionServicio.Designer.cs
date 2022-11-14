@@ -1,6 +1,6 @@
 ﻿namespace APP.Buscar
 {
-    partial class FrmBuscarFacturaServicio
+    partial class FrmBuscarCotizacionServicio
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelMid = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,63 +40,37 @@
             this.linkCliente = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.panelMid = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // btnAceptar
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(235)))), ((int)(((byte)(182)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 30);
-            this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(653, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar Factura Servicio";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelMid
-            // 
-            this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMid.Controls.Add(this.btnBuscar);
-            this.panelMid.Controls.Add(this.txtIdFactura);
-            this.panelMid.Controls.Add(this.label4);
-            this.panelMid.Controls.Add(this.txtNombre);
-            this.panelMid.Controls.Add(this.txtIdCliente);
-            this.panelMid.Controls.Add(this.dtpHasta);
-            this.panelMid.Controls.Add(this.dtpDesde);
-            this.panelMid.Controls.Add(this.linkCliente);
-            this.panelMid.Controls.Add(this.label3);
-            this.panelMid.Controls.Add(this.label2);
-            this.panelMid.Location = new System.Drawing.Point(12, 36);
-            this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(626, 71);
-            this.panelMid.TabIndex = 2;
+            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAceptar.Location = new System.Drawing.Point(364, 372);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
+            this.btnAceptar.TabIndex = 10;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(522, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(437, 34);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 25);
             this.btnBuscar.TabIndex = 11;
@@ -120,11 +92,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(199, 38);
+            this.label4.Location = new System.Drawing.Point(192, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Factura Nº:";
+            this.label4.Text = "Cotizacion Nº:";
             // 
             // txtNombre
             // 
@@ -193,6 +165,49 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Desde:";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
+            this.btnSalir.Location = new System.Drawing.Point(465, 372);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(85, 25);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // panelMid
+            // 
+            this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMid.Controls.Add(this.btnBuscar);
+            this.panelMid.Controls.Add(this.txtIdFactura);
+            this.panelMid.Controls.Add(this.label4);
+            this.panelMid.Controls.Add(this.txtNombre);
+            this.panelMid.Controls.Add(this.txtIdCliente);
+            this.panelMid.Controls.Add(this.dtpHasta);
+            this.panelMid.Controls.Add(this.dtpDesde);
+            this.panelMid.Controls.Add(this.linkCliente);
+            this.panelMid.Controls.Add(this.label3);
+            this.panelMid.Controls.Add(this.label2);
+            this.panelMid.Location = new System.Drawing.Point(12, 44);
+            this.panelMid.Name = "panelMid";
+            this.panelMid.Size = new System.Drawing.Size(538, 71);
+            this.panelMid.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(565, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Buscar Cotizacion Servicio";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dgvListar
             // 
             this.dgvListar.AllowUserToAddRows = false;
@@ -202,18 +217,28 @@
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column0,
             this.Column1,
-            this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvListar.Location = new System.Drawing.Point(12, 113);
+            this.dgvListar.Location = new System.Drawing.Point(12, 121);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(626, 245);
-            this.dgvListar.TabIndex = 3;
+            this.dgvListar.Size = new System.Drawing.Size(538, 245);
+            this.dgvListar.TabIndex = 9;
             this.dgvListar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellDoubleClick);
             this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(235)))), ((int)(((byte)(182)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(567, 30);
+            this.panel1.TabIndex = 7;
             // 
             // Column0
             // 
@@ -228,12 +253,6 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 125;
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "NCF";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
             // Column3
             // 
             this.Column3.HeaderText = "Cliente";
@@ -243,68 +262,41 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column4.HeaderText = "Total";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // btnSalir
-            // 
-            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(553, 364);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(85, 25);
-            this.btnSalir.TabIndex = 6;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(452, 364);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
-            this.btnAceptar.TabIndex = 5;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // FrmBuscarFacturaServicio
+            // FrmBuscarCotizacionServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(655, 404);
-            this.Controls.Add(this.btnSalir);
+            this.ClientSize = new System.Drawing.Size(567, 404);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.dgvListar);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.panelMid);
+            this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "FrmBuscarFacturaServicio";
-            this.Text = "Buscar Factura Servicio";
-            this.Load += new System.EventHandler(this.FrmBuscarFacturaServicio_Load);
-            this.panel1.ResumeLayout(false);
+            this.MaximizeBox = false;
+            this.Name = "FrmBuscarCotizacionServicio";
+            this.ShowIcon = false;
+            this.Text = "Buscar Cotizacion Servicio";
+            this.Load += new System.EventHandler(this.FrmBuscarCotizacionServicio_Load);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelMid;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtIdFactura;
         private System.Windows.Forms.Label label4;
@@ -316,12 +308,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Panel panelMid;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }

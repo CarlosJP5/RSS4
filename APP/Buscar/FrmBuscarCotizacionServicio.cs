@@ -5,16 +5,16 @@ using System.Windows.Forms;
 
 namespace APP.Buscar
 {
-    public partial class FrmBuscarFacturaServicio : Form
+    public partial class FrmBuscarCotizacionServicio : Form
     {
-        public FrmBuscarFacturaServicio()
+        public FrmBuscarCotizacionServicio()
         {
             InitializeComponent();
         }
 
-        private readonly NServicio nservicio = new NServicio();
+        private readonly NCotizacionServicio nservicio = new NCotizacionServicio();
 
-        private void FrmBuscarFacturaServicio_Load(object sender, EventArgs e)
+        private void FrmBuscarCotizacionServicio_Load(object sender, EventArgs e)
         {
             dtpDesde.Value = DateTime.Today;
             dtpHasta.Value = DateTime.Today.AddHours(23.99999);
@@ -22,7 +22,7 @@ namespace APP.Buscar
             foreach (DataRow row in dt.Rows)
             {
                 DateTime fecha = DateTime.Parse(row[1].ToString());
-                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4]);
+                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3]);
             }
         }
 
@@ -122,7 +122,7 @@ namespace APP.Buscar
             DialogResult = DialogResult.Cancel;
         }
 
-        private void txtIdFactura_KeyDown(object sender, KeyEventArgs e)
+        private void txtIdCliente_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -140,7 +140,7 @@ namespace APP.Buscar
             }
         }
 
-        private void txtIdCliente_KeyDown(object sender, KeyEventArgs e)
+        private void txtIdFactura_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

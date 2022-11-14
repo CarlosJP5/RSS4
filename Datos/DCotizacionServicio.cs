@@ -15,7 +15,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "[]";
+                    cmd.CommandText = "[cotizacionServicio_buscar_fecha]";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
@@ -41,7 +41,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "[]";
+                    cmd.CommandText = "[cotizacionServicio_buscar_cliente]";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
@@ -68,7 +68,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "[]";
+                    cmd.CommandText = "[cotizacionServicio_buscar_idFactura]";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@idfact", SqlDbType.NVarChar).Value = idfactura;
                     try
@@ -93,7 +93,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "[]";
+                    cmd.CommandText = "[cotizacionServicio_listar]";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@idfact", SqlDbType.NVarChar).Value = idfactura;
                     try
@@ -118,7 +118,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "[]";
+                    cmd.CommandText = "[cotizacionServicio_editar]";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@idFact", SqlDbType.Int).Value = Factura.IdFactura;
                     cmd.Parameters.Add("@id_cliente", SqlDbType.Int).Value = Factura.IdCliente;

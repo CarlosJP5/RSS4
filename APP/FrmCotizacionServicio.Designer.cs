@@ -37,8 +37,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.lblIdFactura = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblNcf = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -149,8 +147,6 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.label10);
             this.flowLayoutPanel1.Controls.Add(this.lblIdFactura);
-            this.flowLayoutPanel1.Controls.Add(this.label12);
-            this.flowLayoutPanel1.Controls.Add(this.lblNcf);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 100);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 22);
@@ -177,31 +173,6 @@
             this.lblIdFactura.Size = new System.Drawing.Size(39, 16);
             this.lblIdFactura.TabIndex = 1;
             this.lblIdFactura.Text = "~ ~ ~";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Blue;
-            this.label12.Location = new System.Drawing.Point(152, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.label12.Size = new System.Drawing.Size(56, 16);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "NCF:";
-            // 
-            // lblNcf
-            // 
-            this.lblNcf.AutoSize = true;
-            this.lblNcf.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNcf.ForeColor = System.Drawing.Color.Blue;
-            this.lblNcf.Location = new System.Drawing.Point(208, 0);
-            this.lblNcf.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.lblNcf.Name = "lblNcf";
-            this.lblNcf.Size = new System.Drawing.Size(31, 16);
-            this.lblNcf.TabIndex = 3;
-            this.lblNcf.Text = "~~~";
             // 
             // btnImprimir
             // 
@@ -534,8 +505,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblIdFactura;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblNcf;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnBuscar;
