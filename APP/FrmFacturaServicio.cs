@@ -89,6 +89,7 @@ namespace APP
             txtItbis.Text = string.Empty;
             txtTotal.Text = string.Empty;
             lblidFactura_int.Text = string.Empty;
+            txtCotizacion.Text = string.Empty;
             lblIdFactura.Text = "~~~";
             lblNcf.Text = "~~~";
 
@@ -353,6 +354,30 @@ namespace APP
         private void cboTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalculaTotal();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarCotizacionServicio frm = new FrmBuscarCotizacionServicio();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                NCotizacionServicio ncotizacionServicio = new NCotizacionServicio();
+                DataTable factura = ncotizacionServicio.Listar(frm.dgvListar.SelectedCells[0].Value.ToString());
+                txtIdCliente.Text = factura.Rows[0][2].ToString();
+                txtNombre.Text = factura.Rows[0][3].ToString();
+                cboTipoComprobante.SelectedValue = factura.Rows[0][6].ToString();
+                dtpFecha.Value = DateTime.Now;
+                txtCedula.Text = factura.Rows[0][4].ToString();
+                txtRnc.Text = factura.Rows[0][5].ToString();
+                txtImporte.Text = factura.Rows[0][8].ToString();
+                txtItbis.Text = factura.Rows[0][9].ToString();
+                txtTotal.Text = factura.Rows[0][10].ToString();
+                txtCotizacion.Text = factura.Rows[0][11].ToString();
+                foreach (DataRow row in factura.Rows)
+                {
+                    _ = dgvListar.Rows.Add(row[13], row[14]);
+                }
+            }
         }
     }
 }

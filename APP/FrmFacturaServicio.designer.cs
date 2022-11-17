@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,6 +68,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.txtCotizacion = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -99,6 +101,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtCotizacion);
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.lblidFactura_int);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.btnImprimir);
@@ -131,14 +135,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 419);
+            this.panel1.Size = new System.Drawing.Size(474, 444);
             this.panel1.TabIndex = 1;
             // 
             // lblidFactura_int
             // 
             this.lblidFactura_int.AutoSize = true;
             this.lblidFactura_int.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidFactura_int.Location = new System.Drawing.Point(18, 321);
+            this.lblidFactura_int.Location = new System.Drawing.Point(18, 346);
             this.lblidFactura_int.Name = "lblidFactura_int";
             this.lblidFactura_int.Size = new System.Drawing.Size(101, 16);
             this.lblidFactura_int.TabIndex = 28;
@@ -151,7 +155,7 @@
             this.flowLayoutPanel1.Controls.Add(this.lblIdFactura);
             this.flowLayoutPanel1.Controls.Add(this.label12);
             this.flowLayoutPanel1.Controls.Add(this.lblNcf);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 100);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 125);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 22);
             this.flowLayoutPanel1.TabIndex = 27;
@@ -206,7 +210,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(18, 371);
+            this.btnImprimir.Location = new System.Drawing.Point(18, 396);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 24;
@@ -219,7 +223,7 @@
             // btnFacturar
             // 
             this.btnFacturar.Image = global::APP.Properties.Resources.Facturar_16;
-            this.btnFacturar.Location = new System.Drawing.Point(109, 340);
+            this.btnFacturar.Location = new System.Drawing.Point(109, 365);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(92, 25);
             this.btnFacturar.TabIndex = 22;
@@ -232,7 +236,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(207, 340);
+            this.btnBuscar.Location = new System.Drawing.Point(207, 365);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 23;
@@ -245,7 +249,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(110, 371);
+            this.btnModificar.Location = new System.Drawing.Point(110, 396);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(85, 25);
             this.btnModificar.TabIndex = 25;
@@ -258,7 +262,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(18, 340);
+            this.btnNuevo.Location = new System.Drawing.Point(18, 365);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 21;
@@ -271,7 +275,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(207, 371);
+            this.btnSalir.Location = new System.Drawing.Point(207, 396);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 26;
@@ -284,7 +288,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(323, 382);
+            this.label9.Location = new System.Drawing.Point(323, 407);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 19;
@@ -293,7 +297,7 @@
             // txtTotal
             // 
             this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTotal.Location = new System.Drawing.Point(360, 379);
+            this.txtTotal.Location = new System.Drawing.Point(360, 404);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
@@ -303,7 +307,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(328, 356);
+            this.label7.Location = new System.Drawing.Point(328, 381);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(26, 13);
             this.label7.TabIndex = 17;
@@ -312,7 +316,7 @@
             // txtItbis
             // 
             this.txtItbis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtItbis.Location = new System.Drawing.Point(360, 353);
+            this.txtItbis.Location = new System.Drawing.Point(360, 378);
             this.txtItbis.Name = "txtItbis";
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(100, 20);
@@ -322,7 +326,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 330);
+            this.label4.Location = new System.Drawing.Point(312, 355);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 15;
@@ -331,7 +335,7 @@
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtImporte.Location = new System.Drawing.Point(360, 327);
+            this.txtImporte.Location = new System.Drawing.Point(360, 352);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.ReadOnly = true;
             this.txtImporte.Size = new System.Drawing.Size(100, 20);
@@ -345,7 +349,7 @@
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column0,
             this.Column1});
-            this.dgvListar.Location = new System.Drawing.Point(13, 126);
+            this.dgvListar.Location = new System.Drawing.Point(13, 151);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.Size = new System.Drawing.Size(447, 193);
             this.dgvListar.TabIndex = 14;
@@ -355,8 +359,8 @@
             // 
             // Column0
             // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column0.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column0.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column0.HeaderText = "Descripcion";
             this.Column0.MaxInputLength = 150;
             this.Column0.Name = "Column0";
@@ -364,16 +368,16 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "Precio";
             this.Column1.Name = "Column1";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(0, 98);
+            this.panel2.Location = new System.Drawing.Point(0, 123);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(490, 1);
             this.panel2.TabIndex = 13;
@@ -501,12 +505,33 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(269, 91);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(72, 16);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cotizacion:";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // txtCotizacion
+            // 
+            this.txtCotizacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtCotizacion.Location = new System.Drawing.Point(347, 90);
+            this.txtCotizacion.Name = "txtCotizacion";
+            this.txtCotizacion.ReadOnly = true;
+            this.txtCotizacion.Size = new System.Drawing.Size(100, 20);
+            this.txtCotizacion.TabIndex = 30;
+            // 
             // FrmFacturaServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 449);
+            this.ClientSize = new System.Drawing.Size(474, 474);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -565,5 +590,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblNcf;
         private System.Windows.Forms.Label lblidFactura_int;
+        private System.Windows.Forms.TextBox txtCotizacion;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

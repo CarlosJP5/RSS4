@@ -753,7 +753,6 @@
             this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             this.Column6.Width = 60;
             // 
             // Column7

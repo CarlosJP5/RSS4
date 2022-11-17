@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
@@ -83,6 +83,7 @@
             // txtIdFactura
             // 
             this.txtIdFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtIdFactura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdFactura.Location = new System.Drawing.Point(266, 35);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(100, 20);
@@ -262,9 +263,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column4.HeaderText = "Total";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
