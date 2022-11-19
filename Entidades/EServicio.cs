@@ -17,5 +17,6 @@ namespace Entidades
         public decimal Importe { get; set; }
         public decimal Itbis { get; set; }
         public decimal Total { get; set; }
+        public string IdCotizacion { get; set; } = "0";
     }
 }

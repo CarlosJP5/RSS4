@@ -293,7 +293,7 @@ namespace APP
                 lblidFactura_int.Text = factura.Rows[0][0].ToString();
                 foreach (DataRow row in factura.Rows)
                 {
-                    _ = dgvListar.Rows.Add(row[13], row[14]);
+                    _ = dgvListar.Rows.Add(row[14], row[15]);
                 }
 
                 desabilita_controles();

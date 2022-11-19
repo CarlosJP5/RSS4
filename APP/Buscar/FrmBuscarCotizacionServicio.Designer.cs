@@ -49,6 +49,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,7 +58,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(364, 372);
+            this.btnAceptar.Location = new System.Drawing.Point(419, 372);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 25);
             this.btnAceptar.TabIndex = 10;
@@ -170,7 +171,7 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(465, 372);
+            this.btnSalir.Location = new System.Drawing.Point(520, 372);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 11;
@@ -195,7 +196,7 @@
             this.panelMid.Controls.Add(this.label2);
             this.panelMid.Location = new System.Drawing.Point(12, 44);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(538, 71);
+            this.panelMid.Size = new System.Drawing.Size(595, 71);
             this.panelMid.TabIndex = 8;
             // 
             // label1
@@ -204,7 +205,7 @@
             this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(565, 28);
+            this.label1.Size = new System.Drawing.Size(619, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Cotizacion Servicio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,13 +220,14 @@
             this.Column0,
             this.Column1,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column2});
             this.dgvListar.Location = new System.Drawing.Point(12, 121);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(538, 245);
+            this.dgvListar.Size = new System.Drawing.Size(595, 245);
             this.dgvListar.TabIndex = 9;
             this.dgvListar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellDoubleClick);
             this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
@@ -238,7 +240,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(567, 30);
+            this.panel1.Size = new System.Drawing.Size(621, 30);
             this.panel1.TabIndex = 7;
             // 
             // Column0
@@ -270,12 +272,19 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Estado";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 70;
+            // 
             // FrmBuscarCotizacionServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(567, 404);
+            this.ClientSize = new System.Drawing.Size(621, 404);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.panelMid);
@@ -317,5 +326,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
