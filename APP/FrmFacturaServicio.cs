@@ -220,7 +220,7 @@ namespace APP
                     };
                     if (!string.IsNullOrWhiteSpace(txtCotizacion.Text))
                     {
-
+                        Factura.IdCotizacion = txtCotizacion.Text;
                     }
                     DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
                     if (ListaComprobante.Rows.Count > 0)
@@ -367,19 +367,26 @@ namespace APP
             {
                 NCotizacionServicio ncotizacionServicio = new NCotizacionServicio();
                 DataTable factura = ncotizacionServicio.Listar(frm.dgvListar.SelectedCells[0].Value.ToString());
-                txtIdCliente.Text = factura.Rows[0][2].ToString();
-                txtNombre.Text = factura.Rows[0][3].ToString();
-                cboTipoComprobante.SelectedValue = factura.Rows[0][6].ToString();
-                dtpFecha.Value = DateTime.Now;
-                txtCedula.Text = factura.Rows[0][4].ToString();
-                txtRnc.Text = factura.Rows[0][5].ToString();
-                txtImporte.Text = factura.Rows[0][8].ToString();
-                txtItbis.Text = factura.Rows[0][9].ToString();
-                txtTotal.Text = factura.Rows[0][10].ToString();
-                txtCotizacion.Text = factura.Rows[0][11].ToString();
-                foreach (DataRow row in factura.Rows)
+                if (factura.Rows[0][12].ToString() != "Facturado")
                 {
-                    _ = dgvListar.Rows.Add(row[14], row[15]);
+                    txtIdCliente.Text = factura.Rows[0][2].ToString();
+                    txtNombre.Text = factura.Rows[0][3].ToString();
+                    cboTipoComprobante.SelectedValue = factura.Rows[0][6].ToString();
+                    dtpFecha.Value = DateTime.Now;
+                    txtCedula.Text = factura.Rows[0][4].ToString();
+                    txtRnc.Text = factura.Rows[0][5].ToString();
+                    txtImporte.Text = factura.Rows[0][8].ToString();
+                    txtItbis.Text = factura.Rows[0][9].ToString();
+                    txtTotal.Text = factura.Rows[0][10].ToString();
+                    txtCotizacion.Text = factura.Rows[0][11].ToString();
+                    foreach (DataRow row in factura.Rows)
+                    {
+                        _ = dgvListar.Rows.Add(row[14], row[15]);
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("Esta cotizacion ha sido Facturada", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
