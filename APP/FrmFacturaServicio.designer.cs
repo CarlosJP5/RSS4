@@ -33,6 +33,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCotizacion = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblidFactura_int = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -68,8 +70,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.txtCotizacion = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboImprecion = new System.Windows.Forms.ComboBox();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -101,6 +103,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cboImprecion);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.txtCotizacion);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.lblidFactura_int);
@@ -135,8 +139,29 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 444);
+            this.panel1.Size = new System.Drawing.Size(474, 472);
             this.panel1.TabIndex = 1;
+            // 
+            // txtCotizacion
+            // 
+            this.txtCotizacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtCotizacion.Location = new System.Drawing.Point(347, 90);
+            this.txtCotizacion.Name = "txtCotizacion";
+            this.txtCotizacion.ReadOnly = true;
+            this.txtCotizacion.Size = new System.Drawing.Size(100, 20);
+            this.txtCotizacion.TabIndex = 30;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(269, 91);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(72, 16);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cotizacion:";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lblidFactura_int
             // 
@@ -505,33 +530,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
             // 
-            // linkLabel1
+            // label11
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(269, 91);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(72, 16);
-            this.linkLabel1.TabIndex = 29;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Cotizacion:";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 440);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 13);
+            this.label11.TabIndex = 31;
+            this.label11.Text = "Formato Imprecion";
             // 
-            // txtCotizacion
+            // cboImprecion
             // 
-            this.txtCotizacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtCotizacion.Location = new System.Drawing.Point(347, 90);
-            this.txtCotizacion.Name = "txtCotizacion";
-            this.txtCotizacion.ReadOnly = true;
-            this.txtCotizacion.Size = new System.Drawing.Size(100, 20);
-            this.txtCotizacion.TabIndex = 30;
+            this.cboImprecion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboImprecion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboImprecion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboImprecion.FormattingEnabled = true;
+            this.cboImprecion.Items.AddRange(new object[] {
+            "80MM - pequeño",
+            "A4 - grande"});
+            this.cboImprecion.Location = new System.Drawing.Point(118, 437);
+            this.cboImprecion.Name = "cboImprecion";
+            this.cboImprecion.Size = new System.Drawing.Size(121, 21);
+            this.cboImprecion.TabIndex = 32;
             // 
             // FrmFacturaServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 474);
+            this.ClientSize = new System.Drawing.Size(474, 502);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -592,5 +619,7 @@
         private System.Windows.Forms.Label lblidFactura_int;
         private System.Windows.Forms.TextBox txtCotizacion;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox cboImprecion;
+        private System.Windows.Forms.Label label11;
     }
 }

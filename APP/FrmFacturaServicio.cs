@@ -74,6 +74,7 @@ namespace APP
         private void FrmFacturaServicio_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
+            cboImprecion.SelectedIndex = 0;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -269,10 +270,21 @@ namespace APP
                     DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (msj == DialogResult.Yes)
                     {
-                        rptFacturaServicio frm = new rptFacturaServicio(idFacuraServicio);
-                        if (frm.ShowDialog() == DialogResult.OK)
+                        if (cboImprecion.SelectedIndex == 0)
                         {
-                            frm.Close();
+                            rptFacturaServicio frm = new rptFacturaServicio(idFacuraServicio);
+                            if (frm.ShowDialog() == DialogResult.OK)
+                            {
+                                frm.Close();
+                            }
+                        }
+                        else
+                        {
+                            rptFacturaServicioA4 frm = new rptFacturaServicioA4(idFacuraServicio);
+                            if (frm.ShowDialog() == DialogResult.OK)
+                            {
+                                frm.Close();
+                            }
                         }
                     }
                     btnNuevo.PerformClick();
@@ -326,10 +338,21 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFacturaServicio frm = new rptFacturaServicio(lblIdFactura.Text);
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (cboImprecion.SelectedIndex == 0)
                     {
-                        frm.Close();
+                        rptFacturaServicio frm = new rptFacturaServicio(lblIdFactura.Text);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
+                    }
+                    else
+                    {
+                        rptFacturaServicioA4 frm = new rptFacturaServicioA4(lblIdFactura.Text);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
                     }
                 }
                 btnNuevo.PerformClick();
