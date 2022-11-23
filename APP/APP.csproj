@@ -315,6 +315,12 @@
     <Compile Include="Reportes\rptFactura.Designer.cs">
       <DependentUpon>rptFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptFacturaA4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptFacturaA4.Designer.cs">
+      <DependentUpon>rptFacturaA4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptFacturaServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -474,6 +480,10 @@
     <EmbeddedResource Include="Reportes\rptFactura.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.resx">
       <DependentUpon>rptFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptFacturaA4.rdlc" />
+    <EmbeddedResource Include="Reportes\rptFacturaA4.resx">
+      <DependentUpon>rptFacturaA4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptFacturaServicio.rdlc" />
     <EmbeddedResource Include="Reportes\rptFacturaServicio.resx">

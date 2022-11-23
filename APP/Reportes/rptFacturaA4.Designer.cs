@@ -1,6 +1,6 @@
 ﻿namespace APP.Reportes
 {
-    partial class rptFacturaServicioA4
+    partial class rptFacturaA4
     {
         /// <summary>
         /// Required designer variable.
@@ -32,26 +32,14 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.erptFacturaServicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.erptFacturaServicioDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.erptFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.erptFacturaDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaServicioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaServicioDetalleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaDetalleBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // erptEmpresaBindingSource
-            // 
-            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
-            // 
-            // erptFacturaServicioBindingSource
-            // 
-            this.erptFacturaServicioBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaServicio);
-            // 
-            // erptFacturaServicioDetalleBindingSource
-            // 
-            this.erptFacturaServicioDetalleBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaServicioDetalle);
             // 
             // reportViewer1
             // 
@@ -59,34 +47,45 @@
             reportDataSource1.Name = "Empresa";
             reportDataSource1.Value = this.erptEmpresaBindingSource;
             reportDataSource2.Name = "Factura";
-            reportDataSource2.Value = this.erptFacturaServicioBindingSource;
+            reportDataSource2.Value = this.erptFacturaBindingSource;
             reportDataSource3.Name = "FacturaDetalle";
-            reportDataSource3.Value = this.erptFacturaServicioDetalleBindingSource;
+            reportDataSource3.Value = this.erptFacturaDetalleBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptFacturaServicioA4.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptFacturaA4.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.Print += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.reportViewer1_Print);
             // 
-            // rptFacturaServicioA4
+            // erptEmpresaBindingSource
+            // 
+            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
+            // 
+            // erptFacturaBindingSource
+            // 
+            this.erptFacturaBindingSource.DataSource = typeof(Entidades.EReportes.ErptFactura);
+            // 
+            // erptFacturaDetalleBindingSource
+            // 
+            this.erptFacturaDetalleBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaDetalle);
+            // 
+            // rptFacturaA4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "rptFacturaServicioA4";
+            this.Name = "rptFacturaA4";
             this.ShowIcon = false;
-            this.Text = "Factura Servicio";
-            this.Load += new System.EventHandler(this.rptFacturaServicioA4_Load);
+            this.Text = "Reporte Factura";
+            this.Load += new System.EventHandler(this.rptFacturaA4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaServicioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaServicioDetalleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaDetalleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -95,7 +94,7 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource erptEmpresaBindingSource;
-        private System.Windows.Forms.BindingSource erptFacturaServicioBindingSource;
-        private System.Windows.Forms.BindingSource erptFacturaServicioDetalleBindingSource;
+        private System.Windows.Forms.BindingSource erptFacturaBindingSource;
+        private System.Windows.Forms.BindingSource erptFacturaDetalleBindingSource;
     }
 }

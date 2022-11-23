@@ -101,6 +101,7 @@ namespace APP
         private void FrmFacturacion_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
+            cboImprecion.SelectedIndex = 0;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -429,11 +430,23 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFactura frm = new rptFactura(IdFactura.ToString());
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (cboImprecion.SelectedIndex == 0)
                     {
-                        frm.Close();
+                        rptFactura frm = new rptFactura(IdFactura.ToString());
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
                     }
+                    else
+                    {
+                        rptFacturaA4 frm = new rptFacturaA4(IdFactura.ToString());
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
+                    }
+                       
                     //using (LocalReport localReport = new LocalReport())
                     //{
                     //    NrptEmpresa nEmpresa = new NrptEmpresa();
@@ -599,11 +612,22 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rptFactura frm = new rptFactura(lblIdFactura.Text);
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (cboImprecion.SelectedIndex == 0)
                     {
-                        frm.Close();
+                        rptFactura frm = new rptFactura(lblIdFactura.Text);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
                     }
+                    else
+                    {
+                        rptFacturaA4 frm = new rptFacturaA4(lblIdFactura.Text);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
+                    }                    
                     //using (LocalReport localReport = new LocalReport())
                     //{
                     //    NrptEmpresa nEmpresa = new NrptEmpresa();
@@ -635,10 +659,22 @@ namespace APP
         {
             using (LocalReport localReport = new LocalReport())
             {
-                rptFactura frm = new rptFactura(lblIdFactura.Text);
-                if (frm.ShowDialog() == DialogResult.OK)
+
+                if (cboImprecion.SelectedIndex == 0)
                 {
-                    frm.Close();
+                    rptFactura frm = new rptFactura(lblIdFactura.Text);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        frm.Close();
+                    }
+                }
+                else
+                {
+                    rptFacturaA4 frm = new rptFacturaA4(lblIdFactura.Text);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        frm.Close();
+                    }
                 }
                 //NrptEmpresa nEmpresa = new NrptEmpresa();
                 //NrptFactura nFactura = new NrptFactura();

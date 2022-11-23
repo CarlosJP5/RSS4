@@ -25,5 +25,10 @@ namespace APP.Reportes
             erptFacturaServicioDetalleBindingSource.DataSource = nfactura.Detalle;
             reportViewer1.RefreshReport();
         }
+
+        private void reportViewer1_Print(object sender, Microsoft.Reporting.WinForms.ReportPrintEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }

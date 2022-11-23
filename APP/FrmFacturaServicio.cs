@@ -223,28 +223,6 @@ namespace APP
                     {
                         Factura.IdCotizacion = txtCotizacion.Text;
                     }
-                    DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
-                    if (ListaComprobante.Rows.Count > 0)
-                    {
-                        DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
-                        if (date > Factura.Fecha)
-                        {
-                            int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
-                            Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
-                            Factura.FechaVencimiento = date;
-                        }
-                        else
-                        {
-                            _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
-                            _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
                     DataTable Detalle = new DataTable();
                     Detalle.Columns.Add("[descripcion]", typeof(string));
                     Detalle.Columns.Add("[precio]", typeof(decimal));
@@ -258,6 +236,28 @@ namespace APP
                     if (string.IsNullOrEmpty(lblidFactura_int.Text))
                     {
                         // Insertar
+                        DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
+                        if (ListaComprobante.Rows.Count > 0)
+                        {
+                            DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
+                            if (date > Factura.Fecha)
+                            {
+                                int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
+                                Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+                                Factura.FechaVencimiento = date;
+                            }
+                            else
+                            {
+                                _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
+                                _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                         idFacuraServicio = nservicio.Insertar(Factura, Detalle);
                     }
                     else

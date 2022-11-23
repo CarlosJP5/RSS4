@@ -82,10 +82,6 @@
             this.txtDescuentoFactura = new System.Windows.Forms.TextBox();
             this.txtImporteFactura = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.linkCodigo = new System.Windows.Forms.LinkLabel();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +97,12 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.linkCodigo = new System.Windows.Forms.LinkLabel();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.cboImprecion = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -420,6 +422,8 @@
             // panelBot
             // 
             this.panelBot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBot.Controls.Add(this.cboImprecion);
+            this.panelBot.Controls.Add(this.label11);
             this.panelBot.Controls.Add(this.btnImprimir);
             this.panelBot.Controls.Add(this.btnFacturar);
             this.panelBot.Controls.Add(this.btnGuardar);
@@ -661,56 +665,6 @@
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
             // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnBorrar.Location = new System.Drawing.Point(327, 7);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(85, 25);
-            this.btnBorrar.TabIndex = 3;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAgregar.Location = new System.Drawing.Point(220, 7);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(85, 25);
-            this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // linkCodigo
-            // 
-            this.linkCodigo.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkCodigo.AutoSize = true;
-            this.linkCodigo.Location = new System.Drawing.Point(13, 13);
-            this.linkCodigo.Name = "linkCodigo";
-            this.linkCodigo.Size = new System.Drawing.Size(43, 13);
-            this.linkCodigo.TabIndex = 1;
-            this.linkCodigo.TabStop = true;
-            this.linkCodigo.Text = "Codigo:";
-            this.linkCodigo.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.linkCodigo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCodigo_LinkClicked);
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Location = new System.Drawing.Point(70, 10);
-            this.txtCodigo.MaxLength = 50;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(135, 20);
-            this.txtCodigo.TabIndex = 0;
-            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "idArticulo";
@@ -825,6 +779,79 @@
             this.Column15.ReadOnly = true;
             this.Column15.Visible = false;
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::APP.Properties.Resources.Borrar_16;
+            this.btnBorrar.Location = new System.Drawing.Point(327, 7);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(85, 25);
+            this.btnBorrar.TabIndex = 3;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAgregar.Location = new System.Drawing.Point(220, 7);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(85, 25);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // linkCodigo
+            // 
+            this.linkCodigo.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkCodigo.AutoSize = true;
+            this.linkCodigo.Location = new System.Drawing.Point(13, 13);
+            this.linkCodigo.Name = "linkCodigo";
+            this.linkCodigo.Size = new System.Drawing.Size(43, 13);
+            this.linkCodigo.TabIndex = 1;
+            this.linkCodigo.TabStop = true;
+            this.linkCodigo.Text = "Codigo:";
+            this.linkCodigo.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkCodigo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCodigo_LinkClicked);
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigo.Location = new System.Drawing.Point(70, 10);
+            this.txtCodigo.MaxLength = 50;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(135, 20);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            // 
+            // cboImprecion
+            // 
+            this.cboImprecion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboImprecion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboImprecion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboImprecion.FormattingEnabled = true;
+            this.cboImprecion.Items.AddRange(new object[] {
+            "80MM - pequeño",
+            "A4 - grande"});
+            this.cboImprecion.Location = new System.Drawing.Point(648, 10);
+            this.cboImprecion.Name = "cboImprecion";
+            this.cboImprecion.Size = new System.Drawing.Size(121, 21);
+            this.cboImprecion.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(548, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Formato Imprecion";
+            // 
             // FrmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -921,5 +948,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.ComboBox cboImprecion;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -32,14 +32,26 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.erptFacturaServicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.erptFacturaServicioDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erptFacturaServicioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erptFacturaServicioDetalleBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // erptEmpresaBindingSource
+            // 
+            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
+            // 
+            // erptFacturaServicioBindingSource
+            // 
+            this.erptFacturaServicioBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaServicio);
+            // 
+            // erptFacturaServicioDetalleBindingSource
+            // 
+            this.erptFacturaServicioDetalleBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaServicioDetalle);
             // 
             // reportViewer1
             // 
@@ -59,18 +71,7 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // erptEmpresaBindingSource
-            // 
-            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
-            // 
-            // erptFacturaServicioBindingSource
-            // 
-            this.erptFacturaServicioBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaServicio);
-            // 
-            // erptFacturaServicioDetalleBindingSource
-            // 
-            this.erptFacturaServicioDetalleBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaServicioDetalle);
+            this.reportViewer1.Print += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.reportViewer1_Print);
             // 
             // rptFacturaServicio
             // 
