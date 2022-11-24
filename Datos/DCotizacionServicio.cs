@@ -160,7 +160,6 @@ namespace Datos
                     cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
-                    cmd.Parameters.Add("@ncf", SqlDbType.NVarChar).Value = Factura.Ncf;
                     cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = Factura.FechaVencimiento;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try

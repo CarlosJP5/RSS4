@@ -74,6 +74,7 @@ namespace APP
         private void FrmCotizacionServicio_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
+            cboImprecion.SelectedIndex = 0;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -216,28 +217,6 @@ namespace APP
                         Itbis = decimal.Parse(txtItbis.Text),
                         Total = decimal.Parse(txtTotal.Text)
                     };
-                    DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
-                    if (ListaComprobante.Rows.Count > 0)
-                    {
-                        DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
-                        if (date > Factura.Fecha)
-                        {
-                            int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
-                            Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
-                            Factura.FechaVencimiento = date;
-                        }
-                        else
-                        {
-                            _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
-                            _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
                     DataTable Detalle = new DataTable();
                     Detalle.Columns.Add("[descripcion]", typeof(string));
                     Detalle.Columns.Add("[precio]", typeof(decimal));
@@ -263,10 +242,21 @@ namespace APP
                     DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (msj == DialogResult.Yes)
                     {
-                        rtpCotizacionServicio frm = new rtpCotizacionServicio(idFacuraServicio);
-                        if (frm.ShowDialog() == DialogResult.OK)
+                        if (cboImprecion.SelectedIndex == 0)
                         {
-                            frm.Close();
+                            rtpCotizacionServicio frm = new rtpCotizacionServicio(idFacuraServicio);
+                            if (frm.ShowDialog() == DialogResult.OK)
+                            {
+                                frm.Close();
+                            }
+                        }
+                        else
+                        {
+                            rtpCotizacionServicioA4 frm = new rtpCotizacionServicioA4(idFacuraServicio);
+                            if (frm.ShowDialog() == DialogResult.OK)
+                            {
+                                frm.Close();
+                            }
                         }
                     }
                     btnNuevo.PerformClick();
@@ -326,10 +316,21 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    rtpCotizacionServicio frm = new rtpCotizacionServicio(lblIdFactura.Text);
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (cboImprecion.SelectedIndex == 0)
                     {
-                        frm.Close();
+                        rtpCotizacionServicio frm = new rtpCotizacionServicio(lblIdFactura.Text);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
+                    }
+                    else
+                    {
+                        rtpCotizacionServicioA4 frm = new rtpCotizacionServicioA4(lblIdFactura.Text);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            frm.Close();
+                        }
                     }
                 }
                 btnNuevo.PerformClick();

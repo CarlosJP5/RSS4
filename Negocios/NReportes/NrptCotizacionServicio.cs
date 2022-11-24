@@ -40,8 +40,8 @@ namespace Negocios.NReportes
             {
                 ErptFacturaServicioDetalle detalleModel = new ErptFacturaServicioDetalle()
                 {
-                    Descripcion = row[13].ToString(),
-                    Precio = (decimal)row[14],
+                    Descripcion = row[14].ToString(),
+                    Precio = (decimal)row[15],
                 };
                 Detalle.Add(detalleModel);
             }

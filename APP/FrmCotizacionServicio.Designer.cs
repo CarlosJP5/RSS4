@@ -66,6 +66,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cboImprecion = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -97,6 +99,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cboImprecion);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.lblidFactura_int);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.btnImprimir);
@@ -129,7 +133,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 419);
+            this.panel1.Size = new System.Drawing.Size(474, 448);
             this.panel1.TabIndex = 2;
             // 
             // lblidFactura_int
@@ -472,12 +476,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
             // 
+            // cboImprecion
+            // 
+            this.cboImprecion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboImprecion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboImprecion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboImprecion.FormattingEnabled = true;
+            this.cboImprecion.Items.AddRange(new object[] {
+            "80MM - pequeño",
+            "A4 - grande"});
+            this.cboImprecion.Location = new System.Drawing.Point(109, 409);
+            this.cboImprecion.Name = "cboImprecion";
+            this.cboImprecion.Size = new System.Drawing.Size(121, 21);
+            this.cboImprecion.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 412);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Formato Imprecion";
+            // 
             // FrmCotizacionServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 449);
+            this.ClientSize = new System.Drawing.Size(474, 478);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -534,5 +561,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboImprecion;
+        private System.Windows.Forms.Label label11;
     }
 }

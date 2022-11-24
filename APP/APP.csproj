@@ -345,6 +345,12 @@
     <Compile Include="Reportes\rtpCotizacionServicio.Designer.cs">
       <DependentUpon>rtpCotizacionServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rtpCotizacionServicioA4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rtpCotizacionServicioA4.Designer.cs">
+      <DependentUpon>rtpCotizacionServicioA4.cs</DependentUpon>
+    </Compile>
     <Compile Include="zPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -501,6 +507,10 @@
     <EmbeddedResource Include="Reportes\rtpCotizacionServicio.rdlc" />
     <EmbeddedResource Include="Reportes\rtpCotizacionServicio.resx">
       <DependentUpon>rtpCotizacionServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rtpCotizacionServicioA4.rdlc" />
+    <EmbeddedResource Include="Reportes\rtpCotizacionServicioA4.resx">
+      <DependentUpon>rtpCotizacionServicioA4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zPrincipal.resx">
       <DependentUpon>zPrincipal.cs</DependentUpon>
