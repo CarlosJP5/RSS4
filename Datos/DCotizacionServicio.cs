@@ -128,6 +128,7 @@ namespace Datos
                     cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
+                    cmd.Parameters.Add("@tipo", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try
                     {
@@ -161,6 +162,7 @@ namespace Datos
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
                     cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = Factura.FechaVencimiento;
+                    cmd.Parameters.Add("@tipo", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try
                     {

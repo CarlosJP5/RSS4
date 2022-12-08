@@ -33,6 +33,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboImprecion = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblidFactura_int = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,8 +68,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboImprecion = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cboTipoCompra = new System.Windows.Forms.ComboBox();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -99,6 +101,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.cboTipoCompra);
             this.panel1.Controls.Add(this.cboImprecion);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.lblidFactura_int);
@@ -133,14 +137,37 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 448);
+            this.panel1.Size = new System.Drawing.Size(474, 468);
             this.panel1.TabIndex = 2;
+            // 
+            // cboImprecion
+            // 
+            this.cboImprecion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboImprecion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboImprecion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboImprecion.FormattingEnabled = true;
+            this.cboImprecion.Items.AddRange(new object[] {
+            "80MM - pequeño",
+            "A4 - grande"});
+            this.cboImprecion.Location = new System.Drawing.Point(109, 431);
+            this.cboImprecion.Name = "cboImprecion";
+            this.cboImprecion.Size = new System.Drawing.Size(121, 21);
+            this.cboImprecion.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 434);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Formato Imprecion";
             // 
             // lblidFactura_int
             // 
             this.lblidFactura_int.AutoSize = true;
             this.lblidFactura_int.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidFactura_int.Location = new System.Drawing.Point(18, 321);
+            this.lblidFactura_int.Location = new System.Drawing.Point(18, 343);
             this.lblidFactura_int.Name = "lblidFactura_int";
             this.lblidFactura_int.Size = new System.Drawing.Size(101, 16);
             this.lblidFactura_int.TabIndex = 28;
@@ -151,7 +178,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.label10);
             this.flowLayoutPanel1.Controls.Add(this.lblIdFactura);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 100);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 122);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 22);
             this.flowLayoutPanel1.TabIndex = 27;
@@ -181,7 +208,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(18, 371);
+            this.btnImprimir.Location = new System.Drawing.Point(18, 393);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 24;
@@ -194,7 +221,7 @@
             // btnFacturar
             // 
             this.btnFacturar.Image = global::APP.Properties.Resources.Facturar_16;
-            this.btnFacturar.Location = new System.Drawing.Point(109, 340);
+            this.btnFacturar.Location = new System.Drawing.Point(109, 362);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(92, 25);
             this.btnFacturar.TabIndex = 22;
@@ -207,7 +234,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(207, 340);
+            this.btnBuscar.Location = new System.Drawing.Point(207, 362);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 23;
@@ -220,7 +247,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(110, 371);
+            this.btnModificar.Location = new System.Drawing.Point(110, 393);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(85, 25);
             this.btnModificar.TabIndex = 25;
@@ -233,7 +260,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(18, 340);
+            this.btnNuevo.Location = new System.Drawing.Point(18, 362);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 21;
@@ -246,7 +273,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(207, 371);
+            this.btnSalir.Location = new System.Drawing.Point(207, 393);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 26;
@@ -259,7 +286,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(323, 382);
+            this.label9.Location = new System.Drawing.Point(323, 404);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 19;
@@ -268,7 +295,7 @@
             // txtTotal
             // 
             this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTotal.Location = new System.Drawing.Point(360, 379);
+            this.txtTotal.Location = new System.Drawing.Point(360, 401);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
@@ -278,7 +305,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(328, 356);
+            this.label7.Location = new System.Drawing.Point(328, 378);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(26, 13);
             this.label7.TabIndex = 17;
@@ -287,7 +314,7 @@
             // txtItbis
             // 
             this.txtItbis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtItbis.Location = new System.Drawing.Point(360, 353);
+            this.txtItbis.Location = new System.Drawing.Point(360, 375);
             this.txtItbis.Name = "txtItbis";
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(100, 20);
@@ -297,7 +324,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 330);
+            this.label4.Location = new System.Drawing.Point(312, 352);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 15;
@@ -306,7 +333,7 @@
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtImporte.Location = new System.Drawing.Point(360, 327);
+            this.txtImporte.Location = new System.Drawing.Point(360, 349);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.ReadOnly = true;
             this.txtImporte.Size = new System.Drawing.Size(100, 20);
@@ -320,7 +347,7 @@
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column0,
             this.Column1});
-            this.dgvListar.Location = new System.Drawing.Point(13, 126);
+            this.dgvListar.Location = new System.Drawing.Point(13, 148);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.Size = new System.Drawing.Size(447, 193);
             this.dgvListar.TabIndex = 14;
@@ -348,7 +375,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(0, 98);
+            this.panel2.Location = new System.Drawing.Point(0, 120);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(490, 1);
             this.panel2.TabIndex = 13;
@@ -476,35 +503,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
             // 
-            // cboImprecion
+            // label12
             // 
-            this.cboImprecion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cboImprecion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboImprecion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cboImprecion.FormattingEnabled = true;
-            this.cboImprecion.Items.AddRange(new object[] {
-            "80MM - pequeño",
-            "A4 - grande"});
-            this.cboImprecion.Location = new System.Drawing.Point(109, 409);
-            this.cboImprecion.Name = "cboImprecion";
-            this.cboImprecion.Size = new System.Drawing.Size(121, 21);
-            this.cboImprecion.TabIndex = 34;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(34, 93);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Tipo:";
             // 
-            // label11
+            // cboTipoCompra
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 412);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 13);
-            this.label11.TabIndex = 33;
-            this.label11.Text = "Formato Imprecion";
+            this.cboTipoCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboTipoCompra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTipoCompra.FormattingEnabled = true;
+            this.cboTipoCompra.Items.AddRange(new object[] {
+            "CONTADO",
+            "CREDITO"});
+            this.cboTipoCompra.Location = new System.Drawing.Point(71, 90);
+            this.cboTipoCompra.Name = "cboTipoCompra";
+            this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
+            this.cboTipoCompra.TabIndex = 36;
             // 
             // FrmCotizacionServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 478);
+            this.ClientSize = new System.Drawing.Size(474, 498);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -563,5 +590,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboImprecion;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cboTipoCompra;
     }
 }

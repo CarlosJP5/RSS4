@@ -55,6 +55,7 @@ namespace APP
             btnBuscarClientes.Enabled = false;
             txtNombre.Enabled = false;
             cboTipoComprobante.Enabled = false;
+            cboTipoCompra.Enabled = false;
             txtCedula.Enabled = false;
             txtRnc.Enabled = false;
             dgvListar.ReadOnly = true;
@@ -66,6 +67,7 @@ namespace APP
             btnBuscarClientes.Enabled = true;
             txtNombre.Enabled = true;
             cboTipoComprobante.Enabled = true;
+            cboTipoCompra.Enabled = true;
             txtCedula.Enabled = true;
             txtRnc.Enabled = true;
             dgvListar.ReadOnly = false;
@@ -75,6 +77,7 @@ namespace APP
         {
             btnNuevo.PerformClick();
             cboImprecion.SelectedIndex = 0;
+            cboTipoCompra.SelectedIndex = 0;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -110,6 +113,7 @@ namespace APP
                 txtNombre.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
                 txtCedula.Text = frm.dgvListar.SelectedCells[7].Value.ToString();
                 cboTipoComprobante.SelectedValue = frm.dgvListar.SelectedCells[6].Value.ToString();
+                cboTipoCompra.Text = frm.dgvListar.SelectedCells[9].Value.ToString();
                 _ = dgvListar.Focus();
             }
         }
@@ -126,6 +130,7 @@ namespace APP
                     txtCedula.Text = cliente.Rows[0][3].ToString();
                     txtRnc.Text = cliente.Rows[0][4].ToString();
                     cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
+                    cboTipoCompra.Text = cliente.Rows[0][8].ToString();
                 }
             }
         }
@@ -212,6 +217,7 @@ namespace APP
                         Cedula = txtCedula.Text,
                         Rnc = txtRnc.Text,
                         IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
+                        TipoCompra = cboTipoCompra.Text,
                         NombreComprobante = cboTipoComprobante.Text,
                         Importe = decimal.Parse(txtImporte.Text),
                         Itbis = decimal.Parse(txtItbis.Text),
@@ -272,9 +278,11 @@ namespace APP
                 DataTable factura = nservicio.Listar(frm.dgvListar.SelectedCells[0].Value.ToString());
                 if (factura.Rows[0][12].ToString() != "Facturado")
                 {
+                    dgvListar.Rows.Clear();
                     txtIdCliente.Text = factura.Rows[0][2].ToString();
                     txtNombre.Text = factura.Rows[0][3].ToString();
                     cboTipoComprobante.SelectedValue = factura.Rows[0][6].ToString();
+                    cboTipoCompra.Text = factura.Rows[0][13].ToString();
                     dtpFecha.Value = DateTime.Parse(factura.Rows[0][1].ToString());
                     txtCedula.Text = factura.Rows[0][4].ToString();
                     txtRnc.Text = factura.Rows[0][5].ToString();
@@ -285,7 +293,7 @@ namespace APP
                     lblidFactura_int.Text = factura.Rows[0][0].ToString();
                     foreach (DataRow row in factura.Rows)
                     {
-                        _ = dgvListar.Rows.Add(row[14], row[15]);
+                        _ = dgvListar.Rows.Add(row[15], row[16]);
                     }
 
                     desabilita_controles();
