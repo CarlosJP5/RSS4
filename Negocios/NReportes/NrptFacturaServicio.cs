@@ -26,9 +26,10 @@ namespace Negocios.NReportes
                 CedulaCliente = tbFactura.Rows[0][4].ToString(),
                 RncCliente = tbFactura.Rows[0][5].ToString(),
                 IdComprobante = tbFactura.Rows[0][6].ToString(),
+                TipoCompra = tbFactura.Rows[0][12].ToString(),
                 NombreComprobante = tbFactura.Rows[0][7].ToString(),
-                NumeroComprobante = tbFactura.Rows[0][14].ToString(),
-                FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][15].ToString()),
+                NumeroComprobante = tbFactura.Rows[0][15].ToString(),
+                FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][16].ToString()),
                 Importe = (decimal)tbFactura.Rows[0][8],
                 Itbis = (decimal)tbFactura.Rows[0][9],
                 Total = (decimal)tbFactura.Rows[0][10]
@@ -40,8 +41,8 @@ namespace Negocios.NReportes
             {
                 ErptFacturaServicioDetalle detalleModel = new ErptFacturaServicioDetalle()
                 {
-                    Descripcion = row[17].ToString(),
-                    Precio = (decimal)row[18],
+                    Descripcion = row[18].ToString(),
+                    Precio = (decimal)row[19],
                 };
                 Detalle.Add(detalleModel);
             }

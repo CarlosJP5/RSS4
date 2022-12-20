@@ -270,6 +270,12 @@
     <Compile Include="FrmReciboIngreso.Designer.cs">
       <DependentUpon>FrmReciboIngreso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReciboIngresoServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReciboIngresoServicio.Designer.cs">
+      <DependentUpon>FrmReciboIngresoServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReciboPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReciboIngreso.resx">
       <DependentUpon>FrmReciboIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReciboIngresoServicio.resx">
+      <DependentUpon>FrmReciboIngresoServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReciboPago.resx">
       <DependentUpon>FrmReciboPago.cs</DependentUpon>

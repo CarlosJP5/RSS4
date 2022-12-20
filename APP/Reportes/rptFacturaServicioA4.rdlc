@@ -1180,7 +1180,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Factura de Servicio</Value>
+                  <Value>="Factura de Servicio A "+First(Fields!TipoCompra.Value, "Factura")</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1618,6 +1618,10 @@
         </Field>
         <Field Name="RncCliente">
           <DataField>RncCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipoCompra">
+          <DataField>TipoCompra</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Total">

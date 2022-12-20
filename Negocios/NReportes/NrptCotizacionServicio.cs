@@ -26,6 +26,7 @@ namespace Negocios.NReportes
                 CedulaCliente = tbFactura.Rows[0][4].ToString(),
                 RncCliente = tbFactura.Rows[0][5].ToString(),
                 IdComprobante = tbFactura.Rows[0][6].ToString(),
+                TipoCompra = tbFactura.Rows[0][13].ToString(),
                 NombreComprobante = tbFactura.Rows[0][7].ToString(),
                 NumeroComprobante = tbFactura.Rows[0][14].ToString(),
                 FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][1].ToString()),

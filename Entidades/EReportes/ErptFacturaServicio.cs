@@ -11,6 +11,7 @@ namespace Entidades.EReportes
         public string NombreCliente { get; set; }
         public string CedulaCliente { get; set; }
         public string RncCliente { get; set; }
+        public string TipoCompra { get; set; }
         public string IdComprobante { get; set; }
         public string NombreComprobante { get; set; }
         public string NumeroComprobante { get; set; }

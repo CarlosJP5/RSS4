@@ -112,6 +112,7 @@ namespace APP
                 txtNombre.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
                 txtCedula.Text = frm.dgvListar.SelectedCells[7].Value.ToString();
                 cboTipoComprobante.SelectedValue = frm.dgvListar.SelectedCells[6].Value.ToString();
+                cboTipoCompra.Text = frm.dgvListar.SelectedCells[9].Value.ToString();
                 _ = dgvListar.Focus();
             }
         }
@@ -128,6 +129,7 @@ namespace APP
                     txtCedula.Text = cliente.Rows[0][3].ToString();
                     txtRnc.Text = cliente.Rows[0][4].ToString();
                     cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
+                    cboTipoCompra.Text = cliente.Rows[0][8].ToString();
                 }
             }
         }
@@ -214,6 +216,7 @@ namespace APP
                         Cedula = txtCedula.Text,
                         Rnc = txtRnc.Text,
                         IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
+                        TipoCompra = cboTipoCompra.Text,
                         NombreComprobante = cboTipoComprobante.Text,
                         Importe = decimal.Parse(txtImporte.Text),
                         Itbis = decimal.Parse(txtItbis.Text),
@@ -308,11 +311,11 @@ namespace APP
                 txtItbis.Text = factura.Rows[0][9].ToString();
                 txtTotal.Text = factura.Rows[0][10].ToString();
                 lblIdFactura.Text = factura.Rows[0][11].ToString();
-                lblNcf.Text = factura.Rows[0][14].ToString();
+                lblNcf.Text = factura.Rows[0][15].ToString();
                 lblidFactura_int.Text = factura.Rows[0][0].ToString();
                 foreach (DataRow row in factura.Rows)
                 {
-                    _ = dgvListar.Rows.Add(row[17], row[18]);
+                    _ = dgvListar.Rows.Add(row[18], row[19]);
                 }
 
                 desabilita_controles();
@@ -395,6 +398,7 @@ namespace APP
                     txtIdCliente.Text = factura.Rows[0][2].ToString();
                     txtNombre.Text = factura.Rows[0][3].ToString();
                     cboTipoComprobante.SelectedValue = factura.Rows[0][6].ToString();
+                    cboTipoCompra.Text = factura.Rows[0][13].ToString();
                     dtpFecha.Value = DateTime.Now;
                     txtCedula.Text = factura.Rows[0][4].ToString();
                     txtRnc.Text = factura.Rows[0][5].ToString();
@@ -404,7 +408,7 @@ namespace APP
                     txtCotizacion.Text = factura.Rows[0][11].ToString();
                     foreach (DataRow row in factura.Rows)
                     {
-                        _ = dgvListar.Rows.Add(row[14], row[15]);
+                        _ = dgvListar.Rows.Add(row[15], row[16]);
                     }
                 }
                 else

@@ -479,7 +479,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Cotizacion de Servicio</Value>
+                  <Value>="Cotizacion de Servicio A "+First(Fields!TipoCompra.Value, "Cotizacion")</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1204,6 +1204,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox27</rd:DefaultName>
+          <Top>0in</Top>
           <Left>5.80126in</Left>
           <Height>0.2in</Height>
           <Width>0.67958in</Width>
@@ -1300,6 +1301,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Importe</rd:DefaultName>
+          <Top>0in</Top>
           <Left>6.50084in</Left>
           <Height>0.2in</Height>
           <Width>1in</Width>
@@ -1589,6 +1591,10 @@
         </Field>
         <Field Name="RncCliente">
           <DataField>RncCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipoCompra">
+          <DataField>TipoCompra</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Total">

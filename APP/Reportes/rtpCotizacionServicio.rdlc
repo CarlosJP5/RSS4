@@ -137,7 +137,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Cotizacion de Servicio</Value>
+                <Value>="Cotizacion de Servicio A "+First(Fields!TipoCompra.Value, "Cotizacion")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1018,6 +1018,10 @@
         </Field>
         <Field Name="RncCliente">
           <DataField>RncCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipoCompra">
+          <DataField>TipoCompra</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Total">

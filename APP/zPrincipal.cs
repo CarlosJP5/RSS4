@@ -177,5 +177,14 @@ namespace APP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void reciboIngresoServToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReciboIngresoServicio frm = new FrmReciboIngresoServicio
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

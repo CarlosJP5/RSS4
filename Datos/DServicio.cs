@@ -163,6 +163,7 @@ namespace Datos
                     cmd.Parameters.Add("@ncf", SqlDbType.NVarChar).Value = Factura.Ncf;
                     cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = Factura.FechaVencimiento;
                     cmd.Parameters.Add("@idCotizacion", SqlDbType.NVarChar).Value = Factura.IdCotizacion;
+                    cmd.Parameters.Add("@tipoCompra", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try
                     {

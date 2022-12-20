@@ -766,7 +766,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Balance.Value, "dsReciboIngreso")</Value>
+                <Value>=First(Fields!Balance.Value, "dsReciboIngreso")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
