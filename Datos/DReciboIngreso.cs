@@ -106,6 +106,31 @@ namespace Datos
                 }
             }
         }
+        public int InsertarServicio(int IdCliente, DateTime Fecha, DataTable Detalle)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_insertar_servicio";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = IdCliente;
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Fecha;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        int idRecibo = (int)cmd.ExecuteScalar();
+                        return idRecibo;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void Anular(int IdRecibo)
         {
             using (var conn = GetConnection())

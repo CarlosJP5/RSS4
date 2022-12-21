@@ -14,6 +14,11 @@ namespace Negocios
             int id = Convert.ToInt32(IdCliente);
             return _cliente.BalancePendiente(id);
         }
+        public DataTable BalancePendienteServicio(string IdCliente)
+        {
+            int id = Convert.ToInt32(IdCliente);
+            return _cliente.BalancePendienteServicio(id);
+        }
         public DataTable Buscar(string Query)
         {
             return _cliente.Buscar(Query);

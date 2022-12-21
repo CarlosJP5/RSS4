@@ -32,6 +32,33 @@ namespace Datos
                 }
             }
         }
+
+        public DataTable BalancePendienteServicio(int IdCliente)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "cliente_balancePendiente_servicio";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = IdCliente;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
         public DataTable Buscar(string Query)
         {
             using (var conn = GetConnection())

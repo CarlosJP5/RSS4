@@ -29,6 +29,11 @@ namespace Negocios
             int id = Convert.ToInt32(IdCliente);
             return _recibo.Insertar(id, Fecha, Detalle);
         }
+        public int InsertarServicio(string IdCliente, DateTime Fecha, DataTable Detalle)
+        {
+            int id = Convert.ToInt32(IdCliente);
+            return _recibo.InsertarServicio(id, Fecha, Detalle);
+        }
         public void Anular(string IdRecibo)
         {
             int id = Convert.ToInt32(IdRecibo);
