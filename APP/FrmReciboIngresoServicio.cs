@@ -315,24 +315,63 @@ namespace APP
                     }
                 }
                 int idRecibo = _recibo.InsertarServicio(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
-                //DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //if (msj == DialogResult.Yes)
-                //{
-                //    using (LocalReport localReport = new LocalReport())
-                //    {
-                //        NrptEmpresa nEmpresa = new NrptEmpresa();
-                //        nEmpresa.LlenaEmpresa();
-                //        _recibo.ImprimirRecibo(idRecibo.ToString());
-                //        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptReciboIngreso.rdlc";
-                //        localReport.DataSources.Clear();
-                //        localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
-                //        localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
-                //        localReport.PrintToPrinter();
-                //        btnNuevo.PerformClick();
-                //    }
-                //}
+                DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (msj == DialogResult.Yes)
+                {
+                    using (LocalReport localReport = new LocalReport())
+                    {
+                        NrptEmpresa nEmpresa = new NrptEmpresa();
+                        nEmpresa.LlenaEmpresa();
+                        _recibo.ImprimirReciboServicio(idRecibo.ToString());
+                        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptReciboIngreso.rdlc";
+                        localReport.DataSources.Clear();
+                        localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                        localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresosServicio));
+                        localReport.PrintToPrinter();
+                        btnNuevo.PerformClick();
+                    }
+                }
                 btnNuevo.PerformClick();
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //FrmBuscarReciboIngreso frm = new FrmBuscarReciboIngreso();
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    btnNuevo.PerformClick();
+            //    _ = dgvListar.Focus();
+            //    DataTable recibo = _recibo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+            //    txtIdCliente.Text = recibo.Rows[0][0].ToString();
+            //    txtNombre.Text = recibo.Rows[0][1].ToString();
+            //    dtpFecha.Value = DateTime.Parse(recibo.Rows[0][2].ToString());
+            //    lblIdRecibo.Text = recibo.Rows[0][3].ToString();
+            //    decimal total = 0m;
+            //    foreach (DataRow row in recibo.Rows)
+            //    {
+            //        total += Convert.ToDecimal(row[6].ToString());
+            //        DateTime d1 = DateTime.Parse(row[5].ToString());
+            //        dgvListar.Rows.Add(row[4], "", d1.ToString("dd/MM/yyyy"), (dtpFecha.Value.Date - d1.Date).Days.ToString("N0"),
+            //            "", "", row[6], "", row[7]);
+            //    }
+            //    txtPago.Text = total.ToString("N2");
+
+            //    txtIdCliente.Enabled = false;
+            //    btnBuscarCliente.Enabled = false;
+            //    txtMonto.Enabled = false;
+            //    btnAplicar.Enabled = false;
+            //    dgvListar.ReadOnly = true;
+            //    btnSalvar.Enabled = false;
+            //    btnBuscar.Enabled = false;
+            //    btnAnular.Enabled = true;
+            //    btnImprimir.Enabled = true;
+            //}
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

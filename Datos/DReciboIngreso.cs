@@ -55,6 +55,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable BuscarIdServicio(int IdRecibo)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_buscarId_servicio";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idRecibo", SqlDbType.Int).Value = IdRecibo;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())

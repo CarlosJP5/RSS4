@@ -513,6 +513,7 @@
       <DependentUpon>rptListaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReciboIngreso.rdlc" />
+    <EmbeddedResource Include="Reportes\rptReciboIngresoServicio.rdlc" />
     <EmbeddedResource Include="Reportes\rtpCotizacionServicio.rdlc" />
     <EmbeddedResource Include="Reportes\rtpCotizacionServicio.resx">
       <DependentUpon>rtpCotizacionServicio.cs</DependentUpon>
@@ -534,6 +535,7 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicio.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicioDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngreso.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngresoServicio.datasource" />
     <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

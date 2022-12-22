@@ -10,6 +10,7 @@ namespace Negocios
     {
         private readonly DReciboIngreso _recibo = new DReciboIngreso();
         public List<ErptReciboIngreso> ReciboIngresos { get; set; }
+        public List<ErptReciboIngresoServicio> ReciboIngresosServicio { get; set; }
 
         public DataTable Buscar(string Query)
         {
@@ -67,6 +68,36 @@ namespace Negocios
                     Balance = balance   
                 };
                 ReciboIngresos.Add(reciboModel);
+            }
+        }
+
+        public void ImprimirReciboServicio(string IdRecibo)
+        {
+            int id = Convert.ToInt32(IdRecibo);
+            DataTable tbRecibo = _recibo.BuscarIdServicio(id);
+            ReciboIngresosServicio = new List<ErptReciboIngresoServicio>();
+            string query = string.Format(@"SELECT SUM(balance_cxc) balance FROM CuentaCobrarServicio
+                                           WHERE id_cliente = {0} AND balance_cxc > 0", tbRecibo.Rows[0][0].ToString());
+            DataTable tbalance = _recibo.Buscar(query);
+            decimal balance = 0m;
+            if (!string.IsNullOrEmpty(tbalance.Rows[0][0].ToString()))
+            {
+                balance = Convert.ToDecimal(tbalance.Rows[0][0].ToString());
+            }
+            foreach (DataRow row in tbRecibo.Rows)
+            {
+                ErptReciboIngresoServicio reciboModel = new ErptReciboIngresoServicio()
+                {
+                    IdCliente = (int)row[0],
+                    NombreCliente = row[1].ToString(),
+                    Fecha = DateTime.Parse(row[2].ToString()),
+                    IdRecibo = (int)row[3],
+                    IdFactura = (string)row[4],
+                    Pago = (decimal)row[6],
+                    Estado = row[7].ToString(),
+                    Balance = balance
+                };
+                ReciboIngresosServicio.Add(reciboModel);
             }
         }
     }
