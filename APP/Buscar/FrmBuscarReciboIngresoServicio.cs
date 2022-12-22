@@ -11,18 +11,18 @@ using System.Windows.Forms;
 
 namespace APP.Buscar
 {
-    public partial class FrmBuscarReciboPago : Form
+    public partial class FrmBuscarReciboIngresoServicio : Form
     {
-        public FrmBuscarReciboPago()
+        public FrmBuscarReciboIngresoServicio()
         {
             InitializeComponent();
         }
 
-        private readonly NReciboPago _recibo = new NReciboPago();
+        private readonly NReciboIngreso _recibo = new NReciboIngreso();
 
-        private void FrmBuscarReciboPago_Load(object sender, EventArgs e)
+        private void FrmBuscarReciboIngresoServicio_Load(object sender, EventArgs e)
         {
-            DataTable recibos = _recibo.Listar(dtpDesde.Value.Date, dtpHasta.Value.Date);
+            DataTable recibos = _recibo.ListarServicio(dtpDesde.Value.Date, dtpHasta.Value.Date);
             foreach (DataRow dr in recibos.Rows)
             {
                 dgvListar.Rows.Add(dr[0], dr[1], dr[2], dr[3]);
@@ -32,26 +32,27 @@ namespace APP.Buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvListar.Rows.Clear();
-            string query = @"SELECT RI.id_rp, RI.fecha_rp, CL.nombre_suplidor, 
-                             SUM(RI.pago_rp) Monto FROM ReciboPago RI 
-                             LEFT JOIN Suplidores CL ON RI.id_suplidor = CL.id_suplidor";
+            string query = @"SELECT RI.id_ri, RI.fecha_ri, CL.nombre_cliente, 
+                             SUM(RI.pago_ri) Monto FROM ReciboIngresoServicio RI 
+                             LEFT JOIN Clientes CL ON RI.id_cliente = CL.id_cliente";
 
             if (!string.IsNullOrEmpty(txtIdRecibo.Text))
             {
-                query += string.Format(" WHERE RI.id_rp = '{0}'", txtIdRecibo.Text);
+                query += string.Format(" WHERE RI.id_ri = '{0}'", txtIdRecibo.Text);
             }
             else
             {
-                query += string.Format(" WHERE RI.fecha_rp BETWEEN '{0}' AND '{1}'",
+                query += string.Format(" WHERE RI.fecha_ri BETWEEN '{0}' AND '{1}'",
                     dtpDesde.Value.Date, dtpHasta.Value.Date);
 
                 if (!string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    query += string.Format(" AND RI.id_suplidor = '{0}'", txtIdCliente.Text);
+                    query += string.Format(" AND RI.id_cliente = '{0}'", txtIdCliente.Text);
                 }
             }
-            query += @" GROUP BY RI.id_rp, RI.fecha_rp, CL.nombre_suplidor
-	                  ORDER BY RI.id_rp DESC";
+            query += @" GROUP BY RI.id_ri, RI.fecha_ri, CL.nombre_cliente
+	                  ORDER BY RI.id_ri DESC";
+
             DataTable recibos = _recibo.Buscar(query);
             foreach (DataRow dr in recibos.Rows)
             {
@@ -65,7 +66,7 @@ namespace APP.Buscar
 
         private void linkCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmBuscarSuplidores frm = new FrmBuscarSuplidores();
+            FrmBuscarClientes frm = new FrmBuscarClientes();
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 txtIdCliente.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
@@ -82,11 +83,11 @@ namespace APP.Buscar
         {
             if (!string.IsNullOrEmpty(txtIdCliente.Text))
             {
-                NSuplidores _cliente = new NSuplidores();
+                NClientes _cliente = new NClientes();
                 DataTable cliente = _cliente.BuscarId(txtIdCliente.Text);
                 if (cliente.Rows.Count > 0)
                 {
-                    txtNombre.Text = cliente.Rows[0][1].ToString();
+                    txtNombre.Text = cliente.Rows[0][2].ToString();
                 }
                 else
                 {
@@ -105,7 +106,7 @@ namespace APP.Buscar
             }
         }
 
-        private void txtIdCliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtIdRecibo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -113,47 +114,18 @@ namespace APP.Buscar
             }
         }
 
-        private void dgvListar_KeyDown(object sender, KeyEventArgs e)
+        private void txtIdRecibo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (dgvListar.RowCount > 0)
+            if (e.KeyCode == Keys.Enter)
             {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    dgvListar.CurrentRow.Selected = true;
-                    e.SuppressKeyPress = true;
-                    e.Handled = true;
-                    DialogResult = DialogResult.OK;
-                }
+                e.SuppressKeyPress = true;
+                _ = btnBuscar.Focus();
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (dgvListar.RowCount > 0)
-            {
-                DialogResult = DialogResult.OK;
-            }
-        }
 
-        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvListar.RowCount > 0)
-            {
-                DialogResult = DialogResult.OK;
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvListar.RowCount > 0)
-            {
-                DialogResult = DialogResult.OK;
-            }
         }
     }
 }

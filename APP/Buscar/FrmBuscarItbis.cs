@@ -59,21 +59,30 @@ namespace APP.Buscar
 
         private void dgvListar_KeyDown(object sender, KeyEventArgs e)
         {
-            dgvListar.CurrentRow.Selected = true;
-            e.SuppressKeyPress = true;
-            e.Handled= true;
-            DialogResult = DialogResult.OK;
+            if (dgvListar.RowCount > 0)
+            {
+                dgvListar.CurrentRow.Selected = true;
+                e.SuppressKeyPress = true;
+                e.Handled= true;
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (dgvListar.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
 
         private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult= DialogResult.OK;
+            if (dgvListar.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -96,7 +105,10 @@ namespace APP.Buscar
 
         private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (dgvListar.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
     }
 }

@@ -115,20 +115,26 @@ namespace APP.Buscar
 
         private void dgvListar_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (dgvListar.RowCount > 0)
             {
-                dgvListar.CurrentRow.Selected = true;
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-                EParametro.BuscaArticulo = txtBuscar.Text;
-                DialogResult = DialogResult.OK;
+                if (e.KeyCode == Keys.Enter)
+                {
+                    dgvListar.CurrentRow.Selected = true;
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                    EParametro.BuscaArticulo = txtBuscar.Text;
+                    DialogResult = DialogResult.OK;
+                }
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            EParametro.BuscaArticulo = txtBuscar.Text;
-            DialogResult = DialogResult.OK;
+            if (dgvListar.RowCount > 0)
+            {
+                EParametro.BuscaArticulo = txtBuscar.Text;
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -153,8 +159,11 @@ namespace APP.Buscar
 
         private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EParametro.BuscaArticulo = txtBuscar.Text;
-            DialogResult = DialogResult.OK;
+            if (dgvListar.RowCount > 0)
+            {
+                EParametro.BuscaArticulo = txtBuscar.Text;
+                DialogResult = DialogResult.OK;
+            }
         }
     }
 }

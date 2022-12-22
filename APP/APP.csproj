@@ -138,6 +138,12 @@
     <Compile Include="Buscar\FrmBuscarReciboIngreso.Designer.cs">
       <DependentUpon>FrmBuscarReciboIngreso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\FrmBuscarReciboIngresoServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarReciboIngresoServicio.Designer.cs">
+      <DependentUpon>FrmBuscarReciboIngresoServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\FrmBuscarReciboPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarReciboIngreso.resx">
       <DependentUpon>FrmBuscarReciboIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\FrmBuscarReciboIngresoServicio.resx">
+      <DependentUpon>FrmBuscarReciboIngresoServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarReciboPago.resx">
       <DependentUpon>FrmBuscarReciboPago.cs</DependentUpon>

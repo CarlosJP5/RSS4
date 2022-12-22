@@ -25,6 +25,10 @@ namespace Negocios
         {
             return _recibo.Listar(Desde, Hasta);
         }
+        public DataTable ListarServicio(DateTime Desde, DateTime Hasta)
+        {
+            return _recibo.ListarServicio(Desde, Hasta);
+        }
         public int Insertar(string IdCliente, DateTime Fecha, DataTable Detalle)
         {
             int id = Convert.ToInt32(IdCliente);
