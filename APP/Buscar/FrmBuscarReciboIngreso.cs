@@ -19,7 +19,8 @@ namespace APP.Buscar
             DataTable recibos = _recibo.Listar(dtpDesde.Value.Date, dtpHasta.Value.Date);
             foreach (DataRow dr in recibos.Rows)
             {
-                dgvListar.Rows.Add(dr[0], dr[1], dr[2], dr[3]);
+                DateTime fecha = DateTime.Parse(dr[1].ToString());
+                _ = dgvListar.Rows.Add(dr[0], fecha.ToString("dd / MM / yyyy"), dr[2], dr[3]);
             }
         }
 
@@ -50,7 +51,8 @@ namespace APP.Buscar
             DataTable recibos = _recibo.Buscar(query);
             foreach (DataRow dr in recibos.Rows)
             {
-                dgvListar.Rows.Add(dr[0], dr[1], dr[2], dr[3]);
+                DateTime fecha = DateTime.Parse(dr[1].ToString());
+                _ = dgvListar.Rows.Add(dr[0], fecha.ToString("dd / MM / yyyy"), dr[2], dr[3]);
             }
             if (dgvListar.RowCount > 0)
             {
@@ -136,14 +138,6 @@ namespace APP.Buscar
                     e.Handled = true;
                     DialogResult = DialogResult.OK;
                 }
-            }
-        }
-
-        private void dgvListar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvListar.RowCount > 0)
-            {
-                DialogResult = DialogResult.OK;
             }
         }
 

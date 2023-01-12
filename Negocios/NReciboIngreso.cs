@@ -21,6 +21,11 @@ namespace Negocios
             int id = Convert.ToInt32(IdRecibo);
             return _recibo.BuscarId(id);
         }
+        public DataTable BuscarIdServicio(string IdRecibo)
+        {
+            int id = Convert.ToInt32(IdRecibo);
+            return _recibo.BuscarIdServicio(id);
+        }
         public DataTable Listar(DateTime Desde, DateTime Hasta)
         {
             return _recibo.Listar(Desde, Hasta);
@@ -44,7 +49,11 @@ namespace Negocios
             int id = Convert.ToInt32(IdRecibo);
             _recibo.Anular(id);
         }
-
+        public void AnularServicio(string IdRecibo)
+        {
+            int id = Convert.ToInt32(IdRecibo);
+            _recibo.AnularServicio(id);
+        }
         public void ImprimirRecibo(string IdRecibo)
         {
             int id = Convert.ToInt32(IdRecibo);

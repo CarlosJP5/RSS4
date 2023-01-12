@@ -767,7 +767,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!Balance.Value, "dsReciboIngreso")</Value>
-                <Style />
+                <Style>
+                  <Format>#,0.00;(#,0.00)</Format>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
