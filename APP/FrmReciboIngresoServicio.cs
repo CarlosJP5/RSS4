@@ -31,6 +31,9 @@ namespace APP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            errorCliente.Clear();
+            errorDiferencia.Clear();
+            errorMonto.Clear();
             txtIdCliente.Text = null;
             txtNombre.Text = null;
             dtpFecha.Value = DateTime.Now;
@@ -62,10 +65,12 @@ namespace APP
                 {
                     txtNombre.Text = cliente.Rows[0][2].ToString();
                     LlenarDGV(txtIdCliente.Text);
+                    errorCliente.Clear();
                 }
                 else
                 {
                     txtNombre.Text = null;
+                    dgvListar.Rows.Clear();
                 }
 
             }

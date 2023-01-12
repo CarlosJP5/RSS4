@@ -125,6 +125,7 @@ namespace Datos
                     cmd.Parameters.Add("@nombre_cliente", SqlDbType.NVarChar).Value = Factura.NombreCliente;
                     cmd.Parameters.Add("@cedula", SqlDbType.NVarChar).Value = Factura.Cedula;
                     cmd.Parameters.Add("@rnc", SqlDbType.NVarChar).Value = Factura.Rnc;
+                    cmd.Parameters.Add("@tipoCompra", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     cmd.Parameters.Add("@importe", SqlDbType.Decimal).Value = Factura.Importe;
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;

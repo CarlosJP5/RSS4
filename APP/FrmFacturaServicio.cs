@@ -57,6 +57,8 @@ namespace APP
             cboTipoComprobante.Enabled = false;
             txtCedula.Enabled = false;
             txtRnc.Enabled = false;
+            linkLabel1.Enabled = false;
+            cboTipoCompra.Enabled = false;
             dgvListar.ReadOnly = true;
         }
 
@@ -98,6 +100,8 @@ namespace APP
             btnModificar.Enabled = false;
             btnFacturar.Enabled = true;
             btnBuscar.Enabled = true;
+            cboTipoCompra.Enabled = true;
+            linkLabel1.Enabled = true;
             habilita_controles();
             _ = txtIdCliente.Focus();
         }
@@ -313,6 +317,7 @@ namespace APP
                 lblIdFactura.Text = factura.Rows[0][11].ToString();
                 lblNcf.Text = factura.Rows[0][15].ToString();
                 lblidFactura_int.Text = factura.Rows[0][0].ToString();
+                cboTipoCompra.Text = factura.Rows[0][12].ToString();
                 foreach (DataRow row in factura.Rows)
                 {
                     _ = dgvListar.Rows.Add(row[18], row[19]);
