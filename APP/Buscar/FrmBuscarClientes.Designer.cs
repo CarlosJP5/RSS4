@@ -209,7 +209,7 @@
             this.Column10,
             this.Column11,
             this.Column12});
-            this.dgvListar.Location = new System.Drawing.Point(36, 104);
+            this.dgvListar.Location = new System.Drawing.Point(12, 104);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
