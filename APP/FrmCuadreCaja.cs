@@ -1,13 +1,6 @@
 ﻿using Microsoft.Reporting.WinForms;
 using Negocios.NReportes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP
@@ -67,12 +60,17 @@ namespace APP
 
         private void btn7Dias_Click(object sender, EventArgs e)
         {
-
+            dtpDesde.Value = DateTime.Today.AddDays(-7);
+            dtpHasta.Value = DateTime.Today.AddHours(23.99999);
+            CargarDatos(dtpDesde.Value, dtpHasta.Value);
         }
 
         private void btnMes_Click(object sender, EventArgs e)
         {
-
+            double dias = Convert.ToDouble(DateTime.Today.Day.ToString("d")) - 1;
+            dtpDesde.Value = DateTime.Today.AddDays(-dias);
+            dtpHasta.Value = DateTime.Today.AddHours(23.99999);
+            CargarDatos(dtpDesde.Value, dtpHasta.Value);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

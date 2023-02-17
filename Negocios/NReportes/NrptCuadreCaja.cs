@@ -58,7 +58,7 @@ namespace Negocios.NReportes
             TotalVentasContado = count;
 
             query = string.Format(@"SELECT total_devolucion FROM FacturaDevolucion
-                                    WHERE fecha_devolucion BETWEEN '{0}' AND '{1}'", Desde, Hasta);
+                                    WHERE fecha_devolucion BETWEEN '{0}' AND '{1}' AND tipo_devolucion = 'CONTADO'", Desde, Hasta);
             data = _factura.Buscar(query);
             CantidadDevoluciones = data.Rows.Count;
             count = 0m;

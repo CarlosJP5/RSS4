@@ -202,5 +202,14 @@ namespace APP
             _compra.InsertarDevolucion(compra, Detalle);
             btnNuevo.PerformClick();
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }
