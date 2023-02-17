@@ -248,6 +248,7 @@ namespace Datos
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Factura.Itbis;
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    cmd.Parameters.Add("@tipoFactura", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     try
                     {
                         return (int)cmd.ExecuteScalar();
