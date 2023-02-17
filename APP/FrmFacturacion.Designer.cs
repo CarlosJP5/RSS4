@@ -765,7 +765,7 @@
             // btnBorrar
             // 
             this.btnBorrar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnBorrar.Location = new System.Drawing.Point(327, 7);
+            this.btnBorrar.Location = new System.Drawing.Point(331, 7);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(85, 25);
             this.btnBorrar.TabIndex = 3;
