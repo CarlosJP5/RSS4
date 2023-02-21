@@ -1,5 +1,6 @@
 ﻿using Datos.DReportes;
 using Entidades.EReportes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -27,6 +28,12 @@ namespace Negocios.NReportes
             };
             Empresa.Add(empresaModel);
             return tableEmpresa.Rows[0][1].ToString();
+        }
+
+        public DateTime lisencia()
+        {
+            DrptEmpresa rpt = new DrptEmpresa();
+            return rpt.Licensia();
         }
     }
 }

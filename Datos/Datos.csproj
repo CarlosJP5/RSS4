@@ -70,8 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBUpdate\Alter procedure.sql" />
-    <Content Include="DBUpdate\CREATE TABLE CompraDevolucion.sql" />
+    <Content Include="DBUpdate\Tablas.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

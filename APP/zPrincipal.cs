@@ -1,6 +1,7 @@
 ﻿using APP.Coneccion;
 using Entidades;
 using Negocios.NClasses;
+using Negocios.NReportes;
 using System;
 using System.Windows.Forms;
 
@@ -18,6 +19,13 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
+            NrptEmpresa lic = new NrptEmpresa();
+            DateTime lisencia = lic.lisencia();
+            if (lisencia < DateTime.Now)
+            {
+                MessageBox.Show("Licencia del programa vencida");
+                return;
+            }
             FrmLogin frm = new FrmLogin();
             frm.ShowDialog();
         }
