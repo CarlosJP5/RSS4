@@ -375,6 +375,7 @@ namespace APP
                     Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
                     Itbis = Convert.ToDecimal(txtItbisFactura.Text),
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
+                    Nombre = txtNombre.Text,
                 };
                 DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
                 if (ListaComprobante.Rows.Count > 0)
@@ -583,6 +584,7 @@ namespace APP
                     Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
                     Itbis = Convert.ToDecimal(txtItbisFactura.Text),
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
+                    Nombre = txtNombre.Text,
                 };
                 DataTable Detalle = new DataTable();
                 Detalle.Columns.Add("[idArticulo]", typeof(int));

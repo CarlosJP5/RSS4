@@ -16,9 +16,10 @@ namespace Datos.DReportes
                     cmd.Connection = conn;
                     cmd.CommandText = string.Format(@"SELECT F.id_factura, F.id_cliente, F.id_comprobante, F.fecha_factura,
                                         F.tipoCompra_factura, F.nota_factura, F.importe_factura, F.descuento_factura,
-                                        F.itbis_factura, F.total_factura, C.nombre_cliente, C.cedula_cliente, C.rnc_cliente,
+                                        F.itbis_factura, F.total_factura, F.nombre_cliente, C.cedula_cliente, C.rnc_cliente,
                                         C.direccion_cliente, C.telefono_cliente, C.correo_cliente, CD.ncf_comprobante,
-                                        CD.fechaVencimiento_comprobante, CC.nombre_comprobante FROM Factura F
+                                        CD.fechaVencimiento_comprobante, CC.nombre_comprobante
+                                        FROM Factura F
                                         LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
                                         LEFT JOIN ComprobantesDetalle CD ON cast(F.id_factura as varchar(50)) = CD.id_documento AND F.id_comprobante = CD.id_comprobante
                                         LEFT JOIN Comprobantes CC ON F.id_comprobante = CC.id_comprobante
