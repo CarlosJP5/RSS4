@@ -71,6 +71,7 @@ namespace APP
             decimal importeTotal = 0m;
             decimal descuentoTotal = 0m;
             decimal itbisTotal = 0m;
+            decimal pago = 0m;
             for (int i = 0; i < dgvListar.RowCount; i++)
             {
                 decimal precioNeto = Convert.ToDecimal(dgvListar.Rows[i].Cells[6].Value);
@@ -96,6 +97,12 @@ namespace APP
             txtDescuentoFactura.Text = descuentoTotal.ToString("N2");
             txtItbisFactura.Text = itbisTotal.ToString("N2");
             txtTotalFactura.Text = (importeTotal - descuentoTotal + itbisTotal).ToString("N2");
+            if (!string.IsNullOrEmpty(txtPago.Text))
+            {
+                pago = Convert.ToDecimal(txtPago.Text);
+            }
+            txtPago.Text = pago.ToString("N2");
+            txtDevuelta.Text = (pago - Convert.ToDecimal(txtTotalFactura.Text)).ToString("N2");
         }
 
         private void FrmFacturacion_Load(object sender, EventArgs e)
@@ -730,6 +737,43 @@ namespace APP
                 {
                     _ = MessageBox.Show("Esta cotizacion ya fue facturada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void txtPago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                _ = txtDevuelta.Focus();
+            }
+        }
+
+        private void txtPago_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            decimal pago = decimal.Zero;
+            if (!string.IsNullOrEmpty(txtPago.Text))
+            {
+                pago = Convert.ToDecimal(txtPago.Text);
+            }
+            txtPago.Text  = pago.ToString("N2");
+            txtDevuelta.Text = (pago - Convert.ToDecimal(txtTotalFactura.Text)).ToString("N2");
+        }
+
+        private void txtPago_Enter(object sender, EventArgs e)
+        {
+            //if (!string.IsNullOrEmpty(txtPago.Text))
+            //{
+            //    txtPago.SelectAll();
+            //}
+        }
+
+        private void txtPago_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPago.Text))
+            {
+                txtPago.SelectAll();
             }
         }
     }
