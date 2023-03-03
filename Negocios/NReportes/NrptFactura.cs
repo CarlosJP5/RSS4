@@ -37,7 +37,9 @@ namespace Negocios.NReportes
                 CorreoCliente = tbFactura.Rows[0][15].ToString(),
                 NcfComprobante = tbFactura.Rows[0][16].ToString(),
                 FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][17].ToString()),
-                NombreComprobante = tbFactura.Rows[0][18].ToString()
+                NombreComprobante = tbFactura.Rows[0][18].ToString(),
+                Pago = tbFactura.Rows[0][19].ToString(),
+                Devuelta = tbFactura.Rows[0][20].ToString(),
             };
             facturaModel.FechaVenceCredito = facturaModel.FechaFactura.AddDays(30);
             Factura.Add(facturaModel);

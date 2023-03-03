@@ -132,6 +132,8 @@ namespace APP
             linkCotizacion.Enabled = true;
             lblIdFactura.Text = "#";
             lblNCF.Text = "#";
+            txtPago.Text = string.Empty;
+            txtDevuelta.Text = string.Empty;
             _ = txtCodigo.Focus();
         }
 
@@ -382,6 +384,8 @@ namespace APP
                     Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
                     Itbis = Convert.ToDecimal(txtItbisFactura.Text),
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
+                    Pago = txtPago.Text,
+                    Devuelta = txtDevuelta.Text,
                 };
                 DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
                 if (ListaComprobante.Rows.Count > 0)
@@ -496,6 +500,8 @@ namespace APP
                 txtItbisFactura.Text = facturaTable.Rows[0][13].ToString();
                 txtTotalFactura.Text = facturaTable.Rows[0][14].ToString();
                 txtNota.Text = facturaTable.Rows[0][15].ToString();
+                txtPago.Text = facturaTable.Rows[0][31].ToString();
+                txtDevuelta.Text = facturaTable.Rows[0][32].ToString();
                 for (int i = 0; i < facturaTable.Rows.Count; i++)
                 {
                     dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
@@ -514,6 +520,8 @@ namespace APP
                 txtCedula.Enabled = false;
                 txtRnc.Enabled = false;
                 txtDescuento.Enabled = false;
+                txtPago.Enabled = false;
+                txtDevuelta.Enabled = false;
                 cboTipoCompra.Enabled = false;
                 cboTipoComprobante.Enabled = false;
                 linkCotizacion.Enabled = false;
@@ -539,6 +547,8 @@ namespace APP
             txtRnc.Enabled = true;
             txtDescuento.Enabled = true;
             txtCodigo.Enabled = true;
+            txtPago.Enabled = true;
+            txtDevuelta.Enabled = true;
             linkCodigo.Enabled = true;
             txtNota.Enabled = true;
             btnAgregar.Enabled = true;
@@ -590,6 +600,8 @@ namespace APP
                     Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
                     Itbis = Convert.ToDecimal(txtItbisFactura.Text),
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
+                    Pago = txtPago.Text,
+                    Devuelta = txtDevuelta.Text,
                 };
                 DataTable Detalle = new DataTable();
                 Detalle.Columns.Add("[idArticulo]", typeof(int));
@@ -759,14 +771,6 @@ namespace APP
             }
             txtPago.Text  = pago.ToString("N2");
             txtDevuelta.Text = (pago - Convert.ToDecimal(txtTotalFactura.Text)).ToString("N2");
-        }
-
-        private void txtPago_Enter(object sender, EventArgs e)
-        {
-            //if (!string.IsNullOrEmpty(txtPago.Text))
-            //{
-            //    txtPago.SelectAll();
-            //}
         }
 
         private void txtPago_Click(object sender, EventArgs e)

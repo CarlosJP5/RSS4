@@ -24,5 +24,7 @@ namespace Entidades.EReportes
         public DateTime FechaVencimiento { get; set; }
         public string NombreComprobante { get; set; }
         public DateTime FechaVenceCredito { get; set; }
+        public string Pago { get; set; }
+        public string Devuelta { get; set; }
     }
 }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -64,6 +64,10 @@
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelBot = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtDevuelta = new System.Windows.Forms.TextBox();
+            this.txtPago = new System.Windows.Forms.TextBox();
             this.cboImprecion = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -103,10 +107,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.linkCodigo = new System.Windows.Forms.LinkLabel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtDevuelta = new System.Windows.Forms.TextBox();
-            this.txtPago = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -460,6 +460,47 @@
             this.panelBot.Size = new System.Drawing.Size(780, 328);
             this.panelBot.TabIndex = 0;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(429, 297);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 13);
+            this.label13.TabIndex = 38;
+            this.label13.Text = "Devuelta:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(447, 276);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 13);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "Pago:";
+            // 
+            // txtDevuelta
+            // 
+            this.txtDevuelta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtDevuelta.Location = new System.Drawing.Point(488, 294);
+            this.txtDevuelta.Name = "txtDevuelta";
+            this.txtDevuelta.ReadOnly = true;
+            this.txtDevuelta.Size = new System.Drawing.Size(100, 20);
+            this.txtDevuelta.TabIndex = 36;
+            this.txtDevuelta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPago
+            // 
+            this.txtPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtPago.Location = new System.Drawing.Point(488, 273);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(100, 20);
+            this.txtPago.TabIndex = 35;
+            this.txtPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPago.Click += new System.EventHandler(this.txtPago_Click);
+            this.txtPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPago_KeyDown);
+            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Column1_KeyPress);
+            this.txtPago.Validating += new System.ComponentModel.CancelEventHandler(this.txtPago_Validating);
+            // 
             // cboImprecion
             // 
             this.cboImprecion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -724,18 +765,18 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle49.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
             this.Column5.Width = 60;
             // 
             // Column6
             // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle50.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -744,25 +785,25 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle51.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle52.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column8.HeaderText = "Importe";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            dataGridViewCellStyle53.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle5.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column9.HeaderText = "costo";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -805,8 +846,8 @@
             // 
             // Column15
             // 
-            dataGridViewCellStyle54.NullValue = "0";
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle6.NullValue = "0";
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column15.HeaderText = "minimo";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
@@ -861,48 +902,6 @@
             this.txtCodigo.Size = new System.Drawing.Size(135, 20);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(429, 297);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 38;
-            this.label13.Text = "Devuelta:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(447, 276);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 13);
-            this.label15.TabIndex = 37;
-            this.label15.Text = "Pago:";
-            // 
-            // txtDevuelta
-            // 
-            this.txtDevuelta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtDevuelta.Location = new System.Drawing.Point(488, 294);
-            this.txtDevuelta.Name = "txtDevuelta";
-            this.txtDevuelta.ReadOnly = true;
-            this.txtDevuelta.Size = new System.Drawing.Size(100, 20);
-            this.txtDevuelta.TabIndex = 36;
-            this.txtDevuelta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtPago
-            // 
-            this.txtPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtPago.Location = new System.Drawing.Point(488, 273);
-            this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(100, 20);
-            this.txtPago.TabIndex = 35;
-            this.txtPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPago.Click += new System.EventHandler(this.txtPago_Click);
-            this.txtPago.Enter += new System.EventHandler(this.txtPago_Enter);
-            this.txtPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPago_KeyDown);
-            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Column1_KeyPress);
-            this.txtPago.Validating += new System.ComponentModel.CancelEventHandler(this.txtPago_Validating);
             // 
             // FrmFacturacion
             // 
