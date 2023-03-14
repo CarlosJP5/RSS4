@@ -477,7 +477,7 @@
   <Width>8.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.22792in</Height>
+      <Height>2.53in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1265,7 +1265,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>1.9in</Top>
+          <Top>2.15in</Top>
           <Left>0.3in</Left>
           <Height>0.2in</Height>
           <Width>1in</Width>
@@ -1305,7 +1305,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>1.9in</Top>
+          <Top>2.15in</Top>
           <Left>1.3in</Left>
           <Height>0.2in</Height>
           <Width>2.9in</Width>
@@ -1347,7 +1347,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>1.9in</Top>
+          <Top>2.15in</Top>
           <Left>4.2in</Left>
           <Height>0.2in</Height>
           <Width>0.7in</Width>
@@ -1389,7 +1389,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>1.9in</Top>
+          <Top>2.15in</Top>
           <Left>4.9in</Left>
           <Height>0.2in</Height>
           <Width>0.9in</Width>
@@ -1431,7 +1431,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>1.9in</Top>
+          <Top>2.15in</Top>
           <Left>5.8in</Left>
           <Height>0.2in</Height>
           <Width>1in</Width>
@@ -1473,7 +1473,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>1.9in</Top>
+          <Top>2.15in</Top>
           <Left>6.8in</Left>
           <Height>0.2in</Height>
           <Width>1in</Width>
@@ -1492,6 +1492,68 @@
               <Style>Solid</Style>
               <Width>0.5pt</Width>
             </BottomBorder>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="DireccionCliente">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!DireccionCliente.Value, "Factura")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>DireccionCliente</rd:DefaultName>
+          <Top>1.8in</Top>
+          <Left>0.9in</Left>
+          <Height>0.2in</Height>
+          <Width>5.5in</Width>
+          <ZIndex>30</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox13">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Direcc:</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.8in</Top>
+          <Left>0.3in</Left>
+          <Height>0.2in</Height>
+          <Width>0.6in</Width>
+          <ZIndex>31</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
