@@ -152,6 +152,7 @@ namespace APP
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
             this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "Articulos";
+            this.articulosToolStripMenuItem.Visible = false;
             // 
             // detalleArticulosToolStripMenuItem
             // 
@@ -247,19 +248,19 @@ namespace APP
             // detalleClientesToolStripMenuItem
             // 
             this.detalleClientesToolStripMenuItem.Name = "detalleClientesToolStripMenuItem";
-            this.detalleClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detalleClientesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.detalleClientesToolStripMenuItem.Text = "Detalle Clientes";
             this.detalleClientesToolStripMenuItem.Click += new System.EventHandler(this.detalleClientesToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(154, 6);
             // 
             // listadoClientesToolStripMenuItem
             // 
             this.listadoClientesToolStripMenuItem.Name = "listadoClientesToolStripMenuItem";
-            this.listadoClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoClientesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.listadoClientesToolStripMenuItem.Text = "Listado Clientes";
             // 
             // suplidoresToolStripMenuItem
@@ -267,6 +268,7 @@ namespace APP
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
             this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
+            this.suplidoresToolStripMenuItem.Visible = false;
             this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
@@ -277,6 +279,7 @@ namespace APP
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Visible = false;
             // 
             // detalleUsuarioToolStripMenuItem
             // 
@@ -300,6 +303,7 @@ namespace APP
             this.nCFToolStripMenuItem.Name = "nCFToolStripMenuItem";
             this.nCFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nCFToolStripMenuItem.Text = "NCF";
+            this.nCFToolStripMenuItem.Visible = false;
             // 
             // registroComprobantesToolStripMenuItem
             // 
@@ -454,6 +458,7 @@ namespace APP
             this.cxPToolStripMenuItem.Name = "cxPToolStripMenuItem";
             this.cxPToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.cxPToolStripMenuItem.Text = "CxP";
+            this.cxPToolStripMenuItem.Visible = false;
             // 
             // compraToolStripMenuItem
             // 
