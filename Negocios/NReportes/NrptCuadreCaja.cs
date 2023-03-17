@@ -119,6 +119,18 @@ namespace Negocios.NReportes
             {
                 costo = Convert.ToDecimal(data.Rows[0][1]);
             }
+            string query_dev = string.Format(@"SELECT SUM(DD.totalImporte_devolucion) AS IMPORTE, SUM(DD.costo_devolucion * DD.cantidad_devolucion) AS COSTO FROM FacturaDevolucion D
+                                               LEFT JOIN FacturaDevolucionDetalle DD ON D.id_devolucion = DD.id_devolucion
+                                               WHERE D.fecha_devolucion BETWEEN '{0}' AND '{1}'", Desde.Date, Hasta.Date);
+            DataTable data_dev = _factura.Buscar(query_dev);
+            if (decimal.TryParse(data_dev.Rows[0][0].ToString(), out _))
+            {
+                venta -= Convert.ToDecimal(data_dev.Rows[0][0]);
+            }
+            if (decimal.TryParse(data_dev.Rows[0][1].ToString(), out _))
+            {
+                costo -= Convert.ToDecimal(data_dev.Rows[0][1]);
+            }
             decimal ganancia = venta - costo;
             ReporteGanancias.Add(new KeyValuePair<string, decimal>("Venta", (decimal)venta));
             ReporteGanancias.Add(new KeyValuePair<string, decimal>("Costo", (decimal)costo));
