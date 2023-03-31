@@ -1,4 +1,5 @@
 ﻿using APP.Coneccion;
+using APP.Reportes;
 using Entidades;
 using Negocios.NClasses;
 using Negocios.NReportes;
@@ -189,6 +190,15 @@ namespace APP
         private void reciboIngresoServToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmReciboIngresoServicio frm = new FrmReciboIngresoServicio
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
+
+        private void reporteInventarioCostoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptArticuloCosto frm = new rptArticuloCosto
             {
                 MdiParent = this
             };
