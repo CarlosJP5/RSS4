@@ -10,9 +10,10 @@ namespace Negocios.NReportes
         public string Nombre { get; private set; }
         public List<ErptEmpresa> Empresa { get; private set; }
 
+        private readonly DrptEmpresa _empresa = new DrptEmpresa();
+
         public string LlenaEmpresa()
-        {
-            DrptEmpresa _empresa = new DrptEmpresa();
+        {            
             DataTable tableEmpresa = _empresa.Empresa();
             Empresa = new List<ErptEmpresa>();
             ErptEmpresa empresaModel = new ErptEmpresa()
@@ -27,6 +28,16 @@ namespace Negocios.NReportes
             };
             Empresa.Add(empresaModel);
             return tableEmpresa.Rows[0][1].ToString();
+        }
+
+        public DataTable EmpresaDatos()
+        {
+            return _empresa.Empresa();
+        }
+
+        public void FachaActualiza()
+        {
+            _empresa.FachaActualiza();
         }
     }
 }

@@ -174,6 +174,12 @@
     <Compile Include="Coneccion\FrmConexion.Designer.cs">
       <DependentUpon>FrmConexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacturacionAutomatica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturacionAutomatica.Designer.cs">
+      <DependentUpon>FacturacionAutomatica.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Coneccion\FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturacionAutomatica.resx">
+      <DependentUpon>FacturacionAutomatica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>

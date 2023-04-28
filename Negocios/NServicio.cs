@@ -29,6 +29,10 @@ namespace Negocios
         {
             return dservicio.Listar(idfactura);
         }
+        public DataTable ListarAutomatica()
+        {
+            return dservicio.ListarAutomatica();
+        }
 
         public void Editar(EServicio Factura, DataTable Detalle)
         {
@@ -38,6 +42,11 @@ namespace Negocios
         public string Insertar(EServicio Factura, DataTable Detalle)
         {
             return dservicio.Insertar(Factura, Detalle);
+        }
+
+        public string InsertarFacturaAutomatica(string idCliente, DateTime fecha, string descripcion, decimal precio)
+        {
+            return dservicio.InsertarFacturaAutomatica(idCliente, fecha, descripcion, precio);
         }
     }
 }

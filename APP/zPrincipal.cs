@@ -1,7 +1,11 @@
-﻿using APP.Coneccion;
+﻿//using APP.Coneccion;
 using Entidades;
+using Negocios;
+//using Microsoft.Office.Interop.Excel;
 using Negocios.NClasses;
+using Negocios.NReportes;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace APP
@@ -16,10 +20,82 @@ namespace APP
             zConexion.CadenaConexion = setting.GetConnectionString("cn");
         }
 
+        private void HacerFactura(string idCliente)
+        {
+            NClientes cliente = new NClientes();
+            EServicio Factura = new EServicio()
+            {
+                //Fecha = DateTime.Now,
+                //IdCliente = int.Parse(txtIdCliente.Text),
+                //NombreCliente = txtNombre.Text,
+                //Cedula = txtCedula.Text,
+                //Rnc = txtRnc.Text,
+                //IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
+                //TipoCompra = cboTipoCompra.Text,
+                //NombreComprobante = cboTipoComprobante.Text,
+                //Importe = decimal.Parse(txtImporte.Text),
+                //Itbis = decimal.Parse(txtItbis.Text),
+                //Total = decimal.Parse(txtTotal.Text)
+            };
+            //DataTable Detalle = new DataTable();
+            //Detalle.Columns.Add("[descripcion]", typeof(string));
+            //Detalle.Columns.Add("[precio]", typeof(decimal));
+            //for (int i = 0; i < dgvListar.RowCount - 1; i++)
+            //{
+            //    DataRow row = Detalle.NewRow();
+            //    row[0] = Convert.ToString(dgvListar.Rows[i].Cells[0].Value);
+            //    row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
+            //    Detalle.Rows.Add(row);
+            //}
+
+            // Insertar
+            //DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
+            //if (ListaComprobante.Rows.Count > 0)
+            //{
+            //    DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
+            //    if (date > Factura.Fecha)
+            //    {
+            //        int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
+            //        Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+            //        Factura.FechaVencimiento = date;
+            //    }
+            //    else
+            //    {
+            //        _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
+            //        _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        return;
+            //    }
+            //}
+            //else
+            //{
+            //    _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+        }
+
         private void zPrincipal_Load(object sender, EventArgs e)
         {
             //FrmLogin frm = new FrmLogin();
             //frm.ShowDialog();
+            NServicio nservicio = new NServicio();
+            NrptEmpresa _empresa = new NrptEmpresa();
+            DataTable dt = _empresa.EmpresaDatos();
+            DataTable ListadeFacturar = nservicio.ListarAutomatica();
+            DateTime Fecha = DateTime.Parse(dt.Rows[0][7].ToString());
+            while (Fecha <= DateTime.Today)
+            {
+                foreach (DataRow dr in ListadeFacturar.Rows)
+                {
+                    DateTime fechafactura = DateTime.Parse(dr[2].ToString());
+                    if (fechafactura.Day == Fecha.Day)
+                    {
+                        MessageBox.Show("Hacer Factua");
+                    }
+                }
+                Fecha = Fecha.AddDays(1);
+                _empresa.FachaActualiza();
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,6 +257,15 @@ namespace APP
         private void reciboIngresoServToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmReciboIngresoServicio frm = new FrmReciboIngresoServicio
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
+
+        private void facturaAutomaticaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FacturacionAutomatica frm = new FacturacionAutomatica
             {
                 MdiParent = this
             };

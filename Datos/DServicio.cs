@@ -110,6 +110,30 @@ namespace Datos
                 }
             }
         }
+        public DataTable ListarAutomatica()
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[automatica_listar]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public async void Editar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())
@@ -166,6 +190,31 @@ namespace Datos
                     cmd.Parameters.Add("@idCotizacion", SqlDbType.NVarChar).Value = Factura.IdCotizacion;
                     cmd.Parameters.Add("@tipoCompra", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    try
+                    {
+                        return (string)cmd.ExecuteScalar();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public string InsertarFacturaAutomatica(string idCliente, DateTime fecha, string descripcion, decimal precio)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[automatica_insertar]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idcliente", SqlDbType.Int).Value = idCliente;
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = fecha;
+                    cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = descripcion;
+                    cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = precio;
                     try
                     {
                         return (string)cmd.ExecuteScalar();
