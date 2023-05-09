@@ -1,4 +1,3 @@
-﻿//using APP.Coneccion;
 using Entidades;
 using Negocios;
 //using Microsoft.Office.Interop.Excel;
