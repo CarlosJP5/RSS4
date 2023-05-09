@@ -70,5 +70,14 @@ namespace APP
             txtPrecio.Text = "";
             dtpFecha.Value = DateTime.Now;
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarFacturaAutomatica frm = new FrmBuscarFacturaAutomatica();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

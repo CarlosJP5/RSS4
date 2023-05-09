@@ -68,5 +68,6 @@ select FA.id_factura_automatica, FA.id_cliente, FA.fecha_factura_automatica,
 FA.descripcion_factura_automatica, FA.precio_factura_automatica, c.nombre_cliente
 from FacturaAutomatica FA
 left join Clientes C ON FA.id_cliente = C.id_cliente
+order by C.nombre_cliente
 end
 go

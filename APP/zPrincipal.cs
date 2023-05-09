@@ -1,6 +1,6 @@
+﻿using APP.Coneccion;
 using Entidades;
 using Negocios;
-//using Microsoft.Office.Interop.Excel;
 using Negocios.NClasses;
 using Negocios.NReportes;
 using System;
@@ -19,59 +19,61 @@ namespace APP
             zConexion.CadenaConexion = setting.GetConnectionString("cn");
         }
 
-        private void HacerFactura(string idCliente)
+        private void HacerFactura(string idCliente, DateTime fechaFactura, string precio, string descripcion)
         {
+            NComprobantes _comprobante = new NComprobantes();
             NClientes cliente = new NClientes();
+            DataTable clienteDatos = cliente.BuscarId(idCliente);
             EServicio Factura = new EServicio()
             {
-                //Fecha = DateTime.Now,
-                //IdCliente = int.Parse(txtIdCliente.Text),
-                //NombreCliente = txtNombre.Text,
-                //Cedula = txtCedula.Text,
-                //Rnc = txtRnc.Text,
-                //IdComprobante = cboTipoComprobante.SelectedValue.ToString(),
-                //TipoCompra = cboTipoCompra.Text,
-                //NombreComprobante = cboTipoComprobante.Text,
-                //Importe = decimal.Parse(txtImporte.Text),
-                //Itbis = decimal.Parse(txtItbis.Text),
-                //Total = decimal.Parse(txtTotal.Text)
+                Fecha = fechaFactura,
+                IdCliente = int.Parse(idCliente),
+                NombreCliente = clienteDatos.Rows[0][2].ToString(),
+                Cedula = clienteDatos.Rows[0][3].ToString(),
+                Rnc = clienteDatos.Rows[0][4].ToString(),
+                IdComprobante = clienteDatos.Rows[0][1].ToString(),
+                TipoCompra = "CREDITO",
+                NombreComprobante = "Factura de Consumo",
+                Importe = decimal.Parse(precio),
+                Itbis = 0M,
+                Total = decimal.Parse(precio)
             };
-            //DataTable Detalle = new DataTable();
-            //Detalle.Columns.Add("[descripcion]", typeof(string));
-            //Detalle.Columns.Add("[precio]", typeof(decimal));
-            //for (int i = 0; i < dgvListar.RowCount - 1; i++)
-            //{
-            //    DataRow row = Detalle.NewRow();
-            //    row[0] = Convert.ToString(dgvListar.Rows[i].Cells[0].Value);
-            //    row[1] = Convert.ToDecimal(dgvListar.Rows[i].Cells[1].Value);
-            //    Detalle.Rows.Add(row);
-            //}
+            DataTable Detalle = new DataTable();
+            Detalle.Columns.Add("[descripcion]", typeof(string));
+            Detalle.Columns.Add("[precio]", typeof(decimal));
+
+            DataRow row = Detalle.NewRow();
+            row[0] = descripcion;
+            row[1] = Convert.ToDecimal(precio);
+            Detalle.Rows.Add(row);
 
             // Insertar
-            //DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
-            //if (ListaComprobante.Rows.Count > 0)
-            //{
-            //    DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
-            //    if (date > Factura.Fecha)
-            //    {
-            //        int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
-            //        Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
-            //        Factura.FechaVencimiento = date;
-            //    }
-            //    else
-            //    {
-            //        _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
-            //        _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
-            //}
-            //else
-            //{
-            //    _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-            //idFacuraServicio = nservicio.Insertar(Factura, Detalle);
+            DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
+            if (ListaComprobante.Rows.Count > 0)
+            {
+                DateTime date = DateTime.Parse(ListaComprobante.Rows[0][5].ToString());
+                if (date > Factura.Fecha)
+                {
+                    int numeroComprobante = Convert.ToInt32(ListaComprobante.Rows[0][4].ToString());
+                    Factura.Ncf = Factura.IdComprobante + numeroComprobante.ToString("D8");
+                    Factura.FechaVencimiento = date;
+                }
+                else
+                {
+                    _comprobante.Deshabilitar(ListaComprobante.Rows[0][0].ToString());
+                    _ = MessageBox.Show("La Fecha del Comprobante se ha Vendido\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else
+            {
+                _ = MessageBox.Show("No hay Comprobantes Disponibles\nDebe Solicitar mas comprobantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            _ = nservicio.Insertar(Factura, Detalle);
         }
+
+        private readonly NServicio nservicio = new NServicio();
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
@@ -82,17 +84,20 @@ namespace APP
             DataTable dt = _empresa.EmpresaDatos();
             DataTable ListadeFacturar = nservicio.ListarAutomatica();
             DateTime Fecha = DateTime.Parse(dt.Rows[0][7].ToString());
-            while (Fecha <= DateTime.Today)
+            if (Fecha < DateTime.Today)
             {
-                foreach (DataRow dr in ListadeFacturar.Rows)
+                while (Fecha <= DateTime.Today)
                 {
-                    DateTime fechafactura = DateTime.Parse(dr[2].ToString());
-                    if (fechafactura.Day == Fecha.Day)
+                    foreach (DataRow dr in ListadeFacturar.Rows)
                     {
-                        MessageBox.Show("Hacer Factua");
+                        DateTime fechafactura = DateTime.Parse(dr[2].ToString());
+                        if (fechafactura.Day == Fecha.Day)
+                        {
+                            HacerFactura(dr[1].ToString(), fechafactura, dr[4].ToString(), dr[3].ToString());
+                        }
                     }
+                    Fecha = Fecha.AddDays(1);
                 }
-                Fecha = Fecha.AddDays(1);
                 _empresa.FachaActualiza();
             }
         }
