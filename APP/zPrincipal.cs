@@ -21,6 +21,7 @@ namespace APP
 
         private void HacerFactura(string idCliente, DateTime fechaFactura, string precio, string descripcion)
         {
+            NServicio nservicio = new NServicio();
             NComprobantes _comprobante = new NComprobantes();
             NClientes cliente = new NClientes();
             DataTable clienteDatos = cliente.BuscarId(idCliente);
@@ -73,7 +74,6 @@ namespace APP
             _ = nservicio.Insertar(Factura, Detalle);
         }
 
-        private readonly NServicio nservicio = new NServicio();
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {

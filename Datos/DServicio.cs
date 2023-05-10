@@ -167,7 +167,7 @@ namespace Datos
         }
         public string Insertar(EServicio Factura, DataTable Detalle)
         {
-            using (var conn = GetConnection())
+            using (SqlConnection conn = GetConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
