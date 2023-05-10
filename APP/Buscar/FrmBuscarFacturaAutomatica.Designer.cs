@@ -34,17 +34,17 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.linkCliente = new System.Windows.Forms.LinkLabel();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.linkCliente = new System.Windows.Forms.LinkLabel();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -131,56 +131,6 @@
             this.dgvListar.Size = new System.Drawing.Size(579, 221);
             this.dgvListar.TabIndex = 5;
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.linkCliente);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Controls.Add(this.txtCodigo);
-            this.panel2.Controls.Add(this.txtNombre);
-            this.panel2.Location = new System.Drawing.Point(11, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(579, 45);
-            this.panel2.TabIndex = 4;
-            // 
-            // linkCliente
-            // 
-            this.linkCliente.AutoSize = true;
-            this.linkCliente.Location = new System.Drawing.Point(68, 14);
-            this.linkCliente.Name = "linkCliente";
-            this.linkCliente.Size = new System.Drawing.Size(39, 13);
-            this.linkCliente.TabIndex = 0;
-            this.linkCliente.TabStop = true;
-            this.linkCliente.Text = "Cliente";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(395, 8);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtCodigo.Location = new System.Drawing.Point(113, 11);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(50, 20);
-            this.txtCodigo.TabIndex = 1;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtNombre.Location = new System.Drawing.Point(169, 11);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(220, 20);
-            this.txtNombre.TabIndex = 2;
-            // 
             // Column0
             // 
             this.Column0.HeaderText = "idFacturaAutomatica";
@@ -222,6 +172,58 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 80;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.linkCliente);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Controls.Add(this.txtCodigo);
+            this.panel2.Controls.Add(this.txtNombre);
+            this.panel2.Location = new System.Drawing.Point(11, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(579, 45);
+            this.panel2.TabIndex = 4;
+            // 
+            // linkCliente
+            // 
+            this.linkCliente.AutoSize = true;
+            this.linkCliente.Location = new System.Drawing.Point(68, 14);
+            this.linkCliente.Name = "linkCliente";
+            this.linkCliente.Size = new System.Drawing.Size(39, 13);
+            this.linkCliente.TabIndex = 0;
+            this.linkCliente.TabStop = true;
+            this.linkCliente.Text = "Cliente";
+            this.linkCliente.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCliente_LinkClicked);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
+            this.btnBuscar.Location = new System.Drawing.Point(395, 8);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
+            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCodigo.Location = new System.Drawing.Point(113, 11);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(50, 20);
+            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNombre.Location = new System.Drawing.Point(169, 11);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(220, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // FrmBuscarFacturaAutomatica
             // 
