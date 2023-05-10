@@ -134,6 +134,28 @@ namespace Datos
                 }
             }
         }
+        public void CancelarFacturaAutomatica(string idFactura)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[automatica_cancelar]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFactura", SqlDbType.Int).Value = idFactura;
+                    try
+                    {
+                        _ = cmd.ExecuteScalar();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public async void Editar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())
@@ -157,6 +179,32 @@ namespace Datos
                     try
                     {
                         _ = await cmd.ExecuteScalarAsync();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public void EditarFacturaAutomatica(string idFactura, string idCliente, DateTime fecha, string descripcion, decimal precio)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[automatica_editar]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFactura", SqlDbType.Int).Value = idFactura;
+                    cmd.Parameters.Add("@idcliente", SqlDbType.Int).Value = idCliente;
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = fecha;
+                    cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = descripcion;
+                    cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = precio;
+                    try
+                    {
+                        _ = cmd.ExecuteScalar();
                     }
                     catch (Exception)
                     {

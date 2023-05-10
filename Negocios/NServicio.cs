@@ -34,9 +34,19 @@ namespace Negocios
             return dservicio.ListarAutomatica();
         }
 
+        public void CancelarFacturaAutomatica(string idFactura)
+        {
+            dservicio.CancelarFacturaAutomatica(idFactura);
+        }
+
         public void Editar(EServicio Factura, DataTable Detalle)
         {
             dservicio.Editar(Factura, Detalle);
+        }
+
+        public void EditarFacturaAutomatica(string idFactura, string idCliente, DateTime fecha, string descripcion, decimal precio)
+        {
+            dservicio.EditarFacturaAutomatica(idFactura, idCliente, fecha, descripcion, precio);
         }
 
         public string Insertar(EServicio Factura, DataTable Detalle)

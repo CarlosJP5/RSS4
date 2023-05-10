@@ -105,5 +105,40 @@ namespace APP.Buscar
                 }
             }
         }
+
+        private void dgvListar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (dgvListar.Rows.Count > 0)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    dgvListar.CurrentRow.Selected = true;
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                    DialogResult = DialogResult.OK;
+                }
+            }
+        }
+
+        private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvListar.Rows.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (dgvListar.Rows.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }

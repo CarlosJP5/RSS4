@@ -71,3 +71,28 @@ left join Clientes C ON FA.id_cliente = C.id_cliente
 order by C.nombre_cliente
 end
 go
+
+create proc [dbo].[automatica_editar]
+@idFactura int,
+@idcliente int,
+@fecha date, 
+@descripcion nvarchar(50),
+@precio decimal(18,2)
+as
+begin
+set nocount on
+update FacturaAutomatica set id_cliente = @idcliente,
+fecha_factura_automatica = @fecha, descripcion_factura_automatica = @descripcion,
+precio_factura_automatica = @precio
+where id_factura_automatica = @idFactura
+end
+go
+
+create proc [dbo].[automatica_cancelar]
+@idFactura int
+as
+begin
+set nocount on
+delete FacturaAutomatica where id_factura_automatica = @idFactura
+end
+go
