@@ -186,5 +186,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void reporteDeCxCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEstadoDeCuenta frm = new FrmEstadoDeCuenta
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

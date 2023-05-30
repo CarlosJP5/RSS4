@@ -87,7 +87,7 @@ namespace APP
                 for (int i = 0; i < balance.Rows.Count; i++)
                 {
                     DateTime d1 = DateTime.Parse(balance.Rows[i][8].ToString());
-                    _ = dgvListar.Rows.Add(balance.Rows[i][1], balance.Rows[i][17], d1.ToString("dd/MM/yyyy"),
+                    _ = dgvListar.Rows.Add(balance.Rows[i][1], balance.Rows[i][18], d1.ToString("dd/MM/yyyy"),
                         (d2 - d1.Date).Days.ToString("N0"), balance.Rows[i][14], balance.Rows[i][3], "", "", "");
                 }
             }

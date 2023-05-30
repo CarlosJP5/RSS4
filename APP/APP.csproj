@@ -240,6 +240,12 @@
     <Compile Include="FrmCuadreCaja.Designer.cs">
       <DependentUpon>FrmCuadreCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEstadoDeCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEstadoDeCuenta.Designer.cs">
+      <DependentUpon>FrmEstadoDeCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,12 @@
     </Compile>
     <Compile Include="Reportes\rptCotizacion.Designer.cs">
       <DependentUpon>rptCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\rptEstadoDeCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptEstadoDeCuenta.Designer.cs">
+      <DependentUpon>rptEstadoDeCuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\rptFactura.cs">
       <SubType>Form</SubType>
@@ -453,6 +465,9 @@
     <EmbeddedResource Include="FrmCuadreCaja.resx">
       <DependentUpon>FrmCuadreCaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadoDeCuenta.resx">
+      <DependentUpon>FrmEstadoDeCuenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -501,6 +516,10 @@
       <DependentUpon>rptCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptCuadreCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\rptEstadoDeCuenta.rdlc" />
+    <EmbeddedResource Include="Reportes\rptEstadoDeCuenta.resx">
+      <DependentUpon>rptEstadoDeCuenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptFactura.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.resx">
       <DependentUpon>rptFactura.cs</DependentUpon>
@@ -535,10 +554,12 @@
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entidades.ECliente.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacion.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacionDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCuadreCaja.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEmpresa.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptEstadoCuenta.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFactura.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicio.datasource" />
