@@ -32,14 +32,26 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.erptEstadoCuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eClienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erptEstadoCuentaBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // erptEmpresaBindingSource
+            // 
+            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
+            // 
+            // eClienteBindingSource
+            // 
+            this.eClienteBindingSource.DataSource = typeof(Entidades.ECliente);
+            // 
+            // erptEstadoCuentaBindingSource
+            // 
+            this.erptEstadoCuentaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEstadoCuenta);
             // 
             // reportViewer1
             // 
@@ -57,27 +69,15 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.Size = new System.Drawing.Size(905, 450);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // erptEmpresaBindingSource
-            // 
-            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
-            // 
-            // eClienteBindingSource
-            // 
-            this.eClienteBindingSource.DataSource = typeof(Entidades.ECliente);
-            // 
-            // erptEstadoCuentaBindingSource
-            // 
-            this.erptEstadoCuentaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEstadoCuenta);
             // 
             // rptEstadoDeCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(905, 450);
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

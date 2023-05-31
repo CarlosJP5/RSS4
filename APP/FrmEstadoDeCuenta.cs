@@ -1,7 +1,9 @@
 ﻿using APP.Buscar;
+using APP.Reportes;
 using Negocios;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace APP
@@ -81,14 +83,64 @@ namespace APP
             detalle.Columns.Add("fecha", typeof(DateTime));
             detalle.Columns.Add("dias", typeof(int));
             detalle.Columns.Add("balance", typeof(double));
+            detalle.Columns.Add("total", typeof(double));
             for (int i = 0; i < dgvListar.RowCount; i++)
             {
                 DataRow row = detalle.NewRow();
                 row[0] = dgvListar.Rows[i].Cells[0].Value.ToString();
                 row[1] = dgvListar.Rows[i].Cells[1].Value.ToString();
-                row[2]  = dgvListar.Rows[i].Cells[2].Value.ToString();
-                row[3] = dgvListar.Rows[i].Cells[3].Value.ToString();
-                row[4] = dgvListar.Rows[i].Cells[4].Value.ToString();
+                row[2] = DateTime.ParseExact(dgvListar.Rows[i].Cells[2].Value.ToString().Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                row[3] = Convert.ToInt16(dgvListar.Rows[i].Cells[3].Value);
+                row[4] = Convert.ToDouble(dgvListar.Rows[i].Cells[4].Value);
+                row[5] = Convert.ToDouble(txtTotal.Text);
+                detalle.Rows.Add(row);
+            }
+            rptEstadoDeCuenta frm = new rptEstadoDeCuenta(detalle, txtIdCliente.Text);
+            _ = frm.ShowDialog();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult msj = MessageBox.Show("Desea Salir", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (msj == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void txtIdCliente_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIdCliente.Text))
+            {
+                DataTable cliente = _cliente.BuscarId(txtIdCliente.Text);
+                if (cliente.Rows.Count > 0)
+                {
+                    txtNombre.Text = cliente.Rows[0][2].ToString();
+                    LlenarDGV(txtIdCliente.Text);
+                }
+                else
+                {
+                    txtNombre.Text = null;
+                }
+
+            }
+        }
+
+        private void txtIdCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                _ = dgvListar.Focus();
+            }
+        }
+
+        private void txtIdCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
