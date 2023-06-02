@@ -121,7 +121,8 @@ namespace Negocios.NReportes
             }
             string query_dev = string.Format(@"SELECT SUM(DD.totalImporte_devolucion) AS IMPORTE, SUM(DD.costo_devolucion * DD.cantidad_devolucion) AS COSTO FROM FacturaDevolucion D
                                                LEFT JOIN FacturaDevolucionDetalle DD ON D.id_devolucion = DD.id_devolucion
-                                               WHERE D.fecha_devolucion BETWEEN '{0}' AND '{1}'", Desde.Date, Hasta.Date);
+                                               WHERE D.fecha_devolucion BETWEEN '{0}' AND '{1}'
+                                               AND F.tipoCompra_factura = 'CONTADO'", Desde.Date, Hasta.Date);
             DataTable data_dev = _factura.Buscar(query_dev);
             if (decimal.TryParse(data_dev.Rows[0][0].ToString(), out _))
             {
