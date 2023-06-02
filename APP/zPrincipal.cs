@@ -186,5 +186,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void reporteInvCostoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArticulosReporteCosto frm = new FrmArticulosReporteCosto
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

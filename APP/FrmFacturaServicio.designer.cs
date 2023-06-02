@@ -33,6 +33,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboTipoCompra = new System.Windows.Forms.ComboBox();
             this.cboImprecion = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCotizacion = new System.Windows.Forms.TextBox();
@@ -72,8 +74,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cboTipoCompra = new System.Windows.Forms.ComboBox();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -145,6 +145,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(474, 472);
             this.panel1.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 13);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Tipo:";
+            // 
+            // cboTipoCompra
+            // 
+            this.cboTipoCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboTipoCompra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTipoCompra.FormattingEnabled = true;
+            this.cboTipoCompra.Items.AddRange(new object[] {
+            "CONTADO",
+            "CREDITO"});
+            this.cboTipoCompra.Location = new System.Drawing.Point(69, 90);
+            this.cboTipoCompra.Name = "cboTipoCompra";
+            this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
+            this.cboTipoCompra.TabIndex = 38;
             // 
             // cboImprecion
             // 
@@ -546,6 +569,7 @@
             this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
             this.txtIdCliente.TabIndex = 1;
             this.txtIdCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCliente_KeyDown);
+            this.txtIdCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdCliente_KeyPress);
             this.txtIdCliente.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCliente_Validating);
             // 
             // label2
@@ -556,29 +580,6 @@
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 93);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
-            this.label13.TabIndex = 37;
-            this.label13.Text = "Tipo:";
-            // 
-            // cboTipoCompra
-            // 
-            this.cboTipoCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cboTipoCompra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboTipoCompra.FormattingEnabled = true;
-            this.cboTipoCompra.Items.AddRange(new object[] {
-            "CONTADO",
-            "CREDITO"});
-            this.cboTipoCompra.Location = new System.Drawing.Point(69, 90);
-            this.cboTipoCompra.Name = "cboTipoCompra";
-            this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
-            this.cboTipoCompra.TabIndex = 38;
             // 
             // FrmFacturaServicio
             // 

@@ -204,6 +204,12 @@
     <Compile Include="FrmArticulosMarcas.Designer.cs">
       <DependentUpon>FrmArticulosMarcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmArticulosReporteCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticulosReporteCosto.Designer.cs">
+      <DependentUpon>FrmArticulosReporteCosto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\LocalReportExtensions.cs" />
+    <Compile Include="Reportes\rptArticulosReporteCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptArticulosReporteCosto.Designer.cs">
+      <DependentUpon>rptArticulosReporteCosto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptCotizacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,6 +447,9 @@
     <EmbeddedResource Include="FrmArticulosMarcas.resx">
       <DependentUpon>FrmArticulosMarcas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmArticulosReporteCosto.resx">
+      <DependentUpon>FrmArticulosReporteCosto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +511,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptArticulosReporteCosto.rdlc" />
+    <EmbeddedResource Include="Reportes\rptArticulosReporteCosto.resx">
+      <DependentUpon>rptArticulosReporteCosto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptCotizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rptCotizacion.resx">
       <DependentUpon>rptCotizacion.cs</DependentUpon>
