@@ -3,6 +3,7 @@ using Entidades;
 using Negocios;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace APP
@@ -216,7 +217,8 @@ namespace APP
                         IdFactura = Convert.ToInt32(txtIdFactura.Text),
                         IdCliente = Convert.ToInt32(txtIdCliente.Text),
                         IdComprobante = "B04",
-                        Fecha = DateTime.Now,
+                        //txtFechaFactura.Text = D2.ToString("dd / MM / yyyy - hh:mm tt");
+                        Fecha = DateTime.ParseExact(txtFechaFactura.Text, "dd / MM / yyyy - hh:mm tt", CultureInfo.InvariantCulture),
                         TipoCompra = txtTipoFactura.Text,
                         Importe = Convert.ToDecimal(txtImporteFactura.Text),
                         Descuento = Convert.ToDecimal(txtDescuentoFactura.Text),
