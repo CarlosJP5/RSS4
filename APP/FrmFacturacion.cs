@@ -438,6 +438,11 @@ namespace APP
                         {
                             frm.Close();
                         }
+                        rptFactura frm1 = new rptFactura(IdFactura.ToString());
+                        if (frm1.ShowDialog() == DialogResult.OK)
+                        {
+                            frm1.Close();
+                        }
                     }
                     else
                     {
@@ -445,6 +450,11 @@ namespace APP
                         if (frm.ShowDialog() == DialogResult.OK)
                         {
                             frm.Close();
+                        }
+                        rptFacturaA4 frm1 = new rptFacturaA4(IdFactura.ToString());
+                        if (frm1.ShowDialog() == DialogResult.OK)
+                        {
+                            frm1.Close();
                         }
                     }
                        
