@@ -107,7 +107,8 @@ namespace Negocios.NReportes
             ReporteGanancias = new List<KeyValuePair<string, decimal>>();
 
             string query = string.Format(@"SELECT SUM(FD.importe_factura - (FD.importe_factura * FD.descuento_factura / 100)) AS Precio, SUM(FD.costo_factura * FD.cantidad_factura) AS Costo FROM Factura F LEFT JOIN FacturaDetalle FD ON F.id_factura = FD.id_factura
-                                           WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'", Desde, Hasta);
+                                           WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'
+                                           AND F.tipoCompra_factura = 'CONTADO'", Desde, Hasta);
             DataTable data = _factura.Buscar(query);
             decimal venta = 0m;
             if (decimal.TryParse(data.Rows[0][0].ToString(), out _))
@@ -122,7 +123,7 @@ namespace Negocios.NReportes
             string query_dev = string.Format(@"SELECT SUM(DD.totalImporte_devolucion) AS IMPORTE, SUM(DD.costo_devolucion * DD.cantidad_devolucion) AS COSTO FROM FacturaDevolucion D
                                                LEFT JOIN FacturaDevolucionDetalle DD ON D.id_devolucion = DD.id_devolucion
                                                WHERE D.fecha_devolucion BETWEEN '{0}' AND '{1}'
-                                               AND F.tipoCompra_factura = 'CONTADO'", Desde.Date, Hasta.Date);
+                                               ", Desde.Date, Hasta.Date);
             DataTable data_dev = _factura.Buscar(query_dev);
             if (decimal.TryParse(data_dev.Rows[0][0].ToString(), out _))
             {
