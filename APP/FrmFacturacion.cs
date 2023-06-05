@@ -1,6 +1,7 @@
 ﻿using APP.Buscar;
 using APP.Reportes;
 using Entidades;
+using Entidades.EClases;
 using Microsoft.Reporting.WinForms;
 using Negocios;
 using Negocios.NReportes;
@@ -253,6 +254,7 @@ namespace APP
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            EParametro.BuscaArticulo = txtCodigo.Text;
             DataTable dataArt = _articulo.BuscarCodigo(txtCodigo.Text);
             if (dataArt.Rows.Count > 0)
             {
@@ -271,6 +273,30 @@ namespace APP
                     _ = MessageBox.Show("Articulo desactivado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
+                }
+            }
+            else
+            {
+                FrmBuscarArticulos frm = new FrmBuscarArticulos();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    dataArt = _articulo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
+                    if ((bool)dataArt.Rows[0][12])
+                    {
+                        _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
+                            dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
+                            dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
+                            dataArt.Rows[0][10], dataArt.Rows[0][17]);
+                        CalculaTotal();
+                        txtCodigo.Text = null;
+                        _ = txtCodigo.Focus();
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("Articulo desactivado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtCodigo.Text = null;
+                        _ = txtCodigo.Focus();
+                    }
                 }
             }
         }
