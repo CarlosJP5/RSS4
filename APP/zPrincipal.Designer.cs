@@ -49,6 +49,7 @@ namespace APP
             this.ventaDelArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioVsPrecioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioVsCostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteInventarioCostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detalleClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,7 +90,6 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteInventarioCostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -152,7 +152,7 @@ namespace APP
             this.reportesToolStripMenuItem,
             this.reporteInventarioCostoToolStripMenuItem});
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.articulosToolStripMenuItem.Text = "Articulos";
             // 
             // detalleArticulosToolStripMenuItem
@@ -215,26 +215,33 @@ namespace APP
             // listadoDeArticulosToolStripMenuItem
             // 
             this.listadoDeArticulosToolStripMenuItem.Name = "listadoDeArticulosToolStripMenuItem";
-            this.listadoDeArticulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoDeArticulosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.listadoDeArticulosToolStripMenuItem.Text = "Listado de Articulos";
             // 
             // ventaDelArticuloToolStripMenuItem
             // 
             this.ventaDelArticuloToolStripMenuItem.Name = "ventaDelArticuloToolStripMenuItem";
-            this.ventaDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ventaDelArticuloToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.ventaDelArticuloToolStripMenuItem.Text = "Venta del Articulo";
             // 
             // inventarioVsPrecioToolStripMenuItem
             // 
             this.inventarioVsPrecioToolStripMenuItem.Name = "inventarioVsPrecioToolStripMenuItem";
-            this.inventarioVsPrecioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inventarioVsPrecioToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.inventarioVsPrecioToolStripMenuItem.Text = "Inventario vs Precio";
             // 
             // inventarioVsCostoToolStripMenuItem
             // 
             this.inventarioVsCostoToolStripMenuItem.Name = "inventarioVsCostoToolStripMenuItem";
-            this.inventarioVsCostoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inventarioVsCostoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.inventarioVsCostoToolStripMenuItem.Text = "Inventario vs Costo";
+            // 
+            // reporteInventarioCostoToolStripMenuItem
+            // 
+            this.reporteInventarioCostoToolStripMenuItem.Name = "reporteInventarioCostoToolStripMenuItem";
+            this.reporteInventarioCostoToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.reporteInventarioCostoToolStripMenuItem.Text = "Reporte Inventario Costo";
+            this.reporteInventarioCostoToolStripMenuItem.Click += new System.EventHandler(this.reporteInventarioCostoToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -243,7 +250,7 @@ namespace APP
             this.toolStripSeparator3,
             this.listadoClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // detalleClientesToolStripMenuItem
@@ -263,11 +270,12 @@ namespace APP
             this.listadoClientesToolStripMenuItem.Name = "listadoClientesToolStripMenuItem";
             this.listadoClientesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.listadoClientesToolStripMenuItem.Text = "Listado Clientes";
+            this.listadoClientesToolStripMenuItem.Visible = false;
             // 
             // suplidoresToolStripMenuItem
             // 
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
@@ -277,7 +285,7 @@ namespace APP
             this.detalleUsuarioToolStripMenuItem,
             this.permisoUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // detalleUsuarioToolStripMenuItem
@@ -300,7 +308,7 @@ namespace APP
             this.registroComprobantesToolStripMenuItem,
             this.reporteVentas607ToolStripMenuItem});
             this.nCFToolStripMenuItem.Name = "nCFToolStripMenuItem";
-            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.nCFToolStripMenuItem.Text = "NCF";
             // 
             // registroComprobantesToolStripMenuItem
@@ -519,6 +527,7 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesiónToolStripMenuItem.Visible = false;
             // 
             // toolStripMenuItem2
             // 
@@ -530,17 +539,10 @@ namespace APP
             // 
             this.salirToolStripMenuItem.Image = global::APP.Properties.Resources.Salir_16;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.salirToolStripMenuItem.Text = "Salir del Sistema";
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // reporteInventarioCostoToolStripMenuItem
-            // 
-            this.reporteInventarioCostoToolStripMenuItem.Name = "reporteInventarioCostoToolStripMenuItem";
-            this.reporteInventarioCostoToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.reporteInventarioCostoToolStripMenuItem.Text = "Reporte Inventario Costo";
-            this.reporteInventarioCostoToolStripMenuItem.Click += new System.EventHandler(this.reporteInventarioCostoToolStripMenuItem_Click);
             // 
             // zPrincipal
             // 

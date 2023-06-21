@@ -114,24 +114,8 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                if (string.IsNullOrEmpty(txtNombre.Text))
-                {
-                    errorCodigo.SetError(linkCodigo, "No Existe el articulo");
-                    _ = txtCodigo.Focus();
-                    return;
-                }
-                else
-                {
-                    errorCodigo.Clear();
-                    dgvListar.Rows.Add(txtIdArticulo.Text, txtCodigo.Text, txtNombre.Text, cboAj.Text,
-                        txtCantidad.Text, txtCosto.Text);
-                    txtCodigo.Text = null;
-                    txtIdArticulo.Text = "";
-                    txtNombre.Text = null;
-                    txtCosto.Text = null;
-                    txtCantidad.Text = null;
-                    _ = txtCodigo.Focus();
-                }
+                e.Handled = true;
+                btnAgregar.PerformClick();
             }
             else if (e.KeyCode == Keys.Left)
             {
@@ -198,6 +182,32 @@ namespace APP
                 MessageBox.Show("No hay articulos para Ajustar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorCodigo.SetError(linkCodigo, "No Existe el articulo");
+                _ = txtCodigo.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtCantidad.Text))
+            {
+                _ = MessageBox.Show("No hay cantidad para ajustar", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+                errorCodigo.Clear();
+                dgvListar.Rows.Add(txtIdArticulo.Text, txtCodigo.Text, txtNombre.Text, cboAj.Text,
+                    txtCantidad.Text, txtCosto.Text);
+                txtCodigo.Text = null;
+                txtIdArticulo.Text = "";
+                txtNombre.Text = null;
+                txtCosto.Text = null;
+                txtCantidad.Text = null;
+                _ = txtCodigo.Focus();
+            
         }
     }
 }

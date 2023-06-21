@@ -168,6 +168,7 @@
             this.label13.Size = new System.Drawing.Size(90, 13);
             this.label13.TabIndex = 40;
             this.label13.Text = "Beneficio Minimo:";
+            this.label13.Visible = false;
             // 
             // txtBeneficioMinimo
             // 
@@ -176,8 +177,9 @@
             this.txtBeneficioMinimo.Name = "txtBeneficioMinimo";
             this.txtBeneficioMinimo.Size = new System.Drawing.Size(64, 20);
             this.txtBeneficioMinimo.TabIndex = 39;
-            this.txtBeneficioMinimo.Text = "20.00";
+            this.txtBeneficioMinimo.Text = "1.00";
             this.txtBeneficioMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBeneficioMinimo.Visible = false;
             this.txtBeneficioMinimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficioMinimo_KeyDown);
             this.txtBeneficioMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
