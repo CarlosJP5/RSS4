@@ -67,6 +67,7 @@ namespace APP.Buscar
                                        rowArt[4], rowArt[5], rowArt[6], rowArt[7],
                                        rowArt[8], rowArt[9]);
             }
+            btnBuscar.PerformClick();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
