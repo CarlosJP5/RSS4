@@ -142,7 +142,6 @@ namespace APP
                     if (!btnGuardar.Enabled)
                     {
                         cboTipoCompra.Text = cliente.Rows[0][8].ToString();
-                        cboTipoComprobante.SelectedValue = cliente.Rows[0][1].ToString();
                     }
                     txtDescuento.Text = cliente.Rows[0][10].ToString();
                 }
@@ -155,7 +154,7 @@ namespace APP
                     if (!btnGuardar.Enabled)
                     {
                         cboTipoCompra.SelectedIndex = 0;
-                        cboTipoComprobante.SelectedIndex = 0;
+                        cboTipoComprobante.SelectedIndex = 1;
                     }
                     txtDescuento.Text = "0.00";
                 }
