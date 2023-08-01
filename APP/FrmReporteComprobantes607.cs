@@ -58,44 +58,44 @@ namespace APP
             LlenarDataGrid(detalle);
         }
 
-        private void LlenarDataGrid(System.Data.DataTable detalle)
-        {
-            NrptEmpresa _empresa = new NrptEmpresa();
-            string NombreEmpresa = _empresa.LlenaEmpresa();
-            //double itbis = 0;
-            //double monto = 0;
-            for (int i = 0; i < detalle.Rows.Count; i++)
+            private void LlenarDataGrid(System.Data.DataTable detalle)
             {
-                string Tp = "";
-                string RNC = detalle.Rows[i][0].ToString();
-                string ncfModifica = detalle.Rows[i][9].ToString();
-                if (ncfModifica == "B01" || ncfModifica == "B02")
+                NrptEmpresa _empresa = new NrptEmpresa();
+                string NombreEmpresa = _empresa.LlenaEmpresa();
+                //double itbis = 0;
+                //double monto = 0;
+                for (int i = 0; i < detalle.Rows.Count; i++)
                 {
-                    ncfModifica = "000000000";
+                    string Tp = "";
+                    string RNC = detalle.Rows[i][0].ToString();
+                    string ncfModifica = detalle.Rows[i][9].ToString();
+                    if (ncfModifica == "B01" || ncfModifica == "B02")
+                    {
+                        ncfModifica = "000000000";
+                    }
+                    if (string.IsNullOrEmpty(RNC))
+                    {
+                        RNC = detalle.Rows[i][1].ToString();
+                    }
+                    switch (RNC.Length)
+                    {
+                        case 9:
+                            Tp = "1";
+                            break;
+                        case 11:
+                            Tp = "2";
+                            break;
+                        default:
+                            Tp = "";
+                            break;
+                    }
+                    string fecha = DateTime.Parse(detalle.Rows[i][3].ToString()).ToString("dd / MM / yyyy");
+                    //itbis += Convert.ToDouble(detalle.Rows[i][4]);
+                    //monto += Convert.ToDouble(detalle.Rows[i][5]);
+                    _ = dgvListar.Rows.Add(RNC, Tp, detalle.Rows[i][2], fecha, detalle.Rows[i][4], detalle.Rows[i][5],
+                        detalle.Rows[i][6], i + 1, detalle.Rows[i][7], detalle.Rows[i][4], detalle.Rows[i][5], NombreEmpresa, ncfModifica);
                 }
-                if (string.IsNullOrEmpty(RNC))
-                {
-                    RNC = detalle.Rows[i][1].ToString();
-                }
-                switch (RNC.Length)
-                {
-                    case 9:
-                        Tp = "1";
-                        break;
-                    case 11:
-                        Tp = "2";
-                        break;
-                    default:
-                        Tp = "";
-                        break;
-                }
-                string fecha = DateTime.Parse(detalle.Rows[i][3].ToString()).ToString("dd / MM / yyyy");
-                //itbis += Convert.ToDouble(detalle.Rows[i][4]);
-                //monto += Convert.ToDouble(detalle.Rows[i][5]);
-                _ = dgvListar.Rows.Add(RNC, Tp, detalle.Rows[i][2], fecha, detalle.Rows[i][4], detalle.Rows[i][5],
-                    detalle.Rows[i][6], i + 1, detalle.Rows[i][7], detalle.Rows[i][4], detalle.Rows[i][5], NombreEmpresa, ncfModifica);
             }
-        }
 
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
