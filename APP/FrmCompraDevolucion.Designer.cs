@@ -52,6 +52,22 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnBuscarCompra = new System.Windows.Forms.Button();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtTotalCompra = new System.Windows.Forms.TextBox();
+            this.txtItbisCompra = new System.Windows.Forms.TextBox();
+            this.txtDescuentoCompra = new System.Windows.Forms.TextBox();
+            this.txtImporteCompra = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.errorSuplidor = new System.Windows.Forms.ErrorProvider(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,22 +87,6 @@
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtTotalCompra = new System.Windows.Forms.TextBox();
-            this.txtItbisCompra = new System.Windows.Forms.TextBox();
-            this.txtDescuentoCompra = new System.Windows.Forms.TextBox();
-            this.txtImporteCompra = new System.Windows.Forms.TextBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.errorSuplidor = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -107,7 +107,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(781, 28);
@@ -272,161 +272,6 @@
             this.dgvListar.TabIndex = 3;
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IdArticulo";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Codigo";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Nombre";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 245;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column4.HeaderText = "ITB";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            this.Column4.Width = 30;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column5.HeaderText = "Cant.";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 75;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column6.HeaderText = "Desc.";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 55;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column7.HeaderText = "Costo";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 90;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column8.HeaderText = "Importe";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "ITB%";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            this.Column9.Width = 35;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "CostoFinal";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Precio";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Beneficio";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "TotalImporte";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "TotalDescuento";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Visible = false;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "TotalItbis";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            // 
-            // Column16
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column16.HeaderText = "";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 10;
-            // 
-            // Column17
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.Column17.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column17.HeaderText = "Dev.";
-            this.Column17.Name = "Column17";
-            this.Column17.Width = 75;
-            // 
-            // Column18
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.Column18.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column18.HeaderText = "Importe";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.Width = 90;
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "cantidadTotal";
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.Visible = false;
             // 
             // label19
             // 
@@ -595,6 +440,161 @@
             // 
             this.errorSuplidor.ContainerControl = this;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IdArticulo";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Codigo";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Nombre";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 245;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column4.HeaderText = "ITB";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            this.Column4.Width = 30;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column5.HeaderText = "Cant.";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 75;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column6.HeaderText = "Desc.";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 55;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column7.HeaderText = "Costo";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 90;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column8.HeaderText = "Importe";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "ITB%";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            this.Column9.Width = 35;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "CostoFinal";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Precio";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Beneficio";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "TotalImporte";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "TotalDescuento";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "TotalItbis";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            // 
+            // Column16
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column16.HeaderText = "";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 10;
+            // 
+            // Column17
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.Column17.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column17.HeaderText = "Dev.";
+            this.Column17.Name = "Column17";
+            this.Column17.Width = 75;
+            // 
+            // Column18
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            this.Column18.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Column18.HeaderText = "Importe";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Width = 90;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "cantidadTotal";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Visible = false;
+            // 
             // FrmCompraDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +652,22 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblIdCompra;
         private System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtTotalCompra;
+        private System.Windows.Forms.TextBox txtItbisCompra;
+        private System.Windows.Forms.TextBox txtDescuentoCompra;
+        private System.Windows.Forms.TextBox txtImporteCompra;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ErrorProvider errorSuplidor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -670,22 +686,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtTotalCompra;
-        private System.Windows.Forms.TextBox txtItbisCompra;
-        private System.Windows.Forms.TextBox txtDescuentoCompra;
-        private System.Windows.Forms.TextBox txtImporteCompra;
-        private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ErrorProvider errorSuplidor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
     }
 }

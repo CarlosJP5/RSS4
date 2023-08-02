@@ -815,48 +815,48 @@ namespace APP
 
         private void txtNCF_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!ckbComprobante.Checked)
-            {
-                if (string.IsNullOrEmpty(txtNCF.Text))
-                {
-                    errorNcf.SetError(txtNCF, "Comprobante Invalido");
-                    txtNCF.AllowDrop = true;
-                    return;
-                }
-                string ncf = txtNCF.Text.Substring(0, 3);
-                string numero = txtNCF.Text.Substring(3);
-                if (ncf != "B01" && ncf != "B02")
-                {
-                    errorNcf.SetError(txtNCF, "Comprobante Invalido");
-                    txtNCF.AllowDrop = true;
-                }
-                else
-                {
-                    if (numero.Length == 8)
-                    {
-                        if (!int.TryParse(numero, out _))
-                        {
-                            errorNcf.SetError(txtNCF, "Comprobante Invalido");
-                            txtNCF.AllowDrop = true;
-                        }
-                        else
-                        {
-                            errorNcf.Clear();
-                            txtNCF.AllowDrop = false;
-                        }
-                    }
-                    else
-                    {
-                        errorNcf.SetError(txtNCF, "Comprobante Invalido");
-                        txtNCF.AllowDrop = true;
-                    }
-                }
-            }
-            else
-            {
-                errorNcf.Clear();
-                txtNCF.AllowDrop = false;
-            }
+            //if (!ckbComprobante.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(txtNCF.Text))
+            //    {
+            //        errorNcf.SetError(txtNCF, "Comprobante Invalido");
+            //        txtNCF.AllowDrop = true;
+            //        return;
+            //    }
+            //    string ncf = txtNCF.Text.Substring(0, 3);
+            //    string numero = txtNCF.Text.Substring(3);
+            //    if (ncf != "B01" && ncf != "B02")
+            //    {
+            //        errorNcf.SetError(txtNCF, "Comprobante Invalido");
+            //        txtNCF.AllowDrop = true;
+            //    }
+            //    else
+            //    {
+            //        if (numero.Length == 8)
+            //        {
+            //            if (!int.TryParse(numero, out _))
+            //            {
+            //                errorNcf.SetError(txtNCF, "Comprobante Invalido");
+            //                txtNCF.AllowDrop = true;
+            //            }
+            //            else
+            //            {
+            //                errorNcf.Clear();
+            //                txtNCF.AllowDrop = false;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            errorNcf.SetError(txtNCF, "Comprobante Invalido");
+            //            txtNCF.AllowDrop = true;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    errorNcf.Clear();
+            //    txtNCF.AllowDrop = false;
+            //}
         }
 
         private void txtCantidad_Enter(object sender, EventArgs e)

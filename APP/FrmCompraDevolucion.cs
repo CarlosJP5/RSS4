@@ -2,13 +2,7 @@
 using Entidades;
 using Negocios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP
@@ -83,6 +77,13 @@ namespace APP
                                     dgvListar.Rows[i].Cells[4].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[4].Value) - Convert.ToDecimal(Select.Rows[x][1].ToString());
                                 }
                             }
+                        }
+                    }
+                    if ((DateTime.Today - dtpFecha.Value).Days >= 30)
+                    {
+                        for (int i = 0; i < dgvListar.RowCount; i++)
+                        {
+                            dgvListar.Rows[i].Cells[14].Value = 0;
                         }
                     }
                 }

@@ -96,7 +96,7 @@ namespace APP
                 {
                     dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
                         facturaTable.Rows[i][18], facturaTable.Rows[i][20], facturaTable.Rows[i][21],
-                        facturaTable.Rows[i][22], "", "", "", facturaTable.Rows[i][25]);
+                        facturaTable.Rows[i][22], "", "", "", facturaTable.Rows[i][25], facturaTable.Rows[i][24]);
                 }
                 for (int y = 0; y < CargarDev.Rows.Count; y++)
                 {
@@ -254,6 +254,7 @@ namespace APP
                         Detalle.Columns.Add("[totalimporte]", typeof(decimal));
                         Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
                         Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                        Detalle.Columns.Add("[costo]", typeof(decimal));
                         for (int i = 0; i < dgvListar.RowCount; i++)
                         {
                             if (double.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _))
@@ -265,6 +266,7 @@ namespace APP
                                 row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
                                 row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                                 row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                                row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
                                 Detalle.Rows.Add(row);
                             }
                         }
@@ -353,6 +355,7 @@ namespace APP
                         Detalle.Columns.Add("[totalimporte]", typeof(decimal));
                         Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
                         Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                        Detalle.Columns.Add("[costo]", typeof(decimal));
                         for (int i = 0; i < dgvListar.RowCount; i++)
                         {
                             if (double.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _))
@@ -364,6 +367,7 @@ namespace APP
                                 row[3] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
                                 row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                                 row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                                row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
                                 Detalle.Rows.Add(row);
                             }
                         }
