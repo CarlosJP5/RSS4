@@ -20,15 +20,15 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            NrptEmpresa lic = new NrptEmpresa();
-            DateTime lisencia = lic.lisencia();
-            if (lisencia < DateTime.Now)
-            {
-                MessageBox.Show("Licencia del programa vencida");
-                return;
-            }
-            FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();
+            //NrptEmpresa lic = new NrptEmpresa();
+            //DateTime lisencia = lic.lisencia();
+            //if (lisencia < DateTime.Now)
+            //{
+            //    MessageBox.Show("Licencia del programa vencida");
+            //    return;
+            //}
+            //FrmLogin frm = new FrmLogin();
+            //frm.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
