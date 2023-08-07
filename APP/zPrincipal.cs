@@ -204,5 +204,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void permisoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarioPermiso frm = new FrmUsuarioPermiso
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

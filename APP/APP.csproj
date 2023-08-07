@@ -306,6 +306,12 @@
     <Compile Include="FrmSuplidores.Designer.cs">
       <DependentUpon>FrmSuplidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUsuarioPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioPermiso.Designer.cs">
+      <DependentUpon>FrmUsuarioPermiso.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSuplidores.resx">
       <DependentUpon>FrmSuplidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarioPermiso.resx">
+      <DependentUpon>FrmUsuarioPermiso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
