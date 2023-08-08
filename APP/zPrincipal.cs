@@ -1,9 +1,11 @@
 ﻿using APP.Coneccion;
 using APP.Reportes;
 using Entidades;
+using Negocios;
 using Negocios.NClasses;
 using Negocios.NReportes;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace APP
@@ -28,7 +30,40 @@ namespace APP
                 return;
             }
             FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                NUsuario nUsuario = new NUsuario();
+                DataTable usuarioPermiso = nUsuario.ListaPermisos((int)frm.usuario.Rows[0][0]);
+                datosToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][1];
+                articulosToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][2];
+                detalleArticulosToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][3];
+                marcasToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][4];
+                ajusteInventarioToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][5];
+                cambiarCodigoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][6];
+                itbisDelArticuloToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][7];
+                reporteInventarioCostoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][8];
+                clientesToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][9];
+                detalleClientesToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][10];
+                suplidoresToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][11];
+                usuariosToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][12];
+                detalleUsuarioToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][13];
+                permisoUsuarioToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][14];
+                nCFToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][15];
+                registroComprobantesToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][16];
+                reporteVentas607ToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][17];
+                facturacionToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][18];
+                facturacionNormalToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][19];
+                devolucionSVentaToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][20];
+                cotizacionesToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][21];
+                cuadreCajaToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][22];
+                cxCToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][23];
+                reciboIngresoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][24];
+                cxPToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][25];
+                compraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][26];
+                devolucionSCompraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][27];
+                reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

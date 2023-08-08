@@ -39,6 +39,10 @@ namespace Negocios
             }
             return table;
         }
+        public DataTable ListaPermisos(int idUsuario)
+        {
+            return dUsuario.ListaPermisos(idUsuario);
+        }
         public string MaxId()
         {
             return dUsuario.MaxId().ToString();

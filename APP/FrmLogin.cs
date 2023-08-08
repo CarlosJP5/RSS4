@@ -7,6 +7,8 @@ namespace APP
 {
     public partial class FrmLogin : Form
     {
+        public DataTable usuario = new DataTable();
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace APP
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            DataTable usuario = nUsuario.Login(txtUsuario.Text);
+            usuario = nUsuario.Login(txtUsuario.Text);
             if (usuario.Rows.Count > 0)
             {
                 if (txtClave.Text == usuario.Rows[0][8].ToString())
