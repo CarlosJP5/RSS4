@@ -207,5 +207,10 @@ namespace APP
                 _ = MessageBox.Show("Debe elegir un Usuario Valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
