@@ -53,6 +53,10 @@ namespace Negocios
             usuario.Clave = pwd;
             dUsuario.Editar(usuario);
         }
+        public async void EditarPermisos(EUsuario usuario)
+        {
+            dUsuario.EditarPermisos(usuario);
+        }
         public void Insertar(EUsuario usuario)
         {
             string pwd = autenticacion.Encriptar(usuario.Clave);
