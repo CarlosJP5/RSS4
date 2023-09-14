@@ -46,6 +46,26 @@ namespace APP
             System.Data.DataTable detalle = _comprobante.Reporte607(query);
             LlenarDataGrid(detalle);
 
+            string querys = @"SELECT C.rnc_cliente, C.cedula_cliente, CD.ncf_comprobante, F.fecha_fservicio,
+                              F.itbis_fservicio, (F.total_fservicio - F.itbis_fservicio) AS Monto, F.id_fservicio_st,
+                              C.nombre_cliente, F.total_fservicio, F.id_comprobante FROM FacturaServicio F
+                              LEFT JOIN ComprobantesDetalle CD ON F.id_fservicio_st = CD.id_documento AND
+                              F.id_comprobante = CD.id_comprobante LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente";
+            querys += string.Format(@" WHERE F.fecha_fservicio BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);
+            switch (cboTipoComprobante.SelectedIndex)
+            {
+                case 1:
+                    querys += " AND F.id_comprobante = 'B01'";
+                    break;
+                case 2:
+                    querys += " AND F.id_comprobante = 'B02'";
+                    break;
+            }
+            querys += " ORDER BY CD.ncf_comprobante";
+            System.Data.DataTable detalles = _comprobante.Reporte607(querys);
+            LlenarDataGrid(detalles);
+
+
             query = @"SELECT C.rnc_cliente, C.cedula_cliente, CD.ncf_comprobante, F.fecha_devolucion,
                     F.itbis_devolucion, (F.total_devolucion - F.itbis_devolucion) AS Monto, F.id_devolucion,
                     C.nombre_cliente, F.total_devolucion, CDD.ncf_comprobante, F.id_comprobante FROM FacturaDevolucion F
