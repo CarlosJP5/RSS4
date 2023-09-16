@@ -74,11 +74,14 @@
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -89,16 +92,16 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(557, 30);
+            this.panelTop.Size = new System.Drawing.Size(563, 30);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(555, 28);
+            this.label1.Size = new System.Drawing.Size(561, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Articulos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,6 +109,8 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.label14);
+            this.panelMid.Controls.Add(this.dataGridView1);
             this.panelMid.Controls.Add(this.label7);
             this.panelMid.Controls.Add(this.label13);
             this.panelMid.Controls.Add(this.txtBeneficioMinimo);
@@ -148,7 +153,7 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(557, 251);
+            this.panelMid.Size = new System.Drawing.Size(563, 521);
             this.panelMid.TabIndex = 1;
             // 
             // label7
@@ -234,7 +239,7 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(394, 212);
+            this.btnSalir.Location = new System.Drawing.Point(411, 333);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 25);
             this.btnSalir.TabIndex = 33;
@@ -247,7 +252,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(298, 212);
+            this.btnBuscar.Location = new System.Drawing.Point(315, 333);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(90, 25);
             this.btnBuscar.TabIndex = 32;
@@ -260,7 +265,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(202, 212);
+            this.btnSalvar.Location = new System.Drawing.Point(219, 333);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(90, 25);
             this.btnSalvar.TabIndex = 31;
@@ -273,7 +278,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(106, 211);
+            this.btnModificar.Location = new System.Drawing.Point(123, 332);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(90, 25);
             this.btnModificar.TabIndex = 30;
@@ -286,7 +291,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(10, 211);
+            this.btnNuevo.Location = new System.Drawing.Point(27, 332);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(90, 25);
             this.btnNuevo.TabIndex = 29;
@@ -596,13 +601,34 @@
             // 
             this.errorItbis.ContainerControl = this;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(294, 201);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 112);
+            this.dataGridView1.TabIndex = 42;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(259, 210);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "IMEI";
+            // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(557, 281);
+            this.ClientSize = new System.Drawing.Size(563, 551);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -617,6 +643,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -668,5 +695,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBeneficioMinimo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

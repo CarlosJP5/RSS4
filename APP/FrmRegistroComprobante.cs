@@ -31,6 +31,7 @@ namespace APP
 
         private void FrmRegistroComprobante_Load(object sender, EventArgs e)
         {
+
             LlenarDataGrid();            
         }
 
