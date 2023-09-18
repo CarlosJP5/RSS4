@@ -204,6 +204,12 @@
     <Compile Include="FrmArticulosMarcas.Designer.cs">
       <DependentUpon>FrmArticulosMarcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBancos.Designer.cs">
+      <DependentUpon>FrmBancos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulosMarcas.resx">
       <DependentUpon>FrmArticulosMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBancos.resx">
+      <DependentUpon>FrmBancos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>

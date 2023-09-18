@@ -296,5 +296,14 @@ namespace APP
                 reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
             }
         }
+
+        private void detToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBancos frm = new FrmBancos
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }
