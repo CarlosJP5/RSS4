@@ -18,7 +18,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "marca_buscarNombre";
+                    cmd.CommandText = "[banco_buscar]";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = Nombre;
                     try
@@ -59,7 +59,7 @@ namespace Datos
                 }
             }
         }
-        public int Insertar(string Nombre)
+        public void Insertar(string Nombre)
         {
             using (var conn = GetConnection())
             {
@@ -72,7 +72,7 @@ namespace Datos
                     cmd.Parameters.Add("@nombre", SqlDbType.NVarChar, 50).Value = Nombre;
                     try
                     {
-                        return (int)cmd.ExecuteScalar();
+                        _ = cmd.ExecuteNonQuery();
                     }
                     catch (Exception)
                     {

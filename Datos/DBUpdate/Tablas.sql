@@ -30,3 +30,14 @@ begin
 	where nombre_banco like '%'+ @nombre + '%'
 end
 go
+
+ALTER proc [dbo].[banco_buscar]
+@nombre nvarchar(50)
+as
+begin
+	set nocount on
+	select id_banco, nombre_banco from Bancos
+	where nombre_banco like '%'+ @nombre + '%'
+	order by nombre_banco
+end
+go
