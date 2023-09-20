@@ -90,15 +90,17 @@ begin
 end
 go
 
-create proc bancoCuenta_buscar
+CREATE proc bancoCuenta_buscar
 @nombre nvarchar(50)
 as
 begin
 	set nocount on
-	select id_banco, id_cnt_banco, nombre_cnt_banco, numero_cnt_banco
-	from BancosCuentas
-	where nombre_cnt_banco like '%' + @nombre + '%'
-	or numero_cnt_banco like '%' + @nombre + '%'
+	select bc.id_cnt_banco, bc.id_banco, b.nombre_banco, bc.nombre_cnt_banco, bc.numero_cnt_banco
+	from BancosCuentas bc
+	left join Bancos b on bc.id_banco = b.id_banco
+	where bc.nombre_cnt_banco like '%' + @nombre + '%'
+	or bc.numero_cnt_banco like '%' + @nombre + '%'
+	or b.nombre_banco like '%' + @nombre + '%'
 	order by nombre_cnt_banco
 end
 go

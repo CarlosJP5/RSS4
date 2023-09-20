@@ -19,5 +19,25 @@ namespace Negocios
         {
             dBancos.Insertar(Nombre);
         }
+        public DataTable BuscarCuentaNombre(string Nombre)
+        {
+            return dBancos.BuscarCuentaNombre(Nombre);
+        }
+        public DataTable BuscarCuentaId(string id)
+        {
+            return dBancos.BuscarCuentaId(id);
+        }
+        public DataTable BuscarId(string id)
+        {
+            return dBancos.BuscarId(id);
+        }
+        public void EditarCuenta(string id, string idBanco, string nombre, string numero)
+        {
+            dBancos.EditarCuenta(id, idBanco, nombre, numero);
+        }
+        public void InsertarCuenta(string idBanco, string nombre, string numero)
+        {
+            dBancos.InsertarCuenta(idBanco, nombre, numero);
+        }
     }
 }

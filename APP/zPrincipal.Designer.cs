@@ -61,6 +61,9 @@ namespace APP
             this.nCFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroComprobantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteVentas607ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentasDeBancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionNormalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturarServicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,9 +93,6 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuentasDeBancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -310,7 +310,7 @@ namespace APP
             // 
             this.detalleUsuarioToolStripMenuItem.Enabled = false;
             this.detalleUsuarioToolStripMenuItem.Name = "detalleUsuarioToolStripMenuItem";
-            this.detalleUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detalleUsuarioToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.detalleUsuarioToolStripMenuItem.Text = "Detalle Usuario";
             this.detalleUsuarioToolStripMenuItem.Click += new System.EventHandler(this.detalleUsuarioToolStripMenuItem_Click);
             // 
@@ -318,7 +318,7 @@ namespace APP
             // 
             this.permisoUsuarioToolStripMenuItem.Enabled = false;
             this.permisoUsuarioToolStripMenuItem.Name = "permisoUsuarioToolStripMenuItem";
-            this.permisoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.permisoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.permisoUsuarioToolStripMenuItem.Text = "Permiso Usuario";
             this.permisoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.permisoUsuarioToolStripMenuItem_Click);
             // 
@@ -347,6 +347,29 @@ namespace APP
             this.reporteVentas607ToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.reporteVentas607ToolStripMenuItem.Text = "Reporte Ventas (607)";
             this.reporteVentas607ToolStripMenuItem.Click += new System.EventHandler(this.reporteVentas607ToolStripMenuItem_Click);
+            // 
+            // bancosToolStripMenuItem
+            // 
+            this.bancosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detToolStripMenuItem,
+            this.cuentasDeBancosToolStripMenuItem});
+            this.bancosToolStripMenuItem.Name = "bancosToolStripMenuItem";
+            this.bancosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bancosToolStripMenuItem.Text = "Bancos";
+            // 
+            // detToolStripMenuItem
+            // 
+            this.detToolStripMenuItem.Name = "detToolStripMenuItem";
+            this.detToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detToolStripMenuItem.Text = "Detalle Bancos";
+            this.detToolStripMenuItem.Click += new System.EventHandler(this.detToolStripMenuItem_Click);
+            // 
+            // cuentasDeBancosToolStripMenuItem
+            // 
+            this.cuentasDeBancosToolStripMenuItem.Name = "cuentasDeBancosToolStripMenuItem";
+            this.cuentasDeBancosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuentasDeBancosToolStripMenuItem.Text = "Cuentas de Bancos";
+            this.cuentasDeBancosToolStripMenuItem.Click += new System.EventHandler(this.cuentasDeBancosToolStripMenuItem_Click);
             // 
             // facturacionToolStripMenuItem
             // 
@@ -585,28 +608,6 @@ namespace APP
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // bancosToolStripMenuItem
-            // 
-            this.bancosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.detToolStripMenuItem,
-            this.cuentasDeBancosToolStripMenuItem});
-            this.bancosToolStripMenuItem.Name = "bancosToolStripMenuItem";
-            this.bancosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.bancosToolStripMenuItem.Text = "Bancos";
-            // 
-            // detToolStripMenuItem
-            // 
-            this.detToolStripMenuItem.Name = "detToolStripMenuItem";
-            this.detToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.detToolStripMenuItem.Text = "Detalle Bancos";
-            this.detToolStripMenuItem.Click += new System.EventHandler(this.detToolStripMenuItem_Click);
-            // 
-            // cuentasDeBancosToolStripMenuItem
-            // 
-            this.cuentasDeBancosToolStripMenuItem.Name = "cuentasDeBancosToolStripMenuItem";
-            this.cuentasDeBancosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cuentasDeBancosToolStripMenuItem.Text = "Cuentas de Bancos";
             // 
             // zPrincipal
             // 

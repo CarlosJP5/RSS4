@@ -28,23 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.idBancoTxt = new System.Windows.Forms.TextBox();
-            this.bancoNombreTxt = new System.Windows.Forms.TextBox();
-            this.cuentaNombreTxt = new System.Windows.Forms.TextBox();
-            this.numeroCuentaTxt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.linkBanco = new System.Windows.Forms.LinkLabel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.linkBanco = new System.Windows.Forms.LinkLabel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numeroCuentaTxt = new System.Windows.Forms.TextBox();
+            this.cuentaNombreTxt = new System.Windows.Forms.TextBox();
+            this.bancoNombreTxt = new System.Windows.Forms.TextBox();
+            this.idBancoTxt = new System.Windows.Forms.TextBox();
+            this.errorBanco = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNumero = new System.Windows.Forms.ErrorProvider(this.components);
+            this.idCuentaLbl = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorBanco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNumero)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -72,6 +80,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.idCuentaLbl);
             this.panel1.Controls.Add(this.linkBanco);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnBuscar);
@@ -90,55 +99,17 @@
             this.panel1.Size = new System.Drawing.Size(435, 141);
             this.panel1.TabIndex = 3;
             // 
-            // idBancoTxt
+            // linkBanco
             // 
-            this.idBancoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.idBancoTxt.Location = new System.Drawing.Point(81, 11);
-            this.idBancoTxt.Name = "idBancoTxt";
-            this.idBancoTxt.Size = new System.Drawing.Size(40, 20);
-            this.idBancoTxt.TabIndex = 0;
-            // 
-            // bancoNombreTxt
-            // 
-            this.bancoNombreTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.bancoNombreTxt.Location = new System.Drawing.Point(127, 11);
-            this.bancoNombreTxt.Name = "bancoNombreTxt";
-            this.bancoNombreTxt.Size = new System.Drawing.Size(150, 20);
-            this.bancoNombreTxt.TabIndex = 1;
-            // 
-            // cuentaNombreTxt
-            // 
-            this.cuentaNombreTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cuentaNombreTxt.Location = new System.Drawing.Point(81, 37);
-            this.cuentaNombreTxt.Name = "cuentaNombreTxt";
-            this.cuentaNombreTxt.Size = new System.Drawing.Size(196, 20);
-            this.cuentaNombreTxt.TabIndex = 2;
-            // 
-            // numeroCuentaTxt
-            // 
-            this.numeroCuentaTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.numeroCuentaTxt.Location = new System.Drawing.Point(81, 63);
-            this.numeroCuentaTxt.Name = "numeroCuentaTxt";
-            this.numeroCuentaTxt.Size = new System.Drawing.Size(100, 20);
-            this.numeroCuentaTxt.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Nombre Cta.";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Numero";
+            this.linkBanco.AutoSize = true;
+            this.linkBanco.Location = new System.Drawing.Point(37, 14);
+            this.linkBanco.Name = "linkBanco";
+            this.linkBanco.Size = new System.Drawing.Size(38, 13);
+            this.linkBanco.TabIndex = 16;
+            this.linkBanco.TabStop = true;
+            this.linkBanco.Text = "Banco";
+            this.linkBanco.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkBanco.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBanco_LinkClicked);
             // 
             // btnSalir
             // 
@@ -163,6 +134,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
@@ -175,6 +147,7 @@
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnModificar
             // 
@@ -199,17 +172,88 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // linkBanco
+            // label4
             // 
-            this.linkBanco.AutoSize = true;
-            this.linkBanco.Location = new System.Drawing.Point(37, 14);
-            this.linkBanco.Name = "linkBanco";
-            this.linkBanco.Size = new System.Drawing.Size(38, 13);
-            this.linkBanco.TabIndex = 16;
-            this.linkBanco.TabStop = true;
-            this.linkBanco.Text = "Banco";
-            this.linkBanco.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Numero";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Nombre Cta.";
+            // 
+            // numeroCuentaTxt
+            // 
+            this.numeroCuentaTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.numeroCuentaTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.numeroCuentaTxt.Location = new System.Drawing.Point(81, 63);
+            this.numeroCuentaTxt.Name = "numeroCuentaTxt";
+            this.numeroCuentaTxt.Size = new System.Drawing.Size(100, 20);
+            this.numeroCuentaTxt.TabIndex = 3;
+            this.numeroCuentaTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numeroCuentaTxt_KeyDown);
+            // 
+            // cuentaNombreTxt
+            // 
+            this.cuentaNombreTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cuentaNombreTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.cuentaNombreTxt.Location = new System.Drawing.Point(81, 37);
+            this.cuentaNombreTxt.Name = "cuentaNombreTxt";
+            this.cuentaNombreTxt.Size = new System.Drawing.Size(196, 20);
+            this.cuentaNombreTxt.TabIndex = 2;
+            this.cuentaNombreTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cuentaNombreTxt_KeyDown);
+            // 
+            // bancoNombreTxt
+            // 
+            this.bancoNombreTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.bancoNombreTxt.Location = new System.Drawing.Point(127, 11);
+            this.bancoNombreTxt.Name = "bancoNombreTxt";
+            this.bancoNombreTxt.ReadOnly = true;
+            this.bancoNombreTxt.Size = new System.Drawing.Size(150, 20);
+            this.bancoNombreTxt.TabIndex = 1;
+            // 
+            // idBancoTxt
+            // 
+            this.idBancoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.idBancoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.idBancoTxt.Location = new System.Drawing.Point(81, 11);
+            this.idBancoTxt.Name = "idBancoTxt";
+            this.idBancoTxt.Size = new System.Drawing.Size(40, 20);
+            this.idBancoTxt.TabIndex = 0;
+            this.idBancoTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.idBancoTxt_KeyDown);
+            this.idBancoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idBancoTxt_KeyPress);
+            this.idBancoTxt.Validating += new System.ComponentModel.CancelEventHandler(this.idBancoTxt_Validating);
+            // 
+            // errorBanco
+            // 
+            this.errorBanco.ContainerControl = this;
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.ContainerControl = this;
+            // 
+            // errorNumero
+            // 
+            this.errorNumero.ContainerControl = this;
+            // 
+            // idCuentaLbl
+            // 
+            this.idCuentaLbl.AutoSize = true;
+            this.idCuentaLbl.Location = new System.Drawing.Point(283, 40);
+            this.idCuentaLbl.Name = "idCuentaLbl";
+            this.idCuentaLbl.Size = new System.Drawing.Size(12, 13);
+            this.idCuentaLbl.TabIndex = 17;
+            this.idCuentaLbl.Text = "x";
+            this.idCuentaLbl.Visible = false;
             // 
             // FrmBancosCuentas
             // 
@@ -228,6 +272,9 @@
             this.panelTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorBanco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNumero)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,5 +296,9 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.LinkLabel linkBanco;
+        private System.Windows.Forms.ErrorProvider errorBanco;
+        private System.Windows.Forms.ErrorProvider errorNombre;
+        private System.Windows.Forms.ErrorProvider errorNumero;
+        private System.Windows.Forms.Label idCuentaLbl;
     }
 }

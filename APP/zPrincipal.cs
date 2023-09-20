@@ -305,5 +305,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void cuentasDeBancosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBancosCuentas frm = new FrmBancosCuentas
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }
