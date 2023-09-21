@@ -71,6 +71,7 @@ namespace APP
             lblItems.Text = "0";
             lblItbisPorciento.Text = "0";
             lblIdArticulo.Text = "0";
+            txtTasa.Text = "1.00";
             errorCantidad.Clear();
             errorNcf.Clear();
             panelDetalle.Visible = false;
@@ -417,11 +418,14 @@ namespace APP
         
         private void CalculaCostoFinal()
         {
+
             decimal costoFinal = 0m;
             decimal costo = 0m;
             decimal descuento = 0m;
             decimal itbis = Convert.ToDecimal(lblItbisPorciento.Text) / 100;
             decimal cantidad = 1m;
+            decimal tasa = 1m; 
+            decimal.TryParse(txtTasa.Text, out tasa);
             if (!string.IsNullOrEmpty(txtCantidad.Text))
             {
                 cantidad = Convert.ToDecimal(txtCantidad.Text);
@@ -468,7 +472,7 @@ namespace APP
                     costoFinal = costo - descuento + itbis;
                     break;
             }
-            
+            costoFinal *= tasa;
             txtCostoFinal.Text = costoFinal.ToString("N2");
             ImporteTotal = cantidad * costo;
             DescuentoTotal = cantidad * descuento;
@@ -877,6 +881,23 @@ namespace APP
         private void btnClose_Click(object sender, EventArgs e)
         {
             panelDetalle.Visible = false;
+        }
+
+        private void txtTasa_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTasa.Text))
+            {
+                txtTasa.Text = "1.00";
+            }
+            decimal tasa;
+            if (decimal.TryParse(txtTasa.Text, out tasa))
+            {
+                if (tasa < 1)
+                {
+                    tasa = 1;
+                }                                    
+            }
+            txtTasa.Text = tasa.ToString("n2");
         }
     }
 }

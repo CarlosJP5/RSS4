@@ -32,6 +32,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.idCuentaLbl = new System.Windows.Forms.Label();
             this.linkBanco = new System.Windows.Forms.LinkLabel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.errorBanco = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNumero = new System.Windows.Forms.ErrorProvider(this.components);
-            this.idCuentaLbl = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorBanco)).BeginInit();
@@ -99,6 +99,16 @@
             this.panel1.Size = new System.Drawing.Size(435, 141);
             this.panel1.TabIndex = 3;
             // 
+            // idCuentaLbl
+            // 
+            this.idCuentaLbl.AutoSize = true;
+            this.idCuentaLbl.Location = new System.Drawing.Point(283, 40);
+            this.idCuentaLbl.Name = "idCuentaLbl";
+            this.idCuentaLbl.Size = new System.Drawing.Size(12, 13);
+            this.idCuentaLbl.TabIndex = 17;
+            this.idCuentaLbl.Text = "x";
+            this.idCuentaLbl.Visible = false;
+            // 
             // linkBanco
             // 
             this.linkBanco.AutoSize = true;
@@ -122,6 +132,7 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscar
             // 
@@ -160,6 +171,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -244,16 +256,6 @@
             // errorNumero
             // 
             this.errorNumero.ContainerControl = this;
-            // 
-            // idCuentaLbl
-            // 
-            this.idCuentaLbl.AutoSize = true;
-            this.idCuentaLbl.Location = new System.Drawing.Point(283, 40);
-            this.idCuentaLbl.Name = "idCuentaLbl";
-            this.idCuentaLbl.Size = new System.Drawing.Size(12, 13);
-            this.idCuentaLbl.TabIndex = 17;
-            this.idCuentaLbl.Text = "x";
-            this.idCuentaLbl.Visible = false;
             // 
             // FrmBancosCuentas
             // 

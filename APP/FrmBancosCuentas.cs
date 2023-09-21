@@ -81,6 +81,12 @@ namespace APP
             cuentaNombreTxt.Text = "";
             numeroCuentaTxt.Text = "";
 
+            linkBanco.Enabled = true;
+            idBancoTxt.Enabled = true;
+            bancoNombreTxt.Enabled = true;
+            cuentaNombreTxt.Enabled = true;
+            numeroCuentaTxt.Enabled = true;
+
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
             btnBuscar.Enabled = true;
@@ -159,7 +165,31 @@ namespace APP
                 bancoNombreTxt.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
                 cuentaNombreTxt.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                 numeroCuentaTxt.Text = frm.dgvListar.SelectedCells[4].Value.ToString();
+
+                linkBanco.Enabled = false;
+                idBancoTxt.Enabled = false;
+                bancoNombreTxt.Enabled = false;
+                cuentaNombreTxt.Enabled = false;
+                numeroCuentaTxt.Enabled = false;
+
+                btnModificar.Enabled = true;
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            linkBanco.Enabled = true;
+            idBancoTxt.Enabled = true;
+            bancoNombreTxt.Enabled = true;
+            cuentaNombreTxt.Enabled = true;
+            numeroCuentaTxt.Enabled = true;
+
+            btnModificar.Enabled = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
