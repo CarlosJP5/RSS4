@@ -47,10 +47,60 @@ namespace APP
                 {
                     for (int i = 0; i < Convert.ToDouble(row[15]); i++)
                     {
-                        _ = dgvListar.Rows.Add(row[11], row[12], row[13], "", row[20], "", row[20], row[21], row[22]);
+                        _ = dgvListar.Rows.Add(row[11], row[12], row[13], "", row[20], "0.00", row[20], row[21], row[22]);
                     }
                 }
             }
+        }
+
+        private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (double.TryParse(dgvListar.CurrentRow.Cells[4].Value.ToString(), out double costo))
+            {
+                dgvListar.CurrentRow.Cells[4].Value = costo;
+            }
+            else
+            {
+                dgvListar.CurrentRow.Cells[4].Value = costo;
+            }
+            if (double.TryParse(dgvListar.CurrentRow.Cells[5].Value.ToString(), out double courier))
+            {
+                dgvListar.CurrentRow.Cells[5].Value = courier;
+            }
+            else
+            {
+                dgvListar.CurrentRow.Cells[5].Value = courier;
+            }
+            double costoFinal = costo + courier;
+            dgvListar.CurrentRow.Cells[6].Value = costoFinal;
+
+            if (double.TryParse(dgvListar.CurrentRow.Cells[7].Value.ToString(), out double precio))
+            {
+                dgvListar.CurrentRow.Cells[7].Value = precio;
+            }
+            else
+            {
+                dgvListar.CurrentRow.Cells[7].Value = precio;
+            }
+
+            double beneficio = 100;
+            if (costoFinal > 0)
+            {
+                beneficio = ((precio - costoFinal) / costoFinal * 100);
+            }
+            dgvListar.CurrentRow.Cells[8].Value = beneficio;
+
+            //decimal precio = Convert.ToDecimal(txtPrecio.Text);
+            //decimal costo = Convert.ToDecimal(txtCostoFinal.Text);
+            //if (costo != 0)
+            //{
+            //    txtBeneficio.Text = ((precio - costo) / costo * 100).ToString("N2");
+            //}
+            //else
+            //{
+            //    txtBeneficio.Text = "100.00";
+            //}
+            //txtPrecio.Text = precio.ToString("N2");
         }
     }
 }

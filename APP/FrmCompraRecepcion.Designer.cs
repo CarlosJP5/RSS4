@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.idCompraTxt = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.suplidorNombreLbl = new System.Windows.Forms.Label();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,12 +54,8 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suplidorNombreLbl = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.idCompraTxt = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -100,136 +100,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(895, 337);
             this.panel1.TabIndex = 2;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(10, 14);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(46, 13);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Compra:";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // idCompraTxt
-            // 
-            this.idCompraTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.idCompraTxt.Location = new System.Drawing.Point(62, 10);
-            this.idCompraTxt.Name = "idCompraTxt";
-            this.idCompraTxt.Size = new System.Drawing.Size(100, 20);
-            this.idCompraTxt.TabIndex = 1;
-            // 
-            // dgvListar
-            // 
-            this.dgvListar.AllowUserToAddRows = false;
-            this.dgvListar.AllowUserToDeleteRows = false;
-            this.dgvListar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column0,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
-            this.dgvListar.Location = new System.Drawing.Point(10, 39);
-            this.dgvListar.Name = "dgvListar";
-            this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.Size = new System.Drawing.Size(861, 237);
-            this.dgvListar.TabIndex = 2;
-            // 
-            // Column0
-            // 
-            this.Column0.HeaderText = "idArticulo";
-            this.Column0.Name = "Column0";
-            this.Column0.Visible = false;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Gainsboro;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column1.HeaderText = "Codigo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "IMEI";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 120;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle10.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column4.HeaderText = "Costo";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 90;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column5.HeaderText = "Courier";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle12.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column6.HeaderText = "Costo Final";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 90;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Column7.HeaderText = "Precio";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 90;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Column8.HeaderText = "Beneficio";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 60;
-            // 
-            // suplidorNombreLbl
-            // 
-            this.suplidorNombreLbl.AutoSize = true;
-            this.suplidorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suplidorNombreLbl.Location = new System.Drawing.Point(180, 11);
-            this.suplidorNombreLbl.Name = "suplidorNombreLbl";
-            this.suplidorNombreLbl.Size = new System.Drawing.Size(57, 16);
-            this.suplidorNombreLbl.TabIndex = 3;
-            this.suplidorNombreLbl.Text = "Suplidro";
             // 
             // btnSalir
             // 
@@ -291,6 +161,137 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // suplidorNombreLbl
+            // 
+            this.suplidorNombreLbl.AutoSize = true;
+            this.suplidorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suplidorNombreLbl.Location = new System.Drawing.Point(180, 11);
+            this.suplidorNombreLbl.Name = "suplidorNombreLbl";
+            this.suplidorNombreLbl.Size = new System.Drawing.Size(57, 16);
+            this.suplidorNombreLbl.TabIndex = 3;
+            this.suplidorNombreLbl.Text = "Suplidro";
+            // 
+            // dgvListar
+            // 
+            this.dgvListar.AllowUserToAddRows = false;
+            this.dgvListar.AllowUserToDeleteRows = false;
+            this.dgvListar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column0,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8});
+            this.dgvListar.Location = new System.Drawing.Point(10, 39);
+            this.dgvListar.Name = "dgvListar";
+            this.dgvListar.RowHeadersVisible = false;
+            this.dgvListar.Size = new System.Drawing.Size(861, 237);
+            this.dgvListar.TabIndex = 2;
+            this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
+            // 
+            // Column0
+            // 
+            this.Column0.HeaderText = "idArticulo";
+            this.Column0.Name = "Column0";
+            this.Column0.Visible = false;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Codigo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "IMEI";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 120;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column4.HeaderText = "Costo";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 90;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column5.HeaderText = "Courier";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column6.HeaderText = "Costo Final";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 90;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column7.HeaderText = "Precio";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 90;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column8.HeaderText = "Beneficio";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 60;
+            // 
+            // idCompraTxt
+            // 
+            this.idCompraTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.idCompraTxt.Location = new System.Drawing.Point(62, 10);
+            this.idCompraTxt.Name = "idCompraTxt";
+            this.idCompraTxt.Size = new System.Drawing.Size(100, 20);
+            this.idCompraTxt.TabIndex = 1;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(10, 14);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(46, 13);
+            this.linkLabel1.TabIndex = 0;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Compra:";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // FrmCompraRecepcion
             // 
