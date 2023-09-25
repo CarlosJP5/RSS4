@@ -314,5 +314,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void recepciónDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompraRecepcion frm = new FrmCompraRecepcion
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }
