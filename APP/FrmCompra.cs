@@ -899,5 +899,14 @@ namespace APP
             }
             txtTasa.Text = tasa.ToString("n2");
         }
+
+        private void txtTasa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = txtCodigo.Focus();
+            }
+        }
     }
 }

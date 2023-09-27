@@ -13,6 +13,8 @@ namespace APP
             InitializeComponent();
         }
 
+        private readonly NComprasRecepcion recepcion = new NComprasRecepcion();
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             NCompras _compra = new NCompras();
@@ -50,6 +52,30 @@ namespace APP
                         _ = dgvListar.Rows.Add(row[11], row[12], row[13], "", row[20], "0.00", row[20], row[21], row[22]);
                     }
                 }
+
+                DataTable insertado = recepcion.Insertada(idCompraTxt.Text);
+                foreach (DataRow dtrow in insertado.Rows)
+                {
+                    for (int i = 0; i < dgvListar.RowCount; i++)
+                    {
+                        if (dtrow[4].ToString() == dgvListar.Rows[i].Cells[0].Value.ToString())
+                        {
+                            dgvListar.Rows.RemoveAt(i);
+                            break;
+                        }
+                    }
+                }
+                if (dgvListar.RowCount == 0)
+                {
+                    MessageBox.Show("Compra recivida completa.", "Inf.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (DataRow row in insertado.Rows)
+                    {
+                        _ = dgvListar.Rows.Add(row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]);
+                    }
+                    dgvListar.ReadOnly = true;
+                    linkLabel1.Enabled = false;
+                }
+                cantidadLbl.Text = dgvListar.RowCount.ToString();
             }
         }
 
@@ -105,9 +131,8 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            NComprasRecepcion recepcion = new NComprasRecepcion();
             DataTable Detalle = new DataTable();
-            Detalle.Columns.Add("[id_articulo]", typeof(string));
+            Detalle.Columns.Add("[id_articulo]", typeof(int));
             Detalle.Columns.Add("[codigo]", typeof(string));
             Detalle.Columns.Add("[nombre]", typeof(string));
             Detalle.Columns.Add("[Imei]", typeof(string));
@@ -122,7 +147,7 @@ namespace APP
                 if (Convert.ToBoolean(row.Cells[9].Value))
                 {
                     DataRow drow = Detalle.NewRow();
-                    drow[0] = Convert.ToString(row.Cells[0].Value);
+                    drow[0] = Convert.ToInt32(row.Cells[0].Value);
                     drow[1] = Convert.ToString(row.Cells[1].Value);
                     drow[2] = Convert.ToString(row.Cells[2].Value);
                     drow[3] = Convert.ToString(row.Cells[3].Value);
@@ -131,7 +156,7 @@ namespace APP
                     drow[6] = Convert.ToDouble(row.Cells[6].Value);
                     drow[7] = Convert.ToDouble(row.Cells[7].Value);
                     drow[8] = Convert.ToDouble(row.Cells[8].Value);
-                    Detalle.Rows.Add(row);
+                    Detalle.Rows.Add(drow);
                 }
             }
 
@@ -168,9 +193,12 @@ namespace APP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            linkLabel1.Enabled = true;
             idCompraTxt.Text = "";
-            suplidorNombreLbl.Text = "";
+            suplidorNombreLbl.Text = "Suplidor";
             dgvListar.Rows.Clear();
+            dgvListar.ReadOnly = false;
+            cantidadLbl.Text = "0";
         }
     }
 }
