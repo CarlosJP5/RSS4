@@ -49,6 +49,7 @@
     <Compile Include="DBancos.cs" />
     <Compile Include="DClientes.cs" />
     <Compile Include="DCompras.cs" />
+    <Compile Include="DComprasRecepcion.cs" />
     <Compile Include="DComprobantes.cs" />
     <Compile Include="DCotizacion.cs" />
     <Compile Include="DCotizacionServicio.cs" />

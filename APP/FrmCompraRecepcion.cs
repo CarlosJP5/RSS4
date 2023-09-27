@@ -105,7 +105,72 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            NComprasRecepcion recepcion = new NComprasRecepcion();
+            DataTable Detalle = new DataTable();
+            Detalle.Columns.Add("[id_articulo]", typeof(string));
+            Detalle.Columns.Add("[codigo]", typeof(string));
+            Detalle.Columns.Add("[nombre]", typeof(string));
+            Detalle.Columns.Add("[Imei]", typeof(string));
+            Detalle.Columns.Add("[costo]", typeof(double));
+            Detalle.Columns.Add("[courier]", typeof(double));
+            Detalle.Columns.Add("[costo_final]", typeof(double));
+            Detalle.Columns.Add("[precio]", typeof(double));
+            Detalle.Columns.Add("[beneficio]", typeof(double));
 
+            foreach (DataGridViewRow row in dgvListar.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[9].Value))
+                {
+                    DataRow drow = Detalle.NewRow();
+                    drow[0] = Convert.ToString(row.Cells[0].Value);
+                    drow[1] = Convert.ToString(row.Cells[1].Value);
+                    drow[2] = Convert.ToString(row.Cells[2].Value);
+                    drow[3] = Convert.ToString(row.Cells[3].Value);
+                    drow[4] = Convert.ToDouble(row.Cells[4].Value);
+                    drow[5] = Convert.ToDouble(row.Cells[5].Value);
+                    drow[6] = Convert.ToDouble(row.Cells[6].Value);
+                    drow[7] = Convert.ToDouble(row.Cells[7].Value);
+                    drow[8] = Convert.ToDouble(row.Cells[8].Value);
+                    Detalle.Rows.Add(row);
+                }
+            }
+
+            recepcion.Insertar(idCompraTxt.Text, Detalle);
+            btnNuevo.PerformClick();
+        }
+
+        private void dgvListar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
+            if (dgvListar.CurrentCell.ColumnIndex == 5 || dgvListar.CurrentCell.ColumnIndex == 7 || dgvListar.CurrentCell.ColumnIndex == 6) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                }
+            }
+        }
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // allowed numeric and one dot  ex. 10.23
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            idCompraTxt.Text = "";
+            suplidorNombreLbl.Text = "";
+            dgvListar.Rows.Clear();
         }
     }
 }
