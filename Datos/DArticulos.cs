@@ -81,6 +81,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable BuscarImei(string imei)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[articulo_imei_buscar]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@imei", SqlDbType.NVarChar).Value = imei;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar()
         {
             using (var conn = GetConnection())
@@ -91,6 +116,31 @@ namespace Datos
                     cmd.Connection = conn;
                     cmd.CommandText = "articulo_listar";
                     cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable ListarImei(string idArticulo)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "articulo_imei_listar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idArticulo", SqlDbType.Int).Value = idArticulo;
                     try
                     {
                         SqlDataReader leer = cmd.ExecuteReader();

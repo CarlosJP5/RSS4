@@ -30,6 +30,15 @@ namespace APP
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void llenarGrid(string idArticulo)
+        {
+            DataTable imeiData = _articulos.ListarImei(idArticulo);
+            foreach (DataRow row in imeiData.Rows)
+            {
+                _ = dgvListar.Rows.Add(row[1]);
+            }
+        }
+
         private readonly NArticulos _articulos = new NArticulos();
         private readonly NMarcas _marca = new NMarcas();
 
@@ -41,6 +50,7 @@ namespace APP
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             ActivaControles();
+            dgvListar.Rows.Clear();
             txtCodigo.Enabled = true;
             txtIdArticulo.Text = null;
             txtCodigo.Text = null;
@@ -195,7 +205,8 @@ namespace APP
                 txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                 txtSuplidor.Text = articulo.Rows[0][16].ToString();
                 txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
-
+                dgvListar.Rows.Clear();
+                llenarGrid(txtIdArticulo.Text);
                 DesactivaControles();
                 btnModificar.Enabled = true;
                 btnSalvar.Enabled = false;
@@ -287,7 +298,8 @@ namespace APP
                     txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                     txtSuplidor.Text = articulo.Rows[0][16].ToString();
                     txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
-
+                    dgvListar.Rows.Clear();
+                    llenarGrid(txtIdArticulo.Text);
                     DesactivaControles();
                     btnModificar.Enabled = true;
                     btnSalvar.Enabled = false;

@@ -220,27 +220,7 @@ namespace APP
 
         private void linkCodigo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmBuscarArticulos frm = new FrmBuscarArticulos();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                DataTable dataArt = _articulo.BuscarId(frm.dgvListar.SelectedCells[0].Value.ToString());
-                if ((bool)dataArt.Rows[0][12])
-                {
-                    _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
-                        dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
-                        dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
-                    CalculaTotal();
-                    txtCodigo.Text = null;
-                    _ = txtCodigo.Focus();
-                }
-                else
-                {
-                    _ = MessageBox.Show("Articulo desactivado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtCodigo.Text = null;
-                    _ = txtCodigo.Focus();
-                }
-            }
+            buscarArticulo();
         }
 
         private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
@@ -248,21 +228,28 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                if (!string.IsNullOrEmpty(txtCodigo.Text))
-                {
-                    btnAgregar.PerformClick();
-                }
-                else
-                {
-                    LinkLabelLinkClickedEventArgs ex = new LinkLabelLinkClickedEventArgs(linkCodigo.Links[0]);
-                    linkCodigo_LinkClicked(sender, ex);
-                }
+                e.Handled = true;
+                btnAgregar.PerformClick();
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void buscarArticulo()
         {
-            DataTable dataArt = _articulo.BuscarCodigo(txtCodigo.Text);
+            FrmBuscarArticulos frm = new FrmBuscarArticulos();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                buscarImei(frm.dgvListar.SelectedCells[1].Value.ToString());
+            }
+            else
+            {
+
+            }
+        }
+
+        private void llenarGrid(string idArticulo = "", string codigoArticulo = "", string imei = "")
+        {
+            DataTable dataArt = _articulo.BuscarId(idArticulo);
             if (dataArt.Rows.Count > 0)
             {
                 if ((bool)dataArt.Rows[0][12])
@@ -270,7 +257,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17], imei);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -282,6 +269,106 @@ namespace APP
                     _ = txtCodigo.Focus();
                 }
             }
+            else
+            {
+                txtCodigo.Text = null;
+                _ = txtCodigo.Focus();
+            }
+        }
+
+        private void buscarImei(string imei)
+        {
+            DataTable articulo = _articulo.BuscarImei(imei);
+            if (articulo.Rows.Count == 1)
+            {
+                llenarGrid(idArticulo: articulo.Rows[0][0].ToString(), imei: imei);
+            }
+            else if (articulo.Rows.Count > 1)
+            {
+                FrmArticuloDialogIMEI frm = new FrmArticuloDialogIMEI(articulo);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    llenarGrid(idArticulo: frm.dgvListar.SelectedCells[0].Value.ToString(),
+                        imei: frm.dgvListar.SelectedCells[1].Value.ToString());
+                }
+                else
+                {
+                    txtCodigo.Text = null;
+                    _ = txtCodigo.Focus();
+                }
+            }
+            else
+            {
+                DataTable dataArt = _articulo.BuscarCodigo(imei);
+                if (dataArt.Rows.Count > 0)
+                {
+                    DataTable imeiData = _articulo.ListarImei(dataArt.Rows[0][0].ToString());
+                    if (imeiData.Rows.Count > 0)
+                    {
+                        FrmArticuloDialogIMEI frm = new FrmArticuloDialogIMEI(imeiData);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            llenarGrid(idArticulo: frm.dgvListar.SelectedCells[0].Value.ToString(),
+                                imei: frm.dgvListar.SelectedCells[1].Value.ToString());
+                        }
+                        else
+                        {
+                            txtCodigo.Text = null;
+                            _ = txtCodigo.Focus();
+                        }
+                    }
+                }
+                else
+                {
+                    buscarArticulo();
+                }
+                
+            }
+            //if (articulo.Rows.Count == 1)
+            //{
+            //    llenarGrid(idArticulo: articulo.Rows[0][0].ToString());
+            //}
+            //else if (articulo.Rows.Count > 1)
+            //{
+            //    FrmArticuloDialogIMEI frm = new FrmArticuloDialogIMEI(articulo);
+            //    if (frm.ShowDialog() == DialogResult.OK)
+            //    {
+            //        llenarGrid(idArticulo: frm.dgvListar.SelectedCells[0].Value.ToString());
+            //    }
+            //    else
+            //    {
+            //        txtCodigo.Text = "";
+            //    }
+            //}
+            //else
+            //{
+            //    llenarGrid(codigoArticulo: imei);
+            //}
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            buscarImei(txtCodigo.Text);
+            //DataTable dataArt = _articulo.BuscarCodigo(txtCodigo.Text);
+            //if (dataArt.Rows.Count > 0)
+            //{
+            //    if ((bool)dataArt.Rows[0][12])
+            //    {
+            //        _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
+            //            dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
+            //            dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
+            //            dataArt.Rows[0][10], dataArt.Rows[0][17]);
+            //        CalculaTotal();
+            //        txtCodigo.Text = null;
+            //        _ = txtCodigo.Focus();
+            //    }
+            //    else
+            //    {
+            //        _ = MessageBox.Show("Articulo desactivado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        txtCodigo.Text = null;
+            //        _ = txtCodigo.Focus();
+            //    }
+            //}
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)

@@ -107,6 +107,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.linkCodigo = new System.Windows.Forms.LinkLabel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -728,7 +729,8 @@
             this.Column12,
             this.Column13,
             this.Column14,
-            this.Column15});
+            this.Column15,
+            this.Column16});
             this.dgvListar.Location = new System.Drawing.Point(9, 40);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
@@ -903,6 +905,11 @@
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "IMEI";
+            this.Column16.Name = "Column16";
+            // 
             // FrmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1005,5 +1012,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtDevuelta;
         private System.Windows.Forms.TextBox txtPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
     }
 }

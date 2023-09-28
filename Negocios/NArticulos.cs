@@ -22,9 +22,17 @@ namespace Negocios
             int Id = Convert.ToInt32(IdArticulo);
             return _articulos.BuscarId(Id);
         }
+        public DataTable BuscarImei(string imei)
+        {
+            return _articulos.BuscarImei(imei);
+        }
         public DataTable Listar()
         {
             return _articulos.Listar();
+        }
+        public DataTable ListarImei(string idArticulo)
+        {
+            return _articulos.ListarImei(idArticulo);
         }
         public DataTable ListaDeCompras()
         {
