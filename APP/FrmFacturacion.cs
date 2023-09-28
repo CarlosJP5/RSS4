@@ -317,6 +317,10 @@ namespace APP
                             _ = txtCodigo.Focus();
                         }
                     }
+                    else
+                    {
+                        llenarGrid(idArticulo: dataArt.Rows[0][0].ToString());
+                    }
                 }
                 else
                 {
@@ -506,6 +510,7 @@ namespace APP
                 Detalle.Columns.Add("[totalimporte]", typeof(decimal));
                 Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
                 Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                Detalle.Columns.Add("[id_iemi]", typeof(string));
                 for (int i = 0; i < dgvListar.RowCount; i++)
                 {
                     DataRow row = Detalle.NewRow();
@@ -518,6 +523,7 @@ namespace APP
                     row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
                     row[7] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                     row[8] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                    row[9] = Convert.ToString(dgvListar.Rows[i].Cells[15].Value);
                     Detalle.Rows.Add(row);
                 }
                 int IdFactura = _facturar.Insertar(Factura, Detalle);
@@ -700,6 +706,7 @@ namespace APP
                 Detalle.Columns.Add("[totalimporte]", typeof(decimal));
                 Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
                 Detalle.Columns.Add("[totalitbis]", typeof(decimal));
+                Detalle.Columns.Add("[id_iemi]", typeof(string));
                 for (int i = 0; i < dgvListar.RowCount; i++)
                 {
                     DataRow row = Detalle.NewRow();
@@ -712,6 +719,7 @@ namespace APP
                     row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[10].Value);
                     row[7] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                     row[8] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
+                    row[9] = Convert.ToString(dgvListar.Rows[i].Cells[15].Value);
                     Detalle.Rows.Add(row);
                 }
                 _facturar.Editar(Factura, Detalle);

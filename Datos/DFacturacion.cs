@@ -220,7 +220,17 @@ namespace Datos
                     cmd.Parameters.Add("@devuelta", SqlDbType.Decimal).Value = Factura.Devuelta;
                     try
                     {
-                        return (int)cmd.ExecuteScalar();
+                        int idfact = (int)cmd.ExecuteScalar();
+                        foreach (DataRow row in Detalle.Rows)
+                        {
+                            if (!string.IsNullOrEmpty(row[9].ToString()))
+                            {
+                                string query = string.Format("delete ArticuloImei where id_articulo = '{0}' and id_imei = '{1}'",
+                                    row[0], row[9]);
+                                _ = Buscar(query);
+                            }
+                        }
+                        return idfact;
                     }
                     catch (Exception)
                     {
