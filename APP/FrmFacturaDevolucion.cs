@@ -96,7 +96,8 @@ namespace APP
                 {
                     dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
                         facturaTable.Rows[i][18], facturaTable.Rows[i][20], facturaTable.Rows[i][21],
-                        facturaTable.Rows[i][22], "", "", "", facturaTable.Rows[i][25], facturaTable.Rows[i][24]);
+                        facturaTable.Rows[i][22], "", "", "", facturaTable.Rows[i][25], facturaTable.Rows[i][24],
+                        facturaTable.Rows[i][27], facturaTable.Rows[i][28], facturaTable.Rows[i][24], facturaTable.Rows[i][33]);
                 }
                 for (int y = 0; y < CargarDev.Rows.Count; y++)
                 {
@@ -255,6 +256,7 @@ namespace APP
                         Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
                         Detalle.Columns.Add("[totalitbis]", typeof(decimal));
                         Detalle.Columns.Add("[costo]", typeof(decimal));
+                        Detalle.Columns.Add("[id_iemi]", typeof(string));
                         for (int i = 0; i < dgvListar.RowCount; i++)
                         {
                             if (double.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _))
@@ -267,6 +269,7 @@ namespace APP
                                 row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                                 row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
                                 row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
+                                row[7] = Convert.ToString(dgvListar.Rows[i].Cells[14].Value);
                                 Detalle.Rows.Add(row);
                             }
                         }
@@ -356,6 +359,7 @@ namespace APP
                         Detalle.Columns.Add("[totaldescuento]", typeof(decimal));
                         Detalle.Columns.Add("[totalitbis]", typeof(decimal));
                         Detalle.Columns.Add("[costo]", typeof(decimal));
+                        Detalle.Columns.Add("[id_iemi]", typeof(string));
                         for (int i = 0; i < dgvListar.RowCount; i++)
                         {
                             if (double.TryParse(dgvListar.Rows[i].Cells[7].Value.ToString(), out _))
@@ -368,6 +372,7 @@ namespace APP
                                 row[4] = Convert.ToDecimal(dgvListar.Rows[i].Cells[11].Value);
                                 row[5] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
                                 row[6] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
+                                row[7] = Convert.ToString(dgvListar.Rows[i].Cells[14].Value);
                                 Detalle.Rows.Add(row);
                             }
                         }

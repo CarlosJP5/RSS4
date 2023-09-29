@@ -602,7 +602,7 @@ namespace APP
                         facturaTable.Rows[i][21], facturaTable.Rows[i][22], facturaTable.Rows[i][23],
                         facturaTable.Rows[i][24], facturaTable.Rows[i][25], facturaTable.Rows[i][26],
                         facturaTable.Rows[i][27], facturaTable.Rows[i][28], facturaTable.Rows[i][29],
-                        facturaTable.Rows[i][30]);
+                        facturaTable.Rows[i][30], facturaTable.Rows[i][33]);
                 }
                 CalculaTotal();
 
@@ -649,6 +649,8 @@ namespace APP
             dgvListar.ReadOnly = false;
         }
 
+        private DataTable imeiDt = new DataTable();
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (_facturar.TieneMovimientos(lblIdFactura.Text))
@@ -662,6 +664,16 @@ namespace APP
                 btnImprimir.Enabled = false;
                 btnBuscar.Enabled = false;
                 btnModificar.Enabled = false;
+                imeiDt = new DataTable();
+                imeiDt.Columns.Add("[idArticulo]", typeof(int));
+                imeiDt.Columns.Add("[id_iemi]", typeof(string));
+                for (int i = 0; i < dgvListar.RowCount; i++)
+                {
+                    DataRow row = imeiDt.NewRow();
+                    row[0] = Convert.ToInt32(dgvListar.Rows[i].Cells[0].Value);
+                    row[1] = Convert.ToString(dgvListar.Rows[i].Cells[15].Value);
+                    imeiDt.Rows.Add(row);
+                }
             }
         }
 
@@ -722,7 +734,7 @@ namespace APP
                     row[9] = Convert.ToString(dgvListar.Rows[i].Cells[15].Value);
                     Detalle.Rows.Add(row);
                 }
-                _facturar.Editar(Factura, Detalle);
+                _facturar.Editar(Factura, Detalle, imeiDt);
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {

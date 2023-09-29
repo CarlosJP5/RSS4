@@ -49,9 +49,9 @@ namespace Negocios
         {
             return _facturar.InsertarDevolucion(Factura, Detalle);
         }
-        public void Editar(EFactura Factura, DataTable Detalle)
+        public void Editar(EFactura Factura, DataTable Detalle, DataTable imeiDt)
         {
-            _facturar.Editar(Factura, Detalle);
+            _facturar.Editar(Factura, Detalle, imeiDt);
         }
     }
 }

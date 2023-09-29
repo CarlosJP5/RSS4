@@ -97,6 +97,7 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -111,7 +112,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(753, 30);
+            this.panelTop.Size = new System.Drawing.Size(859, 30);
             this.panelTop.TabIndex = 0;
             // 
             // label1
@@ -120,7 +121,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(751, 28);
+            this.label1.Size = new System.Drawing.Size(857, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Devolucion Factura";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +166,7 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(753, 420);
+            this.panelMid.Size = new System.Drawing.Size(859, 420);
             this.panelMid.TabIndex = 1;
             // 
             // lblNCF
@@ -242,11 +243,12 @@
             this.Column11,
             this.Column12,
             this.Column13,
-            this.Column14});
+            this.Column14,
+            this.Column15});
             this.dgvListar.Location = new System.Drawing.Point(10, 130);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.Size = new System.Drawing.Size(729, 185);
+            this.dgvListar.Size = new System.Drawing.Size(831, 185);
             this.dgvListar.TabIndex = 48;
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
@@ -672,7 +674,7 @@
             this.Column3.HeaderText = "Nombre";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 250;
+            this.Column3.Width = 230;
             // 
             // Column4
             // 
@@ -765,12 +767,18 @@
             this.Column14.Name = "Column14";
             this.Column14.Visible = false;
             // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "IMEI";
+            this.Column15.Name = "Column15";
+            this.Column15.Width = 120;
+            // 
             // FrmFacturaDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(753, 450);
+            this.ClientSize = new System.Drawing.Size(859, 450);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -853,5 +861,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
     }
 }

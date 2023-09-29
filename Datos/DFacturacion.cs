@@ -272,7 +272,7 @@ namespace Datos
                 }
             }
         }
-        public void Editar(EFactura Factura, DataTable Detalle)
+        public void Editar(EFactura Factura, DataTable Detalle, DataTable imeiDt)
         {
             using (var conn = GetConnection())
             {
@@ -296,6 +296,24 @@ namespace Datos
                     try
                     {
                         _ = cmd.ExecuteNonQuery();
+                        foreach (DataRow row in imeiDt.Rows)
+                        {
+                            if (!string.IsNullOrEmpty(row[1].ToString()))
+                            {
+                                string query = string.Format("insert into ArticuloImei values('{0}','{1}')",
+                                    row[0], row[1]);
+                                _ = Buscar(query);
+                            }
+                        }
+                        foreach (DataRow row in Detalle.Rows)
+                        {
+                            if (!string.IsNullOrEmpty(row[9].ToString()))
+                            {
+                                string query = string.Format("delete ArticuloImei where id_articulo = '{0}' and id_imei = '{1}'",
+                                    row[0], row[9]);
+                                _ = Buscar(query);
+                            }
+                        }
                     }
                     catch (Exception)
                     {
