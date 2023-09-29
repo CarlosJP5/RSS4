@@ -323,5 +323,10 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void registrarMovimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -74,6 +74,7 @@ namespace APP
                     }
                     dgvListar.ReadOnly = true;
                     linkLabel1.Enabled = false;
+                    btnSalvar.Enabled = false;
                 }
                 cantidadLbl.Text = dgvListar.RowCount.ToString();
             }
@@ -131,6 +132,21 @@ namespace APP
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            bool validar = false;
+            foreach (DataGridViewRow row in dgvListar.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[9].Value))
+                {
+                    validar = true;
+                }
+            }
+
+            if (!validar)
+            {
+                _ = MessageBox.Show("No hay articulos marcados para resivir", "Inf.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DataTable Detalle = new DataTable();
             Detalle.Columns.Add("[id_articulo]", typeof(int));
             Detalle.Columns.Add("[codigo]", typeof(string));
@@ -199,6 +215,17 @@ namespace APP
             dgvListar.Rows.Clear();
             dgvListar.ReadOnly = false;
             cantidadLbl.Text = "0";
+            btnSalvar.Enabled = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

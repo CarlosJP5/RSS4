@@ -38,11 +38,15 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cantidadLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.suplidorNombreLbl = new System.Windows.Forms.Label();
+            this.idCompraTxt = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.suplidorNombreLbl = new System.Windows.Forms.Label();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,14 +59,10 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.idCompraTxt = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cantidadLbl = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -106,6 +106,59 @@
             this.panel1.Size = new System.Drawing.Size(921, 329);
             this.panel1.TabIndex = 2;
             // 
+            // cantidadLbl
+            // 
+            this.cantidadLbl.AutoSize = true;
+            this.cantidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cantidadLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.cantidadLbl.Location = new System.Drawing.Point(862, 280);
+            this.cantidadLbl.Name = "cantidadLbl";
+            this.cantidadLbl.Size = new System.Drawing.Size(14, 16);
+            this.cantidadLbl.TabIndex = 42;
+            this.cantidadLbl.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(761, 280);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Cantidad Items:";
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.suplidorNombreLbl);
+            this.panel2.Location = new System.Drawing.Point(138, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(769, 30);
+            this.panel2.TabIndex = 40;
+            // 
+            // suplidorNombreLbl
+            // 
+            this.suplidorNombreLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.suplidorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suplidorNombreLbl.Location = new System.Drawing.Point(0, 0);
+            this.suplidorNombreLbl.Name = "suplidorNombreLbl";
+            this.suplidorNombreLbl.Size = new System.Drawing.Size(767, 28);
+            this.suplidorNombreLbl.TabIndex = 3;
+            this.suplidorNombreLbl.Text = "Suplidor";
+            this.suplidorNombreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // idCompraTxt
+            // 
+            this.idCompraTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idCompraTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.idCompraTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idCompraTxt.Location = new System.Drawing.Point(70, 10);
+            this.idCompraTxt.Name = "idCompraTxt";
+            this.idCompraTxt.Size = new System.Drawing.Size(50, 18);
+            this.idCompraTxt.TabIndex = 39;
+            this.idCompraTxt.Text = " ";
+            // 
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -118,6 +171,7 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscar
             // 
@@ -130,6 +184,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
@@ -156,17 +211,6 @@
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // suplidorNombreLbl
-            // 
-            this.suplidorNombreLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.suplidorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suplidorNombreLbl.Location = new System.Drawing.Point(0, 0);
-            this.suplidorNombreLbl.Name = "suplidorNombreLbl";
-            this.suplidorNombreLbl.Size = new System.Drawing.Size(767, 28);
-            this.suplidorNombreLbl.TabIndex = 3;
-            this.suplidorNombreLbl.Text = "Suplidor";
-            this.suplidorNombreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvListar
             // 
@@ -292,48 +336,6 @@
             this.linkLabel1.Text = "Compra:";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // idCompraTxt
-            // 
-            this.idCompraTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.idCompraTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.idCompraTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idCompraTxt.Location = new System.Drawing.Point(70, 10);
-            this.idCompraTxt.Name = "idCompraTxt";
-            this.idCompraTxt.Size = new System.Drawing.Size(50, 18);
-            this.idCompraTxt.TabIndex = 39;
-            this.idCompraTxt.Text = " ";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.suplidorNombreLbl);
-            this.panel2.Location = new System.Drawing.Point(138, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(769, 30);
-            this.panel2.TabIndex = 40;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(761, 280);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 16);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Cantidad Items:";
-            // 
-            // cantidadLbl
-            // 
-            this.cantidadLbl.AutoSize = true;
-            this.cantidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cantidadLbl.ForeColor = System.Drawing.Color.DarkRed;
-            this.cantidadLbl.Location = new System.Drawing.Point(862, 280);
-            this.cantidadLbl.Name = "cantidadLbl";
-            this.cantidadLbl.Size = new System.Drawing.Size(14, 16);
-            this.cantidadLbl.TabIndex = 42;
-            this.cantidadLbl.Text = "0";
-            // 
             // FrmCompraRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,8 +352,8 @@
             this.panelTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
 
         }

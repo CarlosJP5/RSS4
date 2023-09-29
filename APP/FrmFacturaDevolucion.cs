@@ -48,6 +48,7 @@ namespace APP
 
             txtIdFactura.Enabled = true;
             btnBuscarFactura.Enabled = true;
+            btnSalvar.Enabled = true;
             dgvListar.ReadOnly = false;
 
             btnImprimir.Enabled = false;
