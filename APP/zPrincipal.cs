@@ -326,7 +326,11 @@ namespace APP
 
         private void registrarMovimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmBancosMovimientos frm = new FrmBancosMovimientos
+            {
+                MdiParent = this
+            };
+            frm.Show();
         }
     }
 }
