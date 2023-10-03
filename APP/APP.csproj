@@ -90,6 +90,12 @@
     <Compile Include="Buscar\FrmBuscarBancosCuentas.Designer.cs">
       <DependentUpon>FrmBuscarBancosCuentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\FrmBuscarBancosMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarBancosMovimientos.Designer.cs">
+      <DependentUpon>FrmBuscarBancosMovimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\FrmBuscarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarBancosCuentas.resx">
       <DependentUpon>FrmBuscarBancosCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\FrmBuscarBancosMovimientos.resx">
+      <DependentUpon>FrmBuscarBancosMovimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarClientes.resx">
       <DependentUpon>FrmBuscarClientes.cs</DependentUpon>

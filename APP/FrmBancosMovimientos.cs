@@ -135,5 +135,14 @@ namespace APP
                 _ = detalleTxt.Focus();
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarBancosMovimientos frm = new FrmBuscarBancosMovimientos();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

@@ -31,6 +31,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.idCtnBancoLbl = new System.Windows.Forms.Label();
+            this.idBancoLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.fechaDtp = new System.Windows.Forms.DateTimePicker();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -51,8 +53,6 @@
             this.nombreLbl = new System.Windows.Forms.Label();
             this.numeroCuentaLbl = new System.Windows.Forms.Label();
             this.cuentaLink = new System.Windows.Forms.LinkLabel();
-            this.idBancoLbl = new System.Windows.Forms.Label();
-            this.idCtnBancoLbl = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +110,28 @@
             this.panel1.Size = new System.Drawing.Size(564, 194);
             this.panel1.TabIndex = 4;
             // 
+            // idCtnBancoLbl
+            // 
+            this.idCtnBancoLbl.AutoSize = true;
+            this.idCtnBancoLbl.Location = new System.Drawing.Point(5, 129);
+            this.idCtnBancoLbl.Name = "idCtnBancoLbl";
+            this.idCtnBancoLbl.Size = new System.Drawing.Size(62, 13);
+            this.idCtnBancoLbl.TabIndex = 26;
+            this.idCtnBancoLbl.Text = "idCntBanco";
+            this.idCtnBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.idCtnBancoLbl.Visible = false;
+            // 
+            // idBancoLbl
+            // 
+            this.idBancoLbl.AutoSize = true;
+            this.idBancoLbl.Location = new System.Drawing.Point(5, 112);
+            this.idBancoLbl.Name = "idBancoLbl";
+            this.idBancoLbl.Size = new System.Drawing.Size(46, 13);
+            this.idBancoLbl.TabIndex = 25;
+            this.idBancoLbl.Text = "idBanco";
+            this.idBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.idBancoLbl.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -153,6 +175,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
@@ -323,28 +346,6 @@
             this.cuentaLink.TabStop = true;
             this.cuentaLink.Text = "Cuenta:";
             this.cuentaLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.cuentaLink_LinkClicked);
-            // 
-            // idBancoLbl
-            // 
-            this.idBancoLbl.AutoSize = true;
-            this.idBancoLbl.Location = new System.Drawing.Point(5, 112);
-            this.idBancoLbl.Name = "idBancoLbl";
-            this.idBancoLbl.Size = new System.Drawing.Size(46, 13);
-            this.idBancoLbl.TabIndex = 25;
-            this.idBancoLbl.Text = "idBanco";
-            this.idBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.idBancoLbl.Visible = false;
-            // 
-            // idCtnBancoLbl
-            // 
-            this.idCtnBancoLbl.AutoSize = true;
-            this.idCtnBancoLbl.Location = new System.Drawing.Point(5, 129);
-            this.idCtnBancoLbl.Name = "idCtnBancoLbl";
-            this.idCtnBancoLbl.Size = new System.Drawing.Size(62, 13);
-            this.idCtnBancoLbl.TabIndex = 26;
-            this.idCtnBancoLbl.Text = "idCntBanco";
-            this.idCtnBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.idCtnBancoLbl.Visible = false;
             // 
             // FrmBancosMovimientos
             // 
