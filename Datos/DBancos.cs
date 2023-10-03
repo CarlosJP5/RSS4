@@ -204,5 +204,34 @@ namespace Datos
                 }
             }
         }
+        public void InsertarMovimiento(string idBanco, string idCtnBanco, DateTime fecha, string descripcion, double debito, double credito, double total)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "bancoMovimiento_insertar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idBanco", SqlDbType.Int).Value = idBanco;
+                    cmd.Parameters.Add("@idCtnBanco", SqlDbType.Int).Value = idCtnBanco;
+                    cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = fecha;
+                    cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar, 50).Value = descripcion;
+                    cmd.Parameters.Add("@debito", SqlDbType.Float).Value = debito;
+                    cmd.Parameters.Add("@credito", SqlDbType.Float).Value = credito;
+                    cmd.Parameters.Add("@total", SqlDbType.Float).Value = total;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
     }
 }

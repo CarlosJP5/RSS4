@@ -43,6 +43,7 @@
             this.buscarBtn = new System.Windows.Forms.Button();
             this.nombreTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -122,7 +123,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             this.dgvListar.Location = new System.Drawing.Point(10, 61);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
@@ -210,6 +212,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar";
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "balance";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
             // FrmBuscarBancosCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,5 +260,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         public System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

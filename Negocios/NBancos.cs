@@ -1,4 +1,5 @@
 ﻿using Datos;
+using System;
 using System.Data;
 
 namespace Negocios
@@ -38,6 +39,10 @@ namespace Negocios
         public void InsertarCuenta(string idBanco, string nombre, string numero)
         {
             dBancos.InsertarCuenta(idBanco, nombre, numero);
+        }
+        public void InsertarMovimiento(string idBanco, string idCtnBanco, DateTime fecha, string descripcion, double debito, double credito, double total)
+        {
+            dBancos.InsertarMovimiento(idBanco, idCtnBanco, fecha, descripcion, debito, credito, total);
         }
     }
 }

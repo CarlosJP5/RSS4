@@ -31,6 +31,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fechaDtp = new System.Windows.Forms.DateTimePicker();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -49,6 +51,8 @@
             this.nombreLbl = new System.Windows.Forms.Label();
             this.numeroCuentaLbl = new System.Windows.Forms.Label();
             this.cuentaLink = new System.Windows.Forms.LinkLabel();
+            this.idBancoLbl = new System.Windows.Forms.Label();
+            this.idCtnBancoLbl = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +65,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(574, 30);
+            this.panelTop.Size = new System.Drawing.Size(564, 30);
             this.panelTop.TabIndex = 3;
             // 
             // label1
@@ -70,7 +74,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(572, 28);
+            this.label1.Size = new System.Drawing.Size(562, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrar Transacciones Bancos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,6 +82,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.idCtnBancoLbl);
+            this.panel1.Controls.Add(this.idBancoLbl);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.fechaDtp);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.btnSalvar);
@@ -99,8 +107,27 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(574, 194);
+            this.panel1.Size = new System.Drawing.Size(564, 194);
             this.panel1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(350, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Fecha";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // fechaDtp
+            // 
+            this.fechaDtp.CustomFormat = " dd / MM / yyyy";
+            this.fechaDtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fechaDtp.Location = new System.Drawing.Point(402, 11);
+            this.fechaDtp.Name = "fechaDtp";
+            this.fechaDtp.Size = new System.Drawing.Size(139, 20);
+            this.fechaDtp.TabIndex = 23;
             // 
             // btnSalir
             // 
@@ -138,6 +165,7 @@
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnModificar
             // 
@@ -180,8 +208,9 @@
             this.detalleTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.detalleTxt.Location = new System.Drawing.Point(121, 108);
             this.detalleTxt.Name = "detalleTxt";
-            this.detalleTxt.Size = new System.Drawing.Size(429, 20);
+            this.detalleTxt.Size = new System.Drawing.Size(420, 20);
             this.detalleTxt.TabIndex = 11;
+            this.detalleTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detalleTxt_KeyDown);
             // 
             // montoTxt
             // 
@@ -191,6 +220,8 @@
             this.montoTxt.Name = "montoTxt";
             this.montoTxt.Size = new System.Drawing.Size(100, 20);
             this.montoTxt.TabIndex = 10;
+            this.montoTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.montoTxt_KeyDown);
+            this.montoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.montoTxt_KeyPress);
             // 
             // label8
             // 
@@ -207,7 +238,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(-1, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 1);
+            this.panel2.Size = new System.Drawing.Size(560, 1);
             this.panel2.TabIndex = 8;
             // 
             // tipoTransaccionCbo
@@ -237,7 +268,7 @@
             this.balanceLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.balanceLbl.Location = new System.Drawing.Point(402, 38);
             this.balanceLbl.Name = "balanceLbl";
-            this.balanceLbl.Size = new System.Drawing.Size(148, 22);
+            this.balanceLbl.Size = new System.Drawing.Size(139, 22);
             this.balanceLbl.TabIndex = 5;
             this.balanceLbl.Text = "$ 0.00";
             this.balanceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,12 +324,34 @@
             this.cuentaLink.Text = "Cuenta:";
             this.cuentaLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.cuentaLink_LinkClicked);
             // 
+            // idBancoLbl
+            // 
+            this.idBancoLbl.AutoSize = true;
+            this.idBancoLbl.Location = new System.Drawing.Point(5, 112);
+            this.idBancoLbl.Name = "idBancoLbl";
+            this.idBancoLbl.Size = new System.Drawing.Size(46, 13);
+            this.idBancoLbl.TabIndex = 25;
+            this.idBancoLbl.Text = "idBanco";
+            this.idBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.idBancoLbl.Visible = false;
+            // 
+            // idCtnBancoLbl
+            // 
+            this.idCtnBancoLbl.AutoSize = true;
+            this.idCtnBancoLbl.Location = new System.Drawing.Point(5, 129);
+            this.idCtnBancoLbl.Name = "idCtnBancoLbl";
+            this.idCtnBancoLbl.Size = new System.Drawing.Size(62, 13);
+            this.idCtnBancoLbl.TabIndex = 26;
+            this.idCtnBancoLbl.Text = "idCntBanco";
+            this.idCtnBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.idCtnBancoLbl.Visible = false;
+            // 
             // FrmBancosMovimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(574, 224);
+            this.ClientSize = new System.Drawing.Size(564, 224);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.Name = "FrmBancosMovimientos";
@@ -334,5 +387,9 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker fechaDtp;
+        private System.Windows.Forms.Label idCtnBancoLbl;
+        private System.Windows.Forms.Label idBancoLbl;
     }
 }

@@ -1,12 +1,6 @@
 ﻿using Negocios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP.Buscar
@@ -25,7 +19,7 @@ namespace APP.Buscar
             DataTable datos = nbancos.BuscarCuentaNombre("");
             foreach (DataRow row in datos.Rows)
             {
-                _ = dgvListar.Rows.Add(row[0], row[1], row[2], row[3], row[4]);
+                _ = dgvListar.Rows.Add(row[0], row[1], row[2], row[3], row[4], row[5]);
             }
         }
 
@@ -35,7 +29,7 @@ namespace APP.Buscar
             DataTable datos = nbancos.BuscarCuentaNombre(nombreTxt.Text);
             foreach (DataRow row in datos.Rows)
             {
-                _ = dgvListar.Rows.Add(row[0], row[1], row[2], row[3], row[4]);
+                _ = dgvListar.Rows.Add(row[0], row[1], row[2], row[3], row[4], row[5]);
             }
         }
 
