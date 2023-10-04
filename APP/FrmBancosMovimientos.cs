@@ -92,7 +92,7 @@ namespace APP
 
             total = total + credito - debito;
 
-            nbancos.InsertarMovimiento(idBancoLbl.Text, idCtnBancoLbl.Text, fechaDtp.Value, detalleTxt.Text, debito, credito, total);
+            nbancos.InsertarMovimiento(idBancoLbl.Text, idCtnBancoLbl.Text, DateTime.Now, detalleTxt.Text, debito, credito, total);
             DataTable cuentaData = nbancos.BuscarCuentaId(idCtnBancoLbl.Text);
             if (cuentaData.Rows.Count > 0)
             {

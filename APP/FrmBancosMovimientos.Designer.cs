@@ -145,6 +145,7 @@
             // fechaDtp
             // 
             this.fechaDtp.CustomFormat = " dd / MM / yyyy";
+            this.fechaDtp.Enabled = false;
             this.fechaDtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaDtp.Location = new System.Drawing.Point(402, 11);
             this.fechaDtp.Name = "fechaDtp";
