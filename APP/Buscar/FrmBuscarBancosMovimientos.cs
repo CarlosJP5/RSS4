@@ -68,6 +68,7 @@ namespace APP.Buscar
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            dgvListar.Rows.Clear();
             string query = string.Format(@"select bm.id_movimiento, bm.fecha_movimiento, b.nombre_banco, bc.nombre_cnt_banco,
                                            bm.descripcion_movimiento, bm.debito_movimiento as retiro, bm.credito_movimiento as deposito
                                            from BancosMovimiento bm left join BancosCuentas bc on bm.id_ctn_banco = bc.id_cnt_banco
