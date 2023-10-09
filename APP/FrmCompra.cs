@@ -641,7 +641,8 @@ namespace APP
                     Importe = Convert.ToDecimal(txtImporteCompra.Text),
                     Descuento = Convert.ToDecimal(txtDescuentoCompra.Text),
                     Itbis = Convert.ToDecimal(txtItbisCompra.Text),
-                    Total = Convert.ToDecimal(txtTotalCompra.Text)
+                    Total = Convert.ToDecimal(txtTotalCompra.Text),
+                    Taza = Convert.ToDouble(txtTasa.Text)
                 };
                 DataTable Detalle = new DataTable();
                 Detalle.Columns.Add("idArticulo", typeof(int));

@@ -263,6 +263,15 @@ namespace Datos
                     cmd.Parameters.Add("@tipoFactura", SqlDbType.NVarChar).Value = Factura.TipoCompra;
                     try
                     {
+                        foreach (DataRow row in Detalle.Rows)
+                        {
+                            if (!string.IsNullOrEmpty(row[7].ToString()))
+                            {
+                                string query = string.Format("insert into ArticuloImei values('{0}','{1}')",
+                                    row[0], row[7]);
+                                _ = Buscar(query);
+                            }
+                        }
                         return (int)cmd.ExecuteScalar();
                     }
                     catch (Exception)
@@ -322,5 +331,6 @@ namespace Datos
                 }
             }
         }
+
     }
 }

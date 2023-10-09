@@ -14,5 +14,6 @@ namespace Entidades
         public decimal Descuento { get; set; }
         public decimal Itbis { get; set; }
         public decimal Total { get; set; }
+        public double Taza { get; set; } = 1;
     }
 }

@@ -180,6 +180,7 @@ namespace Datos
                     cmd.Parameters.Add("@descuento", SqlDbType.Decimal).Value = Compra.Descuento;
                     cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = Compra.Itbis;
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Compra.Total;
+                    cmd.Parameters.Add("@taza", SqlDbType.Float).Value = Compra.Taza;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     try
                     {
