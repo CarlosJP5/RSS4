@@ -75,7 +75,6 @@ namespace APP
             errorCantidad.Clear();
             errorNcf.Clear();
             panelDetalle.Visible = false;
-            btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Enabled = false;
             btnBuscar.Enabled = true;
@@ -742,7 +741,6 @@ namespace APP
                 btnAgregar.Enabled = false;
                 btnBorrar.Enabled = false;
                 dgvListar.ReadOnly = true;
-                btnImprimir.Enabled = true;
                 btnModificar.Enabled = true;
                 btnSalvar.Enabled = false;
             }
@@ -751,7 +749,6 @@ namespace APP
         private void btnModificar_Click(object sender, EventArgs e)
         {
             btnBuscar.Enabled = false;
-            btnImprimir.Enabled = false;
             btnGuardar.Enabled = true;
             dgvListar.ReadOnly = false;
             linkCodigo.Enabled = true;
@@ -907,6 +904,19 @@ namespace APP
             {
                 e.SuppressKeyPress = true;
                 _ = txtCodigo.Focus();
+            }
+        }
+
+        private void cuentaLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarBancosCuentas frm = new FrmBuscarBancosCuentas();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                idCtnBancoLbl.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                idBancoLbl.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                bancoLbl.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
+                nombreLbl.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
+                numeroCuentaLbl.Text = frm.dgvListar.SelectedCells[4].Value.ToString();
             }
         }
     }
