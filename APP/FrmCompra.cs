@@ -628,6 +628,17 @@ namespace APP
             {
                 errorSuplidor.Clear();
             }
+
+            if (cboTipoCompra.SelectedIndex == 0)
+            {
+                // Compra al contado
+                if (!double.TryParse(idCtnBancoLbl.Text, out _))
+                {
+                    MessageBox.Show("Debe elegir una cuenta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             if (dgvListar.Rows.Count > 0)
             {
                 ECompra Compra = new ECompra()
@@ -674,6 +685,18 @@ namespace APP
                     Detalle.Rows.Add(row);
                 }
                 _compra.Insertar(Compra, Detalle);
+
+                if (cboTipoCompra.SelectedIndex == 0)
+                {
+                    // Compra al contado
+                    NBancos nbancos = new NBancos();
+                    double credito = 0;
+                    double debito = 0;
+                    double monto = (double)Compra.Total * Compra.Taza;
+
+
+                }
+
                 btnNuevo.PerformClick();
             }
             else
