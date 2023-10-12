@@ -40,6 +40,12 @@ namespace APP
             txtDiferencia.Text = null;
             dgvListar.Rows.Clear();
 
+            bancoLbl.Text = "Banco";
+            numeroCuentaLbl.Text = "Nº Cuenta";
+            nombreLbl.Text = "Nombre";
+            idBancoLbl.Text = "x";
+            idCtnBancoLbl.Text = "x";
+
             txtIdCliente.Enabled = true;
             btnBuscarCliente.Enabled = true;
             txtMonto.Enabled = true;
@@ -318,23 +324,42 @@ namespace APP
                         detalleRecibo.Rows.Add(row);
                     }
                 }
+                
+                // Compra al contado
+                if (!double.TryParse(idCtnBancoLbl.Text, out _))
+                {
+                    MessageBox.Show("Debe elegir una cuenta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 int idRecibo = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
+
+
+                NBancos nbancos = new NBancos();
+                double credito = 0;
+                double debito = 0;
+                double monto = Convert.ToDouble(txtMonto.Text);
+                debito = monto;
+                total = total + credito - debito;
+                string detalle = $"RECIBO DE PAGO Nº {idRecibo}, A SUPLIDOR {txtNombre.Text}.";
+                nbancos.InsertarMovimiento(idBancoLbl.Text, idCtnBancoLbl.Text, DateTime.Now, detalle, debito, credito, total);
+
                 //DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (msj == DialogResult.Yes)
-            //    {
-            //        using (LocalReport localReport = new LocalReport())
-            //        {
-            //            NrptEmpresa nEmpresa = new NrptEmpresa();
-            //            nEmpresa.LlenaEmpresa();
-            //            _recibo.ImprimirRecibo(idRecibo.ToString());
-            //            localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
-            //            localReport.DataSources.Clear();
-            //            localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
-            //            localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
-            //            localReport.PrintToPrinter();
-            //            btnNuevo.PerformClick();
-            //        }
-            //    }
+                //    if (msj == DialogResult.Yes)
+                //    {
+                //        using (LocalReport localReport = new LocalReport())
+                //        {
+                //            NrptEmpresa nEmpresa = new NrptEmpresa();
+                //            nEmpresa.LlenaEmpresa();
+                //            _recibo.ImprimirRecibo(idRecibo.ToString());
+                //            localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
+                //            localReport.DataSources.Clear();
+                //            localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                //            localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
+                //            localReport.PrintToPrinter();
+                //            btnNuevo.PerformClick();
+                //        }
+                //    }
                 btnNuevo.PerformClick();
             }
         }
@@ -395,5 +420,20 @@ namespace APP
                 Close();
             }
         }
+
+        private void cuentaLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarBancosCuentas frm = new FrmBuscarBancosCuentas();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                idCtnBancoLbl.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                idBancoLbl.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                bancoLbl.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
+                nombreLbl.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
+                numeroCuentaLbl.Text = frm.dgvListar.SelectedCells[4].Value.ToString();
+                total = Convert.ToDouble(frm.dgvListar.SelectedCells[5].Value);
+            }
+        }
+        private double total = 0;
     }
 }

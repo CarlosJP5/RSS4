@@ -80,6 +80,12 @@ namespace APP
             btnBuscar.Enabled = true;
             btnSalvar.Enabled = true;
 
+            bancoLbl.Text = "Banco";
+            numeroCuentaLbl.Text = "Nº Cuenta";
+            nombreLbl.Text = "Nombre";
+            idBancoLbl.Text = "x";
+            idCtnBancoLbl.Text = "x";
+
             linkSuplidor.Enabled = true;
             txtIdSuplidor.Enabled = true;
             cboTipoCompra.Enabled = true;
@@ -693,8 +699,10 @@ namespace APP
                     double credito = 0;
                     double debito = 0;
                     double monto = (double)Compra.Total * Compra.Taza;
-
-
+                    debito = monto;
+                    total = total + credito - debito;
+                    string detalle = $"PAGO A {txtSuplidorNombre.Text}, FACT. Nº {txtFacturaNumero.Text}";
+                    nbancos.InsertarMovimiento(idBancoLbl.Text, idCtnBancoLbl.Text, DateTime.Now, detalle, debito, credito, total);
                 }
 
                 btnNuevo.PerformClick();
@@ -940,7 +948,9 @@ namespace APP
                 bancoLbl.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
                 nombreLbl.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                 numeroCuentaLbl.Text = frm.dgvListar.SelectedCells[4].Value.ToString();
+                total = Convert.ToDouble(frm.dgvListar.SelectedCells[5].Value);
             }
         }
+        private double total = 0;
     }
 }

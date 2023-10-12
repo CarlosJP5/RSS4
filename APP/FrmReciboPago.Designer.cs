@@ -30,12 +30,12 @@ namespace APP
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelmid = new System.Windows.Forms.Panel();
@@ -77,6 +77,14 @@ namespace APP
             this.errorCliente = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorMonto = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDiferencia = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bancoLbl = new System.Windows.Forms.Label();
+            this.nombreLbl = new System.Windows.Forms.Label();
+            this.numeroCuentaLbl = new System.Windows.Forms.Label();
+            this.cuentaLink = new System.Windows.Forms.LinkLabel();
+            this.idCtnBancoLbl = new System.Windows.Forms.Label();
+            this.idBancoLbl = new System.Windows.Forms.Label();
+            this.lblItbisPorciento = new System.Windows.Forms.Label();
+            this.lblIdArticulo = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelmid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -111,6 +119,14 @@ namespace APP
             // panelmid
             // 
             this.panelmid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelmid.Controls.Add(this.idCtnBancoLbl);
+            this.panelmid.Controls.Add(this.idBancoLbl);
+            this.panelmid.Controls.Add(this.lblItbisPorciento);
+            this.panelmid.Controls.Add(this.lblIdArticulo);
+            this.panelmid.Controls.Add(this.bancoLbl);
+            this.panelmid.Controls.Add(this.nombreLbl);
+            this.panelmid.Controls.Add(this.numeroCuentaLbl);
+            this.panelmid.Controls.Add(this.cuentaLink);
             this.panelmid.Controls.Add(this.btnAplicar);
             this.panelmid.Controls.Add(this.lblIdRecibo);
             this.panelmid.Controls.Add(this.btnImprimir);
@@ -133,7 +149,7 @@ namespace APP
             this.panelmid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelmid.Location = new System.Drawing.Point(0, 30);
             this.panelmid.Name = "panelmid";
-            this.panelmid.Size = new System.Drawing.Size(881, 326);
+            this.panelmid.Size = new System.Drawing.Size(881, 342);
             this.panelmid.TabIndex = 1;
             // 
             // btnAplicar
@@ -161,7 +177,7 @@ namespace APP
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(383, 277);
+            this.btnImprimir.Location = new System.Drawing.Point(492, 302);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 34;
@@ -174,7 +190,7 @@ namespace APP
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(482, 277);
+            this.btnSalvar.Location = new System.Drawing.Point(492, 271);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(85, 25);
             this.btnSalvar.TabIndex = 35;
@@ -187,7 +203,7 @@ namespace APP
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(581, 277);
+            this.btnBuscar.Location = new System.Drawing.Point(593, 271);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 36;
@@ -200,7 +216,7 @@ namespace APP
             // btnAnular
             // 
             this.btnAnular.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnAnular.Location = new System.Drawing.Point(284, 277);
+            this.btnAnular.Location = new System.Drawing.Point(391, 302);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(85, 25);
             this.btnAnular.TabIndex = 38;
@@ -213,7 +229,7 @@ namespace APP
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(185, 277);
+            this.btnNuevo.Location = new System.Drawing.Point(391, 271);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 37;
@@ -226,7 +242,7 @@ namespace APP
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(680, 277);
+            this.btnSalir.Location = new System.Drawing.Point(593, 302);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 39;
@@ -281,8 +297,8 @@ namespace APP
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle19;
             this.Column4.HeaderText = "Días";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -290,44 +306,44 @@ namespace APP
             // 
             // Column5
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle20;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle21;
             this.Column6.HeaderText = "Balance";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle22;
             this.Column7.HeaderText = "Pago";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle23;
             this.Column8.HeaderText = "Restante";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Red;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle24;
             this.Column9.HeaderText = "Estado";
             this.Column9.Name = "Column9";
             this.Column9.Width = 70;
@@ -512,12 +528,95 @@ namespace APP
             // 
             this.errorDiferencia.ContainerControl = this;
             // 
+            // bancoLbl
+            // 
+            this.bancoLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bancoLbl.Location = new System.Drawing.Point(89, 272);
+            this.bancoLbl.Name = "bancoLbl";
+            this.bancoLbl.Size = new System.Drawing.Size(265, 22);
+            this.bancoLbl.TabIndex = 56;
+            this.bancoLbl.Text = "Banco";
+            this.bancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nombreLbl
+            // 
+            this.nombreLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nombreLbl.Location = new System.Drawing.Point(195, 300);
+            this.nombreLbl.Name = "nombreLbl";
+            this.nombreLbl.Size = new System.Drawing.Size(159, 22);
+            this.nombreLbl.TabIndex = 55;
+            this.nombreLbl.Text = "Nombre";
+            this.nombreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // numeroCuentaLbl
+            // 
+            this.numeroCuentaLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numeroCuentaLbl.Location = new System.Drawing.Point(89, 300);
+            this.numeroCuentaLbl.Name = "numeroCuentaLbl";
+            this.numeroCuentaLbl.Size = new System.Drawing.Size(100, 22);
+            this.numeroCuentaLbl.TabIndex = 54;
+            this.numeroCuentaLbl.Text = "Nº Cuenta";
+            this.numeroCuentaLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cuentaLink
+            // 
+            this.cuentaLink.AutoSize = true;
+            this.cuentaLink.Location = new System.Drawing.Point(39, 305);
+            this.cuentaLink.Name = "cuentaLink";
+            this.cuentaLink.Size = new System.Drawing.Size(44, 13);
+            this.cuentaLink.TabIndex = 53;
+            this.cuentaLink.TabStop = true;
+            this.cuentaLink.Text = "Cuenta:";
+            this.cuentaLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.cuentaLink_LinkClicked);
+            // 
+            // idCtnBancoLbl
+            // 
+            this.idCtnBancoLbl.AutoSize = true;
+            this.idCtnBancoLbl.Location = new System.Drawing.Point(697, 308);
+            this.idCtnBancoLbl.Name = "idCtnBancoLbl";
+            this.idCtnBancoLbl.Size = new System.Drawing.Size(62, 13);
+            this.idCtnBancoLbl.TabIndex = 60;
+            this.idCtnBancoLbl.Text = "idCntBanco";
+            this.idCtnBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.idCtnBancoLbl.Visible = false;
+            // 
+            // idBancoLbl
+            // 
+            this.idBancoLbl.AutoSize = true;
+            this.idBancoLbl.Location = new System.Drawing.Point(697, 277);
+            this.idBancoLbl.Name = "idBancoLbl";
+            this.idBancoLbl.Size = new System.Drawing.Size(46, 13);
+            this.idBancoLbl.TabIndex = 59;
+            this.idBancoLbl.Text = "idBanco";
+            this.idBancoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.idBancoLbl.Visible = false;
+            // 
+            // lblItbisPorciento
+            // 
+            this.lblItbisPorciento.AutoSize = true;
+            this.lblItbisPorciento.Location = new System.Drawing.Point(776, 309);
+            this.lblItbisPorciento.Name = "lblItbisPorciento";
+            this.lblItbisPorciento.Size = new System.Drawing.Size(67, 13);
+            this.lblItbisPorciento.TabIndex = 58;
+            this.lblItbisPorciento.Text = "Itbis_Articulo";
+            this.lblItbisPorciento.Visible = false;
+            // 
+            // lblIdArticulo
+            // 
+            this.lblIdArticulo.AutoSize = true;
+            this.lblIdArticulo.Location = new System.Drawing.Point(758, 281);
+            this.lblIdArticulo.Name = "lblIdArticulo";
+            this.lblIdArticulo.Size = new System.Drawing.Size(57, 13);
+            this.lblIdArticulo.TabIndex = 57;
+            this.lblIdArticulo.Text = "Id_Articulo";
+            this.lblIdArticulo.Visible = false;
+            // 
             // FrmReciboPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(881, 356);
+            this.ClientSize = new System.Drawing.Size(881, 372);
             this.Controls.Add(this.panelmid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -582,5 +681,13 @@ namespace APP
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Button btnAplicar;
+        private System.Windows.Forms.Label bancoLbl;
+        private System.Windows.Forms.Label nombreLbl;
+        private System.Windows.Forms.Label numeroCuentaLbl;
+        private System.Windows.Forms.LinkLabel cuentaLink;
+        private System.Windows.Forms.Label idCtnBancoLbl;
+        private System.Windows.Forms.Label idBancoLbl;
+        private System.Windows.Forms.Label lblItbisPorciento;
+        private System.Windows.Forms.Label lblIdArticulo;
     }
 }
