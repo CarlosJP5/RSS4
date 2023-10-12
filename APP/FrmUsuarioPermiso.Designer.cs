@@ -55,31 +55,39 @@
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("NCF", new System.Windows.Forms.TreeNode[] {
             treeNode14,
             treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Datos", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Detalle Banco");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Cuenta Bancos");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Movimiento Bancos");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Bancos", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Datos", new System.Windows.Forms.TreeNode[] {
             treeNode7,
             treeNode9,
             treeNode10,
             treeNode13,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Facturacion Normal");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Devolucion S\\Venta");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Cotizaciones");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("CuadreCaja");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Facturacion", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21});
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Recibo Ingreso");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("CxC", new System.Windows.Forms.TreeNode[] {
-            treeNode23});
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Compra");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Devolucion Compra");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Recibo Pago");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("CxP", new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode26,
+            treeNode16,
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Facturacion Normal");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Devolucion S\\Venta");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Cotizaciones");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("CuadreCaja");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Facturacion", new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Recibo Ingreso");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("CxC", new System.Windows.Forms.TreeNode[] {
             treeNode27});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Compra");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Devolucion Compra");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Recibo Pago");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("CxP", new System.Windows.Forms.TreeNode[] {
+            treeNode29,
+            treeNode30,
+            treeNode31});
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -278,10 +286,18 @@
             treeNode15.Text = "Reporte 607";
             treeNode16.Name = "ncf";
             treeNode16.Text = "NCF";
-            treeNode17.Name = "datos";
-            treeNode17.Text = "Datos";
+            treeNode17.Name = "Node1";
+            treeNode17.Text = "Detalle Banco";
+            treeNode18.Name = "Node2";
+            treeNode18.Text = "Cuenta Bancos";
+            treeNode19.Name = "Node3";
+            treeNode19.Text = "Movimiento Bancos";
+            treeNode20.Name = "Node0";
+            treeNode20.Text = "Bancos";
+            treeNode21.Name = "datos";
+            treeNode21.Text = "Datos";
             this.treeViewDatos.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17});
+            treeNode21});
             this.treeViewDatos.Size = new System.Drawing.Size(280, 244);
             this.treeViewDatos.TabIndex = 28;
             this.treeViewDatos.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewDatos_AfterCheck);
@@ -303,18 +319,18 @@
             this.treeViewFacturacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewFacturacion.Location = new System.Drawing.Point(3, 3);
             this.treeViewFacturacion.Name = "treeViewFacturacion";
-            treeNode18.Name = "facturacionNormal";
-            treeNode18.Text = "Facturacion Normal";
-            treeNode19.Name = "devolucionVenta";
-            treeNode19.Text = "Devolucion S\\Venta";
-            treeNode20.Name = "cotizaciones";
-            treeNode20.Text = "Cotizaciones";
-            treeNode21.Name = "cuadreCaja";
-            treeNode21.Text = "CuadreCaja";
-            treeNode22.Name = "facturacion";
-            treeNode22.Text = "Facturacion";
+            treeNode22.Name = "facturacionNormal";
+            treeNode22.Text = "Facturacion Normal";
+            treeNode23.Name = "devolucionVenta";
+            treeNode23.Text = "Devolucion S\\Venta";
+            treeNode24.Name = "cotizaciones";
+            treeNode24.Text = "Cotizaciones";
+            treeNode25.Name = "cuadreCaja";
+            treeNode25.Text = "CuadreCaja";
+            treeNode26.Name = "facturacion";
+            treeNode26.Text = "Facturacion";
             this.treeViewFacturacion.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode22});
+            treeNode26});
             this.treeViewFacturacion.Size = new System.Drawing.Size(280, 244);
             this.treeViewFacturacion.TabIndex = 0;
             this.treeViewFacturacion.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewFacturacion_AfterCheck);
@@ -335,12 +351,12 @@
             this.treeViewCxc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCxc.Location = new System.Drawing.Point(0, 0);
             this.treeViewCxc.Name = "treeViewCxc";
-            treeNode23.Name = "reciboIngreso";
-            treeNode23.Text = "Recibo Ingreso";
-            treeNode24.Name = "cxc";
-            treeNode24.Text = "CxC";
+            treeNode27.Name = "reciboIngreso";
+            treeNode27.Text = "Recibo Ingreso";
+            treeNode28.Name = "cxc";
+            treeNode28.Text = "CxC";
             this.treeViewCxc.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode24});
+            treeNode28});
             this.treeViewCxc.Size = new System.Drawing.Size(286, 250);
             this.treeViewCxc.TabIndex = 0;
             this.treeViewCxc.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCxc_AfterCheck);
@@ -361,16 +377,16 @@
             this.treeViewCxp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCxp.Location = new System.Drawing.Point(0, 0);
             this.treeViewCxp.Name = "treeViewCxp";
-            treeNode25.Name = "compra";
-            treeNode25.Text = "Compra";
-            treeNode26.Name = "devolucionCompra";
-            treeNode26.Text = "Devolucion Compra";
-            treeNode27.Name = "reciboPago";
-            treeNode27.Text = "Recibo Pago";
-            treeNode28.Name = "cxp";
-            treeNode28.Text = "CxP";
+            treeNode29.Name = "compra";
+            treeNode29.Text = "Compra";
+            treeNode30.Name = "devolucionCompra";
+            treeNode30.Text = "Devolucion Compra";
+            treeNode31.Name = "reciboPago";
+            treeNode31.Text = "Recibo Pago";
+            treeNode32.Name = "cxp";
+            treeNode32.Text = "CxP";
             this.treeViewCxp.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode28});
+            treeNode32});
             this.treeViewCxp.Size = new System.Drawing.Size(286, 250);
             this.treeViewCxp.TabIndex = 0;
             this.treeViewCxp.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCxp_AfterCheck);

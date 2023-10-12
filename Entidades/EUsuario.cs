@@ -44,5 +44,10 @@ namespace Entidades
         public bool cxp_compra { get; set; } = false;
         public bool cxp_devolucion { get; set; } = false;
         public bool cxp_pago { get; set; } = false;
+        public bool cxp_recepcion { get; set; } = false;
+        public bool banco_ { get; set; } = false;
+        public bool banco_detalle { get; set; } = false;
+        public bool banco_cuenta { get; set; } = false;
+        public bool banco_movimiento { get; set; } = false;
     }
 }

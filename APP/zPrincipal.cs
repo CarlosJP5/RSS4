@@ -63,6 +63,11 @@ namespace APP
                 compraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][26];
                 devolucionSCompraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][27];
                 reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
+                recepciónDeCompraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][29];
+                bancosToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][30];
+                detToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][31];
+                cuentasDeBancosToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][32];
+                registrarMovimientoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][33];
             }
         }
 
