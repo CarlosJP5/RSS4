@@ -61,6 +61,7 @@
     <Compile Include="EServicio.cs" />
     <Compile Include="ESuplidor.cs" />
     <Compile Include="EUsuario.cs" />
+    <Compile Include="EVentasNetas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="zConexion.cs" />
     <Compile Include="zStatic.cs" />
