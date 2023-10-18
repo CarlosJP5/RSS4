@@ -88,3 +88,17 @@ group by f.id_factura, f.fecha_factura, fd.id_factura
 order by f.id_factura desc
 end
 go
+
+create proc [dbo].[reporte_de_ventas_devolucion]
+@desde datetime,
+@hasta datetime
+as
+begin
+set nocount on
+select sum(fd.cantidad_devolucion * fd.precio_devolucion) as total_precio,
+	   sum(fd.cantidad_devolucion * fd.costo_devolucion) as total_costo
+from FacturaDevolucion f
+left join FacturaDevolucionDetalle fd on f.id_devolucion = fd.id_devolucion
+where f.fecha_devolucion between @desde and @hasta and f.tipo_devolucion = 'CONTADO'
+end
+GO

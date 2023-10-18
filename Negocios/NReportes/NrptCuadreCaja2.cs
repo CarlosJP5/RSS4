@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocios.NReportes
 {
@@ -18,9 +16,12 @@ namespace Negocios.NReportes
         public DateTime endDate { get; private set; }
         public List<EFactura> salesListing { get; private set; }
         public List<EVentasNetas> netSalesByPeriod { get; private set; }
-        public double totalVenta { get; private set; }
-        public double totalCosto { get; private set; }
-        public double totalGanancia { get; private set; }
+        public double totalVenta { get; private set; } = 0;
+        public double totalCosto { get; private set; } = 0;
+        public double totalGanancia { get; private set; } = 0;
+        public double devolucionTotalVenta { get; private set; } = 0;
+        public double devolucionTotalCosto { get; private set; } = 0;
+        public double devolucionTotalGanancia { get; private set; } = 0;
 
         public void createSalesOrderReport(DateTime fromDate, DateTime toDate)
         {
@@ -29,6 +30,7 @@ namespace Negocios.NReportes
             endDate = toDate;
 
             DataTable ventasDatos = dReportes.ReporteVentas(startDate, endDate);
+            DataTable devolucionDatos = dReportes.ReporteVentasDevoluciones(startDate, endDate);
 
             salesListing = new List<EFactura>();
             foreach (DataRow row in ventasDatos.Rows)
@@ -44,7 +46,81 @@ namespace Negocios.NReportes
                 totalVenta += Convert.ToDouble(row[3]);
                 totalCosto += Convert.ToDouble(row[4]);
             }
-            totalGanancia = totalVenta - totalCosto;
+
+            if (devolucionDatos.Rows.Count > 0)
+            {
+                if (double.TryParse(devolucionDatos.Rows[0][0].ToString(), out _))
+                {
+                    devolucionTotalVenta = Convert.ToDouble(devolucionDatos.Rows[0][0]);
+                }
+
+                if (double.TryParse(devolucionDatos.Rows[0][1].ToString(), out _))
+                {
+                    devolucionTotalCosto = Convert.ToDouble(devolucionDatos.Rows[0][1]);
+                }
+            }
+            devolucionTotalGanancia = devolucionTotalVenta - devolucionTotalCosto;
+
+            //create net sales by period
+            var listSalesByDate = (from sales in salesListing
+                                   group sales by sales.Fecha
+                                   into listSales
+                                   select new
+                                   {
+                                       date = listSales.Key,
+                                       amount = listSales.Sum(item => item.Total)
+                                   }).AsEnumerable();
+            //Get Number of days
+            int totalDays = Convert.ToInt32((toDate - fromDate).Days);
+            //Group by Days
+            if (totalDays <= 7)
+            {
+                netSalesByPeriod = (from sales in listSalesByDate
+                                    group sales by sales.date.ToString("dd/MM/yyyy")
+                                    into listSales
+                                    select new EVentasNetas
+                                    {
+                                        Periodo = listSales.Key,
+                                        VentaNeta = listSales.Sum(item => item.amount)
+                                    }).ToList();
+            }
+            //Group by Weeks
+            else if (totalDays <= 31)
+            {
+                netSalesByPeriod = (from sales in listSalesByDate
+                                    group sales by
+                                    System.Globalization.CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
+                                        sales.date, System.Globalization.CalendarWeekRule.FirstDay, DayOfWeek.Monday)
+                                    into listSales
+                                    select new EVentasNetas
+                                    {
+                                        Periodo = "Semana " + listSales.Key.ToString(),
+                                        VentaNeta = listSales.Sum(item => item.amount)
+                                    }).ToList();
+            }
+            //Group by Months
+            else if (totalDays <= 365)
+            {
+                netSalesByPeriod = (from sales in listSalesByDate
+                                    group sales by sales.date.ToString("MM/yyyy")
+                                    into listSales
+                                    select new EVentasNetas
+                                    {
+                                        Periodo = listSales.Key,
+                                        VentaNeta = listSales.Sum(item => item.amount)
+                                    }).ToList();
+            }
+            else
+            {
+                netSalesByPeriod = (from sales in listSalesByDate
+                                    group sales by sales.date.ToString("yyyy")
+                                    into listSales
+                                    select new EVentasNetas
+                                    {
+                                        Periodo = listSales.Key,
+                                        VentaNeta = listSales.Sum(item => item.amount)
+                                    }).ToList();
+            }
         }
     }
 }

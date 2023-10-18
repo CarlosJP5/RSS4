@@ -145,6 +145,32 @@ namespace Datos.DReportes
                 }
             }
         }
+        public DataTable ReporteVentasDevoluciones(DateTime desde, DateTime hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reporte_de_ventas_devolucion";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
 
     }
 }
