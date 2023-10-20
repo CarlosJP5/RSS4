@@ -41,11 +41,13 @@ namespace Negocios.NReportes
                     Fecha = Convert.ToDateTime(row[1]),
                     Nota = row[2].ToString(),
                     Total = Convert.ToDecimal(row[3]),
+                    IdComprobante = row[5].ToString(),
                 };
                 salesListing.Add(facturaModel);
                 totalVenta += Convert.ToDouble(row[3]);
                 totalCosto += Convert.ToDouble(row[4]);
             }
+            totalGanancia = totalVenta - totalCosto;
 
             if (devolucionDatos.Rows.Count > 0)
             {

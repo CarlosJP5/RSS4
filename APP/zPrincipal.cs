@@ -166,7 +166,8 @@ namespace APP
 
         private void cuadreCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCuadreCaja frm = new FrmCuadreCaja();
+            //FrmCuadreCaja frm = new FrmCuadreCaja();
+            FrmCuadreCaja2 frm = new FrmCuadreCaja2();
             frm.MdiParent = this;
             frm.Show();
         }

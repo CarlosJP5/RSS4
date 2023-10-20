@@ -601,6 +601,7 @@
       <DependentUpon>rptCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptCuadreCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCuadreCaja2.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.rdlc" />
     <EmbeddedResource Include="Reportes\rptFactura.resx">
       <DependentUpon>rptFactura.cs</DependentUpon>
@@ -636,6 +637,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Entidades.EArticulo.datasource" />
+    <None Include="Properties\DataSources\Entidades.EFactura.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacion.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacionDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCuadreCaja.datasource" />
@@ -646,7 +648,9 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicioDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngreso.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngresoServicio.datasource" />
+    <None Include="Properties\DataSources\Entidades.EVentasNetas.datasource" />
     <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja.datasource" />
+    <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja2.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

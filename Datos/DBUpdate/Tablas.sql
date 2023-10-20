@@ -79,12 +79,14 @@ select f.id_factura,
 			   where fd2.id_factura = fd.id_factura
 			   for xml path('')), 1, 2, ''),
 	   sum(fd.cantidad_factura * fd.precio_factura) as total_venta,
-	   sum(fd.cantidad_factura * fd.costo_factura) as total_costo
+	   sum(fd.cantidad_factura * fd.costo_factura) as total_costo,
+	   cl.nombre_cliente
 from Factura f
 inner join FacturaDetalle fd on f.id_factura = fd.id_factura
 inner join Articulo a on fd.id_articulo = a.id_articulo
+inner join Clientes cl on f.id_cliente = cl.id_cliente
 where f.fecha_factura between @desde and @hasta and f.tipoCompra_factura = 'CONTADO'
-group by f.id_factura, f.fecha_factura, fd.id_factura
+group by f.id_factura, f.fecha_factura, fd.id_factura, cl.nombre_cliente
 order by f.id_factura desc
 end
 go
