@@ -104,3 +104,25 @@ left join FacturaDevolucionDetalle fd on f.id_devolucion = fd.id_devolucion
 where f.fecha_devolucion between @desde and @hasta and f.tipo_devolucion = 'CONTADO'
 end
 GO
+
+create proc reporte_de_ventas_facturaDetalle
+@idFact int
+as
+begin
+set nocount on
+select sum(cantidad_factura * precio_factura) as precio,
+       sum(cantidad_factura * costo_factura) as costo
+from FacturaDetalle where id_factura = @idFact
+end
+go
+
+create proc reporte_de_ventas_reciboIngreso
+@desde date,
+@hasta date
+as
+begin
+	set nocount on
+	select ri.id_factura, ri.pago_ri from ReciboIngreso ri
+	where ri.fecha_ri between @desde and @hasta
+end
+go

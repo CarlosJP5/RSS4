@@ -22,6 +22,9 @@ namespace Negocios.NReportes
         public double devolucionTotalVenta { get; private set; } = 0;
         public double devolucionTotalCosto { get; private set; } = 0;
         public double devolucionTotalGanancia { get; private set; } = 0;
+        public double reciboPago { get; private set; } = 0;
+        public double reciboCosto { get; private set; } = 0;
+        public double reciboGanancia { get; private set; } = 0;
 
         public void createSalesOrderReport(DateTime fromDate, DateTime toDate)
         {
@@ -30,6 +33,7 @@ namespace Negocios.NReportes
             endDate = toDate;
 
             DataTable ventasDatos = dReportes.ReporteVentas(startDate, endDate);
+            DataTable reciboIngresoDatos = dReportes.ReporteVentasReciboIngreso(startDate, endDate);
             DataTable devolucionDatos = dReportes.ReporteVentasDevoluciones(startDate, endDate);
 
             salesListing = new List<EFactura>();
@@ -48,6 +52,13 @@ namespace Negocios.NReportes
                 totalCosto += Convert.ToDouble(row[4]);
             }
             totalGanancia = totalVenta - totalCosto;
+
+            foreach (DataRow rowRecibo in reciboIngresoDatos.Rows)
+            {
+                reciboPago += Convert.ToDouble(rowRecibo[0]);
+                reciboCosto += Convert.ToDouble(rowRecibo[1]);
+                reciboGanancia += Convert.ToDouble(rowRecibo[2]);
+            }
 
             if (devolucionDatos.Rows.Count > 0)
             {

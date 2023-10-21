@@ -171,6 +171,80 @@ namespace Datos.DReportes
                 }
             }
         }
-
+        public DataTable ReporteVentasReciboIngreso(DateTime desde, DateTime hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reporte_de_ventas_reciboIngreso";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
+                    try
+                    {
+                        DataTable output = new DataTable();
+                        output.Columns.Add("pago", typeof(double));
+                        output.Columns.Add("costoPago", typeof(double));
+                        output.Columns.Add("gananciaPaga", typeof(double));
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        foreach (DataRow dr in table.Rows)
+                        {
+                            DataTable detalle = new DataTable();
+                            detalle = BuscarFacturaDetalle(dr[0].ToString());
+                            if (detalle.Rows.Count > 0)
+                            {
+                                double precio = Convert.ToDouble(detalle.Rows[0][0]);
+                                double costo = Convert.ToDouble(detalle.Rows[0][1]);
+                                double ganancia = precio - costo;
+                                double porciento = precio / ganancia;
+                                double pago = Convert.ToDouble(dr[1]);
+                                double gananciaPaga = pago / porciento;
+                                double costoPago = pago - gananciaPaga;
+                                DataRow rowOutput = output.NewRow();
+                                rowOutput[0] = pago;
+                                rowOutput[1] = costoPago;
+                                rowOutput[2] = gananciaPaga;
+                                output.Rows.Add(rowOutput);
+                            }
+                        }
+                        return output;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        private DataTable BuscarFacturaDetalle(string idFact)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reporte_de_ventas_facturaDetalle";
+                    cmd.CommandType= CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFact", SqlDbType.Int).Value = idFact;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }
