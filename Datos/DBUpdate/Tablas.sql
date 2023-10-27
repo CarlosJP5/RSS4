@@ -64,6 +64,9 @@ BEGIN
 END
 GO
 
+update Empresa set lisencia_empresa = '12/31/2023'
+go
+
 create proc [dbo].[reporte_de_ventas]
 @desde datetime,
 @hasta datetime
