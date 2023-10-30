@@ -192,6 +192,12 @@
     <Compile Include="FrmArticulosCambiarCodigo.Designer.cs">
       <DependentUpon>FrmArticulosCambiarCodigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmArticulosCodigoBarra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticulosCodigoBarra.Designer.cs">
+      <DependentUpon>FrmArticulosCodigoBarra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmArticulosItbis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulosCambiarCodigo.resx">
       <DependentUpon>FrmArticulosCambiarCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArticulosCodigoBarra.resx">
+      <DependentUpon>FrmArticulosCodigoBarra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulosItbis.resx">
       <DependentUpon>FrmArticulosItbis.cs</DependentUpon>

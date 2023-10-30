@@ -90,6 +90,7 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codigoBarraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -151,10 +152,11 @@ namespace APP
             this.itbisDelArticuloToolStripMenuItem,
             this.toolStripSeparator2,
             this.reportesToolStripMenuItem,
-            this.reporteInventarioCostoToolStripMenuItem});
+            this.reporteInventarioCostoToolStripMenuItem,
+            this.codigoBarraToolStripMenuItem});
             this.articulosToolStripMenuItem.Enabled = false;
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "Articulos";
             // 
             // detalleArticulosToolStripMenuItem
@@ -260,7 +262,7 @@ namespace APP
             this.listadoClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Enabled = false;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // detalleClientesToolStripMenuItem
@@ -288,7 +290,7 @@ namespace APP
             // 
             this.suplidoresToolStripMenuItem.Enabled = false;
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
@@ -299,7 +301,7 @@ namespace APP
             this.permisoUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Enabled = false;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // detalleUsuarioToolStripMenuItem
@@ -325,7 +327,7 @@ namespace APP
             this.reporteVentas607ToolStripMenuItem});
             this.nCFToolStripMenuItem.Enabled = false;
             this.nCFToolStripMenuItem.Name = "nCFToolStripMenuItem";
-            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nCFToolStripMenuItem.Text = "NCF";
             // 
             // registroComprobantesToolStripMenuItem
@@ -582,6 +584,13 @@ namespace APP
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // codigoBarraToolStripMenuItem
+            // 
+            this.codigoBarraToolStripMenuItem.Name = "codigoBarraToolStripMenuItem";
+            this.codigoBarraToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.codigoBarraToolStripMenuItem.Text = "Codigo Barra";
+            this.codigoBarraToolStripMenuItem.Click += new System.EventHandler(this.codigoBarraToolStripMenuItem_Click);
+            // 
             // zPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,6 +675,7 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem cotizacionServicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reciboIngresoServToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteInventarioCostoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem codigoBarraToolStripMenuItem;
     }
 }
 

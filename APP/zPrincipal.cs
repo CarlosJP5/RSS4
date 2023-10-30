@@ -296,5 +296,10 @@ namespace APP
                 reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
             }
         }
+
+        private void codigoBarraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
