@@ -299,7 +299,11 @@ namespace APP
 
         private void codigoBarraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmArticulosCodigoBarra frm = new FrmArticulosCodigoBarra
+            {
+                MdiParent = this
+            };
+            frm.Show();
         }
     }
 }
