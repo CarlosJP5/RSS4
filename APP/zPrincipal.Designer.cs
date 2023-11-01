@@ -90,7 +90,6 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.codigoBarraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -152,8 +151,7 @@ namespace APP
             this.itbisDelArticuloToolStripMenuItem,
             this.toolStripSeparator2,
             this.reportesToolStripMenuItem,
-            this.reporteInventarioCostoToolStripMenuItem,
-            this.codigoBarraToolStripMenuItem});
+            this.reporteInventarioCostoToolStripMenuItem});
             this.articulosToolStripMenuItem.Enabled = false;
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
             this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -584,13 +582,6 @@ namespace APP
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // codigoBarraToolStripMenuItem
-            // 
-            this.codigoBarraToolStripMenuItem.Name = "codigoBarraToolStripMenuItem";
-            this.codigoBarraToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.codigoBarraToolStripMenuItem.Text = "Codigo Barra";
-            this.codigoBarraToolStripMenuItem.Click += new System.EventHandler(this.codigoBarraToolStripMenuItem_Click);
-            // 
             // zPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,7 +666,6 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem cotizacionServicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reciboIngresoServToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteInventarioCostoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem codigoBarraToolStripMenuItem;
     }
 }
 

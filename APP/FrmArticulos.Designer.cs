@@ -74,11 +74,14 @@
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnCodigoBarra = new System.Windows.Forms.Button();
+            this.rptArticuloCodigoBarraDS1 = new APP.Reportes.rptArticuloCodigoBarraDS();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptArticuloCodigoBarraDS1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -106,6 +109,7 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.btnCodigoBarra);
             this.panelMid.Controls.Add(this.label7);
             this.panelMid.Controls.Add(this.label13);
             this.panelMid.Controls.Add(this.txtBeneficioMinimo);
@@ -203,7 +207,7 @@
             // txtIdArticulo
             // 
             this.txtIdArticulo.AutoSize = true;
-            this.txtIdArticulo.Location = new System.Drawing.Point(234, 16);
+            this.txtIdArticulo.Location = new System.Drawing.Point(201, 185);
             this.txtIdArticulo.Name = "txtIdArticulo";
             this.txtIdArticulo.Size = new System.Drawing.Size(51, 13);
             this.txtIdArticulo.TabIndex = 36;
@@ -596,6 +600,25 @@
             // 
             this.errorItbis.ContainerControl = this;
             // 
+            // btnCodigoBarra
+            // 
+            this.btnCodigoBarra.Enabled = false;
+            this.btnCodigoBarra.Image = global::APP.Properties.Resources.Imprimir_16;
+            this.btnCodigoBarra.Location = new System.Drawing.Point(234, 10);
+            this.btnCodigoBarra.Name = "btnCodigoBarra";
+            this.btnCodigoBarra.Size = new System.Drawing.Size(100, 25);
+            this.btnCodigoBarra.TabIndex = 42;
+            this.btnCodigoBarra.Text = "Codigo Barra";
+            this.btnCodigoBarra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCodigoBarra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCodigoBarra.UseVisualStyleBackColor = true;
+            this.btnCodigoBarra.Click += new System.EventHandler(this.btnCodigoBarra_Click);
+            // 
+            // rptArticuloCodigoBarraDS1
+            // 
+            this.rptArticuloCodigoBarraDS1.DataSetName = "rptArticuloCodigoBarraDS";
+            this.rptArticuloCodigoBarraDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,6 +640,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptArticuloCodigoBarraDS1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -668,5 +692,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBeneficioMinimo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCodigoBarra;
+        private Reportes.rptArticuloCodigoBarraDS rptArticuloCodigoBarraDS1;
     }
 }

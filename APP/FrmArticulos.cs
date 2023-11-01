@@ -1,9 +1,14 @@
 ﻿using APP.Buscar;
+using APP.Reportes;
 using Entidades;
+using IronBarCode;
 using Negocios;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace APP
@@ -68,6 +73,7 @@ namespace APP
             _ = txtCodigo.Focus();
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
+            btnCodigoBarra.Enabled = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -199,6 +205,7 @@ namespace APP
                 DesactivaControles();
                 btnModificar.Enabled = true;
                 btnSalvar.Enabled = false;
+                btnCodigoBarra.Enabled = true;
             }
         }
 
@@ -291,6 +298,7 @@ namespace APP
                     DesactivaControles();
                     btnModificar.Enabled = true;
                     btnSalvar.Enabled = false;
+                    btnCodigoBarra.Enabled = true;
                 }
             }
         }
@@ -653,5 +661,25 @@ namespace APP
             }
         }
 
+        private int count = 0;
+
+        private void btnCodigoBarra_Click(object sender, EventArgs e)
+        {
+            count++;
+            var myBarcode = BarcodeWriter.CreateBarcode(txtCodigo.Text, BarcodeWriterEncoding.Code93);
+            _ = myBarcode.AddBarcodeValueTextBelowBarcode();
+            _ = myBarcode.SaveAsImage($@"C:\Temp\bcode{count}.jpeg");
+            Image img = Image.FromFile($@"C:\Temp\bcode{count}.jpeg");
+            rptArticuloCodigoBarraDS1.Clear();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                rptArticuloCodigoBarraDS1.BarCodeT.AddBarCodeTRow(1, txtNombre.Text, ms.ToArray());
+            }
+            using (rptArticuloCodigoBarra frm = new rptArticuloCodigoBarra(rptArticuloCodigoBarraDS1.BarCodeT))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

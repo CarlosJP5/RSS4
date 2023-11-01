@@ -39,9 +39,6 @@
     <ApplicationIcon>Logo-64-ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BarcodeStandard, Version=3.0.3.0, Culture=neutral, PublicKeyToken=5f09bda868cc39e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\BarcodeLib.3.0.3\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
-    </Reference>
     <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
       <HintPath>..\packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
     </Reference>
@@ -156,7 +153,6 @@
     </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
-      <Private>True</Private>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -337,12 +333,6 @@
     <Compile Include="FrmArticulosCambiarCodigo.Designer.cs">
       <DependentUpon>FrmArticulosCambiarCodigo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmArticulosCodigoBarra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmArticulosCodigoBarra.Designer.cs">
-      <DependentUpon>FrmArticulosCodigoBarra.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmArticulosItbis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +462,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\LocalReportExtensions.cs" />
+    <Compile Include="Reportes\rptArticuloCodigoBarra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptArticuloCodigoBarra.Designer.cs">
+      <DependentUpon>rptArticuloCodigoBarra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\rptArticuloCodigoBarraDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptArticuloCodigoBarraDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptArticuloCosto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -592,9 +593,6 @@
     <EmbeddedResource Include="FrmArticulosCambiarCodigo.resx">
       <DependentUpon>FrmArticulosCambiarCodigo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmArticulosCodigoBarra.resx">
-      <DependentUpon>FrmArticulosCodigoBarra.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmArticulosItbis.resx">
       <DependentUpon>FrmArticulosItbis.cs</DependentUpon>
     </EmbeddedResource>
@@ -665,6 +663,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptArticuloCodigoBarra.rdlc" />
+    <EmbeddedResource Include="Reportes\rptArticuloCodigoBarra.resx">
+      <DependentUpon>rptArticuloCodigoBarra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptArticuloCosto.rdlc" />
     <EmbeddedResource Include="Reportes\rptArticuloCosto.resx">
       <DependentUpon>rptArticuloCosto.cs</DependentUpon>
@@ -708,6 +710,7 @@
       <DependentUpon>zPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\APP.Reportes.rptArticuloCodigoBarraDS.datasource" />
     <None Include="Properties\DataSources\Entidades.EArticulo.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacion.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacionDetalle.datasource" />
@@ -745,6 +748,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-64-ico.ico" />
+    <None Include="Reportes\rptArticuloCodigoBarraDS.xsc">
+      <DependentUpon>rptArticuloCodigoBarraDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\rptArticuloCodigoBarraDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptArticuloCodigoBarraDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\rptArticuloCodigoBarraDS.xss">
+      <DependentUpon>rptArticuloCodigoBarraDS.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Facturar-16.png" />
     <None Include="Resources\Pay-24.png" />
     <None Include="Resources\Logo-128.png" />
