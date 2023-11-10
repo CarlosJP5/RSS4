@@ -3,24 +3,27 @@
   <Body>
     <ReportItems>
       <Textbox Name="Nombre">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!Nombre.Value, "Barcodes")</Value>
-                <Style />
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nombre</rd:DefaultName>
-        <Top>0.33208in</Top>
-        <Left>1.26958in</Left>
+        <Top>0.1in</Top>
+        <Left>0.1in</Left>
         <Height>0.25in</Height>
-        <Width>1in</Width>
+        <Width>2.9in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -36,10 +39,10 @@
         <Value>=First(Fields!Imagen.Value, "Barcodes")</Value>
         <MIMEType>image/png</MIMEType>
         <Sizing>Fit</Sizing>
-        <Top>0.79042in</Top>
-        <Left>0.22792in</Left>
-        <Height>0.98958in</Height>
-        <Width>6in</Width>
+        <Top>0.41944in</Top>
+        <Left>0.1in</Left>
+        <Height>1.01681in</Height>
+        <Width>2.9in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -48,10 +51,10 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>1.66667in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>3.16in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
