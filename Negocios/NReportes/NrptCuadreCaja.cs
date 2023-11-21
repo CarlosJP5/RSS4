@@ -45,17 +45,46 @@ namespace Negocios.NReportes
             }
             TotalReciboIngreso = count;
 
+            query = string.Format(@"SELECT id_ri, fecha_ri, SUM(pago_ri) as Pago  FROM ReciboIngresoServicio
+                                            WHERE fecha_ri BETWEEN '{0}' AND '{1}'
+                                            GROUP BY id_ri, fecha_ri", Desde, Hasta);
+            data = _factura.Buscar(query);
+            CantidadRecibos += data.Rows.Count;
+            count = 0m;
+            foreach (DataRow row in data.Rows)
+            {
+                count += (decimal)row[2];
+            }
+            TotalReciboIngreso += count;
+
+
             query = string.Format(@"SELECT total_factura FROM Factura
                                     WHERE fecha_factura BETWEEN '{0}' AND '{1}'
                                     AND tipoCompra_factura = 'CONTADO'", Desde, Hasta);
             data = _factura.Buscar(query);
+
             CantidadFacturas = data.Rows.Count;
+
             count = 0m;
             foreach (DataRow row in data.Rows)
             {
                 count += (decimal)row[0];
             }
             TotalVentasContado = count;
+
+            query = string.Format(@"SELECT total_fservicio FROM FacturaServicio
+                                    WHERE fecha_fservicio BETWEEN '{0}' AND '{1}'
+                                    AND tipoCompra_fservicio = 'CONTADO'", Desde, Hasta);
+            data = _factura.Buscar(query);
+
+            CantidadFacturas += data.Rows.Count;
+
+            count = 0m;
+            foreach (DataRow row in data.Rows)
+            {
+                count += (decimal)row[0];
+            }
+            TotalVentasContado += count;
 
             query = string.Format(@"SELECT total_devolucion FROM FacturaDevolucion
                                     WHERE fecha_devolucion BETWEEN '{0}' AND '{1}' AND tipo_devolucion = 'CONTADO'", Desde, Hasta);
