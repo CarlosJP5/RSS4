@@ -532,6 +532,7 @@
     <EmbeddedResource Include="Reportes\rptFacturaServicio.resx">
       <DependentUpon>rptFacturaServicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptFacturaServicioA2.rdlc" />
     <EmbeddedResource Include="Reportes\rptFacturaServicioA4.rdlc" />
     <EmbeddedResource Include="Reportes\rptFacturaServicioA4.resx">
       <DependentUpon>rptFacturaServicioA4.cs</DependentUpon>

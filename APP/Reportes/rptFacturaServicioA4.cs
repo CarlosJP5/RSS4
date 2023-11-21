@@ -23,6 +23,7 @@ namespace APP.Reportes
             erptEmpresaBindingSource.DataSource = nEmpresa.Empresa;
             erptFacturaServicioBindingSource.DataSource = nfactura.Factura;
             erptFacturaServicioDetalleBindingSource.DataSource = nfactura.Detalle;
+            reportViewer1.PrinterSettings.DefaultPageSettings.Landscape = false;
             reportViewer1.RefreshReport();
         }
 
