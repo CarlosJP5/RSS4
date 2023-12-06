@@ -110,6 +110,32 @@ namespace Datos
                 }
             }
         }
+        public DataTable Listar(DateTime Desde, DateTime Hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaServicio_listar2";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = Desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = Hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public async void Editar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())

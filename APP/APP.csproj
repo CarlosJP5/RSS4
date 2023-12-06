@@ -327,6 +327,12 @@
     <Compile Include="Reportes\rptCotizacion.Designer.cs">
       <DependentUpon>rptCotizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptCuadreCaja2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptCuadreCaja2.Designer.cs">
+      <DependentUpon>rptCuadreCaja2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptEstadoDeCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,6 +522,10 @@
       <DependentUpon>rptCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptCuadreCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCuadreCaja2.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCuadreCaja2.resx">
+      <DependentUpon>rptCuadreCaja2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptEstadoDeCuenta.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadoDeCuenta.resx">
       <DependentUpon>rptEstadoDeCuenta.cs</DependentUpon>
@@ -562,12 +572,14 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEmpresa.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEstadoCuenta.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFactura.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaCuadreCaja.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicio.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFacturaServicioDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngreso.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngresoServicio.datasource" />
     <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja.datasource" />
+    <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja2.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

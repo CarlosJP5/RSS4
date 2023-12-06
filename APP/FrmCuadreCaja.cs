@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using APP.Reportes;
+using Microsoft.Reporting.WinForms;
 using Negocios.NReportes;
 using System;
 using System.Windows.Forms;
@@ -75,17 +76,19 @@ namespace APP
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            using (LocalReport localReport = new LocalReport())
-            {
-                NrptEmpresa nEmpresa = new NrptEmpresa();
-                NrptFactura nFactura = new NrptFactura();
-                nEmpresa.LlenaEmpresa();
-                localReport.ReportPath = Application.StartupPath + @"\Reportes\rptCuadreCaja.rdlc";
-                localReport.DataSources.Clear();
-                localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
-                localReport.DataSources.Add(new ReportDataSource("dsCaja", _reporte.Cuadre));
-                localReport.PrintToPrinter();
-            }
+            //using (LocalReport localReport = new LocalReport())
+            //{
+            //    NrptEmpresa nEmpresa = new NrptEmpresa();
+            //    NrptFactura nFactura = new NrptFactura();
+            //    nEmpresa.LlenaEmpresa();
+            //    localReport.ReportPath = Application.StartupPath + @"\Reportes\rptCuadreCaja.rdlc";
+            //    localReport.DataSources.Clear();
+            //    localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+            //    localReport.DataSources.Add(new ReportDataSource("dsCaja", _reporte.Cuadre));
+            //    localReport.PrintToPrinter();
+            //}
+            rptCuadreCaja2 reporteCuadre = new rptCuadreCaja2(dtpDesde.Value, dtpHasta.Value);
+            reporteCuadre.ShowDialog();
         }
     }
 }

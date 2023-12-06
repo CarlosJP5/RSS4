@@ -57,6 +57,7 @@
     <Compile Include="NReportes\NrptCotizacion.cs" />
     <Compile Include="NReportes\NrptCotizacionServicio.cs" />
     <Compile Include="NReportes\NrptCuadreCaja.cs" />
+    <Compile Include="NReportes\NrptCuadreCaja2.cs" />
     <Compile Include="NReportes\NrptEmpresa.cs" />
     <Compile Include="NReportes\NrptFactura.cs" />
     <Compile Include="NReportes\NrptFacturaServicio.cs" />

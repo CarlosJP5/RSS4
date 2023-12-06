@@ -340,7 +340,7 @@
     <Height>0.405in</Height>
     <Style />
   </Body>
-  <Width>8.5in</Width>
+  <Width>7.96875in</Width>
   <Page>
     <PageHeader>
       <Height>2in</Height>
@@ -1218,7 +1218,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.23958in</Height>
+      <Height>1.39375in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
