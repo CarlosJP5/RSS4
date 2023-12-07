@@ -80,10 +80,16 @@ namespace Negocios.NReportes
                 }
             }
 
-            _ = listaFacturas.OrderBy(k => k.IdFactura).ToList();
+            _ = listaFacturas.OrderBy(k => k.NCF).ToList();
 
             DataTable reciboIngresoData = dRecibo.Listar(startDate, endDate);
             foreach (DataRow row in reciboIngresoData.Rows)
+            {
+                totalReciboIngreso += Convert.ToDouble(row[3]);
+            }
+
+            DataTable reciboServicioData = dRecibo.ListarServicio(startDate, endDate);
+            foreach (DataRow row in reciboServicioData.Rows)
             {
                 totalReciboIngreso += Convert.ToDouble(row[3]);
             }

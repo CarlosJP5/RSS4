@@ -136,6 +136,32 @@ namespace Datos
                 }
             }
         }
+        public DataTable ListarRecibos(DateTime Desde, DateTime Hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_listar_servicio";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.Date).Value = Desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = Hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public async void Editar(EServicio Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())
