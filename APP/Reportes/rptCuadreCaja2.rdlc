@@ -603,6 +603,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -634,6 +637,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -663,6 +669,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -692,6 +701,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -723,6 +735,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -754,6 +769,9 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -777,7 +795,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!IdFactura.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -790,6 +810,10 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -809,6 +833,7 @@
                             <TextRun>
                               <Value>=Fields!Fecha.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Format>dd / MM / yyyy</Format>
                               </Style>
                             </TextRun>
@@ -823,6 +848,10 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -841,7 +870,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NCF.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -854,6 +885,10 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -872,7 +907,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NombreCliente.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -885,6 +922,10 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -904,6 +945,7 @@
                             <TextRun>
                               <Value>=Fields!TotalFactura.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
@@ -918,6 +960,10 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -936,7 +982,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!TipoCompra.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -949,6 +997,10 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>

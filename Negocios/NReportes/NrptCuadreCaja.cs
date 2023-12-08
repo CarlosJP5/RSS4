@@ -3,6 +3,7 @@ using Entidades.EReportes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Negocios.NReportes
 {
@@ -31,73 +32,49 @@ namespace Negocios.NReportes
         //Metodos Privados
         private void GetCantidades()
         {
-            DFacturacion _factura = new DFacturacion();
+            DFacturacion dFacturacion = new DFacturacion();
+            DServicio dServicio = new DServicio();
+            DReciboIngreso dRecibo = new DReciboIngreso();
 
-            string query = string.Format(@"SELECT id_ri, fecha_ri, SUM(pago_ri) as Pago  FROM ReciboIngreso
-                                            WHERE fecha_ri BETWEEN '{0}' AND '{1}'
-                                            GROUP BY id_ri, fecha_ri", Desde, Hasta);
-            DataTable data = _factura.Buscar(query);
-            CantidadRecibos = data.Rows.Count;
-            decimal count = 0m;
-            foreach (DataRow row in data.Rows)
+            DataTable facturaData = dFacturacion.Listar(Desde, Hasta);
+            DataTable servicioData = dServicio.Listar(Desde, Hasta);
+
+            foreach (DataRow row in facturaData.Rows)
             {
-                count += (decimal)row[2];
+                if (row[5].ToString() == "CONTADO")
+                {
+                    TotalVentasContado += Convert.ToDecimal(row[4].ToString());
+                }
             }
-            TotalReciboIngreso = count;
-
-            query = string.Format(@"SELECT id_ri, fecha_ri, SUM(pago_ri) as Pago  FROM ReciboIngresoServicio
-                                            WHERE fecha_ri BETWEEN '{0}' AND '{1}'
-                                            GROUP BY id_ri, fecha_ri", Desde, Hasta);
-            data = _factura.Buscar(query);
-            CantidadRecibos += data.Rows.Count;
-            count = 0m;
-            foreach (DataRow row in data.Rows)
+            foreach (DataRow row in servicioData.Rows)
             {
-                count += (decimal)row[2];
+                if (row[5].ToString() == "CONTADO")
+                {
+                    TotalVentasContado += Convert.ToDecimal(row[4].ToString());
+                }
             }
-            TotalReciboIngreso += count;
+            CantidadFacturas = facturaData.Rows.Count + servicioData.Rows.Count;
 
-
-            query = string.Format(@"SELECT total_factura FROM Factura
-                                    WHERE fecha_factura BETWEEN '{0}' AND '{1}'
-                                    AND tipoCompra_factura = 'CONTADO'", Desde, Hasta);
-            data = _factura.Buscar(query);
-
-            CantidadFacturas = data.Rows.Count;
-
-            count = 0m;
-            foreach (DataRow row in data.Rows)
+            DataTable reciboIngresoData = dRecibo.Listar(Desde, Hasta);
+            foreach (DataRow row in reciboIngresoData.Rows)
             {
-                count += (decimal)row[0];
+                TotalReciboIngreso += Convert.ToDecimal(row[3]);
             }
-            TotalVentasContado = count;
-
-            query = string.Format(@"SELECT total_fservicio FROM FacturaServicio
-                                    WHERE fecha_fservicio BETWEEN '{0}' AND '{1}'
-                                    AND tipoCompra_fservicio = 'CONTADO'", Desde, Hasta);
-            data = _factura.Buscar(query);
-
-            CantidadFacturas += data.Rows.Count;
-
-            count = 0m;
-            foreach (DataRow row in data.Rows)
+            DataTable reciboServicioData = dRecibo.ListarServicio(Desde, Hasta);
+            foreach (DataRow row in reciboServicioData.Rows)
             {
-                count += (decimal)row[0];
+                TotalReciboIngreso += Convert.ToDecimal(row[3]);
             }
-            TotalVentasContado += count;
+            CantidadRecibos = reciboIngresoData.Rows.Count + reciboServicioData.Rows.Count;
 
-            query = string.Format(@"SELECT total_devolucion FROM FacturaDevolucion
-                                    WHERE fecha_devolucion BETWEEN '{0}' AND '{1}' AND tipo_devolucion = 'CONTADO'", Desde, Hasta);
-            data = _factura.Buscar(query);
-            CantidadDevoluciones = data.Rows.Count;
-            count = 0m;
-            foreach (DataRow row in data.Rows)
+            DataTable devolucionesData = dFacturacion.ListarDevolucion(Desde, Hasta);
+            foreach (DataRow row in devolucionesData.Rows)
             {
-                count += (decimal)row[0];
+                TotalDevoluciones += Convert.ToDecimal(row[4]);
             }
-            TotalDevoluciones = count * -1;
+            CantidadDevoluciones = devolucionesData.Rows.Count;
 
-            TotalTotal = TotalReciboIngreso + TotalVentasContado + TotalDevoluciones;
+            TotalTotal = TotalReciboIngreso + TotalVentasContado - TotalDevoluciones;
 
             Cuadre = new List<ErptCuadreCaja>();
             ErptCuadreCaja cuadreModel = new ErptCuadreCaja()
