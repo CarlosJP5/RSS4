@@ -5,6 +5,7 @@ CREATE TABLE Caja
 	apertura_nombre varchar(50),
 	cierre_caja datetime,
 	cierre_nombre varchar(50),
-	total_caja float
+	total_caja float,
+	estado_caja varchar(15)
 )
 GO
