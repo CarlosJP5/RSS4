@@ -49,6 +49,11 @@ namespace APP
             this.ventaDelArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioVsPrecioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioVsCostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aperturaDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuadreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detalleClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,11 +94,6 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aperturaDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.cuadreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -240,6 +240,41 @@ namespace APP
             this.inventarioVsCostoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.inventarioVsCostoToolStripMenuItem.Text = "Inventario vs Costo";
             // 
+            // cajaToolStripMenuItem
+            // 
+            this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aperturaDeCajaToolStripMenuItem,
+            this.cierreDeCajaToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.cuadreDeCajaToolStripMenuItem});
+            this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
+            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cajaToolStripMenuItem.Text = "Caja";
+            // 
+            // aperturaDeCajaToolStripMenuItem
+            // 
+            this.aperturaDeCajaToolStripMenuItem.Name = "aperturaDeCajaToolStripMenuItem";
+            this.aperturaDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aperturaDeCajaToolStripMenuItem.Text = "Apertura de Caja";
+            this.aperturaDeCajaToolStripMenuItem.Click += new System.EventHandler(this.aperturaDeCajaToolStripMenuItem_Click);
+            // 
+            // cierreDeCajaToolStripMenuItem
+            // 
+            this.cierreDeCajaToolStripMenuItem.Name = "cierreDeCajaToolStripMenuItem";
+            this.cierreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cierreDeCajaToolStripMenuItem.Text = "Cierre de Caja";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(177, 6);
+            // 
+            // cuadreDeCajaToolStripMenuItem
+            // 
+            this.cuadreDeCajaToolStripMenuItem.Name = "cuadreDeCajaToolStripMenuItem";
+            this.cuadreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuadreDeCajaToolStripMenuItem.Text = "Cuadre de Caja";
+            // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -339,52 +374,52 @@ namespace APP
             // facturacionNormalToolStripMenuItem
             // 
             this.facturacionNormalToolStripMenuItem.Name = "facturacionNormalToolStripMenuItem";
-            this.facturacionNormalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturacionNormalToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.facturacionNormalToolStripMenuItem.Text = "Facturacion Normal";
             this.facturacionNormalToolStripMenuItem.Click += new System.EventHandler(this.facturacionNormalToolStripMenuItem_Click);
             // 
             // facturarServicioToolStripMenuItem
             // 
             this.facturarServicioToolStripMenuItem.Name = "facturarServicioToolStripMenuItem";
-            this.facturarServicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturarServicioToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.facturarServicioToolStripMenuItem.Text = "Facturar Servicio";
             this.facturarServicioToolStripMenuItem.Click += new System.EventHandler(this.facturarServicioToolStripMenuItem_Click);
             // 
             // devolucionSVentaToolStripMenuItem
             // 
             this.devolucionSVentaToolStripMenuItem.Name = "devolucionSVentaToolStripMenuItem";
-            this.devolucionSVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.devolucionSVentaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.devolucionSVentaToolStripMenuItem.Text = "Devolucion S\\Venta";
             this.devolucionSVentaToolStripMenuItem.Click += new System.EventHandler(this.devolucionSVentaToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(176, 6);
             // 
             // cotizacionesToolStripMenuItem
             // 
             this.cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
-            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.cotizacionesToolStripMenuItem.Text = "Cotizaciones";
             this.cotizacionesToolStripMenuItem.Click += new System.EventHandler(this.cotizacionesToolStripMenuItem_Click);
             // 
             // cotizacionServicioToolStripMenuItem
             // 
             this.cotizacionServicioToolStripMenuItem.Name = "cotizacionServicioToolStripMenuItem";
-            this.cotizacionServicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cotizacionServicioToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.cotizacionServicioToolStripMenuItem.Text = "Cotizacion Servicio";
             this.cotizacionServicioToolStripMenuItem.Click += new System.EventHandler(this.cotizacionServicioToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(176, 6);
             // 
             // cuadreCajaToolStripMenuItem
             // 
             this.cuadreCajaToolStripMenuItem.Name = "cuadreCajaToolStripMenuItem";
-            this.cuadreCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuadreCajaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.cuadreCajaToolStripMenuItem.Text = "Cuadre Caja";
             this.cuadreCajaToolStripMenuItem.Click += new System.EventHandler(this.cuadreCajaToolStripMenuItem_Click);
             // 
@@ -533,40 +568,6 @@ namespace APP
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // cajaToolStripMenuItem
-            // 
-            this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aperturaDeCajaToolStripMenuItem,
-            this.cierreDeCajaToolStripMenuItem,
-            this.toolStripSeparator10,
-            this.cuadreDeCajaToolStripMenuItem});
-            this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
-            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cajaToolStripMenuItem.Text = "Caja";
-            // 
-            // aperturaDeCajaToolStripMenuItem
-            // 
-            this.aperturaDeCajaToolStripMenuItem.Name = "aperturaDeCajaToolStripMenuItem";
-            this.aperturaDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aperturaDeCajaToolStripMenuItem.Text = "Apertura de Caja";
-            // 
-            // cierreDeCajaToolStripMenuItem
-            // 
-            this.cierreDeCajaToolStripMenuItem.Name = "cierreDeCajaToolStripMenuItem";
-            this.cierreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cierreDeCajaToolStripMenuItem.Text = "Cierre de Caja";
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(177, 6);
-            // 
-            // cuadreDeCajaToolStripMenuItem
-            // 
-            this.cuadreDeCajaToolStripMenuItem.Name = "cuadreDeCajaToolStripMenuItem";
-            this.cuadreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cuadreDeCajaToolStripMenuItem.Text = "Cuadre de Caja";
             // 
             // zPrincipal
             // 

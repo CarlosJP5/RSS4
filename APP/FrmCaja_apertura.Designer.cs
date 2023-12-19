@@ -32,14 +32,14 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNombreCajero = new System.Windows.Forms.TextBox();
-            this.txtFondoCaja = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtFondoCaja = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNombreCajero = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorFondo = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
@@ -87,50 +87,6 @@
             this.panel1.Size = new System.Drawing.Size(330, 121);
             this.panel1.TabIndex = 2;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre Cajero";
-            // 
-            // txtNombreCajero
-            // 
-            this.txtNombreCajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtNombreCajero.Location = new System.Drawing.Point(93, 10);
-            this.txtNombreCajero.Name = "txtNombreCajero";
-            this.txtNombreCajero.Size = new System.Drawing.Size(181, 20);
-            this.txtNombreCajero.TabIndex = 1;
-            this.txtNombreCajero.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreCajero_Validating);
-            // 
-            // txtFondoCaja
-            // 
-            this.txtFondoCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtFondoCaja.Location = new System.Drawing.Point(93, 36);
-            this.txtFondoCaja.Name = "txtFondoCaja";
-            this.txtFondoCaja.Size = new System.Drawing.Size(100, 20);
-            this.txtFondoCaja.TabIndex = 3;
-            this.txtFondoCaja.Validating += new System.ComponentModel.CancelEventHandler(this.txtFondoCaja_Validating);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Fondo en Caja";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(-1, 68);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(350, 1);
-            this.panel2.TabIndex = 4;
-            // 
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -143,6 +99,7 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnSalvar
             // 
@@ -170,6 +127,53 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(-1, 68);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(350, 1);
+            this.panel2.TabIndex = 4;
+            // 
+            // txtFondoCaja
+            // 
+            this.txtFondoCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtFondoCaja.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFondoCaja.Location = new System.Drawing.Point(93, 36);
+            this.txtFondoCaja.Name = "txtFondoCaja";
+            this.txtFondoCaja.Size = new System.Drawing.Size(100, 20);
+            this.txtFondoCaja.TabIndex = 3;
+            this.txtFondoCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFondoCaja.Validating += new System.ComponentModel.CancelEventHandler(this.txtFondoCaja_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Fondo en Caja";
+            // 
+            // txtNombreCajero
+            // 
+            this.txtNombreCajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNombreCajero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombreCajero.Location = new System.Drawing.Point(93, 10);
+            this.txtNombreCajero.Name = "txtNombreCajero";
+            this.txtNombreCajero.Size = new System.Drawing.Size(185, 20);
+            this.txtNombreCajero.TabIndex = 1;
+            this.txtNombreCajero.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreCajero_Validating);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre Cajero";
+            // 
             // errorNombre
             // 
             this.errorNombre.ContainerControl = this;
@@ -186,7 +190,10 @@
             this.ClientSize = new System.Drawing.Size(330, 151);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmCaja_apertura";
+            this.ShowIcon = false;
             this.Text = "Caja Apertura";
             this.Load += new System.EventHandler(this.FrmCaja_apertura_Load);
             this.panelTop.ResumeLayout(false);

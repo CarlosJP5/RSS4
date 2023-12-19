@@ -1,12 +1,7 @@
 ﻿using Entidades;
+using Negocios;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP
@@ -60,8 +55,14 @@ namespace APP
                 errorNombre.SetError(txtNombreCajero, "Campo Obligatorio");
                 return;
             }
+            NCaja nCaja = new NCaja();
+            nCaja.Apertura(caja.apertura_nombre, caja.fondo_caja);
+            btnNuevo.PerformClick();
+        }
 
-
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

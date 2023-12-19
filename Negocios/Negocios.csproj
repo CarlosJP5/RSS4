@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NArticulos.cs" />
+    <Compile Include="NCaja.cs" />
     <Compile Include="NClasses\NAppSetting.cs" />
     <Compile Include="NClasses\NSqlHelper.cs" />
     <Compile Include="NClientes.cs" />

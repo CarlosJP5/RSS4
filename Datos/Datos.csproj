@@ -46,6 +46,7 @@
     <Compile Include="Classes\SqlHelper.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="DArticulos.cs" />
+    <Compile Include="DCaja.cs" />
     <Compile Include="DClientes.cs" />
     <Compile Include="DCompras.cs" />
     <Compile Include="DComprobantes.cs" />
