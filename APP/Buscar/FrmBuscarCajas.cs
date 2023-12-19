@@ -19,7 +19,9 @@ namespace APP.Buscar
 
         private void FrmBuscarCajas_Load(object sender, EventArgs e)
         {
-
+            cboEstado.SelectedIndex = 0;
+            dtpDesde.Value = DateTime.Today;
+            dtpHasta.Value = DateTime.Today.AddHours(23.99999);
         }
     }
 }

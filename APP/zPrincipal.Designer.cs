@@ -263,6 +263,7 @@ namespace APP
             this.cierreDeCajaToolStripMenuItem.Name = "cierreDeCajaToolStripMenuItem";
             this.cierreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cierreDeCajaToolStripMenuItem.Text = "Cierre de Caja";
+            this.cierreDeCajaToolStripMenuItem.Click += new System.EventHandler(this.cierreDeCajaToolStripMenuItem_Click);
             // 
             // toolStripSeparator10
             // 
