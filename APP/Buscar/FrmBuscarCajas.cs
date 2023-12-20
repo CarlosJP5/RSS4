@@ -1,12 +1,6 @@
 ﻿using Negocios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP.Buscar
@@ -48,8 +42,43 @@ namespace APP.Buscar
             foreach (DataRow row in cajaData.Rows)
             {
                 DateTime fecha = DateTime.Parse(row[1].ToString());
-                listarDgv.Rows.Add(row[0], fecha.ToString("dd/MM/yyy hh:mm tt"), row[2], row[3], row[4]);
+                listarDgv.Rows.Add(row[0], fecha.ToString("dd /MM / yyy hh:mm tt"), row[2], row[3], row[4]);
             }
+        }
+
+        private void listarDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (listarDgv.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void listarDgv_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (listarDgv.RowCount > 0)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    listarDgv.CurrentRow.Selected = true;
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                    DialogResult = DialogResult.OK;
+                }
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (listarDgv.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }
