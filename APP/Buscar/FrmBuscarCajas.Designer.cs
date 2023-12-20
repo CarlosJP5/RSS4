@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.listarDgv = new System.Windows.Forms.DataGridView();
+            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cboEstado = new System.Windows.Forms.ComboBox();
@@ -41,18 +49,10 @@
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listarDgv = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listarDgv)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -90,6 +90,91 @@
             this.panel1.Size = new System.Drawing.Size(643, 338);
             this.panel1.TabIndex = 2;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
+            this.btnSalir.Location = new System.Drawing.Point(531, 290);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(85, 25);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAceptar.Location = new System.Drawing.Point(430, 290);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
+            // listarDgv
+            // 
+            this.listarDgv.AllowUserToAddRows = false;
+            this.listarDgv.AllowUserToDeleteRows = false;
+            this.listarDgv.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.listarDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listarDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column0,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.listarDgv.Location = new System.Drawing.Point(10, 65);
+            this.listarDgv.Name = "listarDgv";
+            this.listarDgv.ReadOnly = true;
+            this.listarDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listarDgv.RowHeadersVisible = false;
+            this.listarDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listarDgv.Size = new System.Drawing.Size(616, 219);
+            this.listarDgv.TabIndex = 1;
+            // 
+            // Column0
+            // 
+            this.Column0.HeaderText = "Id Caja";
+            this.Column0.Name = "Column0";
+            this.Column0.ReadOnly = true;
+            this.Column0.Width = 65;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Fecha Apertura";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Cajero";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 180;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "Total";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "Estado";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 90;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -116,6 +201,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cboEstado
             // 
@@ -177,90 +263,6 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Desde:";
             // 
-            // listarDgv
-            // 
-            this.listarDgv.AllowUserToAddRows = false;
-            this.listarDgv.AllowUserToDeleteRows = false;
-            this.listarDgv.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.listarDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listarDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column0,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.listarDgv.Location = new System.Drawing.Point(10, 65);
-            this.listarDgv.Name = "listarDgv";
-            this.listarDgv.ReadOnly = true;
-            this.listarDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listarDgv.RowHeadersVisible = false;
-            this.listarDgv.Size = new System.Drawing.Size(616, 219);
-            this.listarDgv.TabIndex = 1;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(531, 290);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(85, 25);
-            this.btnSalir.TabIndex = 6;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(430, 290);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
-            this.btnAceptar.TabIndex = 5;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // Column0
-            // 
-            this.Column0.HeaderText = "Id Caja";
-            this.Column0.Name = "Column0";
-            this.Column0.ReadOnly = true;
-            this.Column0.Width = 65;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Fecha Apertura";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cajero";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 180;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column3.HeaderText = "Total";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column4.HeaderText = "Estado";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 90;
-            // 
             // FrmBuscarCajas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,9 +279,9 @@
             this.Load += new System.EventHandler(this.FrmBuscarCajas_Load);
             this.panelTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listarDgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listarDgv)).EndInit();
             this.ResumeLayout(false);
 
         }

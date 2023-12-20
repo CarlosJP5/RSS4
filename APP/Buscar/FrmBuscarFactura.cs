@@ -59,7 +59,7 @@ namespace APP.Buscar
             foreach (DataRow row in dt.Rows)
             {
                 DateTime fecha = DateTime.Parse(row[1].ToString());
-                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy  hh:mm tt"), row[2], row[3], row[4], row[5]);
+                _ = dgvListar.Rows.Add(row[0], fecha.ToString("dd/MM/yyy hh:mm tt"), row[2], row[3], row[4], row[5]);
             }
             if (dgvListar.RowCount > 0)
             {
