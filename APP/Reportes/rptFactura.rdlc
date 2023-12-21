@@ -1273,10 +1273,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NotaFactura</rd:DefaultName>
-        <Top>4.85in</Top>
+        <Top>5.9707in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
-        <Width>2.73125in</Width>
+        <Width>2.77792in</Width>
         <ZIndex>26</ZIndex>
         <Style>
           <Border>
@@ -1308,10 +1308,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.05in</Top>
+        <Top>6.1707in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
-        <Width>2.73125in</Width>
+        <Width>2.77792in</Width>
         <ZIndex>27</ZIndex>
         <Style>
           <Border>
@@ -1381,10 +1381,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.25in</Top>
-        <Left>0.12in</Left>
+        <Top>6.3707in</Top>
+        <Left>0.12001in</Left>
         <Height>0.2in</Height>
-        <Width>2.73125in</Width>
+        <Width>2.77791in</Width>
         <ZIndex>29</ZIndex>
         <Style>
           <Border>
@@ -1418,7 +1418,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
-        <Top>5.7in</Top>
+        <Top>7.075in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1450,7 +1450,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
-        <Top>5.9in</Top>
+        <Top>7.275in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1482,7 +1482,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
-        <Top>6.1in</Top>
+        <Top>7.475in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1514,7 +1514,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
-        <Top>6.3in</Top>
+        <Top>7.675in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1546,7 +1546,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TipoCompra</rd:DefaultName>
-        <Top>6.5in</Top>
+        <Top>7.875in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1583,7 +1583,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>IdFactura</rd:DefaultName>
-        <Top>7.3in</Top>
+        <Top>8.675in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1618,7 +1618,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaFactura</rd:DefaultName>
-        <Top>6.7in</Top>
+        <Top>8.075in</Top>
         <Left>1.525in</Left>
         <Height>0.2in</Height>
         <Width>1.375in</Width>
@@ -1653,7 +1653,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>6.7in</Top>
+        <Top>8.075in</Top>
         <Left>0.525in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -1684,7 +1684,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NcfComprobante</rd:DefaultName>
-        <Top>7.5in</Top>
+        <Top>8.875in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>1.355in</Width>
@@ -1717,7 +1717,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreComprobante</rd:DefaultName>
-        <Top>7.1in</Top>
+        <Top>8.475in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1752,7 +1752,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaVencimiento</rd:DefaultName>
-        <Top>7.5in</Top>
+        <Top>8.875in</Top>
         <Left>1.975in</Left>
         <Height>0.2in</Height>
         <Width>0.925in</Width>
@@ -1786,7 +1786,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>7.5in</Top>
+        <Top>8.875in</Top>
         <Left>1.475in</Left>
         <Height>0.2in</Height>
         <Width>0.5in</Width>
@@ -1818,7 +1818,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>7.7in</Top>
+        <Top>9.075in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>0.6in</Width>
@@ -1849,7 +1849,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
-        <Top>7.9in</Top>
+        <Top>9.275in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -1881,7 +1881,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncCliente</rd:DefaultName>
-        <Top>8.1in</Top>
+        <Top>9.475in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.34375in</Width>
@@ -1913,7 +1913,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>IdCliente</rd:DefaultName>
-        <Top>7.7in</Top>
+        <Top>9.075in</Top>
         <Left>0.7in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -1948,7 +1948,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>8.5in</Top>
+        <Top>9.875in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -2376,7 +2376,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsFacturaDetalle</DataSetName>
-        <Top>8.7in</Top>
+        <Top>10.075in</Top>
         <Left>0.12in</Left>
         <Height>0.85in</Height>
         <Width>2.80001in</Width>
@@ -2407,7 +2407,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ImporteFactura</rd:DefaultName>
-        <Top>9.6in</Top>
+        <Top>10.975in</Top>
         <Left>1.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2441,7 +2441,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DescuentoFactura</rd:DefaultName>
-        <Top>9.8in</Top>
+        <Top>11.175in</Top>
         <Left>1.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2475,7 +2475,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ItbisFactura</rd:DefaultName>
-        <Top>10in</Top>
+        <Top>11.375in</Top>
         <Left>1.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2509,7 +2509,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>10.2in</Top>
+        <Top>11.575in</Top>
         <Left>1.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2543,7 +2543,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>9.6in</Top>
+        <Top>10.975in</Top>
         <Left>0.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2575,7 +2575,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>9.8in</Top>
+        <Top>11.175in</Top>
         <Left>0.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2607,7 +2607,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>10in</Top>
+        <Top>11.375in</Top>
         <Left>0.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2639,7 +2639,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>10.2in</Top>
+        <Top>11.575in</Top>
         <Left>0.89792in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -2648,76 +2648,6 @@
           <Border>
             <Style>None</Style>
           </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="NotaFactura2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!NotaFactura.Value, "dsFactura")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>NotaFactura</rd:DefaultName>
-        <Top>10.46459in</Top>
-        <Left>0.12in</Left>
-        <Height>0.2in</Height>
-        <Width>2.73125in</Width>
-        <ZIndex>56</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Gracias por su Compra, Dios le Bendiga!</Value>
-                <Style>
-                  <FontStyle>Italic</FontStyle>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>10.66459in</Top>
-        <Left>0.12in</Left>
-        <Height>0.2in</Height>
-        <Width>2.73125in</Width>
-        <ZIndex>57</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <TopBorder>
-            <Style>Dotted</Style>
-          </TopBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -2744,53 +2674,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>6.9in</Top>
+        <Top>8.275in</Top>
         <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>1.405in</Width>
-        <ZIndex>58</ZIndex>
+        <ZIndex>56</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox26">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>COPIA</Value>
-                <Style>
-                  <FontStyle>Italic</FontStyle>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>10.86459in</Top>
-        <Left>0.12in</Left>
-        <Height>0.2in</Height>
-        <Width>2.73125in</Width>
-        <ZIndex>59</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <TopBorder>
-            <Style>Dotted</Style>
-          </TopBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -2821,7 +2713,7 @@
         <Left>1.525in</Left>
         <Height>0.2in</Height>
         <Width>1.375in</Width>
-        <ZIndex>60</ZIndex>
+        <ZIndex>57</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2852,11 +2744,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaFactura</rd:DefaultName>
-        <Top>6.9in</Top>
+        <Top>8.275in</Top>
         <Left>1.525in</Left>
         <Height>0.2in</Height>
         <Width>1.375in</Width>
-        <ZIndex>61</ZIndex>
+        <ZIndex>58</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2882,11 +2774,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox60</rd:DefaultName>
-        <Top>5.5in</Top>
-        <Left>0.1in</Left>
+        <Top>6.6875in</Top>
+        <Left>0.12001in</Left>
         <Height>0.05in</Height>
         <Width>2.8in</Width>
-        <ZIndex>62</ZIndex>
+        <ZIndex>59</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2915,11 +2807,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DireccionCliente</rd:DefaultName>
-        <Top>8.3in</Top>
+        <Top>9.675in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
-        <ZIndex>63</ZIndex>
+        <ZIndex>60</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2949,6 +2841,113 @@
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
+        <ZIndex>61</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>RECIBIDO POR</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>5.11944in</Top>
+        <Left>0.12001in</Left>
+        <Height>0.2in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>62</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Style>Solid</Style>
+          </TopBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DESPACHADO POR</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>5.67695in</Top>
+        <Left>0.12001in</Left>
+        <Height>0.29375in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>63</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Style>Solid</Style>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Dotted</Style>
+            <Width>0.25pt</Width>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="NotaFactura3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!NotaFactura.Value, "dsFactura")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>NotaFactura</rd:DefaultName>
+        <Top>12.90612in</Top>
+        <Left>0.12001in</Left>
+        <Height>0.2in</Height>
+        <Width>2.8in</Width>
         <ZIndex>64</ZIndex>
         <Style>
           <Border>
@@ -2960,8 +2959,159 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Gracias por su Compra, Dios le Bendiga!</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>13.10612in</Top>
+        <Left>0.12in</Left>
+        <Height>0.2in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>65</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Style>Dotted</Style>
+          </TopBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>COPIA</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>13.30612in</Top>
+        <Left>0.12002in</Left>
+        <Height>0.2in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>66</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Style>Dotted</Style>
+          </TopBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>RECIBIDO POR</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>12.12431in</Top>
+        <Left>0.1in</Left>
+        <Height>0.2in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>67</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Style>Solid</Style>
+          </TopBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DESPACHADO POR</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>12.61237in</Top>
+        <Left>0.12002in</Left>
+        <Height>0.29375in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>68</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Style>Solid</Style>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Dotted</Style>
+            <Width>0.25pt</Width>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>11.96875in</Height>
+    <Height>13.66667in</Height>
     <Style />
   </Body>
   <Width>3.1in</Width>

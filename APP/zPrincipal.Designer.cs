@@ -250,6 +250,7 @@ namespace APP
             this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
             this.cajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cajaToolStripMenuItem.Text = "Caja";
+            this.cajaToolStripMenuItem.Visible = false;
             // 
             // aperturaDeCajaToolStripMenuItem
             // 
