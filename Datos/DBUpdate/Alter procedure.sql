@@ -25,3 +25,43 @@ begin
 	values(@id, GETDATE(), @nombre, 0, @fondo, 'ABIERTA')
 end
 GO
+
+ALTER PROC [dbo].[facturaDevolucion_insertar]
+@idFactura int,
+@idcliente int,
+@idComprobante varchar(3),
+@ncf varchar(15),
+@fecha date,
+@fechaVencimiento date,
+@importe decimal(18,2),
+@descuento decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_devolucion_detalle readonly,
+@tipoFactura nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	DECLARE @idDevolcion int  = 1
+	IF EXISTS (SELECT id_devolucion FROM FacturaDevolucion)
+		SET @idDevolcion = 1 + (SELECT MAX(id_devolucion) FROM FacturaDevolucion)
+
+	INSERT INTO FacturaDevolucion VALUES (@idDevolcion, @idFactura, @idcliente, @idComprobante,
+	@fecha, @importe, @descuento, @itbis, @total, @tipoFactura)
+
+	INSERT INTO FacturaDevolucionDetalle (id_devolucion, id_articulo, cantidad_devolucion,
+	totalImporte_devolucion, totalDescuento_devolucion, totalItbis_devolucion, precio_devolucion)
+	SELECT @idDevolcion, D.idArticulo, D.cantidad, D.totalimporte, D.totaldescuento, D.totalitbis, D.precio
+	FROM @detalle D
+
+	INSERT INTO ComprobantesDetalle VALUES (@idComprobante, @idDevolcion, @ncf, @fechaVencimiento)
+	SELECT MAX(id_devolucion) FROM FacturaDevolucion
+
+	IF @tipoFactura = 'CREDITO'
+		BEGIN
+			UPDATE CuentaCobrar SET balance_cxc = balance_cxc - @total WHERE id_factura = @idFactura
+		END
+	RETURN SELECT @idDevolcion
+END
+GO
