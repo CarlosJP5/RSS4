@@ -194,6 +194,57 @@ namespace Datos
                 }
             }
         }
+        public DataTable ReporteDevolucion(int idDevolucion)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_rpt_id";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idDevolucion", SqlDbType.Int).Value = idDevolucion;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable ReporteDevolucion(DateTime Desde, DateTime Hasta)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_rpt_id";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.Date).Value = Desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = Hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public int Insertar(EFactura Factura, DataTable Detalle)
         {
             using (var conn = GetConnection())

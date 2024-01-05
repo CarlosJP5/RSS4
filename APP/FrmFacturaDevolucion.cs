@@ -387,5 +387,15 @@ namespace APP
                 }
             }
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(lblIdDevolucion.Text, out int idDevolucion))
+            {
+                rptDevolucionesFact frm = new rptDevolucionesFact(idDevolucion);
+                _ = frm.ShowDialog();
+                btnNuevo.PerformClick();
+            }
+        }
     }
 }

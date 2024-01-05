@@ -30,17 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.erptFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.erptFacturaDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaDetalleBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // erptEmpresaBindingSource
+            // 
+            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "Empresa";
             reportDataSource1.Value = this.erptEmpresaBindingSource;
+            reportDataSource2.Name = "Devolucion";
+            reportDataSource2.Value = this.erptFacturaBindingSource;
+            reportDataSource3.Name = "Detalle";
+            reportDataSource3.Value = this.erptFacturaDetalleBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptDevolucionesFact.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -48,9 +64,13 @@
             this.reportViewer1.Size = new System.Drawing.Size(482, 512);
             this.reportViewer1.TabIndex = 0;
             // 
-            // erptEmpresaBindingSource
+            // erptFacturaBindingSource
             // 
-            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
+            this.erptFacturaBindingSource.DataSource = typeof(Entidades.EReportes.ErptFactura);
+            // 
+            // erptFacturaDetalleBindingSource
+            // 
+            this.erptFacturaDetalleBindingSource.DataSource = typeof(Entidades.EReportes.ErptFacturaDetalle);
             // 
             // rptDevolucionesFact
             // 
@@ -66,6 +86,8 @@
             this.Text = "Report Devoluciones Fact";
             this.Load += new System.EventHandler(this.rptDevolucionesFact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erptFacturaDetalleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -74,5 +96,7 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource erptEmpresaBindingSource;
+        private System.Windows.Forms.BindingSource erptFacturaBindingSource;
+        private System.Windows.Forms.BindingSource erptFacturaDetalleBindingSource;
     }
 }

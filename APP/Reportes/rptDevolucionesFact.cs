@@ -24,8 +24,12 @@ namespace APP.Reportes
         private void rptDevolucionesFact_Load(object sender, EventArgs e)
         {
             NrptEmpresa nEmpresa = new NrptEmpresa();
+            NrptFactura nrptFactura = new NrptFactura();
             nEmpresa.LlenaEmpresa();
+            nrptFactura.FactuasDevolucion(IdDevolucion);
             erptEmpresaBindingSource.DataSource = nEmpresa.Empresa;
+            erptFacturaBindingSource.DataSource = nrptFactura.Factura;
+            erptFacturaDetalleBindingSource.DataSource = nrptFactura.FacturaDetalles;
             this.reportViewer1.RefreshReport();
         }
     }

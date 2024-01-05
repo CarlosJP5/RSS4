@@ -1,4 +1,5 @@
-﻿using Datos.DReportes;
+﻿using Datos;
+using Datos.DReportes;
 using Entidades.EReportes;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,51 @@ namespace Negocios.NReportes
                     TotalImporte = (decimal)row[7],
                     TotalDescuento = (decimal)row[8],
                     TotalItbis = (decimal)row[9]
+                };
+                FacturaDetalles.Add(detalleModel);
+            }
+        }
+
+        public void FactuasDevolucion(int IdDevolucion)
+        {
+            DFacturacion dFacturacion = new DFacturacion();
+            DataTable tbFactura = dFacturacion.ReporteDevolucion(IdDevolucion);
+            Factura = new List<ErptFactura>();
+            ErptFactura facturaModel = new ErptFactura()
+            {
+                IdFactura = (int)tbFactura.Rows[0][0],
+                IdCliente = (int)tbFactura.Rows[0][1],
+                IdComprobante = tbFactura.Rows[0][2].ToString(),
+                FechaFactura = DateTime.Parse(tbFactura.Rows[0][3].ToString()),
+                TipoCompra = tbFactura.Rows[0][4].ToString(),
+                ImporteFactura = (decimal)tbFactura.Rows[0][5],
+                DescuentoFactura = (decimal)tbFactura.Rows[0][6],
+                ItbisFactura = (decimal)tbFactura.Rows[0][7],
+                Total = (decimal)tbFactura.Rows[0][8],
+                NombreCliente = tbFactura.Rows[0][9].ToString(),
+                CedulaCliente = tbFactura.Rows[0][10].ToString(),
+                RncCliente = tbFactura.Rows[0][11].ToString(),
+                DireccionCliente = tbFactura.Rows[0][12].ToString(),
+                TelefonoCliente = tbFactura.Rows[0][13].ToString(),
+                NcfComprobante = tbFactura.Rows[0][14].ToString(),
+                FechaVencimiento = DateTime.Parse(tbFactura.Rows[0][15].ToString()),
+                NombreComprobante = tbFactura.Rows[0][16].ToString()
+            };
+            Factura.Add(facturaModel);
+
+            FacturaDetalles = new List<ErptFacturaDetalle>();
+            foreach (DataRow row in tbFactura.Rows)
+            {
+                ErptFacturaDetalle detalleModel = new ErptFacturaDetalle()
+                {
+                    CodigoArticulo = row[17].ToString(),
+                    NombreArticulo = row[18].ToString(),
+                    ReferenciaArticulo = row[19].ToString(),
+                    CantidadFacturado = Convert.ToDecimal(row[20]),
+                    PrecioFacturado = Convert.ToDecimal(row[21]),
+                    TotalImporte = Convert.ToDecimal(row[22]),
+                    TotalDescuento = Convert.ToDecimal(row[23]),
+                    TotalItbis = Convert.ToDecimal(row[24]),
                 };
                 FacturaDetalles.Add(detalleModel);
             }
