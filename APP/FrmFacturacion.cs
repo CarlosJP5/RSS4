@@ -340,7 +340,7 @@ namespace APP
                 e.Handled = true;
             }
 
-            // only allow one decimal point
+            // only allow one decimal po
             if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
