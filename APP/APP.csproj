@@ -351,6 +351,12 @@
     <Compile Include="Reportes\rptCuadreCaja2.Designer.cs">
       <DependentUpon>rptCuadreCaja2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptDevolucionesFact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptDevolucionesFact.Designer.cs">
+      <DependentUpon>rptDevolucionesFact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptEstadoDeCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -552,6 +558,10 @@
     <EmbeddedResource Include="Reportes\rptCuadreCaja2.rdlc" />
     <EmbeddedResource Include="Reportes\rptCuadreCaja2.resx">
       <DependentUpon>rptCuadreCaja2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptDevolucionesFact.rdlc" />
+    <EmbeddedResource Include="Reportes\rptDevolucionesFact.resx">
+      <DependentUpon>rptDevolucionesFact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptEstadoDeCuenta.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadoDeCuenta.resx">

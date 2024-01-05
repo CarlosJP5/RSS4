@@ -1,4 +1,5 @@
 ﻿using APP.Buscar;
+using APP.Reportes;
 using Entidades;
 using Negocios;
 using System;
@@ -268,8 +269,16 @@ namespace APP
                                 Detalle.Rows.Add(row);
                             }
                         }
-                        _facturar.InsertarDevolucion(Factura, Detalle);
-                        btnNuevo.PerformClick();
+
+                        int idDevolucion = _facturar.InsertarDevolucion(Factura, Detalle);
+
+                        DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (msj == DialogResult.Yes)
+                        {
+                            rptDevolucionesFact frm = new rptDevolucionesFact(idDevolucion);
+                            _ = frm.ShowDialog();
+                        }
+                            btnNuevo.PerformClick();
                     }
                     else
                     {
