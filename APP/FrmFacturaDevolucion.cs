@@ -269,6 +269,12 @@ namespace APP
                             }
                         }
                         _facturar.InsertarDevolucion(Factura, Detalle);
+
+                        DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (msj == DialogResult.Yes)
+                        {
+
+                        }
                         btnNuevo.PerformClick();
                     }
                     else
