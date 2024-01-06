@@ -227,7 +227,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "facturaDevolucion_rpt_id";
+                    cmd.CommandText = "facturaDevolucion_rpt_listar";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.Date).Value = Desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = Hasta;

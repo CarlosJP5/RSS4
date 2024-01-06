@@ -50,7 +50,7 @@ namespace APP
             txtIdFactura.Enabled = true;
             btnBuscarFactura.Enabled = true;
             dgvListar.ReadOnly = false;
-
+            btnSalvar.Enabled = true;
             btnImprimir.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Enabled = false;

@@ -31,6 +31,7 @@ namespace Negocios.NReportes
 
             DataTable facturaData = dFacturacion.Listar(startDate, endDate);
             DataTable servicioData = dServicio.Listar(startDate, endDate);
+            DataTable devolucionData = dFacturacion.ReporteDevolucion(startDate, endDate);
 
             listaFacturas = new List<ErptFacturaCuadreCaja>();
 
@@ -38,7 +39,7 @@ namespace Negocios.NReportes
             {
                 ErptFacturaCuadreCaja facturasModel = new ErptFacturaCuadreCaja()
                 {
-                    IdFactura = row[0].ToString(),
+                    IdFactura = "FT-" + row[0].ToString(),
                     Fecha = DateTime.Parse(row[1].ToString()),
                     NCF = row[2].ToString(),
                     NombreCliente = row[3].ToString(),
@@ -80,17 +81,49 @@ namespace Negocios.NReportes
                 }
             }
 
-            _ = listaFacturas.OrderBy(k => k.NCF).ToList();
+            foreach(DataRow row in devolucionData.Rows)
+            {
+                ErptFacturaCuadreCaja facturasModel = new ErptFacturaCuadreCaja()
+                {
+                    IdFactura = "DEV-" + row[0].ToString(),
+                    Fecha = DateTime.Parse(row[3].ToString()),
+                    NCF = row[14].ToString(),
+                    NombreCliente = row[9].ToString(),
+                    TotalFactura = Convert.ToDouble(row[8].ToString()),
+                    TipoCompra = row[4].ToString()
+                };
+                listaFacturas.Add(facturasModel);
+            }
 
             DataTable reciboIngresoData = dRecibo.Listar(startDate, endDate);
             foreach (DataRow row in reciboIngresoData.Rows)
             {
+                ErptFacturaCuadreCaja facturasModel = new ErptFacturaCuadreCaja()
+                {
+                    IdFactura = "RI-" + row[0].ToString(),
+                    Fecha = DateTime.Parse(row[1].ToString()),
+                    NCF = "",
+                    NombreCliente = row[2].ToString(),
+                    TotalFactura = Convert.ToDouble(row[3].ToString()),
+                    TipoCompra = "Recivo"
+                };
+                listaFacturas.Add(facturasModel);
                 totalReciboIngreso += Convert.ToDouble(row[3]);
             }
 
             DataTable reciboServicioData = dRecibo.ListarServicio(startDate, endDate);
             foreach (DataRow row in reciboServicioData.Rows)
             {
+                ErptFacturaCuadreCaja facturasModel = new ErptFacturaCuadreCaja()
+                {
+                    IdFactura = "RIS-" + row[0].ToString(),
+                    Fecha = DateTime.Parse(row[1].ToString()),
+                    NCF = "",
+                    NombreCliente = row[2].ToString(),
+                    TotalFactura = Convert.ToDouble(row[3].ToString()),
+                    TipoCompra = "Recivo"
+                };
+                listaFacturas.Add(facturasModel);
                 totalReciboIngreso += Convert.ToDouble(row[3]);
             }
 
@@ -100,6 +133,7 @@ namespace Negocios.NReportes
                 totalDevoluciones += Convert.ToDouble(row[4]);
             }
 
+            _ = listaFacturas.OrderBy(k => k.NCF).ToList();
             totalTotal = totalVentaContado + totalReciboIngreso - totalDevoluciones;
         }
     }

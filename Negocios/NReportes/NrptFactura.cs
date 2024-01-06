@@ -101,7 +101,8 @@ namespace Negocios.NReportes
                     ReferenciaArticulo = row[19].ToString(),
                     CantidadFacturado = Convert.ToDecimal(row[20]),
                     PrecioFacturado = Convert.ToDecimal(row[21]),
-                    TotalImporte = Convert.ToDecimal(row[22]),
+                    //TotalImporte = Convert.ToDecimal(row[22]),
+                    TotalImporte = Convert.ToDecimal(row[20]) * Convert.ToDecimal(row[21]),
                     TotalDescuento = Convert.ToDecimal(row[23]),
                     TotalItbis = Convert.ToDecimal(row[24]),
                 };
