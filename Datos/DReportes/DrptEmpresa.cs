@@ -31,5 +31,28 @@ namespace Datos.DReportes
                 }
             }
         }
+
+        public DateTime Licensia()
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "select lisencia_empresa from Empresa";
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        DateTime lisencia = DateTime.Parse(cmd.ExecuteScalar().ToString());
+                        return lisencia;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

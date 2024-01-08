@@ -76,5 +76,11 @@ namespace Negocios.NReportes
                 Clientes.Add(modeloCliente);
             }
         }
+
+        public DateTime Licensia()
+        {
+            DrptEmpresa empresa = new DrptEmpresa();
+            return empresa.Licensia();
+        }
     }
 }
