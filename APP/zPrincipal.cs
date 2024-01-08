@@ -1,6 +1,7 @@
 ﻿using APP.Coneccion;
 using Entidades;
 using Negocios.NClasses;
+using Negocios.NReportes;
 using System;
 using System.Windows.Forms;
 
@@ -18,6 +19,20 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
+            DateTime licenciaLock = DateTime.Parse("12/31/2040");
+            NrptEmpresa lic = new NrptEmpresa();
+            DateTime lisencia = lic.Licensia();
+            if (licenciaLock != lisencia)
+            {
+                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            if (lisencia < DateTime.Now)
+            {
+                MessageBox.Show("Licencia del programa vencida");
+                Application.Exit();
+            }
             FrmLogin frm = new FrmLogin();
             frm.ShowDialog();
         }
