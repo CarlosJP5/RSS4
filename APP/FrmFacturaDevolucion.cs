@@ -274,7 +274,7 @@ namespace APP
                         DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (msj == DialogResult.Yes)
                         {
-                            rptDevolucionFact frm = new rptDevolucionFact(int idDevolucion);
+                            rptDevolucionFact frm = new rptDevolucionFact(idDevolucion);
                             frm.ShowDialog();
 
                         }

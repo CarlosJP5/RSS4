@@ -18,6 +18,9 @@ namespace Negocios.NReportes
         public double totalReciboIngreso { get; set; } = 0;
         public double totalDevoluciones { get; set; } = 0;
         public double totalTotal { get; set; } = 0;
+        public double venta { get; set; } = 0;
+        public double servicio { get; set; } = 0;
+
 
         public void createSalesOrderReport(DateTime fromDate, DateTime toDate)
         {
@@ -49,6 +52,7 @@ namespace Negocios.NReportes
 
                 if (row[5].ToString() == "CONTADO")
                 {
+                    venta += Convert.ToDouble(row[4].ToString());
                     totalVentaContado += Convert.ToDouble(row[4].ToString());
                 }
                 else
@@ -72,6 +76,7 @@ namespace Negocios.NReportes
 
                 if (row[5].ToString() == "CONTADO")
                 {
+                    servicio += Convert.ToDouble(row[4].ToString());
                     totalVentaContado += Convert.ToDouble(row[4].ToString());
                 }
                 else
