@@ -16,7 +16,7 @@ namespace Negocios.NReportes
         public decimal TotalVentasContado { get; private set; } = 0m;
         public decimal TotalDevoluciones { get; private set; } = 0m;
         public decimal TotalTotal { get; private set; } = 0m;
-        public List<KeyValuePair<string,decimal>> TopProducList { get; private set; }
+        public List<KeyValuePair<string, decimal>> TopProducList { get; private set; }
         public List<KeyValuePair<string, decimal>> ReporteGanancias { get; private set; }
         public int CantidadRecibos { get; private set; } = 0;
         public int CantidadFacturas { get; private set; } = 0;
@@ -118,7 +118,7 @@ namespace Negocios.NReportes
             decimal venta = 0m;
             if (decimal.TryParse(data.Rows[0][0].ToString(), out _))
             {
-                 venta = Convert.ToDecimal(data.Rows[0][0]);
+                venta = Convert.ToDecimal(data.Rows[0][0]);
             }
             decimal costo = 0m;
             if (decimal.TryParse(data.Rows[0][1].ToString(), out _))
