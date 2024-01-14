@@ -105,7 +105,7 @@ namespace Negocios.NReportes
                     NCF = "",
                     NombreCliente = row[2].ToString(),
                     TotalFactura = Convert.ToDouble(row[3].ToString()),
-                    TipoCompra = "Recivo"
+                    TipoCompra = "RECIBO"
                 };
                 listaFacturas.Add(facturasModel);
                 totalReciboIngreso += Convert.ToDouble(row[3]);
@@ -121,7 +121,7 @@ namespace Negocios.NReportes
                     NCF = "",
                     NombreCliente = row[2].ToString(),
                     TotalFactura = Convert.ToDouble(row[3].ToString()),
-                    TipoCompra = "Recivo"
+                    TipoCompra = "RECIBO"
                 };
                 listaFacturas.Add(facturasModel);
                 totalReciboIngreso += Convert.ToDouble(row[3]);
