@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace Negocios
     {
         private readonly DCaja dCaja = new DCaja();
 
+        public void Cierre(ECaja caja)
+        {
+            dCaja.Cierre(caja);
+        }
         public void Apertura(string nombre, double fondo)
         {
             dCaja.Apertura(nombre, fondo);

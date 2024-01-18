@@ -6,6 +6,7 @@ namespace Entidades
     {
         public int IdFactura { get; set; }
         public int IdCliente { get; set; }
+        public int IdCaja { get; set; }
         public int IdDevolucion { get; set; }
         public string IdComprobante { get; set; }
         public string Ncf { get; set; }

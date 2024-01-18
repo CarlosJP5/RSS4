@@ -42,6 +42,8 @@
             this.cajeroTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.montoTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
@@ -72,6 +74,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.montoTxt);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnSalvar);
@@ -84,7 +88,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 129);
+            this.panel1.Size = new System.Drawing.Size(337, 143);
             this.panel1.TabIndex = 5;
             // 
             // btnBuscar
@@ -103,7 +107,7 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(220, 82);
+            this.btnSalir.Location = new System.Drawing.Point(220, 106);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 25);
             this.btnSalir.TabIndex = 42;
@@ -115,7 +119,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(115, 82);
+            this.btnSalvar.Location = new System.Drawing.Point(115, 106);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(90, 25);
             this.btnSalvar.TabIndex = 41;
@@ -128,7 +132,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(10, 82);
+            this.btnNuevo.Location = new System.Drawing.Point(10, 106);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(90, 25);
             this.btnNuevo.TabIndex = 40;
@@ -141,7 +145,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(-1, 70);
+            this.panel2.Location = new System.Drawing.Point(-1, 95);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(350, 1);
             this.panel2.TabIndex = 39;
@@ -150,7 +154,7 @@
             // 
             this.cerradoPorTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cerradoPorTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.cerradoPorTxt.Location = new System.Drawing.Point(74, 40);
+            this.cerradoPorTxt.Location = new System.Drawing.Point(74, 66);
             this.cerradoPorTxt.Name = "cerradoPorTxt";
             this.cerradoPorTxt.Size = new System.Drawing.Size(185, 20);
             this.cerradoPorTxt.TabIndex = 7;
@@ -159,7 +163,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 43);
+            this.label2.Location = new System.Drawing.Point(6, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 6;
@@ -188,12 +192,32 @@
             // 
             this.errorNombre.ContainerControl = this;
             // 
+            // montoTxt
+            // 
+            this.montoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.montoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.montoTxt.Location = new System.Drawing.Point(74, 40);
+            this.montoTxt.Name = "montoTxt";
+            this.montoTxt.ReadOnly = true;
+            this.montoTxt.Size = new System.Drawing.Size(100, 20);
+            this.montoTxt.TabIndex = 45;
+            this.montoTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Monto";
+            // 
             // FrmCaja_cierre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(337, 159);
+            this.ClientSize = new System.Drawing.Size(337, 173);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -224,5 +248,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider errorNombre;
+        private System.Windows.Forms.TextBox montoTxt;
+        private System.Windows.Forms.Label label4;
     }
 }

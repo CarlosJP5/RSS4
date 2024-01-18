@@ -18,6 +18,7 @@ namespace APP
             cboTipoComprobante.DataSource = _comprobante.ComprovantesVentas();
             cboTipoComprobante.ValueMember = "id_comprobante";
             cboTipoComprobante.DisplayMember = "nombre_comprobante";
+            LlenarCaja();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -60,6 +61,7 @@ namespace APP
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private ECaja caja = new ECaja();
         private readonly NArticulos _articulo = new NArticulos();
         private readonly NComprobantes _comprobante = new NComprobantes();
         private readonly NClientes _cliente = new NClientes();
@@ -376,7 +378,13 @@ namespace APP
                     Itbis = Convert.ToDecimal(txtItbisFactura.Text),
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
                     Nombre = txtNombre.Text,
+                    IdCaja = caja.id_caja,
                 };
+                if (caja.id_caja == 0)
+                {
+                    _ = MessageBox.Show("Debe seleccionar un cajero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
                 if (ListaComprobante.Rows.Count > 0)
                 {
@@ -731,6 +739,33 @@ namespace APP
                 else
                 {
                     _ = MessageBox.Show("Esta cotizacion ya fue facturada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LlenarCaja();
+        }
+
+        private void LlenarCaja()
+        {
+            FrmBuscarCajas frm = new FrmBuscarCajas();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (frm.listarDgv.SelectedCells[4].Value.ToString() != "CERRADA")
+                {
+                    caja.id_caja = (int)frm.listarDgv.SelectedCells[0].Value;
+                    caja.apertura_nombre = frm.listarDgv.SelectedCells[2].Value.ToString();
+                    caja.total_caja = (double)frm.listarDgv.SelectedCells[3].Value;
+                    cajeroTxt.Text = caja.apertura_nombre;
+                }
+                else
+                {
+                    caja = new ECaja();
+                    cajeroTxt.Text = caja.apertura_nombre;
+                    _ = MessageBox.Show("Esta caja esta cerrada", "Cerrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
         }
