@@ -593,7 +593,13 @@ namespace APP
                     Itbis = Convert.ToDecimal(txtItbisFactura.Text),
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
                     Nombre = txtNombre.Text,
+                    IdCaja = caja.id_caja
                 };
+                if (caja.id_caja == 0)
+                {
+                    _ = MessageBox.Show("Debe seleccionar un cajero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 DataTable Detalle = new DataTable();
                 Detalle.Columns.Add("[idArticulo]", typeof(int));
                 Detalle.Columns.Add("[cantidad]", typeof(decimal));

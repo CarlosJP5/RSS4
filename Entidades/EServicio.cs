@@ -5,6 +5,7 @@ namespace Entidades
     public class EServicio
     {
         public int IdFactura { get; set; }
+        public int IdCaja { get; set; }
         public int IdCliente { get; set; }
         public string NombreCliente { get; set; }
         public string Cedula { get; set; }

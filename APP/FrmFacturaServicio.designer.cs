@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboTipoCompra = new System.Windows.Forms.ComboBox();
             this.cboImprecion = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCotizacion = new System.Windows.Forms.TextBox();
@@ -72,8 +74,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cboTipoCompra = new System.Windows.Forms.ComboBox();
+            this.cajeroTxt = new System.Windows.Forms.TextBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -105,6 +107,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cajeroTxt);
+            this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.cboTipoCompra);
             this.panel1.Controls.Add(this.cboImprecion);
@@ -143,8 +147,31 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 472);
+            this.panel1.Size = new System.Drawing.Size(474, 495);
             this.panel1.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 13);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Tipo:";
+            // 
+            // cboTipoCompra
+            // 
+            this.cboTipoCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboTipoCompra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTipoCompra.FormattingEnabled = true;
+            this.cboTipoCompra.Items.AddRange(new object[] {
+            "CONTADO",
+            "CREDITO"});
+            this.cboTipoCompra.Location = new System.Drawing.Point(69, 90);
+            this.cboTipoCompra.Name = "cboTipoCompra";
+            this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
+            this.cboTipoCompra.TabIndex = 38;
             // 
             // cboImprecion
             // 
@@ -155,7 +182,7 @@
             this.cboImprecion.Items.AddRange(new object[] {
             "80MM - pequeño",
             "A4 - grande"});
-            this.cboImprecion.Location = new System.Drawing.Point(118, 437);
+            this.cboImprecion.Location = new System.Drawing.Point(118, 456);
             this.cboImprecion.Name = "cboImprecion";
             this.cboImprecion.Size = new System.Drawing.Size(121, 21);
             this.cboImprecion.TabIndex = 32;
@@ -163,7 +190,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 440);
+            this.label11.Location = new System.Drawing.Point(18, 459);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 13);
             this.label11.TabIndex = 31;
@@ -194,7 +221,7 @@
             // 
             this.lblidFactura_int.AutoSize = true;
             this.lblidFactura_int.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidFactura_int.Location = new System.Drawing.Point(18, 346);
+            this.lblidFactura_int.Location = new System.Drawing.Point(18, 365);
             this.lblidFactura_int.Name = "lblidFactura_int";
             this.lblidFactura_int.Size = new System.Drawing.Size(101, 16);
             this.lblidFactura_int.TabIndex = 28;
@@ -207,7 +234,7 @@
             this.flowLayoutPanel1.Controls.Add(this.lblIdFactura);
             this.flowLayoutPanel1.Controls.Add(this.label12);
             this.flowLayoutPanel1.Controls.Add(this.lblNcf);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 125);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 144);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 22);
             this.flowLayoutPanel1.TabIndex = 27;
@@ -262,7 +289,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(18, 396);
+            this.btnImprimir.Location = new System.Drawing.Point(18, 415);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 24;
@@ -275,7 +302,7 @@
             // btnFacturar
             // 
             this.btnFacturar.Image = global::APP.Properties.Resources.Facturar_16;
-            this.btnFacturar.Location = new System.Drawing.Point(109, 365);
+            this.btnFacturar.Location = new System.Drawing.Point(109, 384);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(92, 25);
             this.btnFacturar.TabIndex = 22;
@@ -288,7 +315,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(207, 365);
+            this.btnBuscar.Location = new System.Drawing.Point(207, 384);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 23;
@@ -301,7 +328,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(110, 396);
+            this.btnModificar.Location = new System.Drawing.Point(110, 415);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(85, 25);
             this.btnModificar.TabIndex = 25;
@@ -314,7 +341,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(18, 365);
+            this.btnNuevo.Location = new System.Drawing.Point(18, 384);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 21;
@@ -327,7 +354,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(207, 396);
+            this.btnSalir.Location = new System.Drawing.Point(207, 415);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 26;
@@ -340,7 +367,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(323, 407);
+            this.label9.Location = new System.Drawing.Point(323, 426);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 19;
@@ -349,7 +376,7 @@
             // txtTotal
             // 
             this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTotal.Location = new System.Drawing.Point(360, 404);
+            this.txtTotal.Location = new System.Drawing.Point(360, 423);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
@@ -359,7 +386,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(328, 381);
+            this.label7.Location = new System.Drawing.Point(328, 400);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(26, 13);
             this.label7.TabIndex = 17;
@@ -368,7 +395,7 @@
             // txtItbis
             // 
             this.txtItbis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtItbis.Location = new System.Drawing.Point(360, 378);
+            this.txtItbis.Location = new System.Drawing.Point(360, 397);
             this.txtItbis.Name = "txtItbis";
             this.txtItbis.ReadOnly = true;
             this.txtItbis.Size = new System.Drawing.Size(100, 20);
@@ -378,7 +405,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 355);
+            this.label4.Location = new System.Drawing.Point(312, 374);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 15;
@@ -387,7 +414,7 @@
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtImporte.Location = new System.Drawing.Point(360, 352);
+            this.txtImporte.Location = new System.Drawing.Point(360, 371);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.ReadOnly = true;
             this.txtImporte.Size = new System.Drawing.Size(100, 20);
@@ -401,7 +428,7 @@
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column0,
             this.Column1});
-            this.dgvListar.Location = new System.Drawing.Point(13, 151);
+            this.dgvListar.Location = new System.Drawing.Point(13, 170);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.Size = new System.Drawing.Size(447, 193);
             this.dgvListar.TabIndex = 14;
@@ -411,8 +438,8 @@
             // 
             // Column0
             // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column0.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column0.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column0.HeaderText = "Descripcion";
             this.Column0.MaxInputLength = 150;
             this.Column0.Name = "Column0";
@@ -420,16 +447,16 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column1.HeaderText = "Precio";
             this.Column1.Name = "Column1";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(0, 123);
+            this.panel2.Location = new System.Drawing.Point(0, 142);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(490, 1);
             this.panel2.TabIndex = 13;
@@ -557,35 +584,34 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Cliente:";
             // 
-            // label13
+            // cajeroTxt
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 93);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
-            this.label13.TabIndex = 37;
-            this.label13.Text = "Tipo:";
+            this.cajeroTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cajeroTxt.Enabled = false;
+            this.cajeroTxt.Location = new System.Drawing.Point(298, 116);
+            this.cajeroTxt.Name = "cajeroTxt";
+            this.cajeroTxt.Size = new System.Drawing.Size(149, 20);
+            this.cajeroTxt.TabIndex = 40;
             // 
-            // cboTipoCompra
+            // linkLabel2
             // 
-            this.cboTipoCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cboTipoCompra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboTipoCompra.FormattingEnabled = true;
-            this.cboTipoCompra.Items.AddRange(new object[] {
-            "CONTADO",
-            "CREDITO"});
-            this.cboTipoCompra.Location = new System.Drawing.Point(69, 90);
-            this.cboTipoCompra.Name = "cboTipoCompra";
-            this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
-            this.cboTipoCompra.TabIndex = 38;
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(252, 119);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(40, 13);
+            this.linkLabel2.TabIndex = 39;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Cajero:";
+            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // FrmFacturaServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 502);
+            this.ClientSize = new System.Drawing.Size(474, 525);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -650,5 +676,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cboTipoCompra;
+        private System.Windows.Forms.TextBox cajeroTxt;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

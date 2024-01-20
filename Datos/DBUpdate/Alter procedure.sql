@@ -100,3 +100,205 @@ GO
 
 DROP TABLE TEMP
 GO
+
+ALTER PROC [dbo].[factura_insertar]
+@idCliente int,
+@idComprobante varchar(3),
+@ncf varchar(15),
+@fecha datetime,
+@fechaVencimiento date,
+@tipoCompra varchar(10),
+@nota varchar(50),
+@importe decimal(18,2),
+@descuento decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_factura_detalle readonly,
+@nombreCliente nvarchar(50),
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @idFact int = 1
+	IF EXISTS (SELECT id_factura FROM Factura)
+		SET @idFact = 1 + (SELECT MAX(id_factura) FROM Factura)
+
+	INSERT INTO ComprobantesDetalle VALUES (@idComprobante, @idFact, @ncf, @fechaVencimiento)
+
+	INSERT INTO Factura VALUES (@idFact, @idCliente, @idComprobante, @fecha,
+	@tipoCompra, @nota, @importe, @descuento, @itbis, @total, @nombreCliente, @idCaja)
+
+	INSERT INTO FacturaDetalle (id_factura, id_articulo, cantidad_factura, descuento_factura,
+	precio_factura, importe_factura, costo_factura, totalImporte_factura, 
+	totalDescuento_factura, totalItbis_factura)
+	SELECT @idFact, D.idArticulo, D.cantidad, D.descuento, D.precio, D.importe,
+	D.costo, D.totalimporte, D.totaldescuento, D.totalitbis
+	FROM @detalle D
+
+	IF @tipoCompra = 'CREDITO'
+		BEGIN
+			DECLARE @idCxc int  = 1
+			IF EXISTS (SELECT id_cxc FROM CuentaCobrar)
+				SET @idCxc = 1 + (SELECT MAX(id_cxc) FROM CuentaCobrar)
+
+			INSERT INTO CuentaCobrar VALUES (@idCxc, @idFact, @idCliente, @total, 'PENDIENTE')
+		END
+	ELSE
+		BEGIN
+			UPDATE Caja SET total_caja = total_caja + @total WHERE id_caja = @idCaja
+		END
+
+	SELECT MAX(id_factura) FROM Factura
+END
+GO
+
+ALTER PROC [dbo].[factura_editar]
+@idFact int,
+@idCliente int,
+@tipoCompra varchar(10),
+@nota varchar(50),
+@importe decimal(18,2),
+@descuento decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_factura_detalle readonly,
+@nombreCliente nvarchar(50),
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @tipoFactura VARCHAR(50) = (Select tipoCompra_factura from Factura WHERE id_factura = @idFact)
+	IF @tipoCompra = 'CONTADO'
+		BEGIN
+			DECLARE @totalViejo decimal(18,2) = (Select total_factura from Factura WHERE id_factura = @idFact)
+			UPDATE Caja SET total_caja = total_caja - @totalViejo WHERE id_caja = @idCaja
+		END
+
+	DELETE FacturaDetalle WHERE id_factura  = @idFact
+
+	UPDATE Factura SET @idCliente = @idCliente, nota_factura = @nota,
+	importe_factura = @importe, descuento_factura = @descuento,
+	itbis_factura = @itbis, total_factura = @total, nombre_cliente = @nombreCliente
+	WHERE id_factura = @idFact
+
+	INSERT INTO FacturaDetalle (id_factura, id_articulo, cantidad_factura, descuento_factura,
+	precio_factura, importe_factura, costo_factura, totalImporte_factura, 
+	totalDescuento_factura, totalItbis_factura)
+	SELECT @idFact, D.idArticulo, D.cantidad, D.descuento, D.precio, D.importe,
+	D.costo, D.totalimporte, D.totaldescuento, D.totalitbis
+	FROM @detalle D
+
+	IF @tipoCompra = 'CREDITO'
+		BEGIN
+			UPDATE CuentaCobrar SET id_cliente = @idCliente, balance_cxc = @total WHERE id_factura = @idFact
+		END
+	ELSE
+		BEGIN
+			UPDATE Caja SET total_caja = total_caja + @total WHERE id_caja = @idCaja
+		END
+END
+GO
+
+ALTER PROC [dbo].[facturaServicio_insertar]
+@fecha datetime,
+@id_cliente int,
+@nombre_cliente nvarchar(50),
+@cedula nvarchar(20),
+@rnc nvarchar(20),
+@id_comprobante nvarchar(5),
+@nombre_comprobante nvarchar(25),
+@importe decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@ncf varchar(15),
+@fechaVencimiento date,
+@idCotizacion nvarchar(50),
+@tipoCompra varchar(10),
+@detalle type_fservicio_detalle readonly,
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @idFact int = 1
+	IF EXISTS (SELECT id_fservicio FROM FacturaServicio)
+		SET @idFact = 1 + (SELECT MAX(id_fservicio) FROM FacturaServicio)
+
+	DECLARE @idFact_fs nvarchar(50) = 'FS-' + (SELECT CAST(@idFact as nvarchar(50)) as Num1)
+	
+	INSERT INTO ComprobantesDetalle VALUES (@id_comprobante, @idFact_fs, @ncf, @fechaVencimiento)
+
+	INSERT INTO FacturaServicio VALUES (@idFact, @fecha, @id_cliente, @nombre_cliente,
+	@cedula, @rnc, @id_comprobante, @nombre_comprobante, @importe, @itbis, @total, @idFact_fs, @tipoCompra, @idCaja)
+
+	INSERT INTO FacturaServicioDetalle(id_fservicio, descripcion_fservicio, precio_fservicio)
+	SELECT @idFact, D.descripcion, D.precio
+	FROM @detalle D
+
+	update CotizacionServicio set estado_cotizacion = 'Facturado'
+	where id_fservicio_st = @idCotizacion
+
+	IF @tipoCompra = 'CREDITO'
+		BEGIN
+			DECLARE @idCxc int  = 1
+			IF EXISTS (SELECT id_cxc FROM CuentaCobrarServicio)
+				SET @idCxc = 1 + (SELECT MAX(id_cxc) FROM CuentaCobrarServicio)
+
+			INSERT INTO CuentaCobrarServicio VALUES (@idCxc, @idFact_fs, @id_cliente, @total, 'PENDIENTE')
+		END
+	ELSE
+		BEGIN
+			UPDATE Caja SET total_caja = total_caja + @total WHERE id_caja = @idCaja
+		END
+
+	SELECT id_fservicio_st FROM FacturaServicio
+	where id_fservicio_st = @idFact_fs
+END
+go
+
+ALTER PROC [dbo].[facturaServicio_editar]
+@idFact int,
+@id_cliente int,
+@nombre_cliente nvarchar(50),
+@cedula nvarchar(20),
+@rnc nvarchar(20),
+@tipoCompra nvarchar(10),
+@importe decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_fservicio_detalle readonly,
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @tipoFactura VARCHAR(50) = (Select tipoCompra_fservicio from FacturaServicio WHERE id_fservicio = @idFact)
+	IF @tipoCompra = 'CONTADO'
+		BEGIN
+			DECLARE @totalViejo decimal(18,2) = (Select total_fservicio from FacturaServicio WHERE id_fservicio = @idFact)
+			UPDATE Caja SET total_caja = total_caja - @totalViejo WHERE id_caja = @idCaja
+		END
+
+	UPDATE FacturaServicio SET id_cliente = @id_cliente, nombre_cliente = @nombre_cliente,
+	cedula_cliente = @cedula, rnc_cliente = @rnc, importe_fservicio = @importe,
+	itbis_fservicio = @itbis, total_fservicio = @total
+	WHERE id_fservicio = @idFact
+
+	Delete FacturaServicioDetalle where id_fservicio = @idFact
+
+	INSERT INTO FacturaServicioDetalle(id_fservicio, descripcion_fservicio, precio_fservicio)
+	SELECT @idFact, D.descripcion, D.precio
+	FROM @detalle D
+
+	IF @tipoCompra = 'CREDITO'
+		BEGIN
+			UPDATE CuentaCobrarServicio SET balance_cxc = @total WHERE id_factura = (select top 1 id_fservicio_st from FacturaServicio where id_fservicio = @idFact)
+		END
+	ELSE
+		BEGIN
+			UPDATE Caja SET total_caja = total_caja + @total WHERE id_caja = @idCaja
+		END
+END
+go
