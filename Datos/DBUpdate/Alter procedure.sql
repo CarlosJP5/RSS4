@@ -12,7 +12,7 @@ as
 begin
 	set nocount on
 	update Caja set cierre_caja = @fecha_cierre, cierre_nombre = @nombre_cierre,
-	       estado_caja = 'CERRADO'
+	       estado_caja = 'CERRADA'
 	where id_caja = @idCaja
 end
 go
