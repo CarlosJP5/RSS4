@@ -1,4 +1,5 @@
 ﻿using APP.Buscar;
+using Entidades;
 using Microsoft.Reporting.WinForms;
 using Negocios;
 using Negocios.NReportes;
@@ -19,8 +20,10 @@ namespace APP
         public FrmReciboIngresoServicio()
         {
             InitializeComponent();
+            LlenarCaja();
         }
 
+        private ECaja caja = new ECaja();
         private readonly NClientes _cliente = new NClientes();
         private readonly NReciboIngreso _recibo = new NReciboIngreso();
 
@@ -319,7 +322,12 @@ namespace APP
                         detalleRecibo.Rows.Add(row);
                     }
                 }
-                int idRecibo = _recibo.InsertarServicio(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
+                if (caja.id_caja == 0)
+                {
+                    _ = MessageBox.Show("Debe seleccionar un cajero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                int idRecibo = _recibo.InsertarServicio(txtIdCliente.Text, dtpFecha.Value, detalleRecibo, caja.id_caja);
                 DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
@@ -406,6 +414,33 @@ namespace APP
             if (msj == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LlenarCaja();
+        }
+
+        private void LlenarCaja()
+        {
+            FrmBuscarCajas frm = new FrmBuscarCajas();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (frm.listarDgv.SelectedCells[4].Value.ToString() != "CERRADA")
+                {
+                    caja.id_caja = (int)frm.listarDgv.SelectedCells[0].Value;
+                    caja.apertura_nombre = frm.listarDgv.SelectedCells[2].Value.ToString();
+                    caja.total_caja = (double)frm.listarDgv.SelectedCells[3].Value;
+                    cajeroTxt.Text = caja.apertura_nombre;
+                }
+                else
+                {
+                    caja = new ECaja();
+                    cajeroTxt.Text = caja.apertura_nombre;
+                    _ = MessageBox.Show("Esta caja esta cerrada", "Cerrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
         }
     }

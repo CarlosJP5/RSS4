@@ -34,15 +34,15 @@ namespace Negocios
         {
             return _recibo.ListarServicio(Desde, Hasta);
         }
-        public int Insertar(string IdCliente, DateTime Fecha, DataTable Detalle)
+        public int Insertar(string IdCliente, DateTime Fecha, DataTable Detalle, int idCaja)
         {
             int id = Convert.ToInt32(IdCliente);
-            return _recibo.Insertar(id, Fecha, Detalle);
+            return _recibo.Insertar(id, Fecha, Detalle, idCaja);
         }
-        public int InsertarServicio(string IdCliente, DateTime Fecha, DataTable Detalle)
+        public int InsertarServicio(string IdCliente, DateTime Fecha, DataTable Detalle, int idCaja)
         {
             int id = Convert.ToInt32(IdCliente);
-            return _recibo.InsertarServicio(id, Fecha, Detalle);
+            return _recibo.InsertarServicio(id, Fecha, Detalle, idCaja);
         }
         public void Anular(string IdRecibo)
         {
@@ -83,7 +83,6 @@ namespace Negocios
                 ReciboIngresos.Add(reciboModel);
             }
         }
-
         public void ImprimirReciboServicio(string IdRecibo)
         {
             int id = Convert.ToInt32(IdRecibo);

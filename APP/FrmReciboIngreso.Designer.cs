@@ -38,6 +38,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cajeroTxt = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblIdRecibo = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -109,6 +111,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.cajeroTxt);
+            this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.lblIdRecibo);
             this.panel2.Controls.Add(this.btnImprimir);
             this.panel2.Controls.Add(this.btnSalvar);
@@ -134,10 +138,33 @@
             this.panel2.Size = new System.Drawing.Size(872, 322);
             this.panel2.TabIndex = 0;
             // 
+            // cajeroTxt
+            // 
+            this.cajeroTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cajeroTxt.Enabled = false;
+            this.cajeroTxt.Location = new System.Drawing.Point(59, 276);
+            this.cajeroTxt.Name = "cajeroTxt";
+            this.cajeroTxt.Size = new System.Drawing.Size(149, 20);
+            this.cajeroTxt.TabIndex = 23;
+            this.cajeroTxt.TextChanged += new System.EventHandler(this.cajeroTxt_TextChanged);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(13, 279);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(40, 13);
+            this.linkLabel1.TabIndex = 22;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cajero:";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // lblIdRecibo
             // 
             this.lblIdRecibo.AutoSize = true;
-            this.lblIdRecibo.Location = new System.Drawing.Point(18, 275);
+            this.lblIdRecibo.Location = new System.Drawing.Point(201, 16);
             this.lblIdRecibo.Name = "lblIdRecibo";
             this.lblIdRecibo.Size = new System.Drawing.Size(50, 13);
             this.lblIdRecibo.TabIndex = 21;
@@ -147,7 +174,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(383, 280);
+            this.btnImprimir.Location = new System.Drawing.Point(447, 279);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 14;
@@ -160,7 +187,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(482, 280);
+            this.btnSalvar.Location = new System.Drawing.Point(546, 279);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(85, 25);
             this.btnSalvar.TabIndex = 15;
@@ -173,7 +200,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(581, 280);
+            this.btnBuscar.Location = new System.Drawing.Point(645, 279);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 16;
@@ -186,7 +213,7 @@
             // btnAnular
             // 
             this.btnAnular.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnAnular.Location = new System.Drawing.Point(284, 280);
+            this.btnAnular.Location = new System.Drawing.Point(348, 279);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(85, 25);
             this.btnAnular.TabIndex = 18;
@@ -199,7 +226,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(185, 280);
+            this.btnNuevo.Location = new System.Drawing.Point(249, 279);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 17;
@@ -212,7 +239,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(680, 280);
+            this.btnSalir.Location = new System.Drawing.Point(744, 279);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 20;
@@ -573,5 +600,7 @@
         private System.Windows.Forms.ErrorProvider errorMonto;
         private System.Windows.Forms.ErrorProvider errorDiferencia;
         private System.Windows.Forms.Label lblIdRecibo;
+        private System.Windows.Forms.TextBox cajeroTxt;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

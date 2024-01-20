@@ -302,3 +302,147 @@ BEGIN
 		END
 END
 go
+
+SELECT * INTO TEMP3 FROM ReciboIngreso
+GO
+
+/****** Object:  Table [dbo].[ReciboIngreso]    Script Date: 1/20/2024 4:14:07 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ReciboIngreso]') AND type in (N'U'))
+DROP TABLE [dbo].[ReciboIngreso]
+GO
+
+/****** Object:  Table [dbo].[ReciboIngreso]    Script Date: 1/20/2024 4:14:07 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ReciboIngreso](
+	[id_ri] [int] NULL,
+	[id_factura] [int] NULL,
+	[id_cliente] [int] NULL,
+	[fecha_ri] [date] NULL,
+	[pago_ri] [decimal](18, 2) NULL,
+	[estado_ri] [varchar](20) NULL,
+	[id_caja] [int] NULL
+) ON [PRIMARY]
+GO
+
+INSERT INTO ReciboIngreso SELECT *, 0 FROM TEMP3
+GO
+
+DROP TABLE TEMP3
+GO
+
+ALTER PROC [dbo].[reciboIngreso_insertar]
+@idCliente int,
+@fecha date,
+@detalle type_recibo_ingreso readonly,
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @idRecibo int = 1
+	IF EXISTS (SELECT id_ri FROM ReciboIngreso)
+		SET @idRecibo = 1 + (SELECT MAX(id_ri) FROM ReciboIngreso)
+
+	INSERT INTO ReciboIngreso (id_ri, id_factura, id_cliente,
+	fecha_ri, pago_ri, estado_ri, id_caja)
+	SELECT @idRecibo, D.idFactura, @idCliente, @fecha, D.pago, D.estado, @idCaja
+	FROM @detalle D
+
+	DECLARE @total decimal(18,2) = (SELECT SUM(RI.pago_ri) Monto FROM ReciboIngreso RI WHERE RI.id_ri = @idRecibo)
+	UPDATE Caja SET total_caja = total_caja + @total WHERE id_caja = @idCaja
+
+	SELECT MAX(id_ri) FROM ReciboIngreso
+END
+GO
+
+SELECT * INTO TEMP4 FROM ReciboIngresoServicio
+GO
+
+/****** Object:  Table [dbo].[ReciboIngresoServicio]    Script Date: 1/20/2024 4:20:39 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ReciboIngresoServicio]') AND type in (N'U'))
+DROP TABLE [dbo].[ReciboIngresoServicio]
+GO
+
+/****** Object:  Table [dbo].[ReciboIngresoServicio]    Script Date: 1/20/2024 4:20:39 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ReciboIngresoServicio](
+	[id_ri] [int] NULL,
+	[id_factura] [nvarchar](50) NULL,
+	[id_cliente] [int] NULL,
+	[fecha_ri] [date] NULL,
+	[pago_ri] [decimal](18, 2) NULL,
+	[estado_ri] [varchar](20) NULL,
+	[id_caja] [int] NULL
+) ON [PRIMARY]
+GO
+
+INSERT INTO ReciboIngresoServicio SELECT *, 0 FROM TEMP4
+GO
+
+DROP TABLE TEMP4
+GO
+
+ALTER PROC [dbo].[reciboIngreso_insertar_servicio]
+@idCliente int,
+@fecha date,
+@detalle type_recibo_ingreso_servicio readonly,
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @idRecibo int = 1
+	IF EXISTS (SELECT id_ri FROM ReciboIngresoServicio)
+		SET @idRecibo = 1 + (SELECT MAX(id_ri) FROM ReciboIngresoServicio)
+
+	INSERT INTO ReciboIngresoServicio (id_ri, id_factura, id_cliente,
+	fecha_ri, pago_ri, estado_ri, id_caja)
+	SELECT @idRecibo, D.idFactura, @idCliente, @fecha, D.pago, D.estado, @idCaja
+	FROM @detalle D
+
+	DECLARE @total decimal(18,2) = (SELECT SUM(RI.pago_ri) Monto FROM ReciboIngresoServicio RI WHERE RI.id_ri = @idRecibo)
+	UPDATE Caja SET total_caja = total_caja + @total WHERE id_caja = @idCaja
+
+	SELECT MAX(id_ri) FROM ReciboIngresoServicio
+END
+GO
+
+ALTER PROC [dbo].[reciboIngreso_anular]
+@IdRecibo int
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	DECLARE @idCaja INT = (SELECT id_caja FROM ReciboIngreso RI WHERE RI.id_ri = @idRecibo)
+	DECLARE @total decimal(18,2) = (SELECT SUM(RI.pago_ri) Monto FROM ReciboIngreso RI WHERE RI.id_ri = @idRecibo)
+	UPDATE Caja SET total_caja = total_caja - @total WHERE id_caja = @idCaja
+
+	DELETE ReciboIngreso
+	WHERE id_ri = @IdRecibo
+END
+go
+
+ALTER PROC [dbo].[reciboIngreso_anular_servicio]
+@IdRecibo int
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	DECLARE @idCaja INT = (SELECT id_caja FROM ReciboIngresoServicio RI WHERE RI.id_ri = @idRecibo)
+	DECLARE @total decimal(18,2) = (SELECT SUM(RI.pago_ri) Monto FROM ReciboIngresoServicio RI WHERE RI.id_ri = @idRecibo)
+	UPDATE Caja SET total_caja = total_caja - @total WHERE id_caja = @idCaja
+
+	DELETE ReciboIngresoServicio
+	WHERE id_ri = @IdRecibo
+END
+go

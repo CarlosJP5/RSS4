@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -132,7 +133,7 @@ namespace Datos
                 }
             }
         }
-        public int Insertar(int IdCliente, DateTime Fecha, DataTable Detalle)
+        public int Insertar(int IdCliente, DateTime Fecha, DataTable Detalle, int idCaja)
         {
             using (var conn = GetConnection())
             {
@@ -145,6 +146,7 @@ namespace Datos
                     cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = IdCliente;
                     cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Fecha;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    cmd.Parameters.Add("@idCaja", SqlDbType.Int).Value = idCaja;
                     try
                     {
                         int idRecibo = (int)cmd.ExecuteScalar();
@@ -157,7 +159,7 @@ namespace Datos
                 }
             }
         }
-        public int InsertarServicio(int IdCliente, DateTime Fecha, DataTable Detalle)
+        public int InsertarServicio(int IdCliente, DateTime Fecha, DataTable Detalle, int idCaja)
         {
             using (var conn = GetConnection())
             {
@@ -170,6 +172,7 @@ namespace Datos
                     cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = IdCliente;
                     cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = Fecha;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
+                    cmd.Parameters.Add("@idCaja", SqlDbType.Int).Value = idCaja;
                     try
                     {
                         int idRecibo = (int)cmd.ExecuteScalar();
