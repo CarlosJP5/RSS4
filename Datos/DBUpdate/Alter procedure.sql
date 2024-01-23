@@ -446,3 +446,89 @@ BEGIN
 	WHERE id_ri = @IdRecibo
 END
 go
+
+SELECT * INTO TEMP5 FROM FacturaDevolucion
+GO
+
+/****** Object:  Table [dbo].[FacturaDevolucion]    Script Date: 1/23/2024 10:37:56 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FacturaDevolucion]') AND type in (N'U'))
+DROP TABLE [dbo].[FacturaDevolucion]
+GO
+
+/****** Object:  Table [dbo].[FacturaDevolucion]    Script Date: 1/23/2024 10:37:56 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[FacturaDevolucion](
+	[id_devolucion] [int] NOT NULL,
+	[id_factura] [int] NULL,
+	[id_cliente] [int] NULL,
+	[id_comprobante] [varchar](3) NULL,
+	[fecha_devolucion] [date] NULL,
+	[importe_devolucion] [decimal](18, 2) NULL,
+	[descuento_devolucion] [decimal](18, 2) NULL,
+	[itbis_devolucion] [decimal](18, 2) NULL,
+	[total_devolucion] [decimal](18, 2) NULL,
+	[tipo_devolucion] [nvarchar](20) NULL,
+	[id_caja] [int] NULL
+PRIMARY KEY CLUSTERED 
+(
+	[id_devolucion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT INTO FacturaDevolucion SELECT *, 0 FROM TEMP5
+GO
+
+DROP TABLE TEMP5
+GO
+
+ALTER PROC [dbo].[facturaDevolucion_insertar]
+@idFactura int,
+@idcliente int,
+@idComprobante varchar(3),
+@ncf varchar(15),
+@fecha date,
+@fechaVencimiento date,
+@importe decimal(18,2),
+@descuento decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_devolucion_detalle readonly,
+@tipoFactura nvarchar(50),
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	DECLARE @idDevolcion int  = 1
+	IF EXISTS (SELECT id_devolucion FROM FacturaDevolucion)
+		SET @idDevolcion = 1 + (SELECT MAX(id_devolucion) FROM FacturaDevolucion)
+
+	INSERT INTO FacturaDevolucion VALUES (@idDevolcion, @idFactura, @idcliente, @idComprobante,
+	@fecha, @importe, @descuento, @itbis, @total, @tipoFactura, @idCaja)
+
+	INSERT INTO FacturaDevolucionDetalle (id_devolucion, id_articulo, cantidad_devolucion,
+	totalImporte_devolucion, totalDescuento_devolucion, totalItbis_devolucion, precio_devolucion)
+	SELECT @idDevolcion, D.idArticulo, D.cantidad, D.totalimporte, D.totaldescuento, D.totalitbis, D.precio
+	FROM @detalle D
+
+	INSERT INTO ComprobantesDetalle VALUES (@idComprobante, @idDevolcion, @ncf, @fechaVencimiento)
+	SELECT MAX(id_devolucion) FROM FacturaDevolucion
+
+	IF @tipoFactura = 'CREDITO'
+		BEGIN
+			UPDATE CuentaCobrar SET balance_cxc = balance_cxc - @total WHERE id_factura = @idFactura
+		END
+	ELSE
+		BEGIN
+			UPDATE Caja SET total_caja = total_caja - @total WHERE id_caja = @idCaja
+		END
+END
+go
+
+

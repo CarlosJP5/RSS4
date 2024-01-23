@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFacturaDevolucion));
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -96,6 +96,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.cajeroTxt = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -127,6 +129,8 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.cajeroTxt);
+            this.panelMid.Controls.Add(this.linkLabel1);
             this.panelMid.Controls.Add(this.lblNCF);
             this.panelMid.Controls.Add(this.label20);
             this.panelMid.Controls.Add(this.lblIdDevolucion);
@@ -272,9 +276,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column4.HeaderText = "Cant.";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -282,9 +286,9 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column5.HeaderText = "Desc.";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -292,9 +296,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column6.HeaderText = "Precio";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -302,11 +306,11 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column7.HeaderText = "";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -314,18 +318,18 @@
             // 
             // Column8
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle17;
             this.Column8.HeaderText = "Devuelta";
             this.Column8.Name = "Column8";
             this.Column8.Width = 70;
             // 
             // Column9
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle18;
             this.Column9.HeaderText = "Importe";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -358,7 +362,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
-            this.btnImprimir.Location = new System.Drawing.Point(165, 339);
+            this.btnImprimir.Location = new System.Drawing.Point(227, 334);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(85, 25);
             this.btnImprimir.TabIndex = 41;
@@ -371,7 +375,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(263, 339);
+            this.btnSalvar.Location = new System.Drawing.Point(325, 334);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(85, 25);
             this.btnSalvar.TabIndex = 42;
@@ -384,7 +388,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnGuardar.Location = new System.Drawing.Point(315, 373);
+            this.btnGuardar.Location = new System.Drawing.Point(325, 375);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(85, 25);
             this.btnGuardar.TabIndex = 46;
@@ -397,7 +401,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(361, 339);
+            this.btnBuscar.Location = new System.Drawing.Point(423, 334);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 43;
@@ -410,7 +414,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(217, 373);
+            this.btnModificar.Location = new System.Drawing.Point(227, 375);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(85, 25);
             this.btnModificar.TabIndex = 45;
@@ -423,7 +427,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(119, 373);
+            this.btnNuevo.Location = new System.Drawing.Point(129, 375);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(85, 25);
             this.btnNuevo.TabIndex = 44;
@@ -436,7 +440,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(413, 373);
+            this.btnSalir.Location = new System.Drawing.Point(423, 375);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 47;
@@ -758,6 +762,28 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Fecha:";
             // 
+            // cajeroTxt
+            // 
+            this.cajeroTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cajeroTxt.Enabled = false;
+            this.cajeroTxt.Location = new System.Drawing.Point(60, 321);
+            this.cajeroTxt.Name = "cajeroTxt";
+            this.cajeroTxt.Size = new System.Drawing.Size(149, 20);
+            this.cajeroTxt.TabIndex = 55;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(14, 324);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(40, 13);
+            this.linkLabel1.TabIndex = 54;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cajero:";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // FrmFacturaDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -845,5 +871,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblIdDevolucion;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox cajeroTxt;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
