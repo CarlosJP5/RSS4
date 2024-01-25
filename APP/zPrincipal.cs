@@ -228,5 +228,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void cuadreDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCaja_cuadre frm = new FrmCaja_cuadre
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

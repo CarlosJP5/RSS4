@@ -222,6 +222,12 @@
     <Compile Include="FrmCaja_cierre.Designer.cs">
       <DependentUpon>FrmCaja_cierre.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCaja_cuadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaja_cuadre.Designer.cs">
+      <DependentUpon>FrmCaja_cuadre.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -485,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCaja_cierre.resx">
       <DependentUpon>FrmCaja_cierre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaja_cuadre.resx">
+      <DependentUpon>FrmCaja_cuadre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>

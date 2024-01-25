@@ -136,6 +136,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable Listar(int idCaja)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[facturaServicio_listar2_caja]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idCaja", SqlDbType.Int).Value = idCaja;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable ListarRecibos(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())

@@ -531,4 +531,93 @@ BEGIN
 END
 go
 
+create PROC [dbo].[factura_listar_cajero]
+@idcaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT F.id_factura, F.fecha_factura, CD.ncf_comprobante,
+	C.nombre_cliente, F.total_factura, F.tipoCompra_factura
+	FROM Factura F
+	LEFT JOIN Clientes C ON F.id_cliente = C.id_cliente
+	LEFT JOIN ComprobantesDetalle CD ON F.id_comprobante = F.id_comprobante AND cast(F.id_factura as varchar(50)) = CD.id_documento
+	WHERE F.id_caja = @idcaja
+	ORDER BY F.id_factura DESC
+END
+go
 
+create PROC [dbo].[facturaServicio_listar2_caja]
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT F.id_fservicio_st, F.fecha_fservicio, CD.ncf_comprobante,
+	C.nombre_cliente, F.total_fservicio, F.tipoCompra_fservicio
+	FROM FacturaServicio F
+	LEFT JOIN ComprobantesDetalle CD ON F.id_fservicio_st = CD.id_documento AND F.id_comprobante = CD.id_comprobante
+	LEFT JOIN Clientes C on F.id_cliente = C.id_cliente
+	WHERE F.id_caja = @idCaja
+	ORDER BY F.id_fservicio DESC
+END
+go
+
+create PROC [dbo].[facturaDevolucion_listar_caja]
+@idcaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT DV.id_devolucion, CD.ncf_comprobante,
+	DV.fecha_devolucion, CL.nombre_cliente, DV.total_devolucion
+	FROM FacturaDevolucion DV
+	LEFT JOIN ComprobantesDetalle CD ON CD.id_documento = DV.id_devolucion AND CD.id_comprobante = DV.id_comprobante
+	LEFT JOIN Clientes CL ON DV.id_cliente = CL.id_cliente
+	WHERE DV.id_caja = @idcaja
+	ORDER BY DV.id_devolucion DESC
+END
+go
+
+create proc [dbo].[facturaDevolucion_rpt_listar_caja]
+@idcaja int
+as
+begin
+set nocount on
+SELECT d.id_devolucion, d.id_cliente, d.id_comprobante, d.fecha_devolucion,
+d.tipo_devolucion, d.importe_devolucion, d.descuento_devolucion, d.itbis_devolucion,
+d.total_devolucion, cl.nombre_cliente, cl.cedula_cliente, cl.rnc_cliente,
+cl.direccion_cliente, cl.telefono_cliente, cd.ncf_comprobante,
+cd.fechaVencimiento_comprobante, cdd.nombre_comprobante
+FROM FacturaDevolucion d
+left join Clientes cl on d.id_cliente = cl.id_cliente
+left join Comprobantes cdd on d.id_comprobante = cdd.id_comprobante
+left join ComprobantesDetalle cd on d.id_comprobante = cd.id_comprobante and CONVERT(nvarchar, d.id_devolucion) = cd.id_documento
+WHERE d.id_caja = @idcaja
+end
+go
+
+create PROC [dbo].[reciboIngreso_listar_caja]
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT RI.id_ri, RI.fecha_ri, CL.nombre_cliente, SUM(RI.pago_ri) Monto
+	FROM ReciboIngreso RI
+	LEFT JOIN Clientes CL ON RI.id_cliente = CL.id_cliente
+	WHERE RI.id_caja = @idCaja
+	GROUP BY RI.id_ri, RI.fecha_ri, CL.nombre_cliente
+	ORDER BY RI.id_ri DESC
+END
+go
+
+create PROC [dbo].[reciboIngreso_listar_servicio_caja]
+@idCaja int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT RI.id_ri, RI.fecha_ri, CL.nombre_cliente, SUM(RI.pago_ri) Monto
+	FROM ReciboIngresoServicio RI
+	LEFT JOIN Clientes CL ON RI.id_cliente = CL.id_cliente
+	WHERE RI.id_caja = @idCaja
+	GROUP BY RI.id_ri, RI.fecha_ri, CL.nombre_cliente
+	ORDER BY RI.id_ri DESC
+END
+go

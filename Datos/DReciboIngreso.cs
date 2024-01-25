@@ -107,6 +107,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable Listar(int idCaja)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_listar_caja";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idCaja", SqlDbType.Int).Value = idCaja;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable ListarServicio(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())
@@ -119,6 +144,31 @@ namespace Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.Date).Value = Desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = Hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable ListarServicio(int idCaja)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_listar_servicio_caja";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idCaja", SqlDbType.Int).Value = idCaja;
                     try
                     {
                         SqlDataReader leer = cmd.ExecuteReader();

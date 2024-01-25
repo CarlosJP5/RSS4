@@ -168,6 +168,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable Listar(int idCaja)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "[factura_listar_cajero]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idcaja", SqlDbType.Int).Value = idCaja;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable ListarDevolucion(DateTime Desde, DateTime Hasta)
         {
             using (var conn = GetConnection())
@@ -194,6 +219,31 @@ namespace Datos
                 }
             }
         }
+        public DataTable ListarDevolucion(int idCaja)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_listar_caja";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idcaja", SqlDbType.Int).Value = idCaja;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable ReporteDevolucion(int idDevolucion)
         {
             using (SqlConnection conn = GetConnection())
@@ -205,6 +255,31 @@ namespace Datos
                     cmd.CommandText = "facturaDevolucion_rpt_id";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@idDevolucion", SqlDbType.Int).Value = idDevolucion;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable ReporteDevolucion(string idCaja)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "facturaDevolucion_rpt_listar_caja";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idcaja", SqlDbType.Int).Value = idCaja;
                     try
                     {
                         SqlDataReader leer = cmd.ExecuteReader();

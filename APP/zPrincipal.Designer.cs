@@ -275,6 +275,7 @@ namespace APP
             this.cuadreDeCajaToolStripMenuItem.Name = "cuadreDeCajaToolStripMenuItem";
             this.cuadreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cuadreDeCajaToolStripMenuItem.Text = "Cuadre de Caja";
+            this.cuadreDeCajaToolStripMenuItem.Click += new System.EventHandler(this.cuadreDeCajaToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
