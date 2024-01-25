@@ -16,7 +16,6 @@ namespace APP
             cboTipoComprobante.DataSource = _comprobante.ComprovantesVentas();
             cboTipoComprobante.ValueMember = "id_comprobante";
             cboTipoComprobante.DisplayMember = "nombre_comprobante";
-            LlenarCaja();
         }
 
         private ECaja caja = new ECaja();

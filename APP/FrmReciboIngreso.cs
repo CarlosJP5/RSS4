@@ -14,7 +14,6 @@ namespace APP
         public FrmReciboIngreso()
         {
             InitializeComponent();
-            LlenarCaja();
         }
 
         private ECaja caja = new ECaja();
