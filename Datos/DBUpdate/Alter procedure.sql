@@ -1,9 +1,3 @@
-DROP TABLE TEMP2
-GO
-
-DROP TABLE TEMP
-GO
-
 create proc caja_cierre
 @idCaja int,
 @nombre_cierre varchar(50),
