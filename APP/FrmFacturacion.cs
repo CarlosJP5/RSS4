@@ -109,6 +109,7 @@ namespace APP
         {
             btnNuevo.PerformClick();
             cboImprecion.SelectedIndex = 0;
+            cboTipoComprobante.SelectedIndex = 0;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -135,6 +136,7 @@ namespace APP
             txtPago.Text = string.Empty;
             txtDevuelta.Text = string.Empty;
             _ = txtCodigo.Focus();
+            cboTipoComprobante.SelectedIndex = 0;
         }
 
         private void txtIdCliente_Leave(object sender, EventArgs e)
