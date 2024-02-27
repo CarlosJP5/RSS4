@@ -185,5 +185,10 @@ namespace APP
                 btnGenerarLista.PerformClick();
             }
         }
+
+        private void dgvListar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
