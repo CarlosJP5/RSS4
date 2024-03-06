@@ -53,6 +53,7 @@
     <Compile Include="NFacturacion.cs" />
     <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />
+    <Compile Include="NMecanico.cs" />
     <Compile Include="NReciboIngreso.cs" />
     <Compile Include="NReciboPago.cs" />
     <Compile Include="NReportes\NrptCotizacion.cs" />

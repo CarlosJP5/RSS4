@@ -1,67 +1,56 @@
-CREATE TABLE Caja
+CREATE TABLE Mecanico
 (
-	id_caja int primary key,
-	apertura_caja datetime,
-	apertura_nombre varchar(50),
-	cierre_caja datetime,
-	cierre_nombre varchar(50),
-	total_caja float,
-	fondo_caja float,
-	estado_caja varchar(15)
+	id_mecanico int primary key,
+	nombre_mecanico varchar(50),
+	comision_mecanico float
 )
-GO
+go
 
-create proc caja_apertura
+create proc mecanico_insertar
 @nombre varchar(50),
-@fondo float
+@comision float
 as
 begin
 	set nocount on
-	declare @id int = 1
-	if exists (select id_caja from Caja)
-		set @id = 1 + (select max(id_caja) from Caja)
-
-	insert into Caja (id_caja, apertura_caja, apertura_nombre, total_caja, fondo_caja, estado_caja)
-	values(@id, GETDATE(), @nombre, 0, @fondo, 'ABIERTA')
+	declare @id int  = 1
+	if exists (select id_mecanico from Mecanico)
+		set @id = 1 + (select max(id_mecanico) from Mecanico)
+	insert into Mecanico (id_mecanico, nombre_mecanico, comision_mecanico)
+	values (@id, @nombre, @comision)
 end
-GO
+go
 
-ALTER PROC [dbo].[facturaDevolucion_insertar]
-@idFactura int,
-@idcliente int,
-@idComprobante varchar(3),
-@ncf varchar(15),
-@fecha date,
-@fechaVencimiento date,
-@importe decimal(18,2),
-@descuento decimal(18,2),
-@itbis decimal(18,2),
-@total decimal(18,2),
-@detalle type_devolucion_detalle readonly,
-@tipoFactura nvarchar(50)
-AS
-BEGIN
-	SET NOCOUNT ON
+create proc mecanico_editar
+@id int,
+@nombre varchar(50),
+@comision float
+as
+begin
+	set nocount on
+	update Mecanico set nombre_mecanico = @nombre, comision_mecanico = @comision
+	where id_mecanico = @id
+end
+go
 
-	DECLARE @idDevolcion int  = 1
-	IF EXISTS (SELECT id_devolucion FROM FacturaDevolucion)
-		SET @idDevolcion = 1 + (SELECT MAX(id_devolucion) FROM FacturaDevolucion)
+create proc mecanico_buscar
+@nombre varchar(50)
+as
+begin
+	set nocount on
+	select id_mecanico, nombre_mecanico, comision_mecanico from Mecanico
+	where nombre_mecanico like '%' + @nombre + '%'
+	order by nombre_mecanico
+end
+go
 
-	INSERT INTO FacturaDevolucion VALUES (@idDevolcion, @idFactura, @idcliente, @idComprobante,
-	@fecha, @importe, @descuento, @itbis, @total, @tipoFactura)
+create proc mecanico_buscar_id
+@id int
+as
+begin
+	set nocount on
+	select id_mecanico, nombre_mecanico, comision_mecanico from Mecanico
+	where id_mecanico = @id
+	order by nombre_mecanico
+end
+go
 
-	INSERT INTO FacturaDevolucionDetalle (id_devolucion, id_articulo, cantidad_devolucion,
-	totalImporte_devolucion, totalDescuento_devolucion, totalItbis_devolucion, precio_devolucion)
-	SELECT @idDevolcion, D.idArticulo, D.cantidad, D.totalimporte, D.totaldescuento, D.totalitbis, D.precio
-	FROM @detalle D
-
-	INSERT INTO ComprobantesDetalle VALUES (@idComprobante, @idDevolcion, @ncf, @fechaVencimiento)
-	SELECT MAX(id_devolucion) FROM FacturaDevolucion
-
-	IF @tipoFactura = 'CREDITO'
-		BEGIN
-			UPDATE CuentaCobrar SET balance_cxc = balance_cxc - @total WHERE id_factura = @idFactura
-		END
-	RETURN SELECT @idDevolcion
-END
-GO

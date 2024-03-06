@@ -55,6 +55,7 @@
     <Compile Include="DFacturacion.cs" />
     <Compile Include="DItbis.cs" />
     <Compile Include="DMarcas.cs" />
+    <Compile Include="DMecanico.cs" />
     <Compile Include="DReciboIngreso.cs" />
     <Compile Include="DReciboPago.cs" />
     <Compile Include="DReportes\DrptEmpresa.cs" />

@@ -94,6 +94,7 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mecanicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +138,7 @@ namespace APP
             this.articulosToolStripMenuItem,
             this.cajaToolStripMenuItem,
             this.clientesToolStripMenuItem,
+            this.mecanicosToolStripMenuItem,
             this.suplidoresToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.nCFToolStripMenuItem});
@@ -255,26 +257,26 @@ namespace APP
             // aperturaDeCajaToolStripMenuItem
             // 
             this.aperturaDeCajaToolStripMenuItem.Name = "aperturaDeCajaToolStripMenuItem";
-            this.aperturaDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aperturaDeCajaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.aperturaDeCajaToolStripMenuItem.Text = "Apertura de Caja";
             this.aperturaDeCajaToolStripMenuItem.Click += new System.EventHandler(this.aperturaDeCajaToolStripMenuItem_Click);
             // 
             // cierreDeCajaToolStripMenuItem
             // 
             this.cierreDeCajaToolStripMenuItem.Name = "cierreDeCajaToolStripMenuItem";
-            this.cierreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cierreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.cierreDeCajaToolStripMenuItem.Text = "Cierre de Caja";
             this.cierreDeCajaToolStripMenuItem.Click += new System.EventHandler(this.cierreDeCajaToolStripMenuItem_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(159, 6);
             // 
             // cuadreDeCajaToolStripMenuItem
             // 
             this.cuadreDeCajaToolStripMenuItem.Name = "cuadreDeCajaToolStripMenuItem";
-            this.cuadreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuadreDeCajaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.cuadreDeCajaToolStripMenuItem.Text = "Cuadre de Caja";
             // 
             // clientesToolStripMenuItem
@@ -571,6 +573,13 @@ namespace APP
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // mecanicosToolStripMenuItem
+            // 
+            this.mecanicosToolStripMenuItem.Name = "mecanicosToolStripMenuItem";
+            this.mecanicosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mecanicosToolStripMenuItem.Text = "Mecanicos";
+            this.mecanicosToolStripMenuItem.Click += new System.EventHandler(this.mecanicosToolStripMenuItem_Click);
+            // 
             // zPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +668,7 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem cierreDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem cuadreDeCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mecanicosToolStripMenuItem;
     }
 }
 

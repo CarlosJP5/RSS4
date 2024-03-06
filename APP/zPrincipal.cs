@@ -213,5 +213,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void mecanicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMecanico frm = new FrmMecanico
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }
