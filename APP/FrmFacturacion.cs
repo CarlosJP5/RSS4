@@ -496,6 +496,8 @@ namespace APP
                 txtItbisFactura.Text = facturaTable.Rows[0][13].ToString();
                 txtTotalFactura.Text = facturaTable.Rows[0][14].ToString();
                 txtNota.Text = facturaTable.Rows[0][15].ToString();
+                idMecanicoTxt.Text = facturaTable.Rows[0][31].ToString();
+                nombreMecanicoTxt.Text = facturaTable.Rows[0][32].ToString();
                 for (int i = 0; i < facturaTable.Rows.Count; i++)
                 {
                     dgvListar.Rows.Add(facturaTable.Rows[i][16], facturaTable.Rows[i][17],
@@ -519,6 +521,9 @@ namespace APP
                 linkCotizacion.Enabled = false;
                 linkCodigo.Enabled = false;
                 txtCodigo.Enabled = false;
+                idMecanicoTxt.Enabled = false;
+                nombreMecanicoTxt.Enabled = false;
+                linkLabel1.Enabled = false;
                 btnAgregar.Enabled = false;
                 btnBorrar.Enabled = false;
                 dgvListar.ReadOnly = true;
@@ -531,6 +536,9 @@ namespace APP
 
         private void HabilitarControles()
         {
+            idMecanicoTxt.Enabled = true;
+            nombreMecanicoTxt.Enabled = true;
+            linkLabel1.Enabled = true;
             txtIdCliente.Enabled = true;
             btnBuscarClientes.Enabled = true;
             txtNombre.Enabled = true;
@@ -592,6 +600,10 @@ namespace APP
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
                     Nombre = txtNombre.Text,
                 };
+                if (!string.IsNullOrEmpty(nombreMecanicoTxt.Text) && int.TryParse(idMecanicoTxt.Text, out int idMecanico))
+                {
+                    Factura.IdMecanico = idMecanico;
+                }
                 DataTable Detalle = new DataTable();
                 Detalle.Columns.Add("[idArticulo]", typeof(int));
                 Detalle.Columns.Add("[cantidad]", typeof(decimal));

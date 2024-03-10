@@ -161,3 +161,67 @@ BEGIN
 	ORDER BY F.id_factura
 END
 GO
+
+ALTER PROC [dbo].[factura_buscarId]
+@idFactura int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT F.id_factura, CD.ncf_comprobante, F.fecha_factura, CL.id_cliente,
+	CL.nombre_cliente, CL.direccion_cliente, CL.cedula_cliente,	CL.rnc_cliente,
+	F.tipoCompra_factura, F.id_comprobante, CL.descuento_cliente, F.importe_factura,
+	F.descuento_factura, F.itbis_factura, F.total_factura, F.nota_factura,
+	A.id_articulo, A.codigo_articulo, A.nombre_articulo, M.nombre_marca,
+	FD.cantidad_factura, FD.descuento_factura, FD.precio_factura, FD.importe_factura,
+	FD.costo_factura, I.porciento_itbis, FD.totalImporte_factura,
+	FD.totalDescuento_factura, FD.totalItbis_factura, A.precio_articulo, A.beneficio_minimo,
+	Mc.id_mecanico, Mc.nombre_mecanico
+	FROM Factura F
+	INNER JOIN ComprobantesDetalle CD ON cast(F.id_factura as varchar(30)) = CD.id_documento AND F.id_comprobante = CD.id_comprobante
+	INNER JOIN Clientes CL ON F.id_cliente = CL.id_cliente
+	INNER JOIN FacturaDetalle FD ON F.id_factura = FD.id_factura
+	LEFT JOIN Articulo A ON FD.id_articulo = A.id_articulo
+	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
+	LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis
+	LEFT JOIN Mecanico Mc ON F.id_mecanico = Mc.id_mecanico
+	WHERE F.id_factura = @idFactura
+END
+GO
+
+ALTER PROC [dbo].[factura_editar]
+@idFact int,
+@idCliente int,
+@tipoCompra varchar(10),
+@nota varchar(50),
+@importe decimal(18,2),
+@descuento decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_factura_detalle readonly,
+@nombreCliente nvarchar(50),
+@idMecanico int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DELETE FacturaDetalle WHERE id_factura  = @idFact
+
+	UPDATE Factura SET @idCliente = @idCliente, nota_factura = @nota,
+	importe_factura = @importe, descuento_factura = @descuento,
+	itbis_factura = @itbis, total_factura = @total, nombre_cliente = @nombreCliente,
+	id_mecanico = @idMecanico
+	WHERE id_factura = @idFact
+
+	INSERT INTO FacturaDetalle (id_factura, id_articulo, cantidad_factura, descuento_factura,
+	precio_factura, importe_factura, costo_factura, totalImporte_factura, 
+	totalDescuento_factura, totalItbis_factura)
+	SELECT @idFact, D.idArticulo, D.cantidad, D.descuento, D.precio, D.importe,
+	D.costo, D.totalimporte, D.totaldescuento, D.totalitbis
+	FROM @detalle D
+
+	IF @tipoCompra = 'CREDITO'
+		BEGIN
+			UPDATE CuentaCobrar SET id_cliente = @idCliente, balance_cxc = @total WHERE id_factura = @idFact
+		END
+END
+go
