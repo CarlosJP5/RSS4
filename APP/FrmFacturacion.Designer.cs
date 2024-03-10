@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -103,6 +103,9 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.linkCodigo = new System.Windows.Forms.LinkLabel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.idMecanicoTxt = new System.Windows.Forms.TextBox();
+            this.nombreMecanicoTxt = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -118,16 +121,16 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(784, 30);
+            this.panelTop.Size = new System.Drawing.Size(844, 30);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(782, 28);
+            this.label1.Size = new System.Drawing.Size(842, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Facturación";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,6 +138,9 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.nombreMecanicoTxt);
+            this.panelMid.Controls.Add(this.idMecanicoTxt);
+            this.panelMid.Controls.Add(this.linkLabel1);
             this.panelMid.Controls.Add(this.btnBuscarClientes);
             this.panelMid.Controls.Add(this.panel1);
             this.panelMid.Controls.Add(this.txtDescuento);
@@ -157,7 +163,7 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(784, 448);
+            this.panelMid.Size = new System.Drawing.Size(844, 448);
             this.panelMid.TabIndex = 1;
             // 
             // btnBuscarClientes
@@ -181,7 +187,7 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.txtCotizacion);
-            this.panel1.Location = new System.Drawing.Point(580, 0);
+            this.panel1.Location = new System.Drawing.Point(610, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 105);
             this.panel1.TabIndex = 18;
@@ -269,16 +275,19 @@
             // txtDescuento
             // 
             this.txtDescuento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtDescuento.Location = new System.Drawing.Point(408, 85);
+            this.txtDescuento.Location = new System.Drawing.Point(402, 59);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.ReadOnly = true;
             this.txtDescuento.Size = new System.Drawing.Size(70, 20);
             this.txtDescuento.TabIndex = 16;
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescuento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyDown);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Column1_KeyPress);
+            this.txtDescuento.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescuento_Validating);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(340, 22);
+            this.label9.Location = new System.Drawing.Point(340, 10);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 11;
@@ -287,7 +296,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(340, 55);
+            this.label8.Location = new System.Drawing.Point(341, 36);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 13;
@@ -296,7 +305,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(340, 88);
+            this.label7.Location = new System.Drawing.Point(334, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 15;
@@ -308,7 +317,7 @@
             this.cboTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboTipoComprobante.FormattingEnabled = true;
-            this.cboTipoComprobante.Location = new System.Drawing.Point(408, 52);
+            this.cboTipoComprobante.Location = new System.Drawing.Point(402, 33);
             this.cboTipoComprobante.Name = "cboTipoComprobante";
             this.cboTipoComprobante.Size = new System.Drawing.Size(149, 21);
             this.cboTipoComprobante.TabIndex = 14;
@@ -322,7 +331,7 @@
             this.cboTipoCompra.Items.AddRange(new object[] {
             "CONTADO",
             "CREDITO"});
-            this.cboTipoCompra.Location = new System.Drawing.Point(408, 19);
+            this.cboTipoCompra.Location = new System.Drawing.Point(402, 7);
             this.cboTipoCompra.Name = "cboTipoCompra";
             this.cboTipoCompra.Size = new System.Drawing.Size(100, 21);
             this.cboTipoCompra.TabIndex = 12;
@@ -449,7 +458,7 @@
             this.panelBot.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBot.Location = new System.Drawing.Point(0, 116);
             this.panelBot.Name = "panelBot";
-            this.panelBot.Size = new System.Drawing.Size(780, 328);
+            this.panelBot.Size = new System.Drawing.Size(840, 328);
             this.panelBot.TabIndex = 0;
             // 
             // cboImprecion
@@ -586,7 +595,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(598, 297);
+            this.label19.Location = new System.Drawing.Point(626, 297);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(34, 13);
             this.label19.TabIndex = 21;
@@ -595,7 +604,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(598, 276);
+            this.label18.Location = new System.Drawing.Point(626, 276);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(37, 13);
             this.label18.TabIndex = 20;
@@ -604,7 +613,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(598, 255);
+            this.label17.Location = new System.Drawing.Point(626, 255);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(62, 13);
             this.label17.TabIndex = 19;
@@ -613,7 +622,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(598, 234);
+            this.label16.Location = new System.Drawing.Point(626, 234);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(45, 13);
             this.label16.TabIndex = 18;
@@ -622,7 +631,7 @@
             // txtTotalFactura
             // 
             this.txtTotalFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTotalFactura.Location = new System.Drawing.Point(666, 294);
+            this.txtTotalFactura.Location = new System.Drawing.Point(694, 294);
             this.txtTotalFactura.Name = "txtTotalFactura";
             this.txtTotalFactura.ReadOnly = true;
             this.txtTotalFactura.Size = new System.Drawing.Size(100, 20);
@@ -632,7 +641,7 @@
             // txtItbisFactura
             // 
             this.txtItbisFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtItbisFactura.Location = new System.Drawing.Point(666, 273);
+            this.txtItbisFactura.Location = new System.Drawing.Point(694, 273);
             this.txtItbisFactura.Name = "txtItbisFactura";
             this.txtItbisFactura.ReadOnly = true;
             this.txtItbisFactura.Size = new System.Drawing.Size(100, 20);
@@ -642,7 +651,7 @@
             // txtDescuentoFactura
             // 
             this.txtDescuentoFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtDescuentoFactura.Location = new System.Drawing.Point(666, 252);
+            this.txtDescuentoFactura.Location = new System.Drawing.Point(694, 252);
             this.txtDescuentoFactura.Name = "txtDescuentoFactura";
             this.txtDescuentoFactura.ReadOnly = true;
             this.txtDescuentoFactura.Size = new System.Drawing.Size(100, 20);
@@ -652,7 +661,7 @@
             // txtImporteFactura
             // 
             this.txtImporteFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtImporteFactura.Location = new System.Drawing.Point(666, 231);
+            this.txtImporteFactura.Location = new System.Drawing.Point(694, 231);
             this.txtImporteFactura.Name = "txtImporteFactura";
             this.txtImporteFactura.ReadOnly = true;
             this.txtImporteFactura.Size = new System.Drawing.Size(100, 20);
@@ -683,7 +692,7 @@
             this.dgvListar.Location = new System.Drawing.Point(9, 40);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.Size = new System.Drawing.Size(757, 185);
+            this.dgvListar.Size = new System.Drawing.Size(820, 185);
             this.dgvListar.TabIndex = 4;
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
@@ -716,45 +725,43 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle25.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle25;
             this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
             this.Column5.Width = 60;
             // 
             // Column6
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle26.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle26;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
             this.Column6.Width = 60;
             // 
             // Column7
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle27.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle27;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle28.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle28;
             this.Column8.HeaderText = "Importe";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            dataGridViewCellStyle11.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle29.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle29;
             this.Column9.HeaderText = "costo";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -797,8 +804,8 @@
             // 
             // Column15
             // 
-            dataGridViewCellStyle12.NullValue = "0";
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle30.NullValue = "0";
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle30;
             this.Column15.HeaderText = "minimo";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
@@ -854,12 +861,48 @@
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(342, 88);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(54, 13);
+            this.linkLabel1.TabIndex = 19;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Mecanico";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // idMecanicoTxt
+            // 
+            this.idMecanicoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.idMecanicoTxt.Location = new System.Drawing.Point(402, 85);
+            this.idMecanicoTxt.Name = "idMecanicoTxt";
+            this.idMecanicoTxt.Size = new System.Drawing.Size(36, 20);
+            this.idMecanicoTxt.TabIndex = 20;
+            this.idMecanicoTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.idMecanicoTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyDown);
+            this.idMecanicoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdCliente_KeyPress);
+            this.idMecanicoTxt.Validating += new System.ComponentModel.CancelEventHandler(this.idMecanicoTxt_Validating);
+            // 
+            // nombreMecanicoTxt
+            // 
+            this.nombreMecanicoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.nombreMecanicoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.nombreMecanicoTxt.Location = new System.Drawing.Point(444, 85);
+            this.nombreMecanicoTxt.MaxLength = 50;
+            this.nombreMecanicoTxt.Name = "nombreMecanicoTxt";
+            this.nombreMecanicoTxt.ReadOnly = true;
+            this.nombreMecanicoTxt.Size = new System.Drawing.Size(146, 20);
+            this.nombreMecanicoTxt.TabIndex = 21;
+            // 
             // FrmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 478);
+            this.ClientSize = new System.Drawing.Size(844, 478);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -952,5 +995,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.TextBox nombreMecanicoTxt;
+        private System.Windows.Forms.TextBox idMecanicoTxt;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

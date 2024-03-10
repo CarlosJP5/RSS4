@@ -18,5 +18,6 @@ namespace Entidades
         public decimal Itbis { get; set; }
         public decimal Total { get; set; }
         public string Nombre { get; set; }
+        public int IdMecanico { get; set; } = 0;
     }
 }

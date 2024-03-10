@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using APP.Buscar;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,8 @@ namespace APP
             idTxt.Text = "";
             nombreTxt.Text = "";
             comisionTxt.Text = "";
+            nombreTxt.Enabled = true;
+            comisionTxt.Enabled = true;
             btnModificar.Enabled = false;
             btnSalvar.Enabled = true;
             btnBuscar.Enabled = true;
@@ -44,7 +47,7 @@ namespace APP
                 return;
             }
 
-            if (!string.IsNullOrEmpty(idTxt.Text))
+            if (string.IsNullOrEmpty(idTxt.Text))
             {
                 // Insertar
                 double.TryParse(comisionTxt.Text, out double comision);
@@ -61,12 +64,25 @@ namespace APP
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            FrmBuscarMecanico frm = new FrmBuscarMecanico();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                idTxt.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                nombreTxt.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                comisionTxt.Text = frm.dgvListar.SelectedCells[2].Value.ToString();
+                nombreTxt.Enabled = false;
+                comisionTxt.Enabled = false;
+                btnModificar.Enabled = true;
+                btnSalvar.Enabled = false;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            nombreTxt.Enabled = true;
+            comisionTxt.Enabled = true;
+            btnBuscar.Enabled = false;
+            btnSalvar.Enabled = true;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

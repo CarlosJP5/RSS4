@@ -125,6 +125,8 @@ namespace APP
             linkCotizacion.Enabled = true;
             lblIdFactura.Text = "#";
             lblNCF.Text = "#";
+            idMecanicoTxt.Text = "";
+            nombreMecanicoTxt.Text = "";
             _ = txtCodigo.Focus();
         }
 
@@ -377,6 +379,10 @@ namespace APP
                     Total = Convert.ToDecimal(txtTotalFactura.Text),
                     Nombre = txtNombre.Text,
                 };
+                if (!string.IsNullOrEmpty(nombreMecanicoTxt.Text) && int.TryParse(idMecanicoTxt.Text, out int idMecanico))
+                {
+                    Factura.IdMecanico = idMecanico;
+                }
                 DataTable ListaComprobante = _comprobante.SumarCantidad(Factura.IdComprobante);
                 if (ListaComprobante.Rows.Count > 0)
                 {
@@ -731,6 +737,60 @@ namespace APP
                 else
                 {
                     _ = MessageBox.Show("Esta cotizacion ya fue facturada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void txtDescuento_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            double.TryParse(txtDescuento.Text, out double descuento);
+            txtDescuento.Text = descuento.ToString("n2");
+            if (dgvListar.RowCount > 0)
+            {
+                foreach (DataGridViewRow row in dgvListar.Rows)
+                {
+                    row.Cells[5].Value = descuento;
+                }
+                CalculaTotal();
+            }
+        }
+
+        private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                _ = txtCodigo.Focus();
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBuscarMecanico frm = new FrmBuscarMecanico();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                idMecanicoTxt.Text = frm.dgvListar.SelectedCells[0].Value.ToString();
+                nombreMecanicoTxt.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
+                _ = txtCodigo.Focus();
+            }
+        }
+
+        private void idMecanicoTxt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (int.TryParse(idMecanicoTxt.Text, out int idMecanico))
+            {
+                NMecanico nMecanico = new NMecanico();
+                DataTable dt = nMecanico.Buscar(idMecanico);
+                if (dt.Rows.Count > 0)
+                {
+                    idMecanicoTxt.Text = dt.Rows[0][0].ToString();
+                    nombreMecanicoTxt.Text = dt.Rows[0][1].ToString();
+                }
+                else
+                {
+                    idMecanicoTxt.Text = "";
+                    nombreMecanicoTxt.Text = "";
                 }
             }
         }

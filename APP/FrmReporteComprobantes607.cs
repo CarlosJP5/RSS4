@@ -157,9 +157,9 @@ namespace APP
                 ws.SaveAs(filename);
                 excel.Quit();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                _ = MessageBox.Show("Microsoft Office no Instalado");
+                _ = MessageBox.Show($"Microsoft Office no Instalado\n\n{ex}");
                 throw;
             }
         }

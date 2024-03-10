@@ -217,6 +217,7 @@ namespace Datos
                     cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = Factura.Total;
                     cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = Detalle;
                     cmd.Parameters.Add("@nombreCliente", SqlDbType.VarChar).Value = Factura.Nombre;
+                    cmd.Parameters.Add("@idMecanico", SqlDbType.Int).Value = Factura.IdMecanico;
                     try
                     {
                         return (int)cmd.ExecuteScalar();

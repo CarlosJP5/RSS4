@@ -222,5 +222,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void idMecanicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMecanicoComision frm = new FrmMecanicoComision
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

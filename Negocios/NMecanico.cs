@@ -1,4 +1,5 @@
 ﻿using Datos;
+using System;
 using System.Data;
 
 namespace Negocios
@@ -7,6 +8,10 @@ namespace Negocios
     {
         private readonly DMecanico dMecanico = new DMecanico();
 
+        public DataTable Comision(int idMecanico, DateTime desde, DateTime hasta)
+        {
+            return dMecanico.Comision(idMecanico, desde, hasta);
+        }
         public DataTable Buscar(int Id)
         {
             return dMecanico.Buscar(Id);
