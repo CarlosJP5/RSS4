@@ -3,6 +3,7 @@ using Entidades;
 using Negocios.NClasses;
 using Negocios.NReportes;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace APP
@@ -19,7 +20,7 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            DateTime licenciaLock = DateTime.Parse("12/31/2040");
+            DateTime licenciaLock = DateTime.ParseExact("12/31/2040", "MM/dd/yyyy", CultureInfo.InvariantCulture);
             NrptEmpresa lic = new NrptEmpresa();
             DateTime lisencia = lic.Licensia();
             if (licenciaLock != lisencia)
