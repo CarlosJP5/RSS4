@@ -443,37 +443,37 @@ namespace APP
                 DialogResult msj = MessageBox.Show("Desea Imprimir", "inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (msj == DialogResult.Yes)
                 {
-                    if (cboImprecion.SelectedIndex == 0)
-                    {
-                        rptFactura frm = new rptFactura(IdFactura.ToString());
-                        if (frm.ShowDialog() == DialogResult.OK)
-                        {
-                            frm.Close();
-                        }
-                    }
-                    else
-                    {
-                        rptFacturaA4 frm = new rptFacturaA4(IdFactura.ToString());
-                        if (frm.ShowDialog() == DialogResult.OK)
-                        {
-                            frm.Close();
-                        }
-                    }
-                       
-                    //using (LocalReport localReport = new LocalReport())
+                    //if (cboImprecion.SelectedIndex == 0)
                     //{
-                    //    NrptEmpresa nEmpresa = new NrptEmpresa();
-                    //    NrptFactura nFactura = new NrptFactura();
-                    //    nEmpresa.LlenaEmpresa();
-                    //    nFactura.Facturas(IdFactura.ToString());
-                    //    //localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
-                    //    localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptFactura.rdlc";
-                    //    localReport.DataSources.Clear();
-                    //    localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
-                    //    localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
-                    //    localReport.DataSources.Add(new ReportDataSource("dsFacturaDetalle", nFactura.FacturaDetalles));
-                    //    localReport.PrintToPrinter();
+                    //    rptFactura frm = new rptFactura(IdFactura.ToString());
+                    //    if (frm.ShowDialog() == DialogResult.OK)
+                    //    {
+                    //        frm.Close();
+                    //    }
                     //}
+                    //else
+                    //{
+                    //    rptFacturaA4 frm = new rptFacturaA4(IdFactura.ToString());
+                    //    if (frm.ShowDialog() == DialogResult.OK)
+                    //    {
+                    //        frm.Close();
+                    //    }
+                    //}
+
+                    using (LocalReport localReport = new LocalReport())
+                    {
+                        NrptEmpresa nEmpresa = new NrptEmpresa();
+                        NrptFactura nFactura = new NrptFactura();
+                        nEmpresa.LlenaEmpresa();
+                        nFactura.Facturas(IdFactura.ToString());
+                        localReport.ReportPath = Application.StartupPath + @"\Reportes\rptFactura.rdlc";
+                        //localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptFactura.rdlc";
+                        localReport.DataSources.Clear();
+                        localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                        localReport.DataSources.Add(new ReportDataSource("dsFactura", nFactura.Factura));
+                        localReport.DataSources.Add(new ReportDataSource("dsFacturaDetalle", nFactura.FacturaDetalles));
+                        localReport.PrintToPrinter();
+                    }
                 }
                 btnNuevo.PerformClick();
             }
