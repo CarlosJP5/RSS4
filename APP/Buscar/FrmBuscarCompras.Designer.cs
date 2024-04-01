@@ -337,6 +337,7 @@
             this.totalCompraTxt.Name = "totalCompraTxt";
             this.totalCompraTxt.Size = new System.Drawing.Size(110, 21);
             this.totalCompraTxt.TabIndex = 10;
+            this.totalCompraTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
