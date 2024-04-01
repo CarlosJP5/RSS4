@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -54,6 +54,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.totalCompraTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -286,9 +288,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column6.HeaderText = "Total";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -304,7 +306,7 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(599, 318);
+            this.btnSalir.Location = new System.Drawing.Point(12, 316);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 6;
@@ -317,7 +319,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(498, 318);
+            this.btnAceptar.Location = new System.Drawing.Point(372, 316);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 25);
             this.btnAceptar.TabIndex = 5;
@@ -327,6 +329,25 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // totalCompraTxt
+            // 
+            this.totalCompraTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.totalCompraTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCompraTxt.Location = new System.Drawing.Point(558, 316);
+            this.totalCompraTxt.Name = "totalCompraTxt";
+            this.totalCompraTxt.Size = new System.Drawing.Size(110, 21);
+            this.totalCompraTxt.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(470, 321);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Total Compra";
+            // 
             // FrmBuscarCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +355,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(697, 358);
+            this.Controls.Add(this.totalCompraTxt);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvListar);
@@ -380,5 +403,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.TextBox totalCompraTxt;
+        private System.Windows.Forms.Label label6;
     }
 }
