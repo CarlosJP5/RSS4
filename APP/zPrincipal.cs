@@ -22,7 +22,7 @@ namespace APP
         {
             NrptEmpresa lic = new NrptEmpresa();
             DateTime lisencia = lic.lisencia();
-            if (lisencia < DateTime.Now)
+            if (lisencia > DateTime.Now)
             {
                 MessageBox.Show("Licencia del programa vencida");
                 return;
