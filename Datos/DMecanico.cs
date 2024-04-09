@@ -132,5 +132,27 @@ namespace Datos
                 }
             }
         }
+        public void PagoComision(DataTable detalle)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "mecanico_comision_paga";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@detalle", SqlDbType.Structured).Value = detalle;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

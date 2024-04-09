@@ -28,5 +28,9 @@ namespace Negocios
         {
             dMecanico.Insertar(nombre, comision);
         }
+        public void PagoComision(DataTable detalle)
+        {
+            dMecanico.PagoComision(detalle);
+        }
     }
 }

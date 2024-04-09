@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,6 +42,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nombreMecanicoTxt = new System.Windows.Forms.TextBox();
             this.idMecanicoTxt = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -49,6 +50,8 @@
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.aplicarBtn = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,7 +65,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(547, 30);
+            this.panelTop.Size = new System.Drawing.Size(591, 30);
             this.panelTop.TabIndex = 1;
             // 
             // label1
@@ -71,7 +74,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(545, 28);
+            this.label1.Size = new System.Drawing.Size(589, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Comision Mecanico";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,6 +82,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.aplicarBtn);
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.totalComisionTxt);
             this.panel1.Controls.Add(this.btnBuscar);
@@ -93,14 +98,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(547, 382);
+            this.panel1.Size = new System.Drawing.Size(591, 310);
             this.panel1.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(310, 350);
+            this.label4.Location = new System.Drawing.Point(358, 274);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 15);
             this.label4.TabIndex = 28;
@@ -110,7 +115,7 @@
             // 
             this.totalComisionTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.totalComisionTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.totalComisionTxt.Location = new System.Drawing.Point(420, 348);
+            this.totalComisionTxt.Location = new System.Drawing.Point(468, 272);
             this.totalComisionTxt.MaxLength = 50;
             this.totalComisionTxt.Name = "totalComisionTxt";
             this.totalComisionTxt.ReadOnly = true;
@@ -121,7 +126,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(311, 46);
+            this.btnBuscar.Location = new System.Drawing.Point(295, 37);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 25);
             this.btnBuscar.TabIndex = 26;
@@ -142,13 +147,15 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 88);
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(10, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(521, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(559, 198);
             this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column0
             // 
@@ -173,9 +180,9 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "n2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "n2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column3.HeaderText = "Total";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -183,19 +190,26 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "n2";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "n2";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column4.HeaderText = "Comision";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 80;
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Pago";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 40;
+            // 
             // nombreMecanicoTxt
             // 
             this.nombreMecanicoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.nombreMecanicoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.nombreMecanicoTxt.Location = new System.Drawing.Point(150, 49);
+            this.nombreMecanicoTxt.Location = new System.Drawing.Point(134, 40);
             this.nombreMecanicoTxt.MaxLength = 50;
             this.nombreMecanicoTxt.Name = "nombreMecanicoTxt";
             this.nombreMecanicoTxt.ReadOnly = true;
@@ -206,7 +220,7 @@
             // 
             this.idMecanicoTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.idMecanicoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.idMecanicoTxt.Location = new System.Drawing.Point(108, 49);
+            this.idMecanicoTxt.Location = new System.Drawing.Point(92, 40);
             this.idMecanicoTxt.Name = "idMecanicoTxt";
             this.idMecanicoTxt.Size = new System.Drawing.Size(36, 20);
             this.idMecanicoTxt.TabIndex = 23;
@@ -219,7 +233,7 @@
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(48, 52);
+            this.linkLabel1.Location = new System.Drawing.Point(32, 43);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(54, 13);
             this.linkLabel1.TabIndex = 22;
@@ -264,12 +278,38 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Desde:";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.Blue;
+            this.checkBox1.Location = new System.Drawing.Point(451, 48);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(117, 17);
+            this.checkBox1.TabIndex = 29;
+            this.checkBox1.Text = "MARCAR TODO";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
+            // 
+            // aplicarBtn
+            // 
+            this.aplicarBtn.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.aplicarBtn.Location = new System.Drawing.Point(35, 270);
+            this.aplicarBtn.Name = "aplicarBtn";
+            this.aplicarBtn.Size = new System.Drawing.Size(111, 30);
+            this.aplicarBtn.TabIndex = 30;
+            this.aplicarBtn.Text = "Aplicar Pago";
+            this.aplicarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.aplicarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.aplicarBtn.UseVisualStyleBackColor = true;
+            this.aplicarBtn.Click += new System.EventHandler(this.aplicarBtn_Click);
+            // 
             // FrmMecanicoComision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(547, 412);
+            this.ClientSize = new System.Drawing.Size(591, 340);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -300,11 +340,14 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox totalComisionTxt;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button aplicarBtn;
     }
 }
