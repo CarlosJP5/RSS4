@@ -581,7 +581,6 @@
     <EmbeddedResource Include="Reportes\rptCotizacion.resx">
       <DependentUpon>rptCotizacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\rptCuadreCaja.rdlc" />
     <EmbeddedResource Include="Reportes\rptCuadreCaja2.rdlc" />
     <EmbeddedResource Include="Reportes\rptCuadreCaja2.resx">
       <DependentUpon>rptCuadreCaja2.cs</DependentUpon>

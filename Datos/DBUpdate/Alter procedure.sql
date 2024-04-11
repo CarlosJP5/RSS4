@@ -80,3 +80,51 @@ BEGIN
 	WHERE id_factura = D.idFactura
 END
 GO
+
+ALTER PROC [dbo].[factura_insertar]
+@idCliente int,
+@idComprobante varchar(3),
+@ncf varchar(15),
+@fecha datetime,
+@fechaVencimiento date,
+@tipoCompra varchar(10),
+@nota varchar(50),
+@importe decimal(18,2),
+@descuento decimal(18,2),
+@itbis decimal(18,2),
+@total decimal(18,2),
+@detalle type_factura_detalle readonly,
+@nombreCliente nvarchar(50),
+@idMecanico int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	DECLARE @idFact int = 1
+	IF EXISTS (SELECT id_factura FROM Factura)
+		SET @idFact = 1 + (SELECT MAX(id_factura) FROM Factura)
+
+	INSERT INTO ComprobantesDetalle VALUES (@idComprobante, @idFact, @ncf, @fechaVencimiento)
+
+	INSERT INTO Factura VALUES (@idFact, @idCliente, @idComprobante, @fecha,
+	@tipoCompra, @nota, @importe, @descuento, @itbis, @total, @nombreCliente, @idMecanico, 0)
+
+	INSERT INTO FacturaDetalle (id_factura, id_articulo, cantidad_factura, descuento_factura,
+	precio_factura, importe_factura, costo_factura, totalImporte_factura, 
+	totalDescuento_factura, totalItbis_factura)
+	SELECT @idFact, D.idArticulo, D.cantidad, D.descuento, D.precio, D.importe,
+	D.costo, D.totalimporte, D.totaldescuento, D.totalitbis
+	FROM @detalle D
+
+	IF @tipoCompra = 'CREDITO'
+		BEGIN
+			DECLARE @idCxc int  = 1
+			IF EXISTS (SELECT id_cxc FROM CuentaCobrar)
+				SET @idCxc = 1 + (SELECT MAX(id_cxc) FROM CuentaCobrar)
+
+			INSERT INTO CuentaCobrar VALUES (@idCxc, @idFact, @idCliente, @total, 'PENDIENTE')
+		END
+
+	SELECT MAX(id_factura) FROM Factura
+END
+go
