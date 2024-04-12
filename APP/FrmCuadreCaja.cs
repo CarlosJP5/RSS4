@@ -22,6 +22,7 @@ namespace APP
 
         private void CargarDatos(DateTime Desde, DateTime Hasta)
         {
+            _reporte = new NrptCuadreCaja();
             _reporte.LlenarDatos(Desde, Hasta);
             lblReciboIngreso.Text = "$" + _reporte.TotalReciboIngreso.ToString("N2");
             lblVentasContado.Text = "$" + _reporte.TotalVentasContado.ToString("N2");
