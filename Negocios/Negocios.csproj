@@ -51,6 +51,7 @@
     <Compile Include="NCotizacion.cs" />
     <Compile Include="NCotizacionServicio.cs" />
     <Compile Include="NFacturacion.cs" />
+    <Compile Include="NGasto.cs" />
     <Compile Include="NItbis.cs" />
     <Compile Include="NMarcas.cs" />
     <Compile Include="NMecanico.cs" />

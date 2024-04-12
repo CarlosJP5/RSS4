@@ -53,6 +53,7 @@
     <Compile Include="DCotizacion.cs" />
     <Compile Include="DCotizacionServicio.cs" />
     <Compile Include="DFacturacion.cs" />
+    <Compile Include="DGasto.cs" />
     <Compile Include="DItbis.cs" />
     <Compile Include="DMarcas.cs" />
     <Compile Include="DMecanico.cs" />

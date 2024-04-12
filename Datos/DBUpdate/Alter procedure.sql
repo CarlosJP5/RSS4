@@ -128,3 +128,58 @@ BEGIN
 	SELECT MAX(id_factura) FROM Factura
 END
 go
+
+CREATE TABLE Gasto
+(
+	id_gasto int primary key not null,
+	nombre_gasto varchar(50)  not null
+)
+go
+
+create proc gasto_insertar
+@nombre varchar(50)
+as
+begin
+	set nocount on
+	declare @id int = 1
+	if exists (select id_gasto from Gasto)
+		set @id = 1 + (select max(id_gasto) from Gasto)
+	insert into Gasto (id_gasto,
+					   nombre_gasto
+					   )
+			values    (@id,
+			           @nombre
+					   )
+end
+go
+
+create proc gasto_editar
+@id int,
+@nombre varchar(50)
+as
+begin
+	set nocount on
+	update Gasto set nombre_gasto = @nombre
+	where id_gasto = @id
+end
+go
+
+create proc gasto_buscar
+@nombre varchar(50)
+as
+begin
+	set nocount on
+	select id_gasto, nombre_gasto from Gasto
+	where nombre_gasto like '%' + @nombre + '%'
+end
+go
+
+create proc gasto_buscar_id
+@id int
+as
+begin
+	set nocount on
+	select id_gasto, nombre_gasto from Gasto
+	where id_gasto = @id
+end
+go
