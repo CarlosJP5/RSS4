@@ -547,11 +547,9 @@ namespace APP
             // 
             // listaDeCompraToolStripMenuItem
             // 
-            this.listaDeCompraToolStripMenuItem.Enabled = false;
             this.listaDeCompraToolStripMenuItem.Name = "listaDeCompraToolStripMenuItem";
             this.listaDeCompraToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.listaDeCompraToolStripMenuItem.Text = "Lista de Compra";
-            this.listaDeCompraToolStripMenuItem.Visible = false;
             this.listaDeCompraToolStripMenuItem.Click += new System.EventHandler(this.listaDeCompraToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
