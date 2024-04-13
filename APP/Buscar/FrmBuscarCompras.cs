@@ -14,6 +14,16 @@ namespace APP.Buscar
 
         private readonly NCompras _compra = new NCompras();
 
+        private void SumarTotal()
+        {
+            decimal total = 0m;
+            foreach (DataGridViewRow row in dgvListar.Rows)
+            {
+                total += (decimal)row.Cells[5].Value;
+            }
+            totalCompraTxt.Text = total.ToString("n2");
+        }
+
         private void FrmBuscarCompras_Load(object sender, EventArgs e)
         {
             cboTipoCompra.SelectedIndex = 2;
@@ -25,6 +35,7 @@ namespace APP.Buscar
                 DateTime fecha = DateTime.Parse(row[2].ToString());
                 _ = dgvListar.Rows.Add(row[0], row[1], fecha.ToString("dd / MM / yyy"), row[3], row[4], row[5], row[6]);
             }
+            SumarTotal();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -62,6 +73,7 @@ namespace APP.Buscar
             {
                 dgvListar.Focus();
             }
+            SumarTotal();
         }
 
         private void linkCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
