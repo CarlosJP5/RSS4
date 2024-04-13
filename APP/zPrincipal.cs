@@ -231,5 +231,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGastosTipos frm = new FrmGastosTipos
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

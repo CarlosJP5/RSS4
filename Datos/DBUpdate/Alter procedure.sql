@@ -183,3 +183,114 @@ begin
 	where id_gasto = @id
 end
 go
+
+create table GastoDetalle
+(
+	registro_gasto int primary key,
+	id_gasto int,
+	fecha_gasto datetime,
+	nota_gatos varchar(150),
+	monto_gasto decimal(12,2)
+)
+go
+
+create proc gastoDetalle_insertar
+@idGasto int,
+@fecha datetime,
+@nota varchar(150),
+@monto decimal(12,2)
+as
+begin
+	set nocount on
+	declare @id int = 1
+	if exists (select registro_gasto from GastoDetalle)
+		set @id = 1 + (select max(registro_gasto) from GastoDetalle)
+	insert into GastoDetalle (registro_gasto,
+							  id_gasto,
+							  fecha_gasto,
+							  nota_gatos,
+							  monto_gasto
+							  )
+	values                   (@id,
+	                          @idGasto,
+							  @fecha,
+							  @nota,
+							  @monto
+							  )
+end
+go
+
+create proc gastoDetalle_editar
+@registro int,
+@idGasto int,
+@fecha datetime,
+@nota varchar(150),
+@monto decimal(12,2)
+as
+begin
+	set nocount on
+	update GastoDetalle set   id_gasto = @idGasto,
+							  fecha_gasto = @fecha,
+							  nota_gatos = @nota,
+							  monto_gasto = @monto
+	where registro_gasto = @registro
+end
+go
+
+create proc gastoDetalle_buscar
+@desde datetime,
+@hasta datetime
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	where gd.fecha_gasto between @desde and @hasta
+	order by gd.registro_gasto
+end
+go
+
+create proc gastoDetalle_buscar_tipoGasto
+@desde datetime,
+@hasta datetime,
+@idGasto int
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	where gd.fecha_gasto between @desde and @hasta
+	and   gd.id_gasto = @idGasto
+	order by gd.registro_gasto
+end
+go
+
+create proc gastoDetalle_buscar_idRegistro
+@registro int
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	and   gd.id_gasto = @registro
+	order by gd.registro_gasto
+end
+go

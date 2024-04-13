@@ -75,6 +75,7 @@ namespace APP
             this.cotizacionServicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.cuadreCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idMecanicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cxCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reciboIngresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reciboIngresoServToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,7 +96,7 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.idMecanicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -142,7 +143,8 @@ namespace APP
             this.mecanicosToolStripMenuItem,
             this.suplidoresToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.nCFToolStripMenuItem});
+            this.nCFToolStripMenuItem,
+            this.gastosToolStripMenuItem});
             this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
             this.datosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.datosToolStripMenuItem.Text = "Datos";
@@ -159,7 +161,7 @@ namespace APP
             this.toolStripSeparator2,
             this.reportesToolStripMenuItem});
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "Articulos";
             // 
             // detalleArticulosToolStripMenuItem
@@ -251,7 +253,7 @@ namespace APP
             this.toolStripSeparator10,
             this.cuadreDeCajaToolStripMenuItem});
             this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
-            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cajaToolStripMenuItem.Text = "Caja";
             this.cajaToolStripMenuItem.Visible = false;
             // 
@@ -287,7 +289,7 @@ namespace APP
             this.toolStripSeparator3,
             this.listadoClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // detalleClientesToolStripMenuItem
@@ -311,14 +313,14 @@ namespace APP
             // mecanicosToolStripMenuItem
             // 
             this.mecanicosToolStripMenuItem.Name = "mecanicosToolStripMenuItem";
-            this.mecanicosToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.mecanicosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mecanicosToolStripMenuItem.Text = "Mecanicos";
             this.mecanicosToolStripMenuItem.Click += new System.EventHandler(this.mecanicosToolStripMenuItem_Click);
             // 
             // suplidoresToolStripMenuItem
             // 
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
@@ -328,7 +330,7 @@ namespace APP
             this.detalleUsuarioToolStripMenuItem,
             this.permisoUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // detalleUsuarioToolStripMenuItem
@@ -351,7 +353,7 @@ namespace APP
             this.registroComprobantesToolStripMenuItem,
             this.reporteVentas607ToolStripMenuItem});
             this.nCFToolStripMenuItem.Name = "nCFToolStripMenuItem";
-            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.nCFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nCFToolStripMenuItem.Text = "NCF";
             // 
             // registroComprobantesToolStripMenuItem
@@ -435,6 +437,13 @@ namespace APP
             this.cuadreCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cuadreCajaToolStripMenuItem.Text = "Cuadre Caja";
             this.cuadreCajaToolStripMenuItem.Click += new System.EventHandler(this.cuadreCajaToolStripMenuItem_Click);
+            // 
+            // idMecanicoToolStripMenuItem
+            // 
+            this.idMecanicoToolStripMenuItem.Name = "idMecanicoToolStripMenuItem";
+            this.idMecanicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.idMecanicoToolStripMenuItem.Text = "Comision Mecanico";
+            this.idMecanicoToolStripMenuItem.Click += new System.EventHandler(this.idMecanicoToolStripMenuItem_Click);
             // 
             // cxCToolStripMenuItem
             // 
@@ -582,12 +591,12 @@ namespace APP
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // idMecanicoToolStripMenuItem
+            // gastosToolStripMenuItem
             // 
-            this.idMecanicoToolStripMenuItem.Name = "idMecanicoToolStripMenuItem";
-            this.idMecanicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.idMecanicoToolStripMenuItem.Text = "Comision Mecanico";
-            this.idMecanicoToolStripMenuItem.Click += new System.EventHandler(this.idMecanicoToolStripMenuItem_Click);
+            this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gastosToolStripMenuItem.Text = "Gastos Tipos";
+            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
             // zPrincipal
             // 
@@ -679,6 +688,7 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem cuadreDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mecanicosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem idMecanicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
     }
 }
 
