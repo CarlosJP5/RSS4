@@ -74,7 +74,7 @@ namespace APP.Buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvListar.Rows.Clear();
-            string query = @"A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
+            string query = @"SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
 	                         nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, porciento_itbis,
 	                         A.costo_articulo, A.beneficio_minimo, A.puntoReorden_articulo 
 	                         FROM Articulo A LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
