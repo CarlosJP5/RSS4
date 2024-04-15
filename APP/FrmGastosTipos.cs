@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using APP.Buscar;
+using Negocios;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -20,6 +21,8 @@ namespace APP
             idTxt.Text = "";
             nombreTxt.Text = "";
             btnModificar.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnBuscar.Enabled = true;
             errorNombre.Clear();
             _ = nombreTxt.Focus();
         }
@@ -60,6 +63,27 @@ namespace APP
                 e.Handled = true;
                 _ = btnSalvar.Focus();
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarGastoTipo frm = new FrmBuscarGastoTipo();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                idTxt.Text = frm.listarDgv.SelectedCells[0].Value.ToString();
+                nombreTxt.Text = frm.listarDgv.SelectedCells[1].Value.ToString();
+                nombreTxt.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnModificar.Enabled = true;
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            nombreTxt.Enabled = true;
+            btnSalvar.Enabled = true;
+            btnBuscar.Enabled = false;
+            _ = nombreTxt.Focus();
         }
     }
 }

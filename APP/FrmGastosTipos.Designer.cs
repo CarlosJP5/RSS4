@@ -32,15 +32,15 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.idTxt = new System.Windows.Forms.TextBox();
-            this.nombreTxt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.nombreTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.idTxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -87,45 +87,6 @@
             this.panel1.Size = new System.Drawing.Size(428, 119);
             this.panel1.TabIndex = 2;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Codigo";
-            // 
-            // idTxt
-            // 
-            this.idTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.idTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.idTxt.Enabled = false;
-            this.idTxt.Location = new System.Drawing.Point(70, 15);
-            this.idTxt.Name = "idTxt";
-            this.idTxt.Size = new System.Drawing.Size(100, 20);
-            this.idTxt.TabIndex = 1;
-            // 
-            // nombreTxt
-            // 
-            this.nombreTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.nombreTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.nombreTxt.Location = new System.Drawing.Point(70, 41);
-            this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(200, 20);
-            this.nombreTxt.TabIndex = 3;
-            this.nombreTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nombreTxt_KeyDown);
-            this.nombreTxt.Validating += new System.ComponentModel.CancelEventHandler(this.nombreTxt_Validating);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Nombre";
-            // 
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -150,6 +111,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
@@ -175,6 +137,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -188,6 +151,45 @@
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // nombreTxt
+            // 
+            this.nombreTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.nombreTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.nombreTxt.Location = new System.Drawing.Point(70, 41);
+            this.nombreTxt.Name = "nombreTxt";
+            this.nombreTxt.Size = new System.Drawing.Size(200, 20);
+            this.nombreTxt.TabIndex = 3;
+            this.nombreTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nombreTxt_KeyDown);
+            this.nombreTxt.Validating += new System.ComponentModel.CancelEventHandler(this.nombreTxt_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Nombre";
+            // 
+            // idTxt
+            // 
+            this.idTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.idTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.idTxt.Enabled = false;
+            this.idTxt.Location = new System.Drawing.Point(70, 15);
+            this.idTxt.Name = "idTxt";
+            this.idTxt.Size = new System.Drawing.Size(100, 20);
+            this.idTxt.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Codigo";
             // 
             // errorNombre
             // 
