@@ -294,6 +294,12 @@
     <Compile Include="FrmFacturaServicio.designer.cs">
       <DependentUpon>FrmFacturaServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGastosRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGastosRegistrar.Designer.cs">
+      <DependentUpon>FrmGastosRegistrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGastosTipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,6 +557,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturaServicio.resx">
       <DependentUpon>FrmFacturaServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGastosRegistrar.resx">
+      <DependentUpon>FrmGastosRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGastosTipos.resx">
       <DependentUpon>FrmGastosTipos.cs</DependentUpon>
