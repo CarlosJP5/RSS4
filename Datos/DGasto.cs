@@ -101,5 +101,30 @@ namespace Datos
                 }
             }
         }
+        public void InsertarDetalle(int idGasto, DateTime fecha, string nota, decimal monto)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "gastoDetalle_insertar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idGasto", SqlDbType.VarChar, 50).Value = idGasto;
+                    cmd.Parameters.Add("@fecha", SqlDbType.VarChar, 50).Value = fecha;
+                    cmd.Parameters.Add("@nota", SqlDbType.VarChar, 50).Value = nota;
+                    cmd.Parameters.Add("@monto", SqlDbType.VarChar, 50).Value = monto;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

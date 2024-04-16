@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Negocios;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP
@@ -15,6 +10,82 @@ namespace APP
         public FrmGastosRegistrar()
         {
             InitializeComponent();
+            DataTable data = nGasto.Buscar("");
+
+            DataRow dr = data.NewRow();
+            dr["id_gasto"] = 0;
+            dr["nombre_gasto"] = "- - -";
+            data.Rows.InsertAt(dr, 0);
+
+            tipoGastoCbo.DataSource = data;
+            tipoGastoCbo.ValueMember = "id_gasto";
+            tipoGastoCbo.DisplayMember = "nombre_gasto";
+        }
+
+        private readonly NGasto nGasto = new NGasto();
+
+        private void Nuevo()
+        {
+            errorTotal.Clear();
+            tipoGastoCbo.Enabled = true;
+            detalleTxt.Enabled = true;
+            fechaDtp.Enabled = true;
+            totalTxt.Enabled = true;
+            tipoGastoCbo.SelectedIndex = 0;
+            detalleTxt.Text = "";
+            fechaDtp.Value = DateTime.Now;
+            totalTxt.Text = "";
+            _ = tipoGastoCbo.Focus();
+            btnModificar.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnBuscar.Enabled = true;
+        }
+
+        private void FrmGastosRegistrar_Load(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Nuevo();
+        }
+
+        private void totalTxt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!decimal.TryParse(totalTxt.Text, out _))
+            {
+                errorTotal.SetError(totalTxt, "Número Invalido");
+            }
+            else
+            {
+                errorTotal.Clear();
+            }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (tipoGastoCbo.SelectedIndex == 0)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de gasto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!decimal.TryParse(totalTxt.Text, out decimal monto))
+            {
+                errorTotal.SetError(totalTxt, "Número Invalido");
+                return;
+            }
+            else
+            {
+                if (monto == 0)
+                {
+                    MessageBox.Show("El gato no puede ser Cero (0)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+
+
         }
     }
 }

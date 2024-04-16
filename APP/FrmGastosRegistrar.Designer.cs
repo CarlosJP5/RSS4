@@ -28,25 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tipoGastoCbo = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.detalleTxt = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.fechaDtp = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.totalTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.detalleTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tipoGastoCbo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.errorTotal = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -80,9 +83,9 @@
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.btnNuevo);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.fechaDtp);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.totalTxt);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.detalleTxt);
             this.panel1.Controls.Add(this.label3);
@@ -94,81 +97,13 @@
             this.panel1.Size = new System.Drawing.Size(489, 137);
             this.panel1.TabIndex = 2;
             // 
-            // label2
+            // panel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tipo de Gasto";
-            // 
-            // tipoGastoCbo
-            // 
-            this.tipoGastoCbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.tipoGastoCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tipoGastoCbo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tipoGastoCbo.FormattingEnabled = true;
-            this.tipoGastoCbo.Items.AddRange(new object[] {
-            "0"});
-            this.tipoGastoCbo.Location = new System.Drawing.Point(93, 14);
-            this.tipoGastoCbo.Name = "tipoGastoCbo";
-            this.tipoGastoCbo.Size = new System.Drawing.Size(184, 21);
-            this.tipoGastoCbo.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Detalle";
-            // 
-            // detalleTxt
-            // 
-            this.detalleTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.detalleTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.detalleTxt.Location = new System.Drawing.Point(93, 49);
-            this.detalleTxt.Name = "detalleTxt";
-            this.detalleTxt.Size = new System.Drawing.Size(184, 20);
-            this.detalleTxt.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Location = new System.Drawing.Point(337, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(90, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(300, 52);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Total";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(294, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Fecha";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = " dd / MM / yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(337, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
-            this.dateTimePicker1.TabIndex = 7;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(-1, 80);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(500, 1);
+            this.panel2.TabIndex = 19;
             // 
             // btnSalir
             // 
@@ -206,6 +141,7 @@
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnModificar
             // 
@@ -230,14 +166,88 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // panel2
+            // fechaDtp
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(-1, 80);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 1);
-            this.panel2.TabIndex = 19;
+            this.fechaDtp.CustomFormat = " dd / MM / yyyy";
+            this.fechaDtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fechaDtp.Location = new System.Drawing.Point(337, 14);
+            this.fechaDtp.Name = "fechaDtp";
+            this.fechaDtp.Size = new System.Drawing.Size(135, 20);
+            this.fechaDtp.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(294, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Fecha";
+            // 
+            // totalTxt
+            // 
+            this.totalTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.totalTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.totalTxt.Location = new System.Drawing.Point(337, 49);
+            this.totalTxt.Name = "totalTxt";
+            this.totalTxt.Size = new System.Drawing.Size(90, 20);
+            this.totalTxt.TabIndex = 5;
+            this.totalTxt.Validating += new System.ComponentModel.CancelEventHandler(this.totalTxt_Validating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(300, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Total";
+            // 
+            // detalleTxt
+            // 
+            this.detalleTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.detalleTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.detalleTxt.Location = new System.Drawing.Point(93, 49);
+            this.detalleTxt.Name = "detalleTxt";
+            this.detalleTxt.Size = new System.Drawing.Size(184, 20);
+            this.detalleTxt.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Detalle";
+            // 
+            // tipoGastoCbo
+            // 
+            this.tipoGastoCbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.tipoGastoCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoGastoCbo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tipoGastoCbo.FormattingEnabled = true;
+            this.tipoGastoCbo.Items.AddRange(new object[] {
+            "0"});
+            this.tipoGastoCbo.Location = new System.Drawing.Point(93, 14);
+            this.tipoGastoCbo.Name = "tipoGastoCbo";
+            this.tipoGastoCbo.Size = new System.Drawing.Size(184, 21);
+            this.tipoGastoCbo.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tipo de Gasto";
+            // 
+            // errorTotal
+            // 
+            this.errorTotal.ContainerControl = this;
             // 
             // FrmGastosRegistrar
             // 
@@ -252,9 +262,11 @@
             this.Name = "FrmGastosRegistrar";
             this.ShowIcon = false;
             this.Text = "Registrar Gasto";
+            this.Load += new System.EventHandler(this.FrmGastosRegistrar_Load);
             this.panelTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTotal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,11 +278,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox tipoGastoCbo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox totalTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox detalleTxt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker fechaDtp;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSalir;
@@ -278,5 +290,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.ErrorProvider errorTotal;
     }
 }

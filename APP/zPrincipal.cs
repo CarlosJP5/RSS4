@@ -240,5 +240,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void registrarGastoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGastosRegistrar frm = new FrmGastosRegistrar
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

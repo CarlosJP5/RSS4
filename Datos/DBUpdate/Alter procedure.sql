@@ -294,3 +294,14 @@
 --	order by gd.registro_gasto
 --end
 --go
+
+ALTER proc [dbo].[gasto_buscar]
+@nombre varchar(50)
+as
+begin
+	set nocount on
+	select id_gasto, nombre_gasto from Gasto
+	where nombre_gasto like '%' + @nombre + '%'
+	order by nombre_gasto
+end
+go

@@ -1,4 +1,5 @@
 ﻿using Datos;
+using System;
 using System.Data;
 
 namespace Negocios
@@ -22,6 +23,10 @@ namespace Negocios
         public void Insertar(string nombre)
         {
             dGasto.Insertar(nombre);
+        }
+        public void InsertarDetalle(int idGasto, DateTime fecha, string nota, decimal monto)
+        {
+            dGasto.InsertarDetalle(idGasto, fecha, nota, monto);
         }
     }
 }
