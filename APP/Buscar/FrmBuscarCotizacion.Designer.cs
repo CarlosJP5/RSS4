@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -83,8 +83,6 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMid.Controls.Add(this.btnSalir);
-            this.panelMid.Controls.Add(this.btnAceptar);
             this.panelMid.Controls.Add(this.btnBuscar);
             this.panelMid.Controls.Add(this.cboTipoCompra);
             this.panelMid.Controls.Add(this.label5);
@@ -99,14 +97,14 @@
             this.panelMid.Controls.Add(this.label2);
             this.panelMid.Location = new System.Drawing.Point(12, 36);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(594, 105);
+            this.panelMid.Size = new System.Drawing.Size(594, 102);
             this.panelMid.TabIndex = 2;
             // 
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(498, 71);
+            this.btnSalir.Location = new System.Drawing.Point(521, 346);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
             this.btnSalir.TabIndex = 6;
@@ -119,7 +117,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(402, 71);
+            this.btnAceptar.Location = new System.Drawing.Point(417, 346);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 25);
             this.btnAceptar.TabIndex = 5;
@@ -132,7 +130,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(306, 71);
+            this.btnBuscar.Location = new System.Drawing.Point(503, 66);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 25);
             this.btnBuscar.TabIndex = 11;
@@ -296,9 +294,9 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column5.HeaderText = "Monto";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -306,8 +304,8 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.HeaderText = "Estado";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -318,7 +316,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(619, 357);
+            this.ClientSize = new System.Drawing.Size(619, 384);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);

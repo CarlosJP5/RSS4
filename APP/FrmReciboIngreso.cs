@@ -50,7 +50,7 @@ namespace APP
         private void txtIdCliente_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtIdCliente.Text))
-            {                
+            {
                 DataTable cliente = _cliente.BuscarId(txtIdCliente.Text);
                 if (cliente.Rows.Count > 0)
                 {
@@ -61,7 +61,7 @@ namespace APP
                 {
                     txtNombre.Text = null;
                 }
-                
+
             }
         }
 

@@ -2,7 +2,6 @@
 using Negocios;
 using Negocios.NReportes;
 using System;
-using System.Data;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -26,7 +25,7 @@ namespace APP
         {
             dgvListar.Rows.Clear();
             NComprobantes _comprobante = new NComprobantes();
-            
+
             string query = @"SELECT C.rnc_cliente, C.cedula_cliente, CD.ncf_comprobante, F.fecha_factura,
                              F.itbis_factura, (F.total_factura - F.itbis_factura) AS Monto, F.id_factura,
                              C.nombre_cliente, F.total_factura, F.id_comprobante FROM Factura F
@@ -100,7 +99,7 @@ namespace APP
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             try
-            {            
+            {
                 string filename = ((DatoArchivo)e.Argument).FileName;
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
@@ -128,7 +127,7 @@ namespace APP
                     ws.Cells[Fila, 5] = dgvListar.Rows[i].Cells[3].Value.ToString();
                     ws.Cells[Fila, 6] = dgvListar.Rows[i].Cells[4].Value.ToString();
                     ws.Cells[Fila, 7] = dgvListar.Rows[i].Cells[5].Value.ToString();
-                    ws.Cells[Fila, 8] = 
+                    ws.Cells[Fila, 8] =
                     ws.Cells[Fila, 9] = dgvListar.Rows[i].Cells[6].Value.ToString();
                     ws.Cells[Fila, 10] = dgvListar.Rows[i].Cells[8].Value.ToString();
                     ws.Cells[Fila, 11] = dgvListar.Rows[i].Cells[11].Value.ToString();

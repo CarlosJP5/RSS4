@@ -63,7 +63,7 @@ namespace APP.Buscar
             {
                 dgvListar.CurrentRow.Selected = true;
                 e.SuppressKeyPress = true;
-                e.Handled= true;
+                e.Handled = true;
                 DialogResult = DialogResult.OK;
             }
         }

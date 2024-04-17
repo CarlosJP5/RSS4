@@ -73,7 +73,7 @@ namespace APP
 
                 Usuario.datos_ncf = treeViewDatos.Nodes["datos"].Nodes["ncf"].Checked;
                 Usuario.datos_registro_comprobante = treeViewDatos.Nodes["datos"].Nodes["ncf"].Nodes["registroComprobantes"].Checked;
-                Usuario.datos_reporte_607 = treeViewDatos.Nodes["datos"].Nodes["ncf"].Nodes["reporte607"].Checked; 
+                Usuario.datos_reporte_607 = treeViewDatos.Nodes["datos"].Nodes["ncf"].Nodes["reporte607"].Checked;
             }
         }
 
@@ -85,7 +85,7 @@ namespace APP
                 Usuario.facturacion_normal = treeViewFacturacion.Nodes["facturacion"].Nodes["facturacionNormal"].Checked;
                 Usuario.facturacion_devolucion = treeViewFacturacion.Nodes["facturacion"].Nodes["devolucionVenta"].Checked;
                 Usuario.facturacion_cotizacion = treeViewFacturacion.Nodes["facturacion"].Nodes["cotizaciones"].Checked;
-                Usuario.facturacion_cuadre_caja = treeViewFacturacion.Nodes["facturacion"].Nodes["cuadreCaja"].Checked; 
+                Usuario.facturacion_cuadre_caja = treeViewFacturacion.Nodes["facturacion"].Nodes["cuadreCaja"].Checked;
             }
         }
 
@@ -94,7 +94,7 @@ namespace APP
             if (afterCheck)
             {
                 Usuario.cxc_ = treeViewCxc.Nodes["cxc"].Checked;
-                Usuario.cxc_reciboIngreso = treeViewCxc.Nodes["cxc"].Nodes["reciboIngreso"].Checked; 
+                Usuario.cxc_reciboIngreso = treeViewCxc.Nodes["cxc"].Nodes["reciboIngreso"].Checked;
             }
         }
 
@@ -105,7 +105,7 @@ namespace APP
                 Usuario.cxp_ = treeViewCxp.Nodes["cxp"].Checked;
                 Usuario.cxp_compra = treeViewCxp.Nodes["cxp"].Nodes["compra"].Checked;
                 Usuario.cxp_devolucion = treeViewCxp.Nodes["cxp"].Nodes["devolucionCompra"].Checked;
-                Usuario.cxp_pago = treeViewCxp.Nodes["cxp"].Nodes["reciboPago"].Checked; 
+                Usuario.cxp_pago = treeViewCxp.Nodes["cxp"].Nodes["reciboPago"].Checked;
             }
         }
 
@@ -154,9 +154,9 @@ namespace APP
         }
 
         private void LlenarTree()
-        {           
+        {
             treeViewDatos.Nodes["datos"].Checked = Usuario.datos_;
-            
+
             treeViewDatos.Nodes["datos"].Nodes["articulos"].Checked = Usuario.datos_articulos_;
             treeViewDatos.Nodes["datos"].Nodes["articulos"].Nodes["detalleArticulo"].Checked = Usuario.datos_articulos_detalle;
             treeViewDatos.Nodes["datos"].Nodes["articulos"].Nodes["marcas"].Checked = Usuario.datos_articulos_marcas;
@@ -164,17 +164,17 @@ namespace APP
             treeViewDatos.Nodes["datos"].Nodes["articulos"].Nodes["cambiarCodigo"].Checked = Usuario.datos_articulos_cambiar_codigo;
             treeViewDatos.Nodes["datos"].Nodes["articulos"].Nodes["itbis"].Checked = Usuario.datos_articulos_itbis;
             treeViewDatos.Nodes["datos"].Nodes["articulos"].Nodes["reporteInventario"].Checked = Usuario.datos_articulos_reporteInventario;
-            
+
 
             treeViewDatos.Nodes["datos"].Nodes["clientes"].Checked = Usuario.datos_clientes_;
             treeViewDatos.Nodes["datos"].Nodes["clientes"].Nodes["detalleClientes"].Checked = Usuario.datos_clientes_detalle;
-            
+
             treeViewDatos.Nodes["datos"].Nodes["suplidores"].Checked = Usuario.datos_suplidores;
 
             treeViewDatos.Nodes["datos"].Nodes["usuario"].Checked = Usuario.datos_usuario_;
             treeViewDatos.Nodes["datos"].Nodes["usuario"].Nodes["detalleUsuario"].Checked = Usuario.datos_usuario_detalle;
             treeViewDatos.Nodes["datos"].Nodes["usuario"].Nodes["permisoUsuarios"].Checked = Usuario.datos_usuario_permisos;
-            
+
             treeViewDatos.Nodes["datos"].Nodes["ncf"].Checked = Usuario.datos_ncf;
             treeViewDatos.Nodes["datos"].Nodes["ncf"].Nodes["registroComprobantes"].Checked = Usuario.datos_registro_comprobante;
             treeViewDatos.Nodes["datos"].Nodes["ncf"].Nodes["reporte607"].Checked = Usuario.datos_reporte_607;

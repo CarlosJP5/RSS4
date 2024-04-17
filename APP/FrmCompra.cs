@@ -414,7 +414,7 @@ namespace APP
         private decimal ImporteTotal { get; set; }
         private decimal DescuentoTotal { get; set; }
         private decimal ItbisTotal { get; set; }
-        
+
         private void CalculaCostoFinal()
         {
             decimal costoFinal = 0m;
@@ -468,7 +468,7 @@ namespace APP
                     costoFinal = costo - descuento + itbis;
                     break;
             }
-            
+
             txtCostoFinal.Text = costoFinal.ToString("N2");
             ImporteTotal = cantidad * costo;
             DescuentoTotal = cantidad * descuento;

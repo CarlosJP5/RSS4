@@ -1,15 +1,8 @@
 ﻿using APP.Buscar;
-using Microsoft.Reporting.WinForms;
 using Negocios;
-using Negocios.NReportes;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP
@@ -320,21 +313,21 @@ namespace APP
                 }
                 int idRecibo = _recibo.Insertar(txtIdCliente.Text, dtpFecha.Value, detalleRecibo);
                 //DialogResult msj = MessageBox.Show("Imprimir Recibo?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (msj == DialogResult.Yes)
-            //    {
-            //        using (LocalReport localReport = new LocalReport())
-            //        {
-            //            NrptEmpresa nEmpresa = new NrptEmpresa();
-            //            nEmpresa.LlenaEmpresa();
-            //            _recibo.ImprimirRecibo(idRecibo.ToString());
-            //            localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
-            //            localReport.DataSources.Clear();
-            //            localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
-            //            localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
-            //            localReport.PrintToPrinter();
-            //            btnNuevo.PerformClick();
-            //        }
-            //    }
+                //    if (msj == DialogResult.Yes)
+                //    {
+                //        using (LocalReport localReport = new LocalReport())
+                //        {
+                //            NrptEmpresa nEmpresa = new NrptEmpresa();
+                //            nEmpresa.LlenaEmpresa();
+                //            _recibo.ImprimirRecibo(idRecibo.ToString());
+                //            localReport.ReportPath = @"C:\Users\Carlos J Pacheco\source\repos\CarlosJP5\RSS4\APP\Reportes\rptReciboIngreso.rdlc";
+                //            localReport.DataSources.Clear();
+                //            localReport.DataSources.Add(new ReportDataSource("dsEmpresa", nEmpresa.Empresa));
+                //            localReport.DataSources.Add(new ReportDataSource("dsReciboIngreso", _recibo.ReciboIngresos));
+                //            localReport.PrintToPrinter();
+                //            btnNuevo.PerformClick();
+                //        }
+                //    }
                 btnNuevo.PerformClick();
             }
         }

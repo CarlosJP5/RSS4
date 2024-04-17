@@ -112,7 +112,7 @@ namespace APP
                 DataTable Articulo = _articulo.ListaDeCompras();
                 foreach (DataRow row in Articulo.Rows)
                 {
-                    
+
                     _ = dgvListar.Rows.Add(row[0], row[1],
                         string.IsNullOrEmpty(row[2].ToString()) ? "" : row[2],
                         string.IsNullOrEmpty(row[3].ToString()) ? "" : row[3],

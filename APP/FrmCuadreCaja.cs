@@ -43,7 +43,7 @@ namespace APP
 
         private void FrmCuadreCaja_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnPersonalizada_Click(object sender, EventArgs e)

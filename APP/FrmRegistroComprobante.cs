@@ -31,7 +31,7 @@ namespace APP
 
         private void FrmRegistroComprobante_Load(object sender, EventArgs e)
         {
-            LlenarDataGrid();            
+            LlenarDataGrid();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace APP
                     {
                         if (desde <= (int)dgvListar.Rows[i].Cells[4].Value)
                         {
-                            _ = MessageBox.Show("Error en la Secuencia! " + cboTipoComprobante.SelectedValue.ToString() 
+                            _ = MessageBox.Show("Error en la Secuencia! " + cboTipoComprobante.SelectedValue.ToString()
                                 + "\n\nEsta secuancia ya existe, favor revisar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }

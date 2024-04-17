@@ -363,6 +363,7 @@
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FrmBuscarCompras";
             this.ShowIcon = false;

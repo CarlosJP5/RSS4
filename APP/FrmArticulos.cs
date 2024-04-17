@@ -299,7 +299,7 @@ namespace APP
         {
             if (!string.IsNullOrEmpty(txtIdMarca.Text))
             {
-                
+
                 DataTable marca = _marca.BuscarId(txtIdMarca.Text);
                 if (marca.Rows.Count > 0)
                 {

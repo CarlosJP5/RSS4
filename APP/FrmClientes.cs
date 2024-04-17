@@ -72,7 +72,7 @@ namespace APP
                 cliente.TipoCompra = cboTipoCompra.Text;
                 cliente.Estado = cboEstado.SelectedIndex == 0;
                 DataTable clientes = _clientes.BuscarId(txtIdCliente.Text);
-                if(clientes.Rows.Count > 0)
+                if (clientes.Rows.Count > 0)
                 {
                     // Editar
                     cliente.Id = Convert.ToInt32(txtIdCliente.Text);

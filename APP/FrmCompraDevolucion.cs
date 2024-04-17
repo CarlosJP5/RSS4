@@ -62,7 +62,7 @@ namespace APP
                             compra.Rows[i][14], compra.Rows[i][15], compra.Rows[i][16], compra.Rows[i][17],
                             compra.Rows[i][18], compra.Rows[i][19], compra.Rows[i][20], compra.Rows[i][21],
                             compra.Rows[i][22], compra.Rows[i][23], compra.Rows[i][24], compra.Rows[i][25],
-                            "",0m,0m, compra.Rows[i][15]);
+                            "", 0m, 0m, compra.Rows[i][15]);
                     }
 
                     DataTable Select = _compra.SelectDevluciones(lblIdCompra.Text);

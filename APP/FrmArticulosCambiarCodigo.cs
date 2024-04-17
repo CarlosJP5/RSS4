@@ -143,7 +143,7 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                btnSalvar.PerformClick(); 
+                btnSalvar.PerformClick();
             }
         }
 

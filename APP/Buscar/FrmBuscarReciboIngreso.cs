@@ -30,7 +30,7 @@ namespace APP.Buscar
             string query = @"SELECT RI.id_ri, RI.fecha_ri, CL.nombre_cliente, 
                              SUM(RI.pago_ri) Monto FROM ReciboIngreso RI 
                              LEFT JOIN Clientes CL ON RI.id_cliente = CL.id_cliente";
-            
+
             if (!string.IsNullOrEmpty(txtIdRecibo.Text))
             {
                 query += string.Format(" WHERE RI.id_ri = '{0}'", txtIdRecibo.Text);
@@ -44,7 +44,7 @@ namespace APP.Buscar
                 {
                     query += string.Format(" AND RI.id_cliente = '{0}'", txtIdCliente.Text);
                 }
-            }            
+            }
             query += @" GROUP BY RI.id_ri, RI.fecha_ri, CL.nombre_cliente
 	                  ORDER BY RI.id_ri DESC";
 

@@ -3,7 +3,6 @@ using APP.Reportes;
 using Entidades;
 using Microsoft.Reporting.WinForms;
 using Negocios;
-using Negocios.NReportes;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -471,7 +470,7 @@ namespace APP
                             frm.Close();
                         }
                     }
-                       
+
                     //using (LocalReport localReport = new LocalReport())
                     //{
                     //    NrptEmpresa nEmpresa = new NrptEmpresa();
@@ -660,7 +659,7 @@ namespace APP
                         {
                             frm.Close();
                         }
-                    }                    
+                    }
                     //using (LocalReport localReport = new LocalReport())
                     //{
                     //    NrptEmpresa nEmpresa = new NrptEmpresa();
@@ -783,7 +782,7 @@ namespace APP
             {
                 pago = Convert.ToDecimal(txtPago.Text);
             }
-            txtPago.Text  = pago.ToString("N2");
+            txtPago.Text = pago.ToString("N2");
             txtDevuelta.Text = (pago - Convert.ToDecimal(txtTotalFactura.Text)).ToString("N2");
         }
 

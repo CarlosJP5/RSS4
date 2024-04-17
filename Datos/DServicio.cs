@@ -1,11 +1,11 @@
 ﻿using Entidades;
 using System;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Datos
 {
-    public  class DServicio : Conexion
+    public class DServicio : Conexion
     {
         public DataTable Buscar(DateTime desde, DateTime hasta)
         {

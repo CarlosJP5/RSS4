@@ -153,7 +153,7 @@ namespace Datos
                     cmd.CommandText = "factura_listar";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = Desde;
-                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value= Hasta;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = Hasta;
                     try
                     {
                         SqlDataReader leer = cmd.ExecuteReader();

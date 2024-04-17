@@ -79,7 +79,7 @@ namespace APP.Buscar
                              A.costo_articulo, A.beneficio_minimo, A.puntoReorden_articulo
 	                         FROM Articulo A LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
                              LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis";
-            
+
             if (rbtnTodo.Checked)
             {
                 query += string.Format(@" WHERE codigo_articulo LIKE '%'+'{0}'+'%' OR nombre_articulo

@@ -1,5 +1,4 @@
-﻿using APP.Coneccion;
-using APP.Reportes;
+﻿using APP.Reportes;
 using Entidades;
 using Negocios;
 using Negocios.NClasses;
