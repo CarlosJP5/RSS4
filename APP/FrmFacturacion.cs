@@ -303,6 +303,20 @@ namespace APP
             {
                 dgvListar.CurrentRow.Cells[4].Value = 0.01m;
             }
+            if (dgvListar.CurrentRow.Cells[5].Value == null)
+            {
+                dgvListar.CurrentRow.Cells[5].Value = 0;
+            }
+            double.TryParse(dgvListar.CurrentRow.Cells[5].Value.ToString(), out double descuento);
+            if (descuento > 100)
+            {
+                descuento = 100;
+            }
+            else if (descuento < 0)
+            {
+                descuento = 0;
+            }
+            dgvListar.CurrentRow.Cells[5].Value = descuento;
             if (Convert.ToDouble(dgvListar.CurrentRow.Cells[6].Value) <= 0.01)
             {
                 dgvListar.CurrentRow.Cells[6].Value = 0.01m;
@@ -778,6 +792,34 @@ namespace APP
             if (!string.IsNullOrEmpty(txtPago.Text))
             {
                 txtPago.SelectAll();
+            }
+        }
+
+        private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                _ = txtCodigo.Focus();
+            }
+        }
+
+        private void txtDescuento_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            double.TryParse(txtDescuento.Text, out double descuento);
+            if (descuento > 100)
+            {
+                descuento = 100;
+            }
+            txtDescuento.Text = descuento.ToString("n2");
+            if (dgvListar.RowCount > 0)
+            {
+                foreach (DataGridViewRow dr in dgvListar.Rows)
+                {
+                    dr.Cells[5].Value = descuento;
+                }
+                CalculaTotal();
             }
         }
     }
