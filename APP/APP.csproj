@@ -126,6 +126,12 @@
     <Compile Include="Buscar\FrmBuscarFacturaServicio.Designer.cs">
       <DependentUpon>FrmBuscarFacturaServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\FrmBuscarGastoRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\FrmBuscarGastoRegistro.Designer.cs">
+      <DependentUpon>FrmBuscarGastoRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\FrmBuscarGastoTipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarFacturaServicio.resx">
       <DependentUpon>FrmBuscarFacturaServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\FrmBuscarGastoRegistro.resx">
+      <DependentUpon>FrmBuscarGastoRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\FrmBuscarGastoTipo.resx">
       <DependentUpon>FrmBuscarGastoTipo.cs</DependentUpon>

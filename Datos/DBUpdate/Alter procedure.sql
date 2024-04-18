@@ -305,3 +305,61 @@ begin
 	order by nombre_gasto
 end
 go
+
+ALTER proc [dbo].[gastoDetalle_buscar_tipoGasto]
+@desde datetime,
+@hasta datetime,
+@idGasto int
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	where gd.fecha_gasto between @desde and @hasta
+	and   gd.id_gasto = @idGasto
+	order by gd.registro_gasto desc
+end
+go
+
+ALTER proc [dbo].[gastoDetalle_buscar_idRegistro]
+@registro int
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	and   gd.id_gasto = @registro
+	order by gd.registro_gasto desc
+end
+go
+
+ALTER proc [dbo].[gastoDetalle_buscar]
+@desde datetime,
+@hasta datetime
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	where gd.fecha_gasto between @desde and @hasta
+	order by gd.registro_gasto desc
+end
+go

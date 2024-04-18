@@ -32,6 +32,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.idRegistroTxt = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -77,6 +78,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.idRegistroTxt);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnBuscar);
@@ -96,6 +98,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(489, 137);
             this.panel1.TabIndex = 2;
+            // 
+            // idRegistroTxt
+            // 
+            this.idRegistroTxt.AutoSize = true;
+            this.idRegistroTxt.Location = new System.Drawing.Point(433, 52);
+            this.idRegistroTxt.Name = "idRegistroTxt";
+            this.idRegistroTxt.Size = new System.Drawing.Size(54, 13);
+            this.idRegistroTxt.TabIndex = 20;
+            this.idRegistroTxt.Text = "idRegistro";
+            this.idRegistroTxt.Visible = false;
             // 
             // panel2
             // 
@@ -129,6 +141,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalvar
             // 
@@ -194,6 +207,7 @@
             this.totalTxt.Name = "totalTxt";
             this.totalTxt.Size = new System.Drawing.Size(90, 20);
             this.totalTxt.TabIndex = 5;
+            this.totalTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.totalTxt.Validating += new System.ComponentModel.CancelEventHandler(this.totalTxt_Validating);
             // 
             // label4
@@ -291,5 +305,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ErrorProvider errorTotal;
+        private System.Windows.Forms.Label idRegistroTxt;
     }
 }

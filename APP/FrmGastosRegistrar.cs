@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using APP.Buscar;
+using Negocios;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace APP
 
         private void Nuevo()
         {
+            idRegistroTxt.Text = "0";
             errorTotal.Clear();
             tipoGastoCbo.Enabled = true;
             detalleTxt.Enabled = true;
@@ -53,12 +55,13 @@ namespace APP
 
         private void totalTxt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!decimal.TryParse(totalTxt.Text, out _))
+            if (!decimal.TryParse(totalTxt.Text, out decimal total))
             {
                 errorTotal.SetError(totalTxt, "Número Invalido");
             }
             else
             {
+                totalTxt.Text = total.ToString("n2");
                 errorTotal.Clear();
             }
         }
@@ -84,8 +87,25 @@ namespace APP
                 }
             }
 
+            if (idRegistroTxt.Text == "0")
+            {
+                // insertar
+                nGasto.InsertarDetalle((int)tipoGastoCbo.SelectedValue, fechaDtp.Value, detalleTxt.Text, monto);
+            }
+            else
+            {
+                // editar
+            }
+            Nuevo();
+        }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarGastoRegistro frm = new FrmBuscarGastoRegistro();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
 
+            }
         }
     }
 }

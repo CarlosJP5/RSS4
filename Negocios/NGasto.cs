@@ -1,6 +1,7 @@
 ﻿using Datos;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Negocios
 {
@@ -15,6 +16,18 @@ namespace Negocios
         public DataTable Buscar(string nombre)
         {
             return dGasto.Buscar(nombre);
+        }
+        public DataTable BuscarDetalle(int idRegistro)
+        {
+            return dGasto.BuscarDetalle(idRegistro);
+        }
+        public DataTable BuscarDetalle(DateTime desde, DateTime hasta)
+        {
+            return dGasto.BuscarDetalle(desde, hasta);
+        }
+        public DataTable BuscarDetalle(DateTime desde, DateTime hasta, int idTipo)
+        {
+            return dGasto.BuscarDetalle(desde, hasta, idTipo);
         }
         public void Editar(int id, string nombre)
         {
