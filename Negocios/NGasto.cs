@@ -33,6 +33,10 @@ namespace Negocios
         {
             dGasto.Editar(id, nombre);
         }
+        public void EditarDetalle(int idRegistro, int idGasto, DateTime fecha, string nota, decimal monto)
+        {
+            dGasto.EditarDetalle(idRegistro, idGasto, fecha, nota, monto);
+        }
         public void Insertar(string nombre)
         {
             dGasto.Insertar(nombre);

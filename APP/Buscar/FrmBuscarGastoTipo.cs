@@ -41,23 +41,32 @@ namespace APP.Buscar
 
         private void listarDgv_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (listarDgv.RowCount > 0)
             {
-                listarDgv.CurrentRow.Selected = true;
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-                DialogResult = DialogResult.OK;
+                if (e.KeyCode == Keys.Enter)
+                {
+                    listarDgv.CurrentRow.Selected = true;
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                    DialogResult = DialogResult.OK;
+                } 
             }
         }
 
         private void aceptarBtn_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (listarDgv.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void listarDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (listarDgv.RowCount > 0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void salirBtn_Click(object sender, EventArgs e)

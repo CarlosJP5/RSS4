@@ -363,3 +363,21 @@ begin
 	order by gd.registro_gasto desc
 end
 go
+
+ALTER proc [dbo].[gastoDetalle_buscar_idRegistro]
+@registro int
+as
+begin
+	set nocount on
+	select gd.registro_gasto,
+	       gd.id_gasto,
+		   g.nombre_gasto,
+		   gd.fecha_gasto,
+		   gd.nota_gatos,
+		   gd.monto_gasto
+	from GastoDetalle gd
+	left join Gasto g on gd.id_gasto = g.id_gasto
+	where   gd.registro_gasto = @registro
+	order by gd.registro_gasto desc
+end
+go

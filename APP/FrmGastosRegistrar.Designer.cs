@@ -167,6 +167,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -208,6 +209,7 @@
             this.totalTxt.Size = new System.Drawing.Size(90, 20);
             this.totalTxt.TabIndex = 5;
             this.totalTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.totalTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.totalTxt_KeyDown);
             this.totalTxt.Validating += new System.ComponentModel.CancelEventHandler(this.totalTxt_Validating);
             // 
             // label4

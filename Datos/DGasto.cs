@@ -157,6 +157,32 @@ namespace Datos
                 }
             }
         }
+        public void EditarDetalle(int idRegistro, int idGasto, DateTime fecha, string nota, decimal monto)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "gastoDetalle_editar";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@registro", SqlDbType.Int).Value = idRegistro;
+                    cmd.Parameters.Add("@idGasto", SqlDbType.Int).Value = idGasto;
+                    cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = fecha;
+                    cmd.Parameters.Add("@nota", SqlDbType.VarChar, 150).Value = nota;
+                    cmd.Parameters.Add("@monto", SqlDbType.Decimal).Value = monto;
+                    try
+                    {
+                        _ = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public void Insertar(string nombre)
         {
             using (SqlConnection conn = GetConnection())
