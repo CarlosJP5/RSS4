@@ -81,6 +81,30 @@ namespace Datos
                 }
             }
         }
+        public DataTable Inventario()
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "articulo_inventario";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Listar()
         {
             using (var conn = GetConnection())

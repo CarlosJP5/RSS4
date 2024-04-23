@@ -1,6 +1,7 @@
 ﻿using Datos;
 using Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Negocios
@@ -8,6 +9,8 @@ namespace Negocios
     public class NArticulos
     {
         private readonly DArticulos _articulos = new DArticulos();
+
+        public List<EArticulo> Articulos { get; private set; }
 
         public DataTable Buscar(string Query)
         {
@@ -51,6 +54,26 @@ namespace Negocios
         public void InsertarAjuste(DateTime Fecha, string Nota, DataTable Detalle)
         {
             _articulos.InsertarAjuste(Fecha, Nota, Detalle);
+        }
+
+        public void Inventario()
+        {
+            DataTable dt = _articulos.Inventario();
+            Articulos = new List<EArticulo>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                EArticulo modeloArti = new EArticulo
+                {
+                    Codigo = dr[0].ToString(),
+                    Nombre = dr[1].ToString(),
+                    Cantidad = (decimal)dr[2],
+                    Costo = (decimal)dr[3],
+                    Precio = (decimal)dr[4],
+                    BeneficioMinimo = (decimal)dr[5],
+                    Beneficio = (decimal)dr[6],
+                };
+                Articulos.Add(modeloArti);
+            }
         }
     }
 }

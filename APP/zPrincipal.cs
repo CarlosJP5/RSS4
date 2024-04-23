@@ -1,4 +1,5 @@
 ﻿using APP.Coneccion;
+using APP.Reportes;
 using Entidades;
 using Negocios.NClasses;
 using System;
@@ -244,6 +245,15 @@ namespace APP
         private void registrarGastoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGastosRegistrar frm = new FrmGastosRegistrar
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
+
+        private void inventarioVsCostoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptArticuloInventario frm = new rptArticuloInventario
             {
                 MdiParent = this
             };
