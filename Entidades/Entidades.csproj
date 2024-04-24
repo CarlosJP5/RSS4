@@ -51,6 +51,7 @@
     <Compile Include="EReportes\ErptCotizacion.cs" />
     <Compile Include="EReportes\ErptCotizacionDetalle.cs" />
     <Compile Include="EReportes\ErptCuadreCaja.cs" />
+    <Compile Include="EReportes\ErptCxc.cs" />
     <Compile Include="EReportes\ErptEmpresa.cs" />
     <Compile Include="EReportes\ErptEstadoCuenta.cs" />
     <Compile Include="EReportes\ErptFactura.cs" />

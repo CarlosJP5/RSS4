@@ -399,6 +399,12 @@
     <Compile Include="Reportes\rptCuadreCaja2.Designer.cs">
       <DependentUpon>rptCuadreCaja2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptCxc_estadoCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptCxc_estadoCuenta.Designer.cs">
+      <DependentUpon>rptCxc_estadoCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptDevolucionFact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -631,6 +637,10 @@
     <EmbeddedResource Include="Reportes\rptCuadreCaja2.resx">
       <DependentUpon>rptCuadreCaja2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptCxc_estadoCuenta.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCxc_estadoCuenta.resx">
+      <DependentUpon>rptCxc_estadoCuenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptDevolucionFact.resx">
       <DependentUpon>rptDevolucionFact.cs</DependentUpon>
     </EmbeddedResource>
@@ -678,6 +688,7 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacion.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacionDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCuadreCaja.datasource" />
+    <None Include="Properties\DataSources\Entidades.EReportes.ErptCxc.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEmpresa.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptEstadoCuenta.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptFactura.datasource" />

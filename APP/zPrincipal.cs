@@ -19,8 +19,8 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();
+            //FrmLogin frm = new FrmLogin();
+            //frm.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -254,6 +254,15 @@ namespace APP
         private void inventarioVsCostoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rptArticuloInventario frm = new rptArticuloInventario
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
+
+        private void estadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptCxc_estadoCuenta frm = new rptCxc_estadoCuenta
             {
                 MdiParent = this
             };

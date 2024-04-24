@@ -11,6 +11,7 @@ namespace Negocios
         private readonly DReciboIngreso _recibo = new DReciboIngreso();
         public List<ErptReciboIngreso> ReciboIngresos { get; set; }
         public List<ErptReciboIngresoServicio> ReciboIngresosServicio { get; set; }
+        public List<ErptCxc> EstadoCuenta { get; private set; }
 
         public DataTable Buscar(string Query)
         {
@@ -111,6 +112,26 @@ namespace Negocios
                     Balance = balance
                 };
                 ReciboIngresosServicio.Add(reciboModel);
+            }
+        }
+
+        public void ReporteEstadoCuenta()
+        {
+            DataTable dt = _recibo.EstadoCuentaTodo();
+            EstadoCuenta = new List<ErptCxc>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                ErptCxc modeloEstado = new ErptCxc
+                {
+                    idCliente = (int)dr[0],
+                    NombreCliente = dr[1].ToString(),
+                    idFactura = dr[2].ToString(),
+                    FechaFactura = DateTime.Parse(dr[3].ToString()),
+                    TotalFactura = (decimal)dr[4],
+                    BalancePendiente = (decimal)dr[5],
+                };
+                modeloEstado.DiasFactura = (DateTime.Now - modeloEstado.FechaFactura).Days;
+                EstadoCuenta.Add(modeloEstado);
             }
         }
     }

@@ -6,6 +6,30 @@ namespace Datos
 {
     public class DReciboIngreso : Conexion
     {
+        public DataTable EstadoCuentaTodo()
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "cxc_estadoCuenta";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Buscar(string Query)
         {
             using (var conn = GetConnection())
