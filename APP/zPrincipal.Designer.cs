@@ -86,6 +86,7 @@ namespace APP
             this.notaDeDébitoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.reporteDeCxCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cxPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolucionSCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +99,6 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -525,6 +525,13 @@ namespace APP
             this.reporteDeCxCToolStripMenuItem.Text = "Reporte de CxC";
             this.reporteDeCxCToolStripMenuItem.Click += new System.EventHandler(this.reporteDeCxCToolStripMenuItem_Click);
             // 
+            // estadoToolStripMenuItem
+            // 
+            this.estadoToolStripMenuItem.Name = "estadoToolStripMenuItem";
+            this.estadoToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.estadoToolStripMenuItem.Text = "Reporte Estado Cuentas";
+            this.estadoToolStripMenuItem.Click += new System.EventHandler(this.estadoToolStripMenuItem_Click);
+            // 
             // cxPToolStripMenuItem
             // 
             this.cxPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -575,7 +582,7 @@ namespace APP
             this.reporteDeCxPToolStripMenuItem.Name = "reporteDeCxPToolStripMenuItem";
             this.reporteDeCxPToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.reporteDeCxPToolStripMenuItem.Text = "Reporte de CxP";
-            this.reporteDeCxPToolStripMenuItem.Visible = false;
+            this.reporteDeCxPToolStripMenuItem.Click += new System.EventHandler(this.reporteDeCxPToolStripMenuItem_Click);
             // 
             // listaDeCompraToolStripMenuItem
             // 
@@ -611,13 +618,6 @@ namespace APP
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // estadoToolStripMenuItem
-            // 
-            this.estadoToolStripMenuItem.Name = "estadoToolStripMenuItem";
-            this.estadoToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.estadoToolStripMenuItem.Text = "Reporte Estado Cuentas";
-            this.estadoToolStripMenuItem.Click += new System.EventHandler(this.estadoToolStripMenuItem_Click);
             // 
             // zPrincipal
             // 

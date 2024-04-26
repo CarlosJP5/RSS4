@@ -894,7 +894,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>1.91666in</Height>
+    <Height>1.94792in</Height>
     <Style />
   </Body>
   <Width>8.5in</Width>
@@ -1071,7 +1071,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte de Cuentas Por Cobrar</Value>
+                  <Value>Reporte de Cuentas Por Pagar</Value>
                   <Style>
                     <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -1115,14 +1115,14 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>752b69df-de28-4ebf-9f5a-a5f64a27cf7a</rd:DataSourceID>
+      <rd:DataSourceID>dd49b982-8347-4013-8d7b-b7d9222a8608</rd:DataSourceID>
     </DataSource>
     <DataSource Name="EntidadesEReportes1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>2cd26897-fa29-4e65-826f-45f1eaddf1a5</rd:DataSourceID>
+      <rd:DataSourceID>b398ad58-0e02-4091-9b0c-be1b30332132</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1210,5 +1210,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>1f4671ad-1f02-4b51-9993-df2ad29a9c93</rd:ReportID>
+  <rd:ReportID>494b4e6c-4cdf-4765-b402-798f3ff18ba0</rd:ReportID>
 </Report>

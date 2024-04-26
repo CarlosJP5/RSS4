@@ -1,5 +1,7 @@
 ﻿using Datos;
+using Entidades.EReportes;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Negocios
@@ -7,7 +9,8 @@ namespace Negocios
     public class NReciboPago
     {
         private readonly DReciboPago _recibo = new DReciboPago();
-        //public List<ErptReciboIngreso> ReciboIngresos { get; set; }
+
+        public List<ErptCxc> EstadoCuenta { get; private set; }
 
         public DataTable Buscar(string Query)
         {
@@ -33,25 +36,24 @@ namespace Negocios
             _recibo.Anular(id);
         }
 
-        //public void ImprimirRecibo(string IdRecibo)
-        //{
-        //    int id = Convert.ToInt32(IdRecibo);
-        //    DataTable tbRecibo = _recibo.BuscarId(id);
-        //    ReciboIngresos = new List<ErptReciboIngreso>();
-        //    foreach (DataRow row in tbRecibo.Rows)
-        //    {
-        //        ErptReciboIngreso reciboModel = new ErptReciboIngreso()
-        //        {
-        //            IdCliente = (int)row[0],
-        //            NombreCliente = row[1].ToString(),
-        //            Fecha = DateTime.Parse(row[2].ToString()),
-        //            IdRecibo = (int)row[3],
-        //            IdFactura = (int)row[4],
-        //            Pago = (decimal)row[6],
-        //            Estado = row[7].ToString()
-        //        };
-        //        ReciboIngresos.Add(reciboModel);
-        //    }
-        //}
+        public void ReporteEstadoCuenta()
+        {
+            DataTable dt = _recibo.EstadoCuentaTodo();
+            EstadoCuenta = new List<ErptCxc>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                ErptCxc modeloEstado = new ErptCxc
+                {
+                    idCliente = (int)dr[0],
+                    NombreCliente = dr[1].ToString(),
+                    idFactura = dr[2].ToString(),
+                    FechaFactura = DateTime.Parse(dr[3].ToString()),
+                    TotalFactura = (decimal)dr[4],
+                    BalancePendiente = (decimal)dr[5],
+                };
+                modeloEstado.DiasFactura = (DateTime.Now - modeloEstado.FechaFactura).Days;
+                EstadoCuenta.Add(modeloEstado);
+            }
+        }
     }
 }

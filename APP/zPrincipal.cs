@@ -268,5 +268,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void reporteDeCxPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptCxp_estadoCuenta frm = new rptCxp_estadoCuenta
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }

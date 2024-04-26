@@ -405,6 +405,12 @@
     <Compile Include="Reportes\rptCxc_estadoCuenta.Designer.cs">
       <DependentUpon>rptCxc_estadoCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptCxp_estadoCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptCxp_estadoCuenta.Designer.cs">
+      <DependentUpon>rptCxp_estadoCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptDevolucionFact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -640,6 +646,10 @@
     <EmbeddedResource Include="Reportes\rptCxc_estadoCuenta.rdlc" />
     <EmbeddedResource Include="Reportes\rptCxc_estadoCuenta.resx">
       <DependentUpon>rptCxc_estadoCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptCxp_estadoCuenta.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCxp_estadoCuenta.resx">
+      <DependentUpon>rptCxp_estadoCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptDevolucionFact.resx">
       <DependentUpon>rptDevolucionFact.cs</DependentUpon>

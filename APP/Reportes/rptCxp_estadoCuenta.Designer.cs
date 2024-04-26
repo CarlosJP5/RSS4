@@ -1,6 +1,6 @@
 ﻿namespace APP.Reportes
 {
-    partial class rptCxc_estadoCuenta
+    partial class rptCxp_estadoCuenta
     {
         /// <summary>
         /// Required designer variable.
@@ -31,12 +31,20 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.erptCxcBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erptCxcBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // erptEmpresaBindingSource
+            // 
+            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
+            // 
+            // erptCxcBindingSource
+            // 
+            this.erptCxcBindingSource.DataSource = typeof(Entidades.EReportes.ErptCxc);
             // 
             // reportViewer1
             // 
@@ -47,31 +55,23 @@
             reportDataSource2.Value = this.erptCxcBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptCxc_estadoCuenta.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptCxp_estadoCuenta.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(844, 461);
+            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // erptEmpresaBindingSource
-            // 
-            this.erptEmpresaBindingSource.DataSource = typeof(Entidades.EReportes.ErptEmpresa);
-            // 
-            // erptCxcBindingSource
-            // 
-            this.erptCxcBindingSource.DataSource = typeof(Entidades.EReportes.ErptCxc);
-            // 
-            // rptCxc_estadoCuenta
+            // rptCxp_estadoCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(844, 461);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "rptCxc_estadoCuenta";
-            this.Text = "Cxc Estado Cuenta";
-            this.Load += new System.EventHandler(this.rptCxc_estadoCuenta_Load);
+            this.Name = "rptCxp_estadoCuenta";
+            this.Text = "CxP Estado Cuenta";
+            this.Load += new System.EventHandler(this.rptCxp_estadoCuenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erptCxcBindingSource)).EndInit();
             this.ResumeLayout(false);

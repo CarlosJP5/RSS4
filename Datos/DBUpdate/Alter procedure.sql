@@ -23,3 +23,17 @@ WHERE cc.balance_cxc > 0
 order by cl.nombre_cliente
 end
 go
+
+create proc cxp_estadoCuenta
+as
+begin
+set nocount on
+SELECT s.id_suplidor, s.nombre_suplidor, c.facturaNumero_compra, c.fecha_compra,
+c.total_compra, cp.balance_cxp
+FROM CuentaPagar cp
+LEFT JOIN Suplidores s on cp.id_suplidor = s.id_suplidor
+left join Compra c on cp.id_compra = c.id_compra
+where cp.balance_cxp > 0
+order by s.nombre_suplidor asc
+end
+go
