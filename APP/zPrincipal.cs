@@ -22,7 +22,7 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            DateTime licenciaLock = DateTime.Parse("04/30/2024");
+            DateTime licenciaLock = DateTime.Parse("04/30/2124");
             NrptEmpresa lic = new NrptEmpresa();
             DateTime lisencia = lic.lisencia();
             if (licenciaLock != lisencia)
