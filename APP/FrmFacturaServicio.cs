@@ -85,6 +85,7 @@ namespace APP
             txtIdCliente.Text = string.Empty;
             txtNombre.Text = string.Empty;
             cboTipoComprobante.SelectedValue = "B02";
+            cboTipoCompra.SelectedIndex = 0;
             dtpFecha.Value = DateTime.Now;
             txtCedula.Text = string.Empty;
             txtRnc.Text = string.Empty;
@@ -340,6 +341,10 @@ namespace APP
         private void btnModificar_Click(object sender, EventArgs e)
         {
             habilita_controles();
+            if (cboTipoCompra.Text == "CONTADO")
+            {
+                cboTipoCompra.Enabled = true;
+            }
             btnImprimir.Enabled = false;
             btnBuscar.Enabled = false;
             btnFacturar.Enabled = true;

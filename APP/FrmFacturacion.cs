@@ -556,6 +556,10 @@ namespace APP
             else
             {
                 HabilitarControles();
+                if (cboTipoCompra.Text == "CONTADO")
+                {
+                    cboTipoCompra.Enabled = true;
+                }
                 btnGuardar.Enabled = true;
                 btnImprimir.Enabled = false;
                 btnBuscar.Enabled = false;
