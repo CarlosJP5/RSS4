@@ -1,6 +1,6 @@
 ﻿namespace APP.Reportes
 {
-    partial class rptArticuloInventario
+    partial class rptArticuloInventarioPrecio
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eArticuloBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eArticuloBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "Empresa";
+            reportDataSource1.Value = this.erptEmpresaBindingSource;
+            reportDataSource2.Name = "Articulos";
+            reportDataSource2.Value = this.eArticuloBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptArticuloInventarioPrecio.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(844, 461);
+            this.reportViewer1.TabIndex = 0;
             // 
             // erptEmpresaBindingSource
             // 
@@ -46,33 +62,17 @@
             // 
             this.eArticuloBindingSource.DataSource = typeof(Entidades.EArticulo);
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "Empresa";
-            reportDataSource3.Value = this.erptEmpresaBindingSource;
-            reportDataSource4.Name = "Articulos";
-            reportDataSource4.Value = this.eArticuloBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptArticuloInventario.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(844, 461);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // rptArticuloInventario
+            // rptArticuloInventarioPrecio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(844, 461);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "rptArticuloInventario";
+            this.Name = "rptArticuloInventarioPrecio";
             this.ShowIcon = false;
-            this.Text = "Articulo Inventario";
-            this.Load += new System.EventHandler(this.rptArticuloInventario_Load);
+            this.Text = "Articulo Inventario Precio";
+            this.Load += new System.EventHandler(this.rptArticuloInventarioPrecio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eArticuloBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -387,6 +387,12 @@
     <Compile Include="Reportes\rptArticuloInventario.Designer.cs">
       <DependentUpon>rptArticuloInventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptArticuloInventarioPrecio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptArticuloInventarioPrecio.Designer.cs">
+      <DependentUpon>rptArticuloInventarioPrecio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rptCotizacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -634,6 +640,10 @@
     <EmbeddedResource Include="Reportes\rptArticuloInventario.rdlc" />
     <EmbeddedResource Include="Reportes\rptArticuloInventario.resx">
       <DependentUpon>rptArticuloInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptArticuloInventarioPrecio.rdlc" />
+    <EmbeddedResource Include="Reportes\rptArticuloInventarioPrecio.resx">
+      <DependentUpon>rptArticuloInventarioPrecio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptCotizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rptCotizacion.resx">

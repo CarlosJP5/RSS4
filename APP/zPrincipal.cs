@@ -277,5 +277,14 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void inventarioVsPrecioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptArticuloInventarioPrecio frm = new rptArticuloInventarioPrecio
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }
