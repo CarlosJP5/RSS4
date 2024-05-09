@@ -61,6 +61,7 @@
     <Compile Include="DReciboPago.cs" />
     <Compile Include="DReportes\DrptEmpresa.cs" />
     <Compile Include="DReportes\DrptFactura.cs" />
+    <Compile Include="DReportes\DrptVentas.cs" />
     <Compile Include="DServicio.cs" />
     <Compile Include="DSuplidores.cs" />
     <Compile Include="DUsuario.cs" />

@@ -65,6 +65,7 @@
     <Compile Include="NReportes\NrptFactura.cs" />
     <Compile Include="NReportes\NrptFacturaServicio.cs" />
     <Compile Include="NReportes\NrptListaCompra.cs" />
+    <Compile Include="NReportes\NrptVentas.cs" />
     <Compile Include="NServicio.cs" />
     <Compile Include="NSuplidores.cs" />
     <Compile Include="NUsuario.cs" />
