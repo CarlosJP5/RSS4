@@ -459,6 +459,12 @@
     <Compile Include="Reportes\rptListaCompra.Designer.cs">
       <DependentUpon>rptListaCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\rptVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptVentas.Designer.cs">
+      <DependentUpon>rptVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\rtpCotizacionServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -691,6 +697,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReciboIngreso.rdlc" />
     <EmbeddedResource Include="Reportes\rptReciboIngresoServicio.rdlc" />
+    <EmbeddedResource Include="Reportes\rptVentas.rdlc" />
+    <EmbeddedResource Include="Reportes\rptVentas.resx">
+      <DependentUpon>rptVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rtpCotizacionServicio.rdlc" />
     <EmbeddedResource Include="Reportes\rtpCotizacionServicio.resx">
       <DependentUpon>rtpCotizacionServicio.cs</DependentUpon>
@@ -705,6 +715,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Entidades.EArticulo.datasource" />
     <None Include="Properties\DataSources\Entidades.ECliente.datasource" />
+    <None Include="Properties\DataSources\Entidades.EFactura.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacion.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCotizacionDetalle.datasource" />
     <None Include="Properties\DataSources\Entidades.EReportes.ErptCuadreCaja.datasource" />
@@ -720,6 +731,7 @@
     <None Include="Properties\DataSources\Entidades.EReportes.ErptReciboIngresoServicio.datasource" />
     <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja.datasource" />
     <None Include="Properties\DataSources\Negocios.NReportes.NrptCuadreCaja2.datasource" />
+    <None Include="Properties\DataSources\Negocios.NReportes.NrptVentas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

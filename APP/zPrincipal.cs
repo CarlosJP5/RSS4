@@ -286,5 +286,10 @@ namespace APP
             };
             frm.Show();
         }
+
+        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

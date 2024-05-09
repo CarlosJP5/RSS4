@@ -10,8 +10,10 @@ namespace Negocios.NReportes
     {
         private readonly DrptVentas drptVentas = new DrptVentas();
 
+        public decimal Ganancia { get; private set; }
         public List<EFactura> ContadoVentas { get; private set; }
         public List<EFactura> CreditoVentas { get; private set; }
+        public List<EFactura> DevolucionVentas { get; private set; }
 
         public void GetVentas(DateTime desde, DateTime Hasta)
         {
@@ -39,6 +41,15 @@ namespace Negocios.NReportes
                 {
                     CreditoVentas.Add(facturaModel);
                 }
+            }
+
+            DataTable beneficioData = drptVentas.Beneficio(desde, Hasta);
+            foreach (DataRow dr in beneficioData.Rows)
+            {
+                decimal importe = (decimal)dr[0];
+                decimal descuento = (decimal)dr[1] / 100;
+                decimal costo = (decimal)dr[2];
+                Ganancia += importe - descuento - costo;
             }
         }
     }
