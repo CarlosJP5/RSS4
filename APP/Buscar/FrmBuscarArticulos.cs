@@ -2,6 +2,7 @@
 using Negocios;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace APP.Buscar
@@ -163,6 +164,17 @@ namespace APP.Buscar
             {
                 EParametro.BuscaArticulo = txtBuscar.Text;
                 DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void PintarRow()
+        {
+            foreach (DataGridViewRow row in dgvListar.Rows)
+            {
+                if (Convert.ToDouble(row.Cells[5].Value) <= Convert.ToDouble(row.Cells[10].Value))
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(240, 65, 65);
+                }
             }
         }
     }
