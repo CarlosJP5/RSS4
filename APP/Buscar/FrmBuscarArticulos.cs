@@ -66,7 +66,7 @@ namespace APP.Buscar
             {
                 _ = dgvListar.Rows.Add(rowArt[0], rowArt[1], rowArt[2], rowArt[3],
                                        rowArt[4], rowArt[5], rowArt[6], rowArt[7],
-                                       rowArt[8], rowArt[9]);
+                                       rowArt[8], rowArt[9], rowArt[11]);
             }
         }
 
@@ -74,10 +74,11 @@ namespace APP.Buscar
         {
             dgvListar.Rows.Clear();
             string query = @"SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
-	                         nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, I.porciento_itbis, A.costo_articulo 
+	                         nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, porciento_itbis,
+	                         A.costo_articulo, A.beneficio_minimo, A.puntoReorden_articulo 
 	                         FROM Articulo A LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
                              LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis";
-            
+
             if (rbtnTodo.Checked)
             {
                 query += string.Format(@" WHERE codigo_articulo LIKE '%'+'{0}'+'%' OR nombre_articulo
@@ -106,7 +107,7 @@ namespace APP.Buscar
             {
                 _ = dgvListar.Rows.Add(rowArt[0], rowArt[1], rowArt[2], rowArt[3],
                                        rowArt[4], rowArt[5], rowArt[6], rowArt[7],
-                                       rowArt[8], rowArt[9]);
+                                       rowArt[8], rowArt[9], rowArt[11]);
             }
             if (dgvListar.RowCount > 0)
             {
