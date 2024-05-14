@@ -68,6 +68,7 @@ namespace APP.Buscar
                                        rowArt[4], rowArt[5], rowArt[6], rowArt[7],
                                        rowArt[8], rowArt[9], rowArt[11]);
             }
+            PintarRow();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -113,6 +114,7 @@ namespace APP.Buscar
             {
                 dgvListar.Focus();
             }
+            PintarRow();
         }
 
         private void dgvListar_KeyDown(object sender, KeyEventArgs e)
