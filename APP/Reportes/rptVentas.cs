@@ -36,6 +36,7 @@ namespace APP.Reportes
             nrptVentasBindingSource.DataSource = nrptVentas;
             contadoVentasBindingSource.DataSource = nrptVentas.ContadoVentas;
             creditoVentasBindingSource.DataSource = nrptVentas.CreditoVentas;
+            devolucionVentasBindingSource.DataSource = nrptVentas.DevolucionVentas;
             reportViewer1.RefreshReport();
         }
     }

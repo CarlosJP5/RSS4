@@ -43,6 +43,24 @@ namespace Negocios.NReportes
                 }
             }
 
+            DataTable devolucionesDT = drptVentas.Devoluciones(desde, Hasta);
+            DevolucionVentas = new List<EFactura>();
+            foreach (DataRow dr in devolucionesDT.Rows)
+            {
+                EFactura facturaModel = new EFactura
+                {
+                    IdFactura = (int)dr[0],
+                    Nombre = dr[1].ToString(),
+                    Fecha = DateTime.Parse(dr[2].ToString()),
+                    Importe = (decimal)dr[3],
+                    Descuento = (decimal)dr[4],
+                    Itbis = (decimal)dr[5],
+                    Total = (decimal)dr[6],
+                    TipoCompra = dr[7].ToString()
+                };
+                DevolucionVentas.Add(facturaModel);
+            }
+
             DataTable beneficioData = drptVentas.Beneficio(desde, Hasta);
             foreach (DataRow dr in beneficioData.Rows)
             {
@@ -51,6 +69,8 @@ namespace Negocios.NReportes
                 decimal costo = (decimal)dr[2];
                 Ganancia += importe - descuento - costo;
             }
+
+
         }
     }
 }
