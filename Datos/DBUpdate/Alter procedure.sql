@@ -23,3 +23,17 @@ where f.fecha_factura between @desde and @hasta and f.tipoCompra_factura = 'CONT
 order by f.fecha_factura asc
 end
 go
+
+create proc reporte_ventas_devoluciones
+@desde datetime,
+@hasta datetime
+as
+begin
+set nocount on
+select dv.id_devolucion, cl.nombre_cliente, dv.fecha_devolucion, dv.importe_devolucion, dv.descuento_devolucion, dv.itbis_devolucion, dv.total_devolucion, dv.tipo_devolucion
+from FacturaDevolucion dv
+left join Clientes cl on dv.id_cliente = cl.id_cliente
+where dv.fecha_devolucion between @desde and @hasta
+order by dv.id_devolucion asc
+end
+go

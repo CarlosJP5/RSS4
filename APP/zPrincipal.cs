@@ -289,7 +289,11 @@ namespace APP
 
         private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            rptVentas frm = new rptVentas
+            {
+                MdiParent = this
+            };
+            frm.Show();
         }
     }
 }
