@@ -32,7 +32,7 @@ namespace Datos.DReportes
                 }
             }
         }
-        public DataTable Ventas(DateTime desde, DateTime hasta)
+        public DataTable BeneficioDevolucion(DateTime desde, DateTime hasta)
         {
             using (SqlConnection conn = GetConnection())
             {
@@ -40,7 +40,7 @@ namespace Datos.DReportes
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "reporte_ventas";
+                    cmd.CommandText = "reporte_ventas_beneficio_devolucion";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
@@ -67,6 +67,32 @@ namespace Datos.DReportes
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "reporte_ventas_devoluciones";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable Ventas(DateTime desde, DateTime hasta)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reporte_ventas";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;

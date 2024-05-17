@@ -37,3 +37,19 @@ where dv.fecha_devolucion between @desde and @hasta
 order by dv.id_devolucion asc
 end
 go
+
+create proc reporte_ventas_beneficio_devolucion
+@desde datetime,
+@hasta datetime
+as
+begin
+set nocount on
+select dt.precio_devolucion * dt.cantidad_devolucion as importe,
+       fd.descuento_factura,
+	   fd.costo_factura * dt.cantidad_devolucion as costo
+from FacturaDevolucion dv
+left join FacturaDevolucionDetalle dt on dv.id_devolucion = dt.id_devolucion
+left join FacturaDetalle fd on dv.id_factura = fd.id_factura and dt.id_articulo = fd.id_articulo
+where dv.fecha_devolucion between @desde and @hasta
+end
+go
