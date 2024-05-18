@@ -10,15 +10,19 @@ namespace Negocios.NReportes
     {
         private readonly DrptVentas drptVentas = new DrptVentas();
 
+        public string Hasta { get; private set; }
+        public string Desde { get; private set; }
         public decimal Ganancia { get; private set; }
         public List<EFactura> ContadoVentas { get; private set; }
         public List<EFactura> CreditoVentas { get; private set; }
         public List<EFactura> DevolucionVentas { get; private set; }
 
-        public void GetVentas(DateTime desde, DateTime Hasta)
+        public void GetVentas(DateTime desde, DateTime hasta)
         {
+            Desde = desde.ToString("dd / MM / yyyy");
+            Hasta = hasta.ToString("dd / MM / yyyy");
             Ganancia = 0;
-            DataTable ventasDT = drptVentas.Ventas(desde, Hasta);
+            DataTable ventasDT = drptVentas.Ventas(desde, hasta);
             ContadoVentas = new List<EFactura>();
             CreditoVentas = new List<EFactura>();
             foreach (DataRow dr in ventasDT.Rows)
@@ -44,7 +48,7 @@ namespace Negocios.NReportes
                 }
             }
 
-            DataTable devolucionesDT = drptVentas.Devoluciones(desde, Hasta);
+            DataTable devolucionesDT = drptVentas.Devoluciones(desde, hasta);
             DevolucionVentas = new List<EFactura>();
             foreach (DataRow dr in devolucionesDT.Rows)
             {
@@ -62,7 +66,7 @@ namespace Negocios.NReportes
                 DevolucionVentas.Add(facturaModel);
             }
 
-            DataTable beneficioData = drptVentas.Beneficio(desde, Hasta);
+            DataTable beneficioData = drptVentas.Beneficio(desde, hasta);
             foreach (DataRow dr in beneficioData.Rows)
             {
                 decimal importe = (decimal)dr[0];
@@ -71,7 +75,7 @@ namespace Negocios.NReportes
                 Ganancia += importe - descuento - costo;
             }
 
-            DataTable beneficioDevolucionData = drptVentas.BeneficioDevolucion(desde, Hasta);
+            DataTable beneficioDevolucionData = drptVentas.BeneficioDevolucion(desde, hasta);
             foreach (DataRow dr in beneficioDevolucionData.Rows)
             {
                 decimal importe = (decimal)dr[0];
