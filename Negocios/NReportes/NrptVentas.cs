@@ -1,8 +1,11 @@
-﻿using Datos.DReportes;
+﻿using Datos;
+using Datos.DReportes;
 using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Cryptography;
+using System.Security.Policy;
 
 namespace Negocios.NReportes
 {
@@ -16,6 +19,7 @@ namespace Negocios.NReportes
         public List<EFactura> ContadoVentas { get; private set; }
         public List<EFactura> CreditoVentas { get; private set; }
         public List<EFactura> DevolucionVentas { get; private set; }
+        public List<EFactura> ReciboIngresos { get; private set; }
 
         public void GetVentas(DateTime desde, DateTime hasta)
         {
@@ -84,6 +88,43 @@ namespace Negocios.NReportes
                 Ganancia -= importe - descuento - costo;
             }
 
+            DataTable reciboIngresoDt = drptVentas.ReciboIngreso(desde, hasta);
+            foreach (DataRow dr in reciboIngresoDt.Rows)
+            {
+                EFactura facturaModel = new EFactura
+                {
+                    IdFactura = (int)dr[0],
+                    Fecha = DateTime.Parse(dr[1].ToString()),
+                    Nombre = dr[2].ToString(),
+                    Total = (decimal)dr[3]
+                };
+                DevolucionVentas.Add(facturaModel);
+                CalcularGananciaReciboIngreso(facturaModel.IdFactura);
+            }
+
+        }
+
+        private void CalcularGananciaReciboIngreso(int idRecibo)
+        {
+            DReciboIngreso dReciboIngreso = new DReciboIngreso();
+            DataTable reciboDetalle = dReciboIngreso.BuscarId(idRecibo);
+            foreach (DataRow dr in reciboDetalle.Rows)
+            {
+                decimal pago = (decimal)dr[6]; // 630
+                decimal gananciaTotalFactura = 0m;
+                decimal importeTotalfact = 0m;
+                DataTable facturaData = drptVentas.Beneficio((int)dr[4]); //fact 294
+                foreach (DataRow drf in facturaData.Rows)
+                {
+                    decimal importe = (decimal)drf[0];
+                    decimal descuento = importe * (decimal)drf[1] / 100;
+                    decimal costo = (decimal)drf[2];
+                    gananciaTotalFactura += importe - descuento - costo;
+                    importeTotalfact += importe;
+                }
+                decimal porcientopagado = pago * 100 / importeTotalfact;
+                Ganancia += gananciaTotalFactura * porcientopagado / 100;
+            }
         }
     }
 }

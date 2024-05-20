@@ -53,3 +53,18 @@ left join FacturaDetalle fd on dv.id_factura = fd.id_factura and dt.id_articulo 
 where dv.fecha_devolucion between @desde and @hasta
 end
 go
+
+create proc reporte_ventas_reciboIngreso
+@desde datetime,
+@hasta datetime
+as
+begin
+	set nocount on
+	select ri.id_ri, ri.fecha_ri, cl.nombre_cliente, ri.pago_ri 
+	from ReciboIngreso ri
+	left join Clientes cl on ri.id_cliente = cl.id_cliente
+	where ri.fecha_ri between @desde and @hasta
+	order by ri.id_ri asc
+end
+go
+

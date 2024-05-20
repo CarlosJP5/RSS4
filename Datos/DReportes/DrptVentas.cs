@@ -32,6 +32,31 @@ namespace Datos.DReportes
                 }
             }
         }
+        public DataTable Beneficio(int idFactura)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reporte_ventas_beneficio_factura";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFactura", SqlDbType.Int).Value = idFactura;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable BeneficioDevolucion(DateTime desde, DateTime hasta)
         {
             using (SqlConnection conn = GetConnection())
@@ -67,6 +92,32 @@ namespace Datos.DReportes
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "reporte_ventas_devoluciones";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public DataTable ReciboIngreso(DateTime desde, DateTime hasta)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reporte_ventas_reciboIngreso";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@desde", SqlDbType.DateTime).Value = desde;
                     cmd.Parameters.Add("@hasta", SqlDbType.DateTime).Value = hasta;

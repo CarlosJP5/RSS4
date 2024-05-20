@@ -34,10 +34,12 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.erptEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nrptVentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contadoVentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.creditoVentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.devolucionVentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.buscarBtn = new System.Windows.Forms.Button();
             this.hastaDtp = new System.Windows.Forms.DateTimePicker();
@@ -46,13 +48,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.devolucionVentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reciboIngresosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.erptEmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nrptVentasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contadoVentasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creditoVentasBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.devolucionVentasBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reciboIngresosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // erptEmpresaBindingSource
@@ -72,6 +75,11 @@
             // 
             this.creditoVentasBindingSource.DataMember = "CreditoVentas";
             this.creditoVentasBindingSource.DataSource = this.nrptVentasBindingSource;
+            // 
+            // devolucionVentasBindingSource
+            // 
+            this.devolucionVentasBindingSource.DataMember = "DevolucionVentas";
+            this.devolucionVentasBindingSource.DataSource = this.nrptVentasBindingSource;
             // 
             // panel1
             // 
@@ -161,11 +169,14 @@
             reportDataSource4.Value = this.creditoVentasBindingSource;
             reportDataSource5.Name = "DevolucionVenta";
             reportDataSource5.Value = this.devolucionVentasBindingSource;
+            reportDataSource6.Name = "ReciboIngreso";
+            reportDataSource6.Value = this.reciboIngresosBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "APP.Reportes.rptVentas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 41);
             this.reportViewer1.Name = "reportViewer1";
@@ -173,10 +184,10 @@
             this.reportViewer1.Size = new System.Drawing.Size(800, 409);
             this.reportViewer1.TabIndex = 1;
             // 
-            // devolucionVentasBindingSource
+            // reciboIngresosBindingSource
             // 
-            this.devolucionVentasBindingSource.DataMember = "DevolucionVentas";
-            this.devolucionVentasBindingSource.DataSource = this.nrptVentasBindingSource;
+            this.reciboIngresosBindingSource.DataMember = "ReciboIngresos";
+            this.reciboIngresosBindingSource.DataSource = this.nrptVentasBindingSource;
             // 
             // rptVentas
             // 
@@ -192,9 +203,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nrptVentasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contadoVentasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creditoVentasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.devolucionVentasBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.devolucionVentasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reciboIngresosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +226,6 @@
         private System.Windows.Forms.BindingSource contadoVentasBindingSource;
         private System.Windows.Forms.BindingSource creditoVentasBindingSource;
         private System.Windows.Forms.BindingSource devolucionVentasBindingSource;
+        private System.Windows.Forms.BindingSource reciboIngresosBindingSource;
     }
 }
