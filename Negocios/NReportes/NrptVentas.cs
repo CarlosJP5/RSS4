@@ -89,6 +89,7 @@ namespace Negocios.NReportes
             }
 
             DataTable reciboIngresoDt = drptVentas.ReciboIngreso(desde, hasta);
+            ReciboIngresos = new List<EFactura>();
             foreach (DataRow dr in reciboIngresoDt.Rows)
             {
                 EFactura facturaModel = new EFactura
@@ -98,7 +99,7 @@ namespace Negocios.NReportes
                     Nombre = dr[2].ToString(),
                     Total = (decimal)dr[3]
                 };
-                DevolucionVentas.Add(facturaModel);
+                ReciboIngresos.Add(facturaModel);
                 CalcularGananciaReciboIngreso(facturaModel.IdFactura);
             }
 
@@ -106,24 +107,26 @@ namespace Negocios.NReportes
 
         private void CalcularGananciaReciboIngreso(int idRecibo)
         {
+
             DReciboIngreso dReciboIngreso = new DReciboIngreso();
             DataTable reciboDetalle = dReciboIngreso.BuscarId(idRecibo);
             foreach (DataRow dr in reciboDetalle.Rows)
             {
-                decimal pago = (decimal)dr[6]; // 630
+                decimal totalFactura = (decimal)dr[8];
                 decimal gananciaTotalFactura = 0m;
-                decimal importeTotalfact = 0m;
-                DataTable facturaData = drptVentas.Beneficio((int)dr[4]); //fact 294
+                decimal pagoAFactura = (decimal)dr[6];
+                
+                DataTable facturaData = drptVentas.Beneficio((int)dr[4]);
                 foreach (DataRow drf in facturaData.Rows)
                 {
                     decimal importe = (decimal)drf[0];
                     decimal descuento = importe * (decimal)drf[1] / 100;
                     decimal costo = (decimal)drf[2];
                     gananciaTotalFactura += importe - descuento - costo;
-                    importeTotalfact += importe;
                 }
-                decimal porcientopagado = pago * 100 / importeTotalfact;
-                Ganancia += gananciaTotalFactura * porcientopagado / 100;
+
+                decimal porcientoPagado = (pagoAFactura * 100 / totalFactura) / 100;
+                Ganancia += gananciaTotalFactura * porcientoPagado;
             }
         }
     }

@@ -19,7 +19,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>0.42708in</Top>
+        <Top>1.55in</Top>
         <Left>0.5in</Left>
         <Height>0.2in</Height>
         <Width>7.5in</Width>
@@ -540,7 +540,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ContadoVentas</DataSetName>
-        <Top>0.64097in</Top>
+        <Top>1.75in</Top>
         <Left>0.5in</Left>
         <Height>0.6in</Height>
         <Width>7.5in</Width>
@@ -568,7 +568,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>1.32in</Top>
+        <Top>2.45in</Top>
         <Left>0.5in</Left>
         <Height>0.2in</Height>
         <Width>7.5in</Width>
@@ -1085,7 +1085,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>CreditoVentas</DataSetName>
-        <Top>1.56167in</Top>
+        <Top>2.65in</Top>
         <Left>0.5in</Left>
         <Height>0.6in</Height>
         <Width>7.5in</Width>
@@ -1105,7 +1105,8 @@
               <TextRun>
                 <Value>=First(Fields!Ganancia.Value, "Ganancias")</Value>
                 <Style>
-                  <Format>#,0.00;(#,0.00)</Format>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$' #,0.00;('$' #,0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1115,10 +1116,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Ganancia</rd:DefaultName>
-        <Top>0.06944in</Top>
-        <Left>2.64458in</Left>
+        <Top>1.05in</Top>
+        <Left>1.9in</Left>
         <Height>0.25in</Height>
-        <Width>1in</Width>
+        <Width>1.4in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1137,20 +1138,22 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Ganancia</Value>
-                <Style />
+                <Value>Ganancias:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.06944in</Top>
-        <Left>1.54042in</Left>
+        <Top>1.05in</Top>
+        <Left>0.5in</Left>
         <Height>0.25in</Height>
-        <Width>1in</Width>
+        <Width>1.4in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -1179,7 +1182,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.23111in</Top>
+        <Top>4.60611in</Top>
         <Left>0.5in</Left>
         <Height>0.2in</Height>
         <Width>7.5in</Width>
@@ -1681,7 +1684,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ReciboIngreso</DataSetName>
-        <Top>2.445in</Top>
+        <Top>4.82in</Top>
         <Left>0.5in</Left>
         <Height>0.6in</Height>
         <Width>7.5in</Width>
@@ -1692,14 +1695,385 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ventas al Contado:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.05in</Top>
+        <Left>0.5in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Total6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Total.Value, "ContadoVentas")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$' #,0.00;('$' #,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Total6</rd:DefaultName>
+        <Top>0.05in</Top>
+        <Left>1.9in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Recibos de Ingreso:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.3in</Top>
+        <Left>0.5in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Total7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Total.Value, "ReciboIngreso")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$' #,0.00;('$' #,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Total7</rd:DefaultName>
+        <Top>0.3in</Top>
+        <Left>1.9in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Devoluciones:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.55in</Top>
+        <Left>0.5in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Total8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Total.Value, "DevolucionVenta")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$' #,0.00;('$' #,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Total8</rd:DefaultName>
+        <Top>0.55in</Top>
+        <Left>1.9in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Detalle Reporte de Ventas</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>1.35in</Top>
+        <Left>0.5in</Left>
+        <Height>0.2in</Height>
+        <Width>7.5in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Devoluciones:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.8in</Top>
+        <Left>0.5in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Total9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Total.Value, "ContadoVentas") + Sum(Fields!Total.Value, "ReciboIngreso") - Sum(Fields!Total.Value, "DevolucionVenta")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$' #,0.00;('$' #,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Total6</rd:DefaultName>
+        <Top>0.8in</Top>
+        <Left>1.9in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ventas a Credito:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.05in</Top>
+        <Left>4in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Total10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Total.Value, "CreditoVentas")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>'$' #,0.00;('$' #,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Total10</rd:DefaultName>
+        <Top>0.05556in</Top>
+        <Left>5.4in</Left>
+        <Height>0.25in</Height>
+        <Width>1.4in</Width>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3.78in</Height>
+    <Height>5.42in</Height>
     <Style />
   </Body>
   <Width>8.5in</Width>
   <Page>
     <PageHeader>
-      <Height>1.08208in</Height>
+      <Height>0.85in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>

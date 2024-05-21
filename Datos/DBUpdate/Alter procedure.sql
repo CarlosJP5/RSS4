@@ -68,3 +68,32 @@ begin
 end
 go
 
+ALTER PROC [dbo].[reciboIngreso_buscarId]
+@idRecibo int
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT CL.id_cliente, CL.nombre_cliente, RI.fecha_ri,
+	RI.id_ri, RI.id_factura, F.fecha_factura, RI.pago_ri,
+	RI.estado_ri, F.total_factura
+	FROM ReciboIngreso RI
+	LEFT JOIN Clientes CL ON RI.id_cliente = CL.id_cliente
+	LEFT JOIN Factura F ON RI.id_factura = F.id_factura
+	WHERE RI.id_ri = @idRecibo
+END
+go
+
+ALTER proc [dbo].[reporte_ventas_reciboIngreso]
+@desde datetime,
+@hasta datetime
+as
+begin
+	set nocount on
+	select ri.id_ri, ri.fecha_ri, cl.nombre_cliente, sum( ri.pago_ri) as pago 
+	from ReciboIngreso ri
+	left join Clientes cl on ri.id_cliente = cl.id_cliente
+	where ri.fecha_ri between @desde and @hasta
+	group by ri.id_ri, ri.fecha_ri, cl.nombre_cliente
+	order by ri.id_ri asc
+end
+go
