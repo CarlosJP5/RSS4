@@ -97,3 +97,16 @@ begin
 	order by ri.id_ri asc
 end
 go
+
+create proc reporte_ventas_beneficio_factura
+@idFactura int
+as
+begin
+set nocount on
+select fd.importe_factura, fd.descuento_factura, fd.cantidad_factura * fd.costo_factura as costoTotal
+from Factura f
+left join FacturaDetalle fd on f.id_factura = fd.id_factura
+where f.id_factura = @idFactura
+order by f.fecha_factura asc
+end
+go
