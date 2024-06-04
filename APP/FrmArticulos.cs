@@ -36,6 +36,7 @@ namespace APP
         private void FrmArticulos_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
