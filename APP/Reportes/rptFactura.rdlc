@@ -52,7 +52,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
-        <Top>1.6in</Top>
+        <Top>1.8in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -84,7 +84,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
-        <Top>1.8in</Top>
+        <Top>2in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -116,7 +116,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
-        <Top>2in</Top>
+        <Top>2.2in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -148,7 +148,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TipoCompra</rd:DefaultName>
-        <Top>2.2in</Top>
+        <Top>2.4in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -220,10 +220,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaFactura</rd:DefaultName>
-        <Top>2.4in</Top>
-        <Left>1.525in</Left>
+        <Top>2.6in</Top>
+        <Left>1.52in</Left>
         <Height>0.2in</Height>
-        <Width>1.375in</Width>
+        <Width>1.4in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -255,8 +255,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.4in</Top>
-        <Left>0.525in</Left>
+        <Top>2.6in</Top>
+        <Left>0.52in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>7</ZIndex>
@@ -289,7 +289,7 @@
         <Top>3.2in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
-        <Width>1.355in</Width>
+        <Width>1.35in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -355,9 +355,9 @@
         </Paragraphs>
         <rd:DefaultName>FechaVencimiento</rd:DefaultName>
         <Top>3.2in</Top>
-        <Left>1.975in</Left>
+        <Left>1.97in</Left>
         <Height>0.2in</Height>
-        <Width>0.925in</Width>
+        <Width>0.95in</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -389,7 +389,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>3.2in</Top>
-        <Left>1.475in</Left>
+        <Left>1.47in</Left>
         <Height>0.2in</Height>
         <Width>0.5in</Width>
         <ZIndex>11</ZIndex>
@@ -423,7 +423,7 @@
         <Top>3.4in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
-        <Width>0.6in</Width>
+        <Width>0.55in</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -486,7 +486,7 @@
         <Top>3.8in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
-        <Width>2.34375in</Width>
+        <Width>2.8in</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -590,8 +590,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>4.9in</Top>
-        <Left>0.89792in</Left>
+        <Top>4.85in</Top>
+        <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>17</ZIndex>
@@ -622,7 +622,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NotaFactura</rd:DefaultName>
-        <Top>5.65in</Top>
+        <Top>5.5in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -644,7 +644,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Gracias por su Compra, Dios le Bendiga!</Value>
+                <Value>Las piezas eléctricas no tienen devolución, gracias por su compra, Dios le bendiga</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontWeight>Bold</FontWeight>
@@ -657,9 +657,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.85in</Top>
+        <Top>5.7in</Top>
         <Left>0.12in</Left>
-        <Height>0.2in</Height>
+        <Height>0.575in</Height>
         <Width>2.8in</Width>
         <ZIndex>19</ZIndex>
         <Style>
@@ -675,82 +675,12 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox5">
-        <CanGrow>true</CanGrow>
-        <CanShrink>true</CanShrink>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Fecha Vencimiento:</Value>
-                <Style>
-                  <FontSize>9pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.6in</Top>
-        <Left>0.12in</Left>
-        <Height>0.2in</Height>
-        <Width>1.405in</Width>
-        <ZIndex>20</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="FechaFactura3">
-        <CanShrink>true</CanShrink>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=DateAdd(DateInterval.Day,30,First(Fields!FechaFactura.Value, "dsFactura"))</Value>
-                <Style>
-                  <FontSize>9pt</FontSize>
-                  <Format>dd/MM/yyyy hh:mm tt</Format>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>FechaFactura</rd:DefaultName>
-        <Top>2.6in</Top>
-        <Left>1.525in</Left>
-        <Height>0.2in</Height>
-        <Width>1.375in</Width>
-        <ZIndex>21</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Line Name="Line1">
-        <Top>5.11in</Top>
+        <Top>5.05in</Top>
         <Left>0.89792in</Left>
         <Height>0in</Height>
-        <Width>2in</Width>
-        <ZIndex>22</ZIndex>
+        <Width>2.00208in</Width>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -774,11 +704,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Pago</rd:DefaultName>
-        <Top>5.2in</Top>
-        <Left>1.89792in</Left>
+        <Top>5.05in</Top>
+        <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -806,11 +736,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>5.2in</Top>
-        <Left>0.89792in</Left>
+        <Top>5.05in</Top>
+        <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -838,11 +768,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Devuelta</rd:DefaultName>
-        <Top>5.4in</Top>
-        <Left>1.89792in</Left>
+        <Top>5.25in</Top>
+        <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -870,11 +800,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>5.4in</Top>
-        <Left>0.89792in</Left>
+        <Top>5.25in</Top>
+        <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
-        <ZIndex>26</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -904,11 +834,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>4.9in</Top>
-        <Left>1.89792in</Left>
+        <Top>4.85in</Top>
+        <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
-        <ZIndex>27</ZIndex>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -923,10 +853,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.93333in</Width>
+              <Width>0.95in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.86667in</Width>
+              <Width>1.85in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1143,7 +1073,7 @@
         <Left>0.12in</Left>
         <Height>0.6in</Height>
         <Width>2.8in</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>26</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1158,15 +1088,48 @@
         <Left>0.72in</Left>
         <Height>1.2in</Height>
         <Width>1.6in</Width>
-        <ZIndex>29</ZIndex>
+        <ZIndex>27</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Image>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Compañía de Repuestos &amp; multiservicios Pérez Durán SRL.
+</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.6in</Top>
+        <Left>0.12in</Left>
+        <Height>0.2in</Height>
+        <Width>2.8in</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>6.175in</Height>
+    <Height>6.47708in</Height>
     <Style />
   </Body>
   <Width>3.16542in</Width>
