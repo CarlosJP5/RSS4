@@ -48,8 +48,8 @@ namespace APP
             txtCodigo.Text = nUsuario.MaxId();
             Habilitar();
             editar = false;
-            txtNombre.Text = string.Empty;
             errorNombre.Clear();
+            txtNombre.Text = string.Empty;
             txtUsuario.Enabled = true;
             txtUsuario.Text = string.Empty;
             errorUsuario.Clear();
