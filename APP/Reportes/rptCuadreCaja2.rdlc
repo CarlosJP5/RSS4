@@ -402,7 +402,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.95in</Top>
+        <Top>2.325in</Top>
         <Left>0.2in</Left>
         <Height>0.2in</Height>
         <Width>1.55in</Width>
@@ -442,7 +442,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>totalVentaContado1</rd:DefaultName>
-        <Top>1.95in</Top>
+        <Top>2.325in</Top>
         <Left>1.75in</Left>
         <Height>0.2in</Height>
         <Width>1.2in</Width>
@@ -539,7 +539,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>2.15in</Top>
+        <Top>2.525in</Top>
         <Left>0.2in</Left>
         <Height>0.2in</Height>
         <Width>1.55in</Width>
@@ -573,7 +573,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>totalDevoluciones</rd:DefaultName>
-        <Top>2.15in</Top>
+        <Top>2.525in</Top>
         <Left>1.75in</Left>
         <Height>0.2in</Height>
         <Width>1.2in</Width>
@@ -604,7 +604,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>2.35in</Top>
+        <Top>2.725in</Top>
         <Left>0.2in</Left>
         <Height>0.2in</Height>
         <Width>1.55in</Width>
@@ -644,7 +644,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>totalTotal</rd:DefaultName>
-        <Top>2.35in</Top>
+        <Top>2.725in</Top>
         <Left>1.75in</Left>
         <Height>0.2in</Height>
         <Width>1.2in</Width>
@@ -657,6 +657,69 @@
             <Style>Double</Style>
             <Width>2.25pt</Width>
           </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Recibo de Ingreso Serv:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.95in</Top>
+        <Left>0.2in</Left>
+        <Height>0.2in</Height>
+        <Width>1.55in</Width>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="totalReciboIngresoServicio">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!totalReciboIngresoServicio.Value, "CuadreCaja2")</Value>
+                <Style>
+                  <Format>#,0.00;(#,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>totalReciboIngresoServicio</rd:DefaultName>
+        <Top>1.95in</Top>
+        <Left>1.75in</Left>
+        <Height>0.2in</Height>
+        <Width>1.2in</Width>
+        <ZIndex>21</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -779,6 +842,10 @@
         </Field>
         <Field Name="totalReciboIngreso">
           <DataField>totalReciboIngreso</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="totalReciboIngresoServicio">
+          <DataField>totalReciboIngresoServicio</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="totalTotal">

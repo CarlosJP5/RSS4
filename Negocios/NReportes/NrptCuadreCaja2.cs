@@ -16,6 +16,7 @@ namespace Negocios.NReportes
         public double totalVentaContado { get; set; } = 0;
         public double totalVentaCredito { get; set; } = 0;
         public double totalReciboIngreso { get; set; } = 0;
+        public double totalReciboIngresoServicio { get; set; } = 0;
         public double totalDevoluciones { get; set; } = 0;
         public double totalTotal { get; set; } = 0;
         public double venta { get; set; } = 0;
@@ -96,7 +97,7 @@ namespace Negocios.NReportes
             DataTable reciboServicioData = dRecibo.ListarServicio(startDate, endDate);
             foreach (DataRow row in reciboServicioData.Rows)
             {
-                totalReciboIngreso += Convert.ToDouble(row[3]);
+                totalReciboIngresoServicio += Convert.ToDouble(row[3]);
             }
 
             DataTable devolucionesData = dFacturacion.ListarDevolucion(startDate, endDate);
@@ -105,7 +106,7 @@ namespace Negocios.NReportes
                 totalDevoluciones += Convert.ToDouble(row[4]);
             }
 
-            totalTotal = totalVentaContado + totalReciboIngreso - totalDevoluciones;
+            totalTotal = totalVentaContado + totalReciboIngreso + totalReciboIngresoServicio - totalDevoluciones;
         }
     }
 }
