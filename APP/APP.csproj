@@ -288,6 +288,12 @@
     <Compile Include="FrmReciboPago.Designer.cs">
       <DependentUpon>FrmReciboPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReciboPagoReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReciboPagoReporte.Designer.cs">
+      <DependentUpon>FrmReciboPagoReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistroComprobante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReciboPago.resx">
       <DependentUpon>FrmReciboPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReciboPagoReporte.resx">
+      <DependentUpon>FrmReciboPagoReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroComprobante.resx">
       <DependentUpon>FrmRegistroComprobante.cs</DependentUpon>

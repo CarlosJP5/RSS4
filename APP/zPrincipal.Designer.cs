@@ -539,11 +539,10 @@ namespace APP
             // 
             // reporteDeCxPToolStripMenuItem
             // 
-            this.reporteDeCxPToolStripMenuItem.Enabled = false;
             this.reporteDeCxPToolStripMenuItem.Name = "reporteDeCxPToolStripMenuItem";
             this.reporteDeCxPToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.reporteDeCxPToolStripMenuItem.Text = "Reporte de CxP";
-            this.reporteDeCxPToolStripMenuItem.Visible = false;
+            this.reporteDeCxPToolStripMenuItem.Click += new System.EventHandler(this.reporteDeCxPToolStripMenuItem_Click);
             // 
             // listaDeCompraToolStripMenuItem
             // 

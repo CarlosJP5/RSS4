@@ -6,6 +6,33 @@ namespace Datos
 {
     public class DReciboPago : Conexion
     {
+        public DataTable Historial(int idSuplidor, DateTime desde, DateTime hasta)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboPago_historial";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idSuplidor", SqlDbType.Int).Value = idSuplidor;
+                    cmd.Parameters.Add("@desde", SqlDbType.Date).Value = desde;
+                    cmd.Parameters.Add("@hasta", SqlDbType.Date).Value = hasta;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        return table;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
         public DataTable Buscar(string Query)
         {
             using (var conn = GetConnection())

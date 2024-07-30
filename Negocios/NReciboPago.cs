@@ -9,6 +9,10 @@ namespace Negocios
         private readonly DReciboPago _recibo = new DReciboPago();
         //public List<ErptReciboIngreso> ReciboIngresos { get; set; }
 
+        public DataTable Historial(int idSuplidor, DateTime desde, DateTime hasta)
+        {
+            return _recibo.Historial(idSuplidor, desde, hasta);
+        }
         public DataTable Buscar(string Query)
         {
             return _recibo.Buscar(Query);

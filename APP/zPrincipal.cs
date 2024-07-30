@@ -303,5 +303,14 @@ namespace APP
                 reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
             }
         }
+
+        private void reporteDeCxPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReciboPagoReporte frm = new FrmReciboPagoReporte
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
     }
 }
