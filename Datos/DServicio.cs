@@ -7,6 +7,39 @@ namespace Datos
 {
     public  class DServicio : Conexion
     {
+        public bool MovimientoFs(string idFactura)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "reciboIngreso_existe_servicio";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idFactura", SqlDbType.NVarChar).Value = idFactura;
+                    try
+                    {
+                        SqlDataReader leer = cmd.ExecuteReader();
+                        DataTable table = new DataTable();
+                        table.Load(leer);
+                        if (table.Rows.Count > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
         public DataTable Buscar(DateTime desde, DateTime hasta)
         {
             using (var conn = GetConnection())

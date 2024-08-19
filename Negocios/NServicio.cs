@@ -9,6 +9,11 @@ namespace Negocios
     {
         private readonly DServicio dservicio = new DServicio();
 
+        public bool MovimientoFs(string idFactura)
+        {
+            return dservicio.MovimientoFs(idFactura);
+        }
+
         public DataTable Buscar(DateTime desde, DateTime hasta)
         {
             return dservicio.Buscar(desde, hasta);

@@ -340,6 +340,11 @@ namespace APP
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (nservicio.MovimientoFs(lblIdFactura.Text))
+            {
+                MessageBox.Show("Esta factura posee un Recibo aplicado, no puede ser modificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             habilita_controles();
             if (cboTipoCompra.Text == "CONTADO")
             {
