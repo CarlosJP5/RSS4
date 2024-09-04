@@ -54,6 +54,7 @@
             this.linkCodigo = new System.Windows.Forms.LinkLabel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -68,16 +69,16 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(569, 30);
+            this.panelTop.Size = new System.Drawing.Size(594, 30);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(567, 28);
+            this.label1.Size = new System.Drawing.Size(592, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ajuste Inventario";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,6 +86,7 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.button1);
             this.panelMid.Controls.Add(this.label2);
             this.panelMid.Controls.Add(this.txtNota);
             this.panelMid.Controls.Add(this.txtIdArticulo);
@@ -103,7 +105,7 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(569, 273);
+            this.panelMid.Size = new System.Drawing.Size(594, 273);
             this.panelMid.TabIndex = 1;
             // 
             // label2
@@ -215,7 +217,7 @@
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.Size = new System.Drawing.Size(543, 150);
+            this.dgvListar.Size = new System.Drawing.Size(563, 150);
             this.dgvListar.TabIndex = 6;
             // 
             // Column1
@@ -333,12 +335,24 @@
             // 
             this.errorCodigo.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.button1.Location = new System.Drawing.Point(537, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 28);
+            this.button1.TabIndex = 15;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmArticulosAjusteInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(569, 303);
+            this.ClientSize = new System.Drawing.Size(594, 303);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -383,5 +397,6 @@
         private System.Windows.Forms.ErrorProvider errorCodigo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNota;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -99,10 +99,12 @@ namespace APP
         private void FrmCotizacion_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
+            cboTipoComprobante.SelectedIndex = 0;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            dtpFecha.Value = DateTime.Now;
             btnBuscar.Enabled = true;
             btnFacturar.Enabled = true;
             btnImprimir.Enabled = false;
@@ -115,8 +117,11 @@ namespace APP
             txtCodigo.Text = null;
             CalculaTotal();
             HabilitarControles();
+            cboTipoCompra.Enabled = true;
+            cboTipoComprobante.Enabled = true;
             lblIdFactura.Text = "#";
             _ = txtCodigo.Focus();
+            cboTipoComprobante.SelectedIndex = 0;
         }
 
         private void txtIdCliente_Leave(object sender, EventArgs e)

@@ -199,5 +199,27 @@ namespace APP
                 return;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorCodigo.SetError(linkCodigo, "No Existe el articulo");
+                _ = txtCodigo.Focus();
+                return;
+            }
+            else
+            {
+                errorCodigo.Clear();
+                dgvListar.Rows.Add(txtIdArticulo.Text, txtCodigo.Text, txtNombre.Text, cboAj.Text,
+                    txtCantidad.Text, txtCosto.Text);
+                txtCodigo.Text = null;
+                txtIdArticulo.Text = "";
+                txtNombre.Text = null;
+                txtCosto.Text = null;
+                txtCantidad.Text = null;
+                _ = txtCodigo.Focus();
+            }
+        }
     }
 }
