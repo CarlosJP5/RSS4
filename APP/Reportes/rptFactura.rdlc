@@ -21,7 +21,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
-        <Top>1.4in</Top>
+        <Top>0.15in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -52,7 +52,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
-        <Top>1.8in</Top>
+        <Top>0.55in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -84,7 +84,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
-        <Top>2in</Top>
+        <Top>0.75in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -116,7 +116,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
-        <Top>2.2in</Top>
+        <Top>0.95in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -148,7 +148,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TipoCompra</rd:DefaultName>
-        <Top>2.4in</Top>
+        <Top>1.15in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -185,7 +185,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>IdFactura</rd:DefaultName>
-        <Top>3in</Top>
+        <Top>1.75in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -220,7 +220,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaFactura</rd:DefaultName>
-        <Top>2.6in</Top>
+        <Top>1.35in</Top>
         <Left>1.52in</Left>
         <Height>0.2in</Height>
         <Width>1.4in</Width>
@@ -255,7 +255,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.6in</Top>
+        <Top>1.35in</Top>
         <Left>0.52in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -286,7 +286,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NcfComprobante</rd:DefaultName>
-        <Top>3.2in</Top>
+        <Top>1.95in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>1.35in</Width>
@@ -319,7 +319,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreComprobante</rd:DefaultName>
-        <Top>2.8in</Top>
+        <Top>1.55in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -354,7 +354,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaVencimiento</rd:DefaultName>
-        <Top>3.2in</Top>
+        <Top>1.95in</Top>
         <Left>1.97in</Left>
         <Height>0.2in</Height>
         <Width>0.95in</Width>
@@ -388,7 +388,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>3.2in</Top>
+        <Top>1.95in</Top>
         <Left>1.47in</Left>
         <Height>0.2in</Height>
         <Width>0.5in</Width>
@@ -420,7 +420,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>3.4in</Top>
+        <Top>2.15in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>0.55in</Width>
@@ -451,7 +451,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
-        <Top>3.6in</Top>
+        <Top>2.35in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -483,7 +483,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncCliente</rd:DefaultName>
-        <Top>3.8in</Top>
+        <Top>2.55in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -515,7 +515,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>IdCliente</rd:DefaultName>
-        <Top>3.4in</Top>
+        <Top>2.15in</Top>
         <Left>0.7in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -550,7 +550,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>4in</Top>
+        <Top>2.75in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -590,7 +590,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>4.85in</Top>
+        <Top>3.6in</Top>
         <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -622,7 +622,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NotaFactura</rd:DefaultName>
-        <Top>5.5in</Top>
+        <Top>4.25in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -657,7 +657,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.7in</Top>
+        <Top>4.45in</Top>
         <Left>0.12in</Left>
         <Height>0.575in</Height>
         <Width>2.8in</Width>
@@ -676,7 +676,7 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>5.05in</Top>
+        <Top>3.8in</Top>
         <Left>0.89792in</Left>
         <Height>0in</Height>
         <Width>2.00208in</Width>
@@ -704,7 +704,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Pago</rd:DefaultName>
-        <Top>5.05in</Top>
+        <Top>3.8in</Top>
         <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -736,7 +736,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>5.05in</Top>
+        <Top>3.8in</Top>
         <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -768,7 +768,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Devuelta</rd:DefaultName>
-        <Top>5.25in</Top>
+        <Top>4in</Top>
         <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -800,7 +800,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>5.25in</Top>
+        <Top>4in</Top>
         <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -834,7 +834,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>4.85in</Top>
+        <Top>3.6in</Top>
         <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -1069,7 +1069,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsFacturaDetalle</DataSetName>
-        <Top>4.2in</Top>
+        <Top>2.95in</Top>
         <Left>0.12in</Left>
         <Height>0.6in</Height>
         <Width>2.8in</Width>
@@ -1080,21 +1080,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>ImagendeWhatsApp20240613alas174253_f7c3dcbd</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.2in</Top>
-        <Left>0.72in</Left>
-        <Height>1.2in</Height>
-        <Width>1.6in</Width>
-        <ZIndex>27</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1113,11 +1098,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.6in</Top>
+        <Top>0.35in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>27</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1129,7 +1114,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>6.47708in</Height>
+    <Height>5.28958in</Height>
     <Style />
   </Body>
   <Width>3.16542in</Width>
