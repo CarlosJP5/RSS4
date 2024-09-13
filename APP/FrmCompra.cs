@@ -737,7 +737,6 @@ namespace APP
                 btnAgregar.Enabled = false;
                 btnBorrar.Enabled = false;
                 dgvListar.ReadOnly = true;
-                btnImprimir.Enabled = true;
                 btnModificar.Enabled = true;
                 btnSalvar.Enabled = false;
             }

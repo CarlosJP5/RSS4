@@ -345,6 +345,7 @@
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Enabled = false;
             this.btnImprimir.Image = global::APP.Properties.Resources.Print_16;
             this.btnImprimir.Location = new System.Drawing.Point(200, 459);
             this.btnImprimir.Name = "btnImprimir";

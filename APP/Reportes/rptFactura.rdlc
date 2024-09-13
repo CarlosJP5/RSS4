@@ -22,7 +22,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>0.15in</Top>
-        <Left>0.12in</Left>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <Style>
@@ -52,8 +52,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
-        <Top>0.55in</Top>
-        <Left>0.12in</Left>
+        <Top>0.35in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>1</ZIndex>
@@ -84,8 +84,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
-        <Top>0.75in</Top>
-        <Left>0.12in</Left>
+        <Top>0.55in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>2</ZIndex>
@@ -116,8 +116,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
-        <Top>0.95in</Top>
-        <Left>0.12in</Left>
+        <Top>0.75in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>3</ZIndex>
@@ -148,8 +148,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TipoCompra</rd:DefaultName>
-        <Top>1.15in</Top>
-        <Left>0.12in</Left>
+        <Top>0.95in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>4</ZIndex>
@@ -185,8 +185,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>IdFactura</rd:DefaultName>
-        <Top>1.75in</Top>
-        <Left>0.12in</Left>
+        <Top>1.55in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>5</ZIndex>
@@ -220,8 +220,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaFactura</rd:DefaultName>
-        <Top>1.35in</Top>
-        <Left>1.52in</Left>
+        <Top>1.15in</Top>
+        <Left>1.5in</Left>
         <Height>0.2in</Height>
         <Width>1.4in</Width>
         <ZIndex>6</ZIndex>
@@ -255,8 +255,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.35in</Top>
-        <Left>0.52in</Left>
+        <Top>1.15in</Top>
+        <Left>0.5in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>7</ZIndex>
@@ -286,8 +286,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NcfComprobante</rd:DefaultName>
-        <Top>1.95in</Top>
-        <Left>0.12in</Left>
+        <Top>1.75in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>1.35in</Width>
         <ZIndex>8</ZIndex>
@@ -319,8 +319,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreComprobante</rd:DefaultName>
-        <Top>1.55in</Top>
-        <Left>0.12in</Left>
+        <Top>1.35in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>9</ZIndex>
@@ -354,8 +354,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaVencimiento</rd:DefaultName>
-        <Top>1.95in</Top>
-        <Left>1.97in</Left>
+        <Top>1.75in</Top>
+        <Left>1.95in</Left>
         <Height>0.2in</Height>
         <Width>0.95in</Width>
         <ZIndex>10</ZIndex>
@@ -388,8 +388,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>1.95in</Top>
-        <Left>1.47in</Left>
+        <Top>1.75in</Top>
+        <Left>1.45in</Left>
         <Height>0.2in</Height>
         <Width>0.5in</Width>
         <ZIndex>11</ZIndex>
@@ -420,8 +420,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.15in</Top>
-        <Left>0.12in</Left>
+        <Top>1.95in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>0.55in</Width>
         <ZIndex>12</ZIndex>
@@ -451,8 +451,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
-        <Top>2.35in</Top>
-        <Left>0.12in</Left>
+        <Top>2.15in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>13</ZIndex>
@@ -483,8 +483,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RncCliente</rd:DefaultName>
-        <Top>2.55in</Top>
-        <Left>0.12in</Left>
+        <Top>2.35in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>14</ZIndex>
@@ -515,8 +515,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>IdCliente</rd:DefaultName>
-        <Top>2.15in</Top>
-        <Left>0.7in</Left>
+        <Top>1.95in</Top>
+        <Left>0.65in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>15</ZIndex>
@@ -550,8 +550,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>2.75in</Top>
-        <Left>0.12in</Left>
+        <Top>2.55in</Top>
+        <Left>0.1in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>16</ZIndex>
@@ -590,7 +590,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>3.6in</Top>
+        <Top>3.475in</Top>
         <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -622,7 +622,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NotaFactura</rd:DefaultName>
-        <Top>4.25in</Top>
+        <Top>4.125in</Top>
         <Left>0.12in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
@@ -657,7 +657,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>4.45in</Top>
+        <Top>4.325in</Top>
         <Left>0.12in</Left>
         <Height>0.575in</Height>
         <Width>2.8in</Width>
@@ -676,7 +676,7 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>3.8in</Top>
+        <Top>3.675in</Top>
         <Left>0.89792in</Left>
         <Height>0in</Height>
         <Width>2.00208in</Width>
@@ -704,7 +704,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Pago</rd:DefaultName>
-        <Top>3.8in</Top>
+        <Top>3.675in</Top>
         <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -736,7 +736,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>3.8in</Top>
+        <Top>3.675in</Top>
         <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -768,7 +768,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Devuelta</rd:DefaultName>
-        <Top>4in</Top>
+        <Top>3.875in</Top>
         <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -800,7 +800,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
-        <Top>4in</Top>
+        <Top>3.875in</Top>
         <Left>0.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -834,7 +834,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>3.6in</Top>
+        <Top>3.475in</Top>
         <Left>1.9in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
@@ -1069,8 +1069,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsFacturaDetalle</DataSetName>
-        <Top>2.95in</Top>
-        <Left>0.12in</Left>
+        <Top>2.75in</Top>
+        <Left>0.1in</Left>
         <Height>0.6in</Height>
         <Width>2.8in</Width>
         <ZIndex>26</ZIndex>
@@ -1080,39 +1080,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Compañía de Repuestos &amp; multiservicios Pérez Durán SRL.
-</Value>
-                <Style>
-                  <FontSize>9pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.35in</Top>
-        <Left>0.12in</Left>
-        <Height>0.2in</Height>
-        <Width>2.8in</Width>
-        <ZIndex>27</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>5.28958in</Height>
     <Style />
