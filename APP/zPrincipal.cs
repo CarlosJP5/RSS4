@@ -27,7 +27,7 @@ namespace APP
             DateTime lisencia = lic.lisencia();
             if (licenciaLock != lisencia)
             {
-                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR",
+                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR ",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
