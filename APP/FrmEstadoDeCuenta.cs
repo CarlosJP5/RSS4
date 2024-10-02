@@ -1,9 +1,12 @@
 ﻿using APP.Buscar;
 using APP.Reportes;
+using Entidades;
 using Negocios;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace APP
@@ -17,38 +20,56 @@ namespace APP
 
         private readonly NClientes _cliente = new NClientes();
 
+        private List<EEstadoCuenta> EstadoCuenta = new List<EEstadoCuenta>();
+
         private void LlenarDGV(string IdCliente)
         {
             dgvListar.Rows.Clear();
             DataTable balance = _cliente.BalancePendiente(IdCliente);
+            DateTime d2 = DateTime.Now.Date;
             if (balance.Rows.Count > 0)
             {
-                DateTime d2 = DateTime.Now.Date;
                 for (int i = 0; i < balance.Rows.Count; i++)
                 {
+                    EEstadoCuenta modelEstadoCuenta = new EEstadoCuenta();
                     DateTime d1 = DateTime.Parse(balance.Rows[i][8].ToString());
-
-                    _ = dgvListar.Rows.Add(balance.Rows[i][1], balance.Rows[i][18], d1.ToString("dd/MM/yyyy"),
-                        (d2 - d1.Date).Days.ToString("N0"), balance.Rows[i][3]);
+                    
+                    //_ = dgvListar.Rows.Add(balance.Rows[i][1], balance.Rows[i][18], d1.ToString("dd/MM/yyyy"),
+                    //    (d2 - d1.Date).Days.ToString("N0"), balance.Rows[i][3]);
+                    modelEstadoCuenta.fact = balance.Rows[i][1].ToString();
+                    modelEstadoCuenta.ncf = balance.Rows[i][18].ToString();
+                    modelEstadoCuenta.fecha = d1;
+                    modelEstadoCuenta.dias = (d2 - d1.Date).Days;
+                    modelEstadoCuenta.Balance = decimal.Parse(balance.Rows[i][3].ToString());
+                    EstadoCuenta.Add(modelEstadoCuenta);
                 }
             }
+
             DataTable balance2 = _cliente.BalancePendienteServicio(IdCliente);
             if (balance2.Rows.Count > 0)
             {
-                DateTime d2 = DateTime.Now.Date;
                 for (int i = 0; i < balance2.Rows.Count; i++)
                 {
+                    EEstadoCuenta modelEstadoCuenta = new EEstadoCuenta();
                     DateTime d1 = DateTime.Parse(balance2.Rows[i][2].ToString());
-                    _ = dgvListar.Rows.Add(balance2.Rows[i][0], balance2.Rows[i][1], d1.ToString("dd/MM/yyyy"),
-                        (d2 - d1.Date).Days.ToString("N0"), balance2.Rows[i][4]);
+                    //_ = dgvListar.Rows.Add(balance2.Rows[i][0], balance2.Rows[i][1], d1.ToString("dd/MM/yyyy"),
+                    //    (d2 - d1.Date).Days.ToString("N0"), balance2.Rows[i][4]);
+                    modelEstadoCuenta.fact = balance2.Rows[i][0].ToString();
+                    modelEstadoCuenta.ncf = balance2.Rows[i][1].ToString();
+                    modelEstadoCuenta.fecha = d1;
+                    modelEstadoCuenta.dias = (d2 - d1.Date).Days;
+                    modelEstadoCuenta.Balance = decimal.Parse(balance2.Rows[i][4].ToString());
+                    EstadoCuenta.Add(modelEstadoCuenta);
                 }
             }
-            double total = 0;
-            for (int i = 0; i < dgvListar.RowCount; i++)
+
+            EstadoCuenta.Sort((x, y) => x.fecha.CompareTo(y.fecha));
+            foreach (EEstadoCuenta item in EstadoCuenta)
             {
-                total += Convert.ToDouble(dgvListar.Rows[i].Cells[4].Value);
+                _ = dgvListar.Rows.Add(item.fact, item.ncf, item.fecha.ToString("dd/MM/yyyy"), item.dias, item.Balance);
             }
-            txtTotal.Text = total.ToString("N2");
+
+            txtTotal.Text = EstadoCuenta.Sum(bal => bal.Balance).ToString("N2");
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
