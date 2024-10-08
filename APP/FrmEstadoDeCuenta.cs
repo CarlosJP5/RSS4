@@ -25,6 +25,7 @@ namespace APP
         private void LlenarDGV(string IdCliente)
         {
             dgvListar.Rows.Clear();
+            EstadoCuenta = new List<EEstadoCuenta>();
             DataTable balance = _cliente.BalancePendiente(IdCliente);
             DateTime d2 = DateTime.Now.Date;
             if (balance.Rows.Count > 0)
