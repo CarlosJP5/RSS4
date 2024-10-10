@@ -21,7 +21,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreEmpresa</rd:DefaultName>
         <Top>0.1in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <Style>
@@ -52,7 +52,7 @@
         </Paragraphs>
         <rd:DefaultName>DireccionEmpresa</rd:DefaultName>
         <Top>0.3in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>1</ZIndex>
@@ -84,7 +84,7 @@
         </Paragraphs>
         <rd:DefaultName>TelefonoEmpresa</rd:DefaultName>
         <Top>0.5in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>2</ZIndex>
@@ -116,7 +116,7 @@
         </Paragraphs>
         <rd:DefaultName>RncEmpresa</rd:DefaultName>
         <Top>0.7in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>3</ZIndex>
@@ -150,7 +150,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>0.9in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>4</ZIndex>
@@ -188,7 +188,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
         <Top>1.1in</Top>
-        <Left>0.76958in</Left>
+        <Left>0.7in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>5</ZIndex>
@@ -218,7 +218,7 @@
         </Paragraphs>
         <rd:DefaultName>IdCotizacion</rd:DefaultName>
         <Top>1.3in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>6</ZIndex>
@@ -248,7 +248,7 @@
         </Paragraphs>
         <rd:DefaultName>IdCliente</rd:DefaultName>
         <Top>1.5in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>7</ZIndex>
@@ -278,7 +278,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreCliente</rd:DefaultName>
         <Top>1.7in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>8</ZIndex>
@@ -308,7 +308,7 @@
         </Paragraphs>
         <rd:DefaultName>RncCliente</rd:DefaultName>
         <Top>1.9in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>9</ZIndex>
@@ -342,7 +342,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
         <Top>2.1in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>0.2in</Height>
         <Width>2.8in</Width>
         <ZIndex>10</ZIndex>
@@ -382,7 +382,7 @@
         </Paragraphs>
         <rd:DefaultName>FechaCotizacion</rd:DefaultName>
         <Top>1.1in</Top>
-        <Left>1.76958in</Left>
+        <Left>1.73958in</Left>
         <Height>0.2in</Height>
         <Width>1.15042in</Width>
         <ZIndex>11</ZIndex>
@@ -865,7 +865,7 @@
         </TablixRowHierarchy>
         <DataSetName>dsDetalle</DataSetName>
         <Top>2.3in</Top>
-        <Left>0.12in</Left>
+        <Left>0.09in</Left>
         <Height>1in</Height>
         <Width>2.8in</Width>
         <ZIndex>12</ZIndex>
@@ -893,7 +893,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>3.45in</Top>
-        <Left>0.89222in</Left>
+        <Left>0.86in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>13</ZIndex>
@@ -927,7 +927,7 @@
         </Paragraphs>
         <rd:DefaultName>ImporteFactura</rd:DefaultName>
         <Top>3.45in</Top>
-        <Left>1.92in</Left>
+        <Left>1.89in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>14</ZIndex>
@@ -961,7 +961,7 @@
         </Paragraphs>
         <rd:DefaultName>DescuentoFactura</rd:DefaultName>
         <Top>3.65in</Top>
-        <Left>1.92in</Left>
+        <Left>1.89in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>15</ZIndex>
@@ -995,7 +995,7 @@
         </Paragraphs>
         <rd:DefaultName>ItbisFactura</rd:DefaultName>
         <Top>3.85in</Top>
-        <Left>1.92in</Left>
+        <Left>1.89in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>16</ZIndex>
@@ -1029,7 +1029,7 @@
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
         <Top>4.05in</Top>
-        <Left>1.92in</Left>
+        <Left>1.89in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>17</ZIndex>
@@ -1061,7 +1061,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>3.65in</Top>
-        <Left>0.89222in</Left>
+        <Left>0.86in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>18</ZIndex>
@@ -1093,7 +1093,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>3.85in</Top>
-        <Left>0.89222in</Left>
+        <Left>0.86in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>19</ZIndex>
@@ -1125,7 +1125,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>4.05in</Top>
-        <Left>0.89222in</Left>
+        <Left>0.86in</Left>
         <Height>0.2in</Height>
         <Width>1in</Width>
         <ZIndex>20</ZIndex>
