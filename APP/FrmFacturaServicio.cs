@@ -24,7 +24,7 @@ namespace APP
 
         private void CalculaTotal()
         {
-            if (cboTipoComprobante.SelectedValue.ToString() != "B02")
+            if (cboTipoComprobante.SelectedValue.ToString() == "B01")
             {
                 decimal importe = 0m;
                 for (int i = 0; i < dgvListar.Rows.Count - 1; i++)
