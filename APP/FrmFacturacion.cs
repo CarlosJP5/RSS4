@@ -84,7 +84,7 @@ namespace APP
                 if (cboTipoComprobante.SelectedValue.ToString() == "B14")
                 {
                     itbis = 0;
-                    precio = precioNeto;
+                    //precio = precioNeto;
                 }
                 dgvListar.Rows[i].Cells[4].Value = cantidad;
                 dgvListar.Rows[i].Cells[5].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
