@@ -81,6 +81,11 @@ namespace APP
                 decimal precio = precioNeto / itbis;
                 descuento = precio * descuento;
                 itbis = (precio - descuento) * (itbis - 1);
+                if (cboTipoComprobante.SelectedValue.ToString() == "B14")
+                {
+                    itbis = 0;
+                    precio = precioNeto;
+                }
                 dgvListar.Rows[i].Cells[4].Value = cantidad;
                 dgvListar.Rows[i].Cells[5].Value = Convert.ToDecimal(dgvListar.Rows[i].Cells[5].Value);
                 dgvListar.Rows[i].Cells[6].Value = precioNeto;
@@ -777,6 +782,11 @@ namespace APP
                     return;
                 }
             }
+        }
+
+        private void cboTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculaTotal();
         }
     }
 }

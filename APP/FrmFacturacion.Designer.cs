@@ -338,6 +338,7 @@
             this.cboTipoComprobante.Name = "cboTipoComprobante";
             this.cboTipoComprobante.Size = new System.Drawing.Size(149, 21);
             this.cboTipoComprobante.TabIndex = 14;
+            this.cboTipoComprobante.SelectedIndexChanged += new System.EventHandler(this.cboTipoComprobante_SelectedIndexChanged);
             // 
             // cboTipoCompra
             // 
