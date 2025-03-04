@@ -25,7 +25,7 @@ namespace Negocios
         }
         public DataTable BuscarId(string IdCliente)
         {
-            int Id = Convert.ToInt32(IdCliente);
+            _ = int.TryParse(IdCliente, out int Id);
             return _cliente.BuscarId(Id);
         }
         public DataTable Listar()

@@ -127,6 +127,8 @@ namespace APP
         {
             if (!string.IsNullOrWhiteSpace(txtIdCliente.Text))
             {
+                _ = int.TryParse(txtIdCliente.Text, out int Id);
+                txtIdCliente.Text = Id.ToString();
                 NClientes ncliente = new NClientes();
                 DataTable cliente = ncliente.BuscarId(txtIdCliente.Text);
                 if (cliente.Rows.Count > 0)
