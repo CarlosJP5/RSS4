@@ -702,7 +702,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Itbis</Value>
+                              <Value>Precio</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -736,7 +736,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio</Value>
+                              <Value>Importe</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -882,7 +882,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalItbis.Value</Value>
+                              <Value>=Fields!PrecioFacturado.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
@@ -920,7 +920,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PrecioFacturado.Value</Value>
+                              <Value>=Fields!PrecioFacturado.Value * Fields!CantidadFacturado.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
@@ -2100,7 +2100,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Itbis</Value>
+                              <Value>Precio</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -2134,7 +2134,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio</Value>
+                              <Value>Importe</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -2280,7 +2280,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalItbis.Value</Value>
+                              <Value>=Fields!PrecioFacturado.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
@@ -2318,7 +2318,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PrecioFacturado.Value</Value>
+                              <Value>=Fields!PrecioFacturado.Value * Fields!CantidadFacturado.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
