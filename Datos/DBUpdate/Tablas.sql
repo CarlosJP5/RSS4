@@ -1,55 +1,57 @@
-USE [BiciMotoYaco]
+USE [RepMyC]
 GO
-/****** Object:  StoredProcedure [dbo].[articulo_listar]    Script Date: 13/04/2024 3:50:07 pm ******/
+
+SELECT * INTO newtable FROM Articulo
+go
+
+ALTER TABLE [dbo].[Articulo] DROP CONSTRAINT [DF__Articulo__puntoR__34C8D9D1]
+GO
+
+/****** Object:  Table [dbo].[Articulo]    Script Date: 3/24/2025 9:52:05 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Articulo]') AND type in (N'U'))
+DROP TABLE [dbo].[Articulo]
+GO
+
+/****** Object:  Table [dbo].[Articulo]    Script Date: 3/24/2025 9:52:05 PM ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROC [dbo].[articulo_listar]
-AS
-BEGIN
-	SET NOCOUNT ON
-
-	SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
-	nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, porciento_itbis,
-	A.costo_articulo, A.beneficio_minimo, A.puntoReorden_articulo
-	FROM Articulo A
-	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
-	LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis
-	ORDER BY nombre_articulo
-END
-go
-
-ALTER PROC [dbo].[articulo_listaDeCompras]
-AS
-BEGIN
-	SET NOCOUNT ON
-	SELECT A.id_articulo, A.codigo_articulo, A.referencia_articulo, A.nombre_articulo,
-	M.nombre_marca, A.cantidad_articulo, A.costo_articulo
-	FROM Articulo A
-	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
-	WHERE puntoReorden_articulo >= cantidad_articulo
-	ORDER BY A.nombre_articulo
-END
+CREATE TABLE [dbo].[Articulo](
+	[id_articulo] [int] NOT NULL,
+	[id_marca] [int] NULL,
+	[id_suplidor] [int] NULL,
+	[id_itbis] [int] NULL,
+	[codigo_articulo] [varchar](50) NULL,
+	[nombre_articulo] [varchar](50) NULL,
+	[referencia_articulo] [varchar](50) NULL,
+	[puntoReorden_articulo] [int] NULL,
+	[cantidad_articulo] [decimal](18, 2) NULL,
+	[costo_articulo] [decimal](18, 2) NULL,
+	[precio_articulo] [decimal](18, 2) NULL,
+	[beneficio_articulo] [decimal](18, 2) NULL,
+	[estado_articulo] [bit] NULL,
+	[beneficio_minimo] [decimal](18, 2) NULL,
+	[ubicacion_articulo] [varchar](50) NULL,
+ CONSTRAINT [PK__Articulo__3F6E8288AF52858D] PRIMARY KEY CLUSTERED 
+(
+	[id_articulo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ__Articulo__014352623BD6DE5F] UNIQUE NONCLUSTERED 
+(
+	[codigo_articulo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-ALTER PROC [dbo].[articulo_listaDeComprasIdSup]
-@IdSup int
-AS
-BEGIN
-	SET NOCOUNT ON
-	SELECT A.id_articulo, A.codigo_articulo, A.referencia_articulo, A.nombre_articulo,
-	M.nombre_marca, A.cantidad_articulo, A.costo_articulo
-	FROM Articulo A
-	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
-	WHERE puntoReorden_articulo >= cantidad_articulo AND A.id_suplidor = @IdSup
-	ORDER BY A.nombre_articulo
-END
+ALTER TABLE [dbo].[Articulo] ADD  CONSTRAINT [DF__Articulo__puntoR__34C8D9D1]  DEFAULT ((0)) FOR [puntoReorden_articulo]
 GO
 
-update Articulo set puntoReorden_articulo = 0 where puntoReorden_articulo is null
+insert into Articulo select *, '' from newtable
 go
 
-update Articulo set cantidad_articulo = 0 where cantidad_articulo is null
+drop table newtable
 go
+

@@ -36,7 +36,6 @@ namespace APP
         private void FrmArticulos_Load(object sender, EventArgs e)
         {
             btnNuevo.PerformClick();
-
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -58,6 +57,7 @@ namespace APP
                 txtCosto.Text = null;
                 txtPrecio.Text = null;
                 txtBeneficio.Text = null;
+                txtUbicacion.Text = null;
                 cboEstado.SelectedIndex = 0;
                 txtBeneficioMinimo.Text = "20.00";
             }
@@ -103,6 +103,7 @@ namespace APP
                 errorNombre.Clear();
                 txtNombre.AllowDrop = false;
             }
+            
             if (!txtCodigo.AllowDrop && !txtNombre.AllowDrop && !txtItbis.AllowDrop)
             {
                 EArticulo articulo = new EArticulo
@@ -111,7 +112,10 @@ namespace APP
                     Nombre = txtNombre.Text,
                     Referencia = txtReferencia.Text
                 };
-
+                if (!string.IsNullOrWhiteSpace(txtUbicacion.Text))
+                {
+                    articulo.Ubicacion = txtUbicacion.Text.Trim();
+                }
                 if (!string.IsNullOrEmpty(txtIdMarca.Text) && !string.IsNullOrEmpty(txtMarca.Text))
                 {
                     articulo.IdMarca = Convert.ToInt16(txtIdMarca.Text);
@@ -223,6 +227,7 @@ namespace APP
             txtPorcientoItbis.Enabled = false;
             txtSuplidor.Enabled = false;
             txtBeneficioMinimo.Enabled = false;
+            txtUbicacion.Enabled = false;
         }
 
         private void ActivaControles()
@@ -245,6 +250,7 @@ namespace APP
             txtPorcientoItbis.Enabled = true;
             txtSuplidor.Enabled = true;
             txtBeneficioMinimo.Enabled = true;
+            txtUbicacion.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

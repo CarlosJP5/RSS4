@@ -74,6 +74,8 @@
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtUbicacion = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
@@ -95,7 +97,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(555, 28);
@@ -106,6 +108,8 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMid.Controls.Add(this.label14);
+            this.panelMid.Controls.Add(this.txtUbicacion);
             this.panelMid.Controls.Add(this.label7);
             this.panelMid.Controls.Add(this.label13);
             this.panelMid.Controls.Add(this.txtBeneficioMinimo);
@@ -148,7 +152,7 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(557, 251);
+            this.panelMid.Size = new System.Drawing.Size(557, 283);
             this.panelMid.TabIndex = 1;
             // 
             // label7
@@ -213,16 +217,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 172);
+            this.label5.Location = new System.Drawing.Point(5, 172);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 35;
-            this.label5.Text = "Punto Reorden";
+            this.label5.Text = "Pnt Reorden";
             // 
             // txtPuntoReorden
             // 
             this.txtPuntoReorden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtPuntoReorden.Location = new System.Drawing.Point(95, 169);
+            this.txtPuntoReorden.Location = new System.Drawing.Point(78, 169);
             this.txtPuntoReorden.Name = "txtPuntoReorden";
             this.txtPuntoReorden.Size = new System.Drawing.Size(100, 20);
             this.txtPuntoReorden.TabIndex = 34;
@@ -234,9 +238,9 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(394, 212);
+            this.btnSalir.Location = new System.Drawing.Point(417, 238);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 25);
+            this.btnSalir.Size = new System.Drawing.Size(90, 30);
             this.btnSalir.TabIndex = 33;
             this.btnSalir.Text = "Salir [Esc]";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -247,9 +251,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(298, 212);
+            this.btnBuscar.Location = new System.Drawing.Point(316, 238);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(90, 30);
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.Text = "Buscar [F1]";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -260,9 +264,9 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(202, 212);
+            this.btnSalvar.Location = new System.Drawing.Point(215, 238);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 25);
+            this.btnSalvar.Size = new System.Drawing.Size(90, 30);
             this.btnSalvar.TabIndex = 31;
             this.btnSalvar.Text = "Salvar [F5]";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -273,9 +277,9 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(106, 211);
+            this.btnModificar.Location = new System.Drawing.Point(114, 237);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(90, 25);
+            this.btnModificar.Size = new System.Drawing.Size(90, 30);
             this.btnModificar.TabIndex = 30;
             this.btnModificar.Text = "Editar [F4]";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -286,9 +290,9 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(10, 211);
+            this.btnNuevo.Location = new System.Drawing.Point(13, 237);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(90, 25);
+            this.btnNuevo.Size = new System.Drawing.Size(90, 30);
             this.btnNuevo.TabIndex = 29;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -596,13 +600,31 @@
             // 
             this.errorItbis.ContainerControl = this;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 198);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Ubicacion";
+            // 
+            // txtUbicacion
+            // 
+            this.txtUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtUbicacion.Location = new System.Drawing.Point(78, 195);
+            this.txtUbicacion.Name = "txtUbicacion";
+            this.txtUbicacion.Size = new System.Drawing.Size(150, 20);
+            this.txtUbicacion.TabIndex = 42;
+            this.txtUbicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(557, 281);
+            this.ClientSize = new System.Drawing.Size(557, 313);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -668,5 +690,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBeneficioMinimo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtUbicacion;
     }
 }
