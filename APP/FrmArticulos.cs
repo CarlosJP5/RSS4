@@ -200,6 +200,7 @@ namespace APP
                 txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                 txtSuplidor.Text = articulo.Rows[0][16].ToString();
                 txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
+                txtUbicacion.Text = articulo.Rows[0][18].ToString();
 
                 DesactivaControles();
                 btnModificar.Enabled = true;
@@ -294,7 +295,7 @@ namespace APP
                     txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                     txtSuplidor.Text = articulo.Rows[0][16].ToString();
                     txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
-
+                    txtUbicacion.Text = articulo.Rows[0][18].ToString();
                     DesactivaControles();
                     btnModificar.Enabled = true;
                     btnSalvar.Enabled = false;

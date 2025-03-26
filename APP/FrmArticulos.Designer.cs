@@ -32,6 +32,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtUbicacion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBeneficioMinimo = new System.Windows.Forms.TextBox();
@@ -74,8 +76,6 @@
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtUbicacion = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
@@ -154,6 +154,24 @@
             this.panelMid.Name = "panelMid";
             this.panelMid.Size = new System.Drawing.Size(557, 283);
             this.panelMid.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 198);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Ubicacion";
+            // 
+            // txtUbicacion
+            // 
+            this.txtUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtUbicacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtUbicacion.Location = new System.Drawing.Point(78, 195);
+            this.txtUbicacion.Name = "txtUbicacion";
+            this.txtUbicacion.Size = new System.Drawing.Size(150, 20);
+            this.txtUbicacion.TabIndex = 42;
             // 
             // label7
             // 
@@ -599,24 +617,6 @@
             // errorItbis
             // 
             this.errorItbis.ContainerControl = this;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 198);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Ubicacion";
-            // 
-            // txtUbicacion
-            // 
-            this.txtUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtUbicacion.Location = new System.Drawing.Point(78, 195);
-            this.txtUbicacion.Name = "txtUbicacion";
-            this.txtUbicacion.Size = new System.Drawing.Size(150, 20);
-            this.txtUbicacion.TabIndex = 42;
-            this.txtUbicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmArticulos
             // 

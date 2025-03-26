@@ -55,3 +55,116 @@ go
 drop table newtable
 go
 
+ALTER PROC [dbo].[articulo_insertar]
+@idMarca int,
+@idItbis int,
+@idSuplidor int,
+@codigo varchar(50),
+@nombre varchar(50),
+@referencia varchar(50),
+@puntoReorden int,
+@cantidad decimal(18,2),
+@costo decimal(18,2),
+@precio decimal(18,2),
+@beneficio decimal(18,2),
+@estado bit,
+@minimo decimal(18,2),
+@ubicacion varchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	DECLARE @id int = 1
+	IF EXISTS(SELECT id_articulo FROM Articulo)
+		SET @id = 1 + (SELECT MAX(id_articulo) FROM Articulo)
+
+	INSERT INTO Articulo VALUES (@id, @idMarca, @idSuplidor, @idItbis, 
+	@codigo, @nombre, @referencia, @puntoReorden, @cantidad, @costo,
+	@precio, @beneficio, @estado, @minimo, @ubicacion)
+END
+go
+
+ALTER PROC [dbo].[articulo_editar]
+@id int,
+@idMarca int,
+@idItbis int,
+@idSuplidor int,
+@codigo varchar(50),
+@nombre varchar(50),
+@referencia varchar(50),
+@puntoReorden int,
+@cantidad decimal(18,2),
+@costo decimal(18,2),
+@precio decimal(18,2),
+@beneficio decimal(18,2),
+@estado bit,
+@minimo decimal(18,2),
+@ubicacion varchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	UPDATE Articulo SET id_marca = @idMarca, id_itbis = @idItbis,
+	id_suplidor = @idSuplidor, codigo_articulo = @codigo,
+	nombre_articulo = @nombre, referencia_articulo = @referencia,
+	puntoReorden_articulo = @puntoReorden, cantidad_articulo = @cantidad,
+	costo_articulo = @costo, precio_articulo = @precio,
+	beneficio_articulo = @beneficio, estado_articulo = @estado,
+	beneficio_minimo = @minimo, ubicacion_articulo = @ubicacion
+	WHERE id_articulo = @id
+END
+go
+
+ALTER PROC [dbo].[articulo_listar]
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	SELECT A.id_articulo, codigo_articulo, referencia_articulo, nombre_articulo,
+	nombre_marca, cantidad_articulo, precio_articulo, estado_articulo, porciento_itbis,
+	A.costo_articulo, A.beneficio_minimo, A.puntoReorden_articulo, A.ubicacion_articulo
+	FROM Articulo A
+	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
+	LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis
+	ORDER BY nombre_articulo
+END
+go
+
+ALTER PROC [dbo].[articulo_BuscarId]
+@id int
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	SELECT A.id_articulo, A.id_marca, A.id_itbis, A.id_suplidor,
+	codigo_articulo, nombre_articulo, referencia_articulo, puntoReorden_articulo,
+	cantidad_articulo, costo_articulo, precio_articulo, beneficio_articulo, 
+	estado_articulo, nombre_marca, nombre_itbis, porciento_itbis,
+	nombre_suplidor, beneficio_minimo, A.ubicacion_articulo
+	FROM Articulo A
+	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
+	LEFT JOIN Suplidores S ON A.id_suplidor = S.id_suplidor
+	LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis
+	WHERE A.id_articulo = @id
+END
+go
+
+ALTER PROC [dbo].[articulo_BuscarCodigo]
+@codigo varchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON
+	
+	SELECT A.id_articulo, A.id_marca, A.id_itbis, A.id_suplidor,
+	codigo_articulo, nombre_articulo, referencia_articulo, puntoReorden_articulo,
+	cantidad_articulo, costo_articulo, precio_articulo, beneficio_articulo, 
+	estado_articulo, nombre_marca, nombre_itbis, porciento_itbis,
+	nombre_suplidor, beneficio_minimo, A.ubicacion_articulo
+	FROM Articulo A
+	LEFT JOIN ArticuloMarca M ON A.id_marca = M.id_marca
+	LEFT JOIN Suplidores S ON A.id_suplidor = S.id_suplidor
+	LEFT JOIN ArticuloItbis I ON A.id_itbis = I.id_itbis
+	WHERE A.codigo_articulo = @codigo
+END
+go
+
