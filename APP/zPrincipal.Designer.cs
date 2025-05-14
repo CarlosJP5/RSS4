@@ -90,6 +90,8 @@ namespace APP
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restaurarBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -296,7 +298,9 @@ namespace APP
             // 
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.detalleUsuarioToolStripMenuItem,
-            this.permisoUsuarioToolStripMenuItem});
+            this.permisoUsuarioToolStripMenuItem,
+            this.crearBackupToolStripMenuItem,
+            this.restaurarBackupToolStripMenuItem});
             this.usuariosToolStripMenuItem.Enabled = false;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -580,6 +584,20 @@ namespace APP
             this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // crearBackupToolStripMenuItem
+            // 
+            this.crearBackupToolStripMenuItem.Name = "crearBackupToolStripMenuItem";
+            this.crearBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearBackupToolStripMenuItem.Text = "Crear Backup";
+            this.crearBackupToolStripMenuItem.Click += new System.EventHandler(this.crearBackupToolStripMenuItem_Click);
+            // 
+            // restaurarBackupToolStripMenuItem
+            // 
+            this.restaurarBackupToolStripMenuItem.Name = "restaurarBackupToolStripMenuItem";
+            this.restaurarBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restaurarBackupToolStripMenuItem.Text = "Restaurar Backup";
+            this.restaurarBackupToolStripMenuItem.Click += new System.EventHandler(this.restaurarBackupToolStripMenuItem_Click);
+            // 
             // zPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,6 +682,8 @@ namespace APP
         private System.Windows.Forms.ToolStripMenuItem cotizacionServicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reciboIngresoServToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteInventarioCostoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restaurarBackupToolStripMenuItem;
     }
 }
 

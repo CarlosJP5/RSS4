@@ -20,22 +20,24 @@ namespace APP
             zConexion.CadenaConexion = setting.GetConnectionString("cn");
         }
 
+        //private readonly NUsuario nUsuario = new NUsuario();
+
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            //DateTime licenciaLock = DateTime.Parse("12/28/2025");
-            //NrptEmpresa lic = new NrptEmpresa();
-            //DateTime lisencia = lic.lisencia();
-            //if (licenciaLock != lisencia)
-            //{
-            //    MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR ",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    Application.Exit();
-            //}
-            //if (lisencia < DateTime.Now)
-            //{
-            //    MessageBox.Show("Licencia del programa vencida");
-            //    return;
-            //}
+            DateTime licenciaLock = new DateTime(2025, 12, 28);
+            NrptEmpresa lic = new NrptEmpresa();
+            DateTime lisencia = lic.lisencia();
+            if (licenciaLock != lisencia)
+            {
+                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            if (lisencia < DateTime.Now)
+            {
+                MessageBox.Show("Licencia del programa vencida");
+                return;
+            }
             FrmLogin frm = new FrmLogin();
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -302,6 +304,20 @@ namespace APP
                 devolucionSCompraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][27];
                 reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
             }
+        }
+
+        private async void crearBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NUsuario nUsuario = new NUsuario();
+            await nUsuario.CrearBackup();
+            _ = MessageBox.Show("Backup creado con exito", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void restaurarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NUsuario nUsuario = new NUsuario();
+            await nUsuario.RestoreBackup();
+            _ = MessageBox.Show("Restore creado con exito", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

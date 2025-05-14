@@ -2,6 +2,7 @@
 using Entidades;
 using Entidades.EClases;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Negocios
 {
@@ -62,6 +63,16 @@ namespace Negocios
             string pwd = autenticacion.Encriptar(usuario.Clave);
             usuario.Clave = pwd;
             dUsuario.Insertar(usuario);
+        }
+
+        public async Task CrearBackup()
+        {
+            await dUsuario.CrearBackup();
+        }
+
+        public async Task RestoreBackup()
+        {
+            await dUsuario.RestoreBackup();
         }
     }
 }
