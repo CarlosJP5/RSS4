@@ -65,14 +65,14 @@ namespace Negocios
             dUsuario.Insertar(usuario);
         }
 
-        public async Task CrearBackup()
+        public async Task CrearBackup(string path)
         {
-            await dUsuario.CrearBackup();
+            await dUsuario.CrearBackup(path);
         }
 
-        public async Task RestoreBackup()
+        public async Task RestoreBackup(string path)
         {
-            await dUsuario.RestoreBackup();
+            await dUsuario.RestoreBackup(path);
         }
     }
 }

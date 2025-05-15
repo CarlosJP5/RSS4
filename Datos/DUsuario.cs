@@ -223,7 +223,7 @@ namespace Datos
                 }
             }
         }
-        public async Task CrearBackup()
+        public async Task CrearBackup(string path)
         {
             using (SqlConnection conn = GetConnection())
             {
@@ -231,7 +231,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "BACKUP DATABASE RepMyC\r\nTO DISK = 'C:\\Program Files\\Microsoft SQL Server\\MSSQL16.CARLOSJ22\\MSSQL\\Backup\\RepMyC.bak'";
+                    cmd.CommandText = path;
                     cmd.CommandType = CommandType.Text;
                     try
                     {
@@ -244,7 +244,7 @@ namespace Datos
                 }
             }
         }
-        public async Task RestoreBackup()
+        public async Task RestoreBackup(string path)
         {
             using (SqlConnection conn = GetConnection())
             {
@@ -252,7 +252,7 @@ namespace Datos
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "USE master\n RESTORE DATABASE RepMyC  \r\n   FROM DISK = 'C:\\Program Files\\Microsoft SQL Server\\MSSQL16.CARLOSJ22\\MSSQL\\Backup\\RepMyC.bak' ;";
+                    cmd.CommandText = path;
                     cmd.CommandType = CommandType.Text;
                     try
                     {
