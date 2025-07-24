@@ -43,7 +43,9 @@ namespace APP
 
         private void FrmCuadreCaja_Load(object sender, EventArgs e)
         {
-            
+            dtpDesde.Value = DateTime.Today;
+            dtpHasta.Value = DateTime.Today.AddHours(23.99999);
+            CargarDatos(dtpDesde.Value, dtpHasta.Value);
         }
 
         private void btnPersonalizada_Click(object sender, EventArgs e)

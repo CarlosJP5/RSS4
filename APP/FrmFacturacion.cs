@@ -475,6 +475,10 @@ namespace APP
                 }
                 btnNuevo.PerformClick();
             }
+            else
+            {
+                _ = MessageBox.Show("No hay articulos para facturar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
