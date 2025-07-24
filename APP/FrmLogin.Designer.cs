@@ -137,7 +137,7 @@
             // linkOlvideClave
             // 
             this.linkOlvideClave.AutoSize = true;
-            this.linkOlvideClave.Location = new System.Drawing.Point(236, 264);
+            this.linkOlvideClave.Location = new System.Drawing.Point(237, 264);
             this.linkOlvideClave.Name = "linkOlvideClave";
             this.linkOlvideClave.Size = new System.Drawing.Size(114, 13);
             this.linkOlvideClave.TabIndex = 9;
