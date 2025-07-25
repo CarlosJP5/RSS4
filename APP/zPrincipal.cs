@@ -26,7 +26,7 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            DateTime licenciaLock = new DateTime(2025, 12, 31);
+            DateTime licenciaLock = new DateTime(2025, 12, 28);
             NrptEmpresa lic = new NrptEmpresa();
             DateTime lisencia = lic.lisencia();
             if (licenciaLock != lisencia)
