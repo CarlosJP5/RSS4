@@ -35,7 +35,7 @@ namespace Negocios.NReportes
 
             string query = string.Format(@"SELECT id_ri, fecha_ri, SUM(pago_ri) as Pago  FROM ReciboIngreso
                                             WHERE fecha_ri BETWEEN '{0}' AND '{1}'
-                                            GROUP BY id_ri, fecha_ri", Desde.ToString("yyyy/MM/dd hh:mm:ss"), Hasta.ToString("yyyy/MM/dd hh:mm:ss"));
+                                            GROUP BY id_ri, fecha_ri", Desde, Hasta);
             DataTable data = _factura.Buscar(query);
             CantidadRecibos = data.Rows.Count;
             decimal count = 0m;
@@ -47,7 +47,7 @@ namespace Negocios.NReportes
 
             query = string.Format(@"SELECT total_factura FROM Factura
                                     WHERE fecha_factura BETWEEN '{0}' AND '{1}'
-                                    AND tipoCompra_factura = 'CONTADO'", Desde.ToString("yyyy/MM/dd hh:mm:ss"), Hasta.ToString("yyyy/MM/dd hh:mm:ss"));
+                                    AND tipoCompra_factura = 'CONTADO'", Desde, Hasta);
             data = _factura.Buscar(query);
             CantidadFacturas = data.Rows.Count;
             count = 0m;
@@ -58,7 +58,7 @@ namespace Negocios.NReportes
             TotalVentasContado = count;
 
             query = string.Format(@"SELECT total_devolucion FROM FacturaDevolucion
-                                    WHERE fecha_devolucion BETWEEN '{0}' AND '{1}' AND tipo_devolucion = 'CONTADO'", Desde.ToString("yyyy/MM/dd hh:mm:ss"), Hasta.ToString("yyyy/MM/dd hh:mm:ss"));
+                                    WHERE fecha_devolucion BETWEEN '{0}' AND '{1}' AND tipo_devolucion = 'CONTADO'", Desde, Hasta);
             data = _factura.Buscar(query);
             CantidadDevoluciones = data.Rows.Count;
             count = 0m;
@@ -92,7 +92,7 @@ namespace Negocios.NReportes
                                            FROM Factura F LEFT JOIN FacturaDetalle FD ON F.id_factura = FD.id_factura
                                            LEFT JOIN Articulo A ON FD.id_articulo = A.id_articulo
                                            WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'
-                                           GROUP BY A.nombre_articulo ORDER BY Cantidad DESC", Desde.ToString("yyyy/MM/dd hh:mm:ss"), Hasta.ToString("yyyy/MM/dd hh:mm:ss"));
+                                           GROUP BY A.nombre_articulo ORDER BY Cantidad DESC", Desde, Hasta);
             Console.WriteLine(query);
             DataTable data = _factura.Buscar(query);
             foreach (DataRow row in data.Rows)
@@ -107,7 +107,7 @@ namespace Negocios.NReportes
             ReporteGanancias = new List<KeyValuePair<string, decimal>>();
 
             string query = string.Format(@"SELECT SUM(FD.importe_factura - (FD.importe_factura * FD.descuento_factura / 100)) AS Precio, SUM(FD.costo_factura * FD.cantidad_factura) AS Costo FROM Factura F LEFT JOIN FacturaDetalle FD ON F.id_factura = FD.id_factura
-                                           WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'", Desde.ToString("yyyy/MM/dd hh:mm:ss"), Hasta.ToString("yyyy/MM/dd hh:mm:ss"));
+                                           WHERE F.fecha_factura BETWEEN '{0}' AND '{1}'", Desde, Hasta);
             DataTable data = _factura.Buscar(query);
             decimal venta = 0m;
             if (decimal.TryParse(data.Rows[0][0].ToString(), out _))
