@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -107,6 +107,11 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.linkCodigo = new System.Windows.Forms.LinkLabel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.precio2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblprecio1 = new System.Windows.Forms.Label();
+            this.lblprecio2 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -426,6 +431,10 @@
             // panelBot
             // 
             this.panelBot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBot.Controls.Add(this.lblprecio2);
+            this.panelBot.Controls.Add(this.lblprecio1);
+            this.panelBot.Controls.Add(this.label21);
+            this.panelBot.Controls.Add(this.label20);
             this.panelBot.Controls.Add(this.label13);
             this.panelBot.Controls.Add(this.label15);
             this.panelBot.Controls.Add(this.txtDevuelta);
@@ -728,12 +737,14 @@
             this.Column12,
             this.Column13,
             this.Column14,
-            this.Column15});
+            this.Column15,
+            this.precio2});
             this.dgvListar.Location = new System.Drawing.Point(9, 40);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.Size = new System.Drawing.Size(757, 185);
             this.dgvListar.TabIndex = 4;
+            this.dgvListar.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvListar_CellBeginEdit);
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
             // 
@@ -765,18 +776,18 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
             this.Column5.Width = 60;
             // 
             // Column6
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -785,25 +796,25 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column8.HeaderText = "Importe";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle17;
             this.Column9.HeaderText = "costo";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -846,8 +857,8 @@
             // 
             // Column15
             // 
-            dataGridViewCellStyle6.NullValue = "0";
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.NullValue = "0";
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle18;
             this.Column15.HeaderText = "minimo";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
@@ -902,6 +913,51 @@
             this.txtCodigo.Size = new System.Drawing.Size(135, 20);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            // 
+            // precio2
+            // 
+            this.precio2.HeaderText = "precio2";
+            this.precio2.Name = "precio2";
+            this.precio2.ReadOnly = true;
+            this.precio2.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(423, 4);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 13);
+            this.label20.TabIndex = 39;
+            this.label20.Text = "Precio1:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(423, 23);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(46, 13);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Precio2:";
+            // 
+            // lblprecio1
+            // 
+            this.lblprecio1.AutoSize = true;
+            this.lblprecio1.Location = new System.Drawing.Point(475, 4);
+            this.lblprecio1.Name = "lblprecio1";
+            this.lblprecio1.Size = new System.Drawing.Size(46, 13);
+            this.lblprecio1.TabIndex = 41;
+            this.lblprecio1.Text = "Precio1:";
+            this.lblprecio1.Visible = false;
+            // 
+            // lblprecio2
+            // 
+            this.lblprecio2.AutoSize = true;
+            this.lblprecio2.Location = new System.Drawing.Point(475, 23);
+            this.lblprecio2.Name = "lblprecio2";
+            this.lblprecio2.Size = new System.Drawing.Size(46, 13);
+            this.lblprecio2.TabIndex = 42;
+            this.lblprecio2.Text = "Precio2:";
+            this.lblprecio2.Visible = false;
             // 
             // FrmFacturacion
             // 
@@ -1005,5 +1061,10 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtDevuelta;
         private System.Windows.Forms.TextBox txtPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblprecio2;
+        private System.Windows.Forms.Label lblprecio1;
     }
 }

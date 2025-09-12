@@ -229,7 +229,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17], dataArt.Rows[0][19]);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -270,7 +270,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17], dataArt.Rows[0][19]);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -295,6 +295,8 @@ namespace APP
 
         private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            lblprecio1.Visible = false;
+            lblprecio2.Visible = false;
             if (dgvListar.CurrentRow.Cells[4].Value == null || Convert.ToDouble(dgvListar.CurrentRow.Cells[4].Value) <= 0)
             {
                 dgvListar.CurrentRow.Cells[4].Value = 1m;
@@ -782,6 +784,20 @@ namespace APP
             if (!string.IsNullOrEmpty(txtPago.Text))
             {
                 txtPago.SelectAll();
+            }
+        }
+
+        private void dgvListar_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (decimal.TryParse(dgvListar.CurrentRow.Cells[13].Value.ToString(),out decimal precio1))
+            {
+                lblprecio1.Visible = true;
+                lblprecio1.Text = precio1.ToString("N2");
+            }
+            if (decimal.TryParse(dgvListar.CurrentRow.Cells[15].Value.ToString(), out decimal precio2))
+            {
+                lblprecio2.Visible = true;
+                lblprecio2.Text = precio2.ToString("N2");
             }
         }
     }

@@ -202,6 +202,9 @@ namespace Datos
                     cmd.Parameters.Add("@estado", SqlDbType.Bit).Value = articulo.Estado;
                     cmd.Parameters.Add("@minimo", SqlDbType.Decimal).Value = articulo.BeneficioMinimo;
                     cmd.Parameters.Add("@ubicacion", SqlDbType.VarChar, 50).Value = articulo.Ubicacion;
+                    cmd.Parameters.Add("@precio2", SqlDbType.Decimal).Value = articulo.Precio2;
+                    cmd.Parameters.Add("@vencimiento", SqlDbType.Bit).Value = articulo.Vencimiento;
+                    cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = articulo.FechaVencimiento;
                     try
                     {
                         _ = cmd.ExecuteNonQuery();
@@ -237,6 +240,9 @@ namespace Datos
                     cmd.Parameters.Add("@estado", SqlDbType.Bit).Value = articulo.Estado;
                     cmd.Parameters.Add("@minimo", SqlDbType.Decimal).Value = articulo.BeneficioMinimo;
                     cmd.Parameters.Add("@ubicacion", SqlDbType.VarChar, 50).Value = articulo.Ubicacion;
+                    cmd.Parameters.Add("@precio2", SqlDbType.Decimal).Value = articulo.Precio2;
+                    cmd.Parameters.Add("@vencimiento", SqlDbType.Bit).Value = articulo.Vencimiento;
+                    cmd.Parameters.Add("@fechaVencimiento", SqlDbType.Date).Value = articulo.FechaVencimiento;
                     try
                     {
                         _ = cmd.ExecuteNonQuery();
