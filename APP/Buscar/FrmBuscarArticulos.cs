@@ -68,7 +68,7 @@ namespace APP.Buscar
                                        rowArt[4], rowArt[5], rowArt[6], rowArt[7],
                                        rowArt[8], rowArt[9], rowArt[11], rowArt[12]);
             }
-            PintarRow();
+            PintarRow1();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace APP.Buscar
             {
                 dgvListar.Focus();
             }
-            PintarRow();
+            PintarRow1();
         }
 
         private void dgvListar_KeyDown(object sender, KeyEventArgs e)
@@ -181,7 +181,7 @@ namespace APP.Buscar
             }
         }
 
-        private void PintarRow()
+        private void PintarRow1()
         {
             foreach (DataGridViewRow row in dgvListar.Rows)
             {
