@@ -1,4 +1,6 @@
-﻿namespace Entidades
+﻿using System;
+
+namespace Entidades
 {
     public class EArticulo
     {
@@ -16,5 +18,9 @@
         public decimal Beneficio { get; set; } = 0;
         public bool Estado { get; set; }
         public decimal BeneficioMinimo { get; set; } = 0;
+        public string Ubicacion { get; set; } = "";
+        public decimal Precio2 { get; set; } = 0;
+        public bool Vencimiento { get; set; } = false;
+        public DateTime FechaVencimiento { get; set; } = DateTime.Today;
     }
 }

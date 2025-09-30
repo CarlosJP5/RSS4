@@ -57,8 +57,12 @@ namespace APP
                 txtCosto.Text = null;
                 txtPrecio.Text = null;
                 txtBeneficio.Text = null;
+                txtUbicacion.Text = null;
                 cboEstado.SelectedIndex = 0;
-                txtBeneficioMinimo.Text = "20.00";
+                txtBeneficioMinimo.Text = "";
+                txtPrecio2.Text = "";
+                ckbVencimiento.Checked = false;
+                dtpFechaVencimiento.Value = DateTime.Now;
             }
             txtIdItbis.Text = "1";
             txtIdItbis_Leave(sender, e);
@@ -102,6 +106,7 @@ namespace APP
                 errorNombre.Clear();
                 txtNombre.AllowDrop = false;
             }
+            
             if (!txtCodigo.AllowDrop && !txtNombre.AllowDrop && !txtItbis.AllowDrop)
             {
                 EArticulo articulo = new EArticulo
@@ -110,7 +115,10 @@ namespace APP
                     Nombre = txtNombre.Text,
                     Referencia = txtReferencia.Text
                 };
-
+                if (!string.IsNullOrWhiteSpace(txtUbicacion.Text))
+                {
+                    articulo.Ubicacion = txtUbicacion.Text.Trim();
+                }
                 if (!string.IsNullOrEmpty(txtIdMarca.Text) && !string.IsNullOrEmpty(txtMarca.Text))
                 {
                     articulo.IdMarca = Convert.ToInt16(txtIdMarca.Text);
@@ -154,6 +162,15 @@ namespace APP
                 {
                     articulo.BeneficioMinimo = Convert.ToDecimal(txtBeneficioMinimo.Text);
                 }
+                if (!string.IsNullOrEmpty(txtPrecio2.Text))
+                {
+                    articulo.Precio2 = Convert.ToDecimal(txtPrecio2.Text);
+                }
+                articulo.Vencimiento = ckbVencimiento.Checked;
+                if (articulo.Vencimiento)
+                {
+                    articulo.FechaVencimiento = dtpFechaVencimiento.Value;
+                }
                 articulo.Estado = cboEstado.SelectedIndex == 0;
                 if (string.IsNullOrEmpty(txtIdArticulo.Text))
                 {
@@ -195,7 +212,17 @@ namespace APP
                 txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                 txtSuplidor.Text = articulo.Rows[0][16].ToString();
                 txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
-
+                txtUbicacion.Text = articulo.Rows[0][18].ToString();
+                txtPrecio2.Text = articulo.Rows[0][19].ToString();
+                ckbVencimiento.Checked = Convert.ToBoolean(articulo.Rows[0][20]);
+                if (ckbVencimiento.Checked)
+                {
+                    dtpFechaVencimiento.Value = Convert.ToDateTime(articulo.Rows[0][21]);
+                }
+                else
+                {
+                    dtpFechaVencimiento.Value = DateTime.Now;
+                }
                 DesactivaControles();
                 btnModificar.Enabled = true;
                 btnSalvar.Enabled = false;
@@ -222,6 +249,10 @@ namespace APP
             txtPorcientoItbis.Enabled = false;
             txtSuplidor.Enabled = false;
             txtBeneficioMinimo.Enabled = false;
+            txtUbicacion.Enabled = false;
+            txtPrecio2.Enabled = false;
+            ckbVencimiento.Enabled = false;
+            dtpFechaVencimiento.Enabled = false;
         }
 
         private void ActivaControles()
@@ -244,6 +275,17 @@ namespace APP
             txtPorcientoItbis.Enabled = true;
             txtSuplidor.Enabled = true;
             txtBeneficioMinimo.Enabled = true;
+            txtUbicacion.Enabled = true;
+            txtPrecio2.Enabled = true;
+            ckbVencimiento.Enabled = true;
+            if (ckbVencimiento.Checked)
+            {
+                dtpFechaVencimiento.Enabled = true;
+            }
+            else
+            {
+                dtpFechaVencimiento.Enabled = false;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -287,7 +329,7 @@ namespace APP
                     txtPorcientoItbis.Text = articulo.Rows[0][15].ToString();
                     txtSuplidor.Text = articulo.Rows[0][16].ToString();
                     txtBeneficioMinimo.Text = articulo.Rows[0][17].ToString();
-
+                    txtUbicacion.Text = articulo.Rows[0][18].ToString();
                     DesactivaControles();
                     btnModificar.Enabled = true;
                     btnSalvar.Enabled = false;
@@ -653,5 +695,55 @@ namespace APP
             }
         }
 
+        private void txtPrecio2_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPrecio2.Text))
+            {
+                double precio = Convert.ToDouble(txtPrecio2.Text);
+                txtPrecio2.Text = precio.ToString("N2");
+                if (!string.IsNullOrEmpty(txtCosto.Text))
+                {
+                    double costo = Convert.ToDouble(txtCosto.Text);
+                    double beneficio = (precio - costo) / costo * 100;
+                    if (costo == 0)
+                    {
+                        beneficio = 100;
+                    }
+                    txtBeneficioMinimo.Text = beneficio.ToString("N2");
+                }
+            }
+        }
+
+        private void txtBeneficioMinimo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBeneficioMinimo.Text))
+            {
+                double beneficio = Convert.ToDouble(txtBeneficioMinimo.Text);
+                txtBeneficioMinimo.Text = beneficio.ToString("N2");
+                if (!string.IsNullOrEmpty(txtCosto.Text))
+                {
+                    double costo = Convert.ToDouble(txtCosto.Text);
+                    txtCosto.Text = costo.ToString("N2");
+                    if (costo != 0)
+                    {
+                        double precio = ((beneficio / 100) + 1) * costo;
+                        txtPrecio2.Text = precio.ToString("N2");
+                    }
+                }
+            }
+        }
+
+        private void ckbVencimiento_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbVencimiento.Checked)
+            {
+                dtpFechaVencimiento.Enabled = true;
+            }
+            else
+            {
+                dtpFechaVencimiento.Enabled = false;
+                dtpFechaVencimiento.Value = DateTime.Now;
+            }
+        }
     }
 }

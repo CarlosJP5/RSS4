@@ -32,10 +32,20 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
+            this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.ckbVencimiento = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtPrecio2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtBeneficio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtBeneficioMinimo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBeneficioMinimo = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtUbicacion = new System.Windows.Forms.TextBox();
             this.txtPorcientoItbis = new System.Windows.Forms.Label();
             this.txtIdArticulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,16 +60,12 @@
             this.linkSuplidor = new System.Windows.Forms.LinkLabel();
             this.linkMarca = new System.Windows.Forms.LinkLabel();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
-            this.txtBeneficio = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtItbis = new System.Windows.Forms.TextBox();
@@ -76,6 +82,7 @@
             this.errorItbis = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).BeginInit();
@@ -89,16 +96,16 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(557, 30);
+            this.panelTop.Size = new System.Drawing.Size(616, 30);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(555, 28);
+            this.label1.Size = new System.Drawing.Size(614, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Articulos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,10 +113,11 @@
             // panelMid
             // 
             this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelMid.Controls.Add(this.label7);
-            this.panelMid.Controls.Add(this.label13);
-            this.panelMid.Controls.Add(this.txtBeneficioMinimo);
-            this.panelMid.Controls.Add(this.label6);
+            this.panelMid.Controls.Add(this.dtpFechaVencimiento);
+            this.panelMid.Controls.Add(this.ckbVencimiento);
+            this.panelMid.Controls.Add(this.groupBox1);
+            this.panelMid.Controls.Add(this.label14);
+            this.panelMid.Controls.Add(this.txtUbicacion);
             this.panelMid.Controls.Add(this.txtPorcientoItbis);
             this.panelMid.Controls.Add(this.txtIdArticulo);
             this.panelMid.Controls.Add(this.label5);
@@ -124,16 +132,12 @@
             this.panelMid.Controls.Add(this.linkSuplidor);
             this.panelMid.Controls.Add(this.linkMarca);
             this.panelMid.Controls.Add(this.label12);
-            this.panelMid.Controls.Add(this.label11);
-            this.panelMid.Controls.Add(this.label10);
             this.panelMid.Controls.Add(this.label9);
             this.panelMid.Controls.Add(this.label8);
             this.panelMid.Controls.Add(this.label4);
             this.panelMid.Controls.Add(this.label3);
             this.panelMid.Controls.Add(this.label2);
             this.panelMid.Controls.Add(this.cboEstado);
-            this.panelMid.Controls.Add(this.txtBeneficio);
-            this.panelMid.Controls.Add(this.txtPrecio);
             this.panelMid.Controls.Add(this.txtCosto);
             this.panelMid.Controls.Add(this.txtCantidad);
             this.panelMid.Controls.Add(this.txtItbis);
@@ -148,47 +152,156 @@
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMid.Location = new System.Drawing.Point(0, 30);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(557, 251);
+            this.panelMid.Size = new System.Drawing.Size(616, 314);
             this.panelMid.TabIndex = 1;
+            // 
+            // dtpFechaVencimiento
+            // 
+            this.dtpFechaVencimiento.CustomFormat = " dd / MM / yyyy";
+            this.dtpFechaVencimiento.Enabled = false;
+            this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaVencimiento.Location = new System.Drawing.Point(136, 227);
+            this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            this.dtpFechaVencimiento.Size = new System.Drawing.Size(128, 20);
+            this.dtpFechaVencimiento.TabIndex = 46;
+            // 
+            // ckbVencimiento
+            // 
+            this.ckbVencimiento.AutoSize = true;
+            this.ckbVencimiento.Location = new System.Drawing.Point(13, 230);
+            this.ckbVencimiento.Name = "ckbVencimiento";
+            this.ckbVencimiento.Size = new System.Drawing.Size(117, 17);
+            this.ckbVencimiento.TabIndex = 45;
+            this.ckbVencimiento.Text = "Fecha Vencimiento";
+            this.ckbVencimiento.UseVisualStyleBackColor = true;
+            this.ckbVencimiento.CheckedChanged += new System.EventHandler(this.ckbVencimiento_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txtPrecio2);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtPrecio);
+            this.groupBox1.Controls.Add(this.txtBeneficio);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtBeneficioMinimo);
+            this.groupBox1.Location = new System.Drawing.Point(355, 91);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(249, 83);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Precios Beneficio";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(5, 60);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "Precio 2:";
+            // 
+            // txtPrecio2
+            // 
+            this.txtPrecio2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtPrecio2.Location = new System.Drawing.Point(60, 57);
+            this.txtPrecio2.Name = "txtPrecio2";
+            this.txtPrecio2.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio2.TabIndex = 42;
+            this.txtPrecio2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecio2.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrecio2_Validating);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Precio 1:";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtPrecio.Location = new System.Drawing.Point(60, 31);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.TabIndex = 11;
+            this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrecio_KeyDown);
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrecio_Validating);
+            // 
+            // txtBeneficio
+            // 
+            this.txtBeneficio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtBeneficio.Location = new System.Drawing.Point(166, 31);
+            this.txtBeneficio.Name = "txtBeneficio";
+            this.txtBeneficio.Size = new System.Drawing.Size(60, 20);
+            this.txtBeneficio.TabIndex = 12;
+            this.txtBeneficio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBeneficio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficio_KeyDown);
+            this.txtBeneficio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtBeneficio.Validating += new System.ComponentModel.CancelEventHandler(this.txtBeneficio_Validating);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(515, 147);
+            this.label7.Location = new System.Drawing.Point(232, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 13);
             this.label7.TabIndex = 41;
             this.label7.Text = "%";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(353, 146);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 13);
-            this.label13.TabIndex = 40;
-            this.label13.Text = "Beneficio Minimo:";
-            // 
-            // txtBeneficioMinimo
-            // 
-            this.txtBeneficioMinimo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtBeneficioMinimo.Location = new System.Drawing.Point(449, 143);
-            this.txtBeneficioMinimo.Name = "txtBeneficioMinimo";
-            this.txtBeneficioMinimo.Size = new System.Drawing.Size(64, 20);
-            this.txtBeneficioMinimo.TabIndex = 39;
-            this.txtBeneficioMinimo.Text = "20.00";
-            this.txtBeneficioMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtBeneficioMinimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficioMinimo_KeyDown);
-            this.txtBeneficioMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(515, 121);
+            this.label6.Location = new System.Drawing.Point(232, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 13);
             this.label6.TabIndex = 38;
             this.label6.Text = "%";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(163, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Beneficio";
+            // 
+            // txtBeneficioMinimo
+            // 
+            this.txtBeneficioMinimo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtBeneficioMinimo.Location = new System.Drawing.Point(166, 57);
+            this.txtBeneficioMinimo.Name = "txtBeneficioMinimo";
+            this.txtBeneficioMinimo.Size = new System.Drawing.Size(60, 20);
+            this.txtBeneficioMinimo.TabIndex = 39;
+            this.txtBeneficioMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBeneficioMinimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficioMinimo_KeyDown);
+            this.txtBeneficioMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtBeneficioMinimo.Validating += new System.ComponentModel.CancelEventHandler(this.txtBeneficioMinimo_Validating);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 198);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Ubicacion";
+            // 
+            // txtUbicacion
+            // 
+            this.txtUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtUbicacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtUbicacion.Location = new System.Drawing.Point(78, 195);
+            this.txtUbicacion.Name = "txtUbicacion";
+            this.txtUbicacion.Size = new System.Drawing.Size(150, 20);
+            this.txtUbicacion.TabIndex = 42;
             // 
             // txtPorcientoItbis
             // 
@@ -213,16 +326,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 172);
+            this.label5.Location = new System.Drawing.Point(5, 172);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 35;
-            this.label5.Text = "Punto Reorden";
+            this.label5.Text = "Pnt Reorden";
             // 
             // txtPuntoReorden
             // 
             this.txtPuntoReorden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtPuntoReorden.Location = new System.Drawing.Point(95, 169);
+            this.txtPuntoReorden.Location = new System.Drawing.Point(78, 169);
             this.txtPuntoReorden.Name = "txtPuntoReorden";
             this.txtPuntoReorden.Size = new System.Drawing.Size(100, 20);
             this.txtPuntoReorden.TabIndex = 34;
@@ -234,9 +347,9 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(394, 212);
+            this.btnSalir.Location = new System.Drawing.Point(442, 268);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 25);
+            this.btnSalir.Size = new System.Drawing.Size(90, 30);
             this.btnSalir.TabIndex = 33;
             this.btnSalir.Text = "Salir [Esc]";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -247,9 +360,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(298, 212);
+            this.btnBuscar.Location = new System.Drawing.Point(341, 268);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(90, 30);
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.Text = "Buscar [F1]";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -260,9 +373,9 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(202, 212);
+            this.btnSalvar.Location = new System.Drawing.Point(240, 268);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 25);
+            this.btnSalvar.Size = new System.Drawing.Size(90, 30);
             this.btnSalvar.TabIndex = 31;
             this.btnSalvar.Text = "Salvar [F5]";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -273,9 +386,9 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::APP.Properties.Resources.Edit_16;
-            this.btnModificar.Location = new System.Drawing.Point(106, 211);
+            this.btnModificar.Location = new System.Drawing.Point(139, 267);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(90, 25);
+            this.btnModificar.Size = new System.Drawing.Size(90, 30);
             this.btnModificar.TabIndex = 30;
             this.btnModificar.Text = "Editar [F4]";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -286,9 +399,9 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(10, 211);
+            this.btnNuevo.Location = new System.Drawing.Point(38, 267);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(90, 25);
+            this.btnNuevo.Size = new System.Drawing.Size(90, 30);
             this.btnNuevo.TabIndex = 29;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -348,29 +461,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(353, 175);
+            this.label12.Location = new System.Drawing.Point(353, 198);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "Estado:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(353, 120);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 13);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Beneficio:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(353, 94);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Precio:";
             // 
             // label9
             // 
@@ -426,35 +521,11 @@
             this.cboEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "DESACTIVO"});
-            this.cboEstado.Location = new System.Drawing.Point(413, 172);
+            this.cboEstado.Location = new System.Drawing.Point(413, 195);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 21);
             this.cboEstado.TabIndex = 13;
             this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboEstado_KeyDown);
-            // 
-            // txtBeneficio
-            // 
-            this.txtBeneficio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtBeneficio.Location = new System.Drawing.Point(413, 117);
-            this.txtBeneficio.Name = "txtBeneficio";
-            this.txtBeneficio.Size = new System.Drawing.Size(100, 20);
-            this.txtBeneficio.TabIndex = 12;
-            this.txtBeneficio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtBeneficio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficio_KeyDown);
-            this.txtBeneficio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
-            this.txtBeneficio.Validating += new System.ComponentModel.CancelEventHandler(this.txtBeneficio_Validating);
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtPrecio.Location = new System.Drawing.Point(413, 91);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecio.TabIndex = 11;
-            this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrecio_KeyDown);
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
-            this.txtPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrecio_Validating);
             // 
             // txtCosto
             // 
@@ -602,7 +673,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(557, 281);
+            this.ClientSize = new System.Drawing.Size(616, 344);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -614,6 +685,8 @@
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
             this.panelMid.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorItbis)).EndInit();
@@ -665,8 +738,14 @@
         private System.Windows.Forms.ErrorProvider errorCodigo;
         private System.Windows.Forms.ErrorProvider errorNombre;
         private System.Windows.Forms.ErrorProvider errorItbis;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBeneficioMinimo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtUbicacion;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtPrecio2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker dtpFechaVencimiento;
+        private System.Windows.Forms.CheckBox ckbVencimiento;
     }
 }

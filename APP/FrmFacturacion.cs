@@ -228,7 +228,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17], dataArt.Rows[0][19]);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -269,7 +269,7 @@ namespace APP
                     _ = dgvListar.Rows.Add(dataArt.Rows[0][0], dataArt.Rows[0][4], dataArt.Rows[0][5],
                         dataArt.Rows[0][13], 1m, Convert.ToDecimal(txtDescuento.Text), dataArt.Rows[0][10],
                         dataArt.Rows[0][10], dataArt.Rows[0][9], dataArt.Rows[0][15], 0m, 0m, 0m,
-                        dataArt.Rows[0][10], dataArt.Rows[0][17]);
+                        dataArt.Rows[0][10], dataArt.Rows[0][17], dataArt.Rows[0][19]);
                     CalculaTotal();
                     txtCodigo.Text = null;
                     _ = txtCodigo.Focus();
@@ -294,6 +294,8 @@ namespace APP
 
         private void dgvListar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            lblprecio1.Visible = false;
+            lblprecio2.Visible = false;
             if (dgvListar.CurrentRow.Cells[4].Value == null || Convert.ToDouble(dgvListar.CurrentRow.Cells[4].Value) <= 0)
             {
                 dgvListar.CurrentRow.Cells[4].Value = 1m;
@@ -487,6 +489,10 @@ namespace APP
                     //}
                 }
                 btnNuevo.PerformClick();
+            }
+            else
+            {
+                _ = MessageBox.Show("No hay articulos para facturar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -794,31 +800,17 @@ namespace APP
             }
         }
 
-        private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
+        private void dgvListar_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (decimal.TryParse(dgvListar.CurrentRow.Cells[13].Value.ToString(),out decimal precio1))
             {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-                _ = txtCodigo.Focus();
+                lblprecio1.Visible = true;
+                lblprecio1.Text = precio1.ToString("N2");
             }
-        }
-
-        private void txtDescuento_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            double.TryParse(txtDescuento.Text, out double descuento);
-            if (descuento > 100)
+            if (decimal.TryParse(dgvListar.CurrentRow.Cells[15].Value.ToString(), out decimal precio2))
             {
-                descuento = 100;
-            }
-            txtDescuento.Text = descuento.ToString("n2");
-            if (dgvListar.RowCount > 0)
-            {
-                foreach (DataGridViewRow dr in dgvListar.Rows)
-                {
-                    dr.Cells[5].Value = descuento;
-                }
-                CalculaTotal();
+                lblprecio2.Visible = true;
+                lblprecio2.Text = precio2.ToString("N2");
             }
         }
     }

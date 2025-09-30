@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -107,6 +107,15 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.linkCodigo = new System.Windows.Forms.LinkLabel();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.precio2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblprecio1 = new System.Windows.Forms.Label();
+            this.lblprecio2 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -427,6 +436,10 @@
             // panelBot
             // 
             this.panelBot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBot.Controls.Add(this.lblprecio2);
+            this.panelBot.Controls.Add(this.lblprecio1);
+            this.panelBot.Controls.Add(this.label21);
+            this.panelBot.Controls.Add(this.label20);
             this.panelBot.Controls.Add(this.label13);
             this.panelBot.Controls.Add(this.label15);
             this.panelBot.Controls.Add(this.txtDevuelta);
@@ -729,12 +742,14 @@
             this.Column12,
             this.Column13,
             this.Column14,
-            this.Column15});
+            this.Column15,
+            this.precio2});
             this.dgvListar.Location = new System.Drawing.Point(9, 40);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.Size = new System.Drawing.Size(795, 185);
             this.dgvListar.TabIndex = 4;
+            this.dgvListar.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvListar_CellBeginEdit);
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
             // 
@@ -816,44 +831,44 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle31.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column5.HeaderText = "Cant.";
             this.Column5.Name = "Column5";
             this.Column5.Width = 60;
             // 
             // Column6
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle32.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column6.HeaderText = "Desc.";
             this.Column6.Name = "Column6";
             this.Column6.Width = 60;
             // 
             // Column7
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle33.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
             this.Column7.Width = 90;
             // 
             // Column8
             // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle34.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column8.HeaderText = "Importe";
             this.Column8.Name = "Column8";
             this.Column8.Width = 90;
             // 
             // Column9
             // 
-            dataGridViewCellStyle35.Format = "N2";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle17.Format = "N2";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle17;
             this.Column9.HeaderText = "costo";
             this.Column9.Name = "Column9";
             this.Column9.Visible = false;
@@ -895,11 +910,106 @@
             // 
             // Column15
             // 
-            dataGridViewCellStyle36.NullValue = "0";
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle18.NullValue = "0";
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle18;
             this.Column15.HeaderText = "minimo";
             this.Column15.Name = "Column15";
             this.Column15.Visible = false;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::APP.Properties.Resources.Borrar_16;
+            this.btnBorrar.Location = new System.Drawing.Point(327, 7);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(85, 25);
+            this.btnBorrar.TabIndex = 3;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAgregar.Location = new System.Drawing.Point(220, 7);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(85, 25);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // linkCodigo
+            // 
+            this.linkCodigo.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkCodigo.AutoSize = true;
+            this.linkCodigo.Location = new System.Drawing.Point(13, 13);
+            this.linkCodigo.Name = "linkCodigo";
+            this.linkCodigo.Size = new System.Drawing.Size(43, 13);
+            this.linkCodigo.TabIndex = 1;
+            this.linkCodigo.TabStop = true;
+            this.linkCodigo.Text = "Codigo:";
+            this.linkCodigo.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkCodigo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCodigo_LinkClicked);
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigo.Location = new System.Drawing.Point(70, 10);
+            this.txtCodigo.MaxLength = 50;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(135, 20);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            // 
+            // precio2
+            // 
+            this.precio2.HeaderText = "precio2";
+            this.precio2.Name = "precio2";
+            this.precio2.ReadOnly = true;
+            this.precio2.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(423, 4);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 13);
+            this.label20.TabIndex = 39;
+            this.label20.Text = "Precio1:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(423, 23);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(46, 13);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Precio2:";
+            // 
+            // lblprecio1
+            // 
+            this.lblprecio1.AutoSize = true;
+            this.lblprecio1.Location = new System.Drawing.Point(475, 4);
+            this.lblprecio1.Name = "lblprecio1";
+            this.lblprecio1.Size = new System.Drawing.Size(46, 13);
+            this.lblprecio1.TabIndex = 41;
+            this.lblprecio1.Text = "Precio1:";
+            this.lblprecio1.Visible = false;
+            // 
+            // lblprecio2
+            // 
+            this.lblprecio2.AutoSize = true;
+            this.lblprecio2.Location = new System.Drawing.Point(475, 23);
+            this.lblprecio2.Name = "lblprecio2";
+            this.lblprecio2.Size = new System.Drawing.Size(46, 13);
+            this.lblprecio2.TabIndex = 42;
+            this.lblprecio2.Text = "Precio2:";
+            this.lblprecio2.Visible = false;
             // 
             // FrmFacturacion
             // 
@@ -1003,5 +1113,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtDevuelta;
+        private System.Windows.Forms.TextBox txtPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblprecio2;
+        private System.Windows.Forms.Label lblprecio1;
     }
 }

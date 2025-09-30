@@ -4,7 +4,10 @@ using Negocios;
 using Negocios.NClasses;
 using Negocios.NReportes;
 using System;
+using System.Configuration;
 using System.Data;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace APP
@@ -19,14 +22,16 @@ namespace APP
             zConexion.CadenaConexion = setting.GetConnectionString("cn");
         }
 
+        //private readonly NUsuario nUsuario = new NUsuario();
+
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            DateTime licenciaLock = DateTime.Parse("12/31/2100");
+            DateTime licenciaLock = new DateTime(2025, 10, 15);
             NrptEmpresa lic = new NrptEmpresa();
             DateTime lisencia = lic.lisencia();
             if (licenciaLock != lisencia)
             {
-                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR",
+                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR ",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
@@ -300,6 +305,81 @@ namespace APP
                 compraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][26];
                 devolucionSCompraToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][27];
                 reciboDePagoToolStripMenuItem.Enabled = (bool)usuarioPermiso.Rows[0][28];
+            }
+        }
+
+        private async void crearBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = ConfigurationManager.AppSettings["BackupPath"];
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                _ = MessageBox.Show("Backup ubicacion no configurada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                crearBackupToolStripMenuItem.Enabled = false;
+
+                // Delete the directory if it exists
+                string path2 = Regex.Match(path, @"'([^']*)'").Groups[1].Value;
+                if (File.Exists(path2))
+                {
+                    File.Delete(path2); // true = recursive delete
+                }
+
+                NUsuario nUsuario = new NUsuario();
+                await nUsuario.CrearBackup(path);
+
+                _ = MessageBox.Show("Copia de seguridad creada exitosamente.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                _ = MessageBox.Show($"Error al crear copia de seguridad:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                crearBackupToolStripMenuItem.Enabled = true;
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+        private async void restaurarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = ConfigurationManager.AppSettings["RestorePath"];
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                _ = MessageBox.Show("La ruta de restauración no está configurada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if file exists
+            string path2 = Regex.Match(path, @"'([^']*)'").Groups[1].Value;
+            if (!File.Exists(path2))
+            {
+                _ = MessageBox.Show("El archivo de restauración no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                restaurarBackupToolStripMenuItem.Enabled = false;
+
+                NUsuario nUsuario = new NUsuario();
+                await nUsuario.RestoreBackup(path);
+
+                _ = MessageBox.Show("Restauración completada exitosamente.", "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                _ = MessageBox.Show($"Error al restaurar la copia de seguridad:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                restaurarBackupToolStripMenuItem.Enabled = true;
+                Cursor.Current = Cursors.Default;
             }
         }
     }

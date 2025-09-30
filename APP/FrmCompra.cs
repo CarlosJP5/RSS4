@@ -25,7 +25,7 @@ namespace APP
                     txtCodigo.Text = frm.dgvListar.SelectedCells[1].Value.ToString();
                     txtNombre.Text = frm.dgvListar.SelectedCells[3].Value.ToString();
                     lblItbisPorciento.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
-                    txtBeneficioActual.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
+                    txtBeneficio2tt.Text = frm.dgvListar.SelectedCells[8].Value.ToString();
                     _ = cboItbis.Focus();
                 }
                 else
@@ -104,8 +104,8 @@ namespace APP
             txtCostoFinal.Text = null;
             txtPrecio.Text = null;
             txtBeneficio.Text = null;
-            txtPrecioActual.Text = null;
-            txtBeneficioActual.Text = null;
+            txtPrecio2.Text = null;
+            txtBeneficio2.Text = null;
             lblItbisPorciento.Text = "0";
             lblIdArticulo.Text = "0";
         }
@@ -219,8 +219,10 @@ namespace APP
                 txtCodigo.Text = articulo.Rows[0][4].ToString();
                 txtNombre.Text = articulo.Rows[0][5].ToString();
                 lblItbisPorciento.Text = articulo.Rows[0][15].ToString();
-                txtPrecioActual.Text = articulo.Rows[0][10].ToString();
-                txtBeneficioActual.Text = articulo.Rows[0][11].ToString();
+                txtPreciott.Text = articulo.Rows[0][10].ToString();
+                txtBeneficiott.Text = articulo.Rows[0][11].ToString();
+                txtPrecio2tt.Text = articulo.Rows[0][19].ToString();
+                txtBeneficio2tt.Text = articulo.Rows[0][17].ToString();
             }
             else
             {
@@ -305,7 +307,7 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                _ = btnAgregar.Focus();
+                _ = txtPrecio2.Focus();
             }
         }
 
@@ -314,7 +316,7 @@ namespace APP
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                _ = txtPrecio.Focus();
+                _ = txtBeneficio2.Focus();
             }
         }
 
@@ -477,14 +479,23 @@ namespace APP
             if (string.IsNullOrEmpty(txtPrecio.Text) && string.IsNullOrEmpty(txtBeneficio.Text))
             {
                 decimal beneficio = 40m;
+                decimal beneficio2 = 20m;
                 txtBeneficio.Text = beneficio.ToString("N2");
+                txtBeneficio2.Text = beneficio2.ToString("N2");
                 txtPrecio.Text = (costoFinal * (1 + (beneficio / 100))).ToString("N2");
+                txtPrecio2.Text = (costoFinal * (1 + (beneficio2 / 100))).ToString("N2");
             }
             else if (!string.IsNullOrEmpty(txtBeneficio.Text))
             {
                 decimal beneficio = Convert.ToDecimal(txtBeneficio.Text);
                 txtBeneficio.Text = beneficio.ToString("N2");
                 txtPrecio.Text = (costoFinal * (1 + (beneficio / 100))).ToString("N2");
+            }
+            if (!string.IsNullOrWhiteSpace(txtBeneficio2.Text))
+            {
+                _ = decimal.TryParse(txtBeneficio2.Text, out decimal beneficio2);
+                txtBeneficio2.Text = beneficio2.ToString("N2");
+                txtPrecio2.Text = (costoFinal * (1 + (beneficio2 / 100))).ToString("N2");
             }
         }
 
@@ -578,7 +589,7 @@ namespace APP
                             dgvListar.Rows.RemoveAt(i);
                             _ = dgvListar.Rows.Add(lblIdArticulo.Text, txtCodigo.Text, txtNombre.Text, itb, txtCantidad.Text,
                                 txtDescuento.Text, txtCosto.Text, txtImporte.Text, lblItbisPorciento.Text, txtCostoFinal.Text,
-                                txtPrecio.Text, txtBeneficio.Text, ImporteTotal, DescuentoTotal, ItbisTotal);
+                                txtPrecio.Text, txtBeneficio.Text, ImporteTotal, DescuentoTotal, ItbisTotal, txtPrecio2.Text, txtBeneficio2.Text);
                             break;
                         }
                         else
@@ -591,7 +602,7 @@ namespace APP
                 {
                     _ = dgvListar.Rows.Add(lblIdArticulo.Text, txtCodigo.Text, txtNombre.Text, itb, txtCantidad.Text,
                                 txtDescuento.Text, txtCosto.Text, txtImporte.Text, lblItbisPorciento.Text, txtCostoFinal.Text,
-                                txtPrecio.Text, txtBeneficio.Text, ImporteTotal, DescuentoTotal, ItbisTotal);
+                                txtPrecio.Text, txtBeneficio.Text, ImporteTotal, DescuentoTotal, ItbisTotal, txtPrecio2.Text, txtBeneficio2.Text);
                 }
                 CalculaTotal();
                 LimpiarArticulo();
@@ -652,6 +663,8 @@ namespace APP
                 Detalle.Columns.Add("totalImporte", typeof(decimal));
                 Detalle.Columns.Add("totalDescuento", typeof(decimal));
                 Detalle.Columns.Add("totalItbis", typeof(decimal));
+                Detalle.Columns.Add("precio2", typeof(decimal));
+                Detalle.Columns.Add("beneficio2", typeof(decimal));
                 for (int i = 0; i < dgvListar.RowCount; i++)
                 {
                     DataRow row = Detalle.NewRow();
@@ -667,6 +680,8 @@ namespace APP
                     row[9] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
                     row[10] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
                     row[11] = Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value);
+                    row[12] = Convert.ToDecimal(dgvListar.Rows[i].Cells[15].Value);
+                    row[13] = Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
                     Detalle.Rows.Add(row);
                 }
                 _compra.Insertar(Compra, Detalle);
@@ -693,6 +708,8 @@ namespace APP
             txtCostoFinal.Text = dgvListar.CurrentRow.Cells[9].Value.ToString();
             txtPrecio.Text = dgvListar.CurrentRow.Cells[10].Value.ToString();
             txtBeneficio.Text = dgvListar.CurrentRow.Cells[11].Value.ToString();
+            txtPrecio2.Text = dgvListar.CurrentRow.Cells[15].Value.ToString();
+            txtBeneficio2.Text = dgvListar.CurrentRow.Cells[16].Value.ToString();
             _ = txtCantidad.Focus();
         }
 
@@ -721,7 +738,8 @@ namespace APP
                         _ = dgvListar.Rows.Add(compra.Rows[i][11], compra.Rows[i][12], compra.Rows[i][13],
                             compra.Rows[i][14], compra.Rows[i][15], compra.Rows[i][16], compra.Rows[i][17],
                             compra.Rows[i][18], compra.Rows[i][19], compra.Rows[i][20], compra.Rows[i][21],
-                            compra.Rows[i][22], compra.Rows[i][23], compra.Rows[i][24], compra.Rows[i][25]);
+                            compra.Rows[i][22], compra.Rows[i][23], compra.Rows[i][24], compra.Rows[i][25],
+                            compra.Rows[i][26], compra.Rows[i][27]);
                     }
                     CalculaTotal();
                 }
@@ -737,7 +755,6 @@ namespace APP
                 btnAgregar.Enabled = false;
                 btnBorrar.Enabled = false;
                 dgvListar.ReadOnly = true;
-                btnImprimir.Enabled = true;
                 btnModificar.Enabled = true;
                 btnSalvar.Enabled = false;
             }
@@ -782,6 +799,8 @@ namespace APP
                 Detalle.Columns.Add("totalImporte", typeof(decimal));
                 Detalle.Columns.Add("totalDescuento", typeof(decimal));
                 Detalle.Columns.Add("totalItbis", typeof(decimal));
+                Detalle.Columns.Add("precio2", typeof(decimal));
+                Detalle.Columns.Add("beneficio2", typeof(decimal));
                 for (int i = 0; i < dgvListar.RowCount; i++)
                 {
                     DataRow row = Detalle.NewRow();
@@ -797,6 +816,8 @@ namespace APP
                     row[9] = Convert.ToDecimal(dgvListar.Rows[i].Cells[12].Value);
                     row[10] = Convert.ToDecimal(dgvListar.Rows[i].Cells[13].Value);
                     row[11] = Convert.ToDecimal(dgvListar.Rows[i].Cells[14].Value);
+                    row[12] = Convert.ToDecimal(dgvListar.Rows[i].Cells[15].Value);
+                    row[13] = Convert.ToDecimal(dgvListar.Rows[i].Cells[16].Value);
                     Detalle.Rows.Add(row);
                 }
                 _compra.Editar(Compra, Detalle);
@@ -877,6 +898,53 @@ namespace APP
         private void btnClose_Click(object sender, EventArgs e)
         {
             panelDetalle.Visible = false;
+        }
+
+        private void txtPrecio2_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPrecio2.Text) && !string.IsNullOrEmpty(txtCostoFinal.Text))
+            {
+                decimal precio = Convert.ToDecimal(txtPrecio2.Text);
+                decimal costo = Convert.ToDecimal(txtCostoFinal.Text);
+                if (costo != 0)
+                {
+                    txtBeneficio2.Text = ((precio - costo) / costo * 100).ToString("N2");
+                }
+                else
+                {
+                    txtBeneficio2.Text = "100.00";
+                }
+                txtPrecio2.Text = precio.ToString("N2");
+            }
+        }
+
+        private void txtBeneficio2_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBeneficio2.Text) && !string.IsNullOrEmpty(txtCostoFinal.Text))
+            {
+                double benefecio = Convert.ToDouble(txtBeneficio2.Text);
+                txtBeneficio2.Text = benefecio.ToString("N2");
+                double costo = Convert.ToDouble(txtCostoFinal.Text);
+                txtPrecio2.Text = (costo * (1 + (benefecio / 100))).ToString("N2");
+            }
+        }
+
+        private void txtPrecio2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnAgregar.Focus();
+            }
+        }
+
+        private void txtBeneficio2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                _ = btnAgregar.Focus();
+            }
         }
     }
 }

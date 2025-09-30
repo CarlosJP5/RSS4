@@ -54,8 +54,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.totalCompraTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.totalCompraTxt = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -68,7 +68,7 @@
             this.panelTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.panelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(697, 32);
@@ -319,7 +319,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(372, 316);
+            this.btnAceptar.Location = new System.Drawing.Point(374, 316);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 25);
             this.btnAceptar.TabIndex = 5;
@@ -329,25 +329,25 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // totalCompraTxt
-            // 
-            this.totalCompraTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.totalCompraTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCompraTxt.Location = new System.Drawing.Point(558, 316);
-            this.totalCompraTxt.Name = "totalCompraTxt";
-            this.totalCompraTxt.Size = new System.Drawing.Size(110, 21);
-            this.totalCompraTxt.TabIndex = 10;
-            this.totalCompraTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(470, 321);
+            this.label6.Location = new System.Drawing.Point(477, 322);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
-            this.label6.TabIndex = 9;
+            this.label6.TabIndex = 12;
             this.label6.Text = "Total Compra";
+            // 
+            // totalCompraTxt
+            // 
+            this.totalCompraTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.totalCompraTxt.Location = new System.Drawing.Point(565, 319);
+            this.totalCompraTxt.Name = "totalCompraTxt";
+            this.totalCompraTxt.ReadOnly = true;
+            this.totalCompraTxt.Size = new System.Drawing.Size(100, 20);
+            this.totalCompraTxt.TabIndex = 12;
+            this.totalCompraTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmBuscarCompras
             // 
@@ -405,7 +405,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.TextBox totalCompraTxt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox totalCompraTxt;
     }
 }

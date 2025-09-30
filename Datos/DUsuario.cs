@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace Datos
 {
@@ -59,7 +60,7 @@ namespace Datos
         }
         public DataTable ListaPermisos(int idUsuario)
         {
-            using (var conn = GetConnection())
+            using (SqlConnection conn = GetConnection())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
@@ -211,6 +212,48 @@ namespace Datos
                     cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = usuario.FechaIngreso;
                     cmd.Parameters.Add("@clave", SqlDbType.VarChar).Value = usuario.Clave;
                     cmd.Parameters.Add("@estado", SqlDbType.Bit).Value = usuario.Estado;
+                    try
+                    {
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public async Task CrearBackup(string path)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = path;
+                    cmd.CommandType = CommandType.Text;
+                    try
+                    {
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        public async Task RestoreBackup(string path)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = path;
+                    cmd.CommandType = CommandType.Text;
                     try
                     {
                         await cmd.ExecuteNonQueryAsync();
