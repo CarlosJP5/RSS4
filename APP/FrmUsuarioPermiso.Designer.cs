@@ -116,7 +116,7 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(512, 45);
+            this.panelTop.Size = new System.Drawing.Size(494, 45);
             this.panelTop.TabIndex = 1;
             // 
             // label1
@@ -126,7 +126,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(510, 43);
+            this.label1.Size = new System.Drawing.Size(492, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario Permiso";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,7 +145,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 45);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(512, 606);
+            this.panel1.Size = new System.Drawing.Size(494, 586);
             this.panel1.TabIndex = 2;
             // 
             // btnSalir
@@ -301,11 +301,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.treeViewFacturacion);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(433, 399);
+            this.tabPage2.Size = new System.Drawing.Size(433, 392);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Facturacion";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -329,17 +329,17 @@
             treeNode22.Text = "Facturacion";
             this.treeViewFacturacion.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode22});
-            this.treeViewFacturacion.Size = new System.Drawing.Size(425, 389);
+            this.treeViewFacturacion.Size = new System.Drawing.Size(425, 382);
             this.treeViewFacturacion.TabIndex = 0;
             this.treeViewFacturacion.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewFacturacion_AfterCheck);
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.treeViewCxc);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(433, 399);
+            this.tabPage3.Size = new System.Drawing.Size(433, 392);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "CxC";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -357,17 +357,17 @@
             treeNode24.Text = "CxC";
             this.treeViewCxc.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode24});
-            this.treeViewCxc.Size = new System.Drawing.Size(433, 399);
+            this.treeViewCxc.Size = new System.Drawing.Size(433, 392);
             this.treeViewCxc.TabIndex = 0;
             this.treeViewCxc.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCxc_AfterCheck);
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.treeViewCxp);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(433, 399);
+            this.tabPage4.Size = new System.Drawing.Size(433, 392);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "CxP";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -389,7 +389,7 @@
             treeNode28.Text = "CxP";
             this.treeViewCxp.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode28});
-            this.treeViewCxp.Size = new System.Drawing.Size(433, 399);
+            this.treeViewCxp.Size = new System.Drawing.Size(433, 392);
             this.treeViewCxp.TabIndex = 0;
             this.treeViewCxp.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCxp_AfterCheck);
             // 
@@ -398,7 +398,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(512, 651);
+            this.ClientSize = new System.Drawing.Size(494, 631);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

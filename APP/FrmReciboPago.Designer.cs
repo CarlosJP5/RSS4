@@ -48,6 +48,16 @@ namespace APP
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDiferencia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,16 +77,6 @@ namespace APP
             this.errorCliente = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorMonto = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDiferencia = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panelmid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -95,7 +95,7 @@ namespace APP
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1322, 45);
+            this.panelTop.Size = new System.Drawing.Size(1314, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
@@ -105,7 +105,7 @@ namespace APP
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1320, 43);
+            this.label1.Size = new System.Drawing.Size(1312, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Recibo Pago";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -136,7 +136,7 @@ namespace APP
             this.panelmid.Location = new System.Drawing.Point(0, 45);
             this.panelmid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelmid.Name = "panelmid";
-            this.panelmid.Size = new System.Drawing.Size(1322, 503);
+            this.panelmid.Size = new System.Drawing.Size(1314, 476);
             this.panelmid.TabIndex = 1;
             // 
             // btnAplicar
@@ -272,6 +272,91 @@ namespace APP
             this.dgvListar.TabIndex = 33;
             this.dgvListar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellEndEdit);
             this.dgvListar.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListar_EditingControlShowing);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Fact. Nº";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "NCF";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Fecha";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column4.HeaderText = "Días";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 75;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column5.HeaderText = "Total";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 150;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column6.HeaderText = "Balance";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column7.HeaderText = "Pago";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column8.HeaderText = "Restante";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 150;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column9.HeaderText = "Estado";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 105;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "IdCompra";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            this.Column10.Width = 150;
             // 
             // groupBox1
             // 
@@ -464,97 +549,12 @@ namespace APP
             // 
             this.errorDiferencia.ContainerControl = this;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Fact. Nº";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "NCF";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fecha";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column4.HeaderText = "Días";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 75;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column5.HeaderText = "Total";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column6.HeaderText = "Balance";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 150;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column7.HeaderText = "Pago";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column8.HeaderText = "Restante";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 150;
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column9.HeaderText = "Estado";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 105;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "IdCompra";
-            this.Column10.Name = "Column10";
-            this.Column10.Visible = false;
-            this.Column10.Width = 150;
-            // 
             // FrmReciboPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1322, 548);
+            this.ClientSize = new System.Drawing.Size(1314, 521);
             this.Controls.Add(this.panelmid);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

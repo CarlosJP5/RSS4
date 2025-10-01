@@ -36,16 +36,8 @@
             this.panelMid = new System.Windows.Forms.Panel();
             this.lblStatus = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboTipoComprobante = new System.Windows.Forms.ComboBox();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.btnExportar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.dgvListar = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +51,14 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboTipoComprobante = new System.Windows.Forms.ComboBox();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -106,7 +106,7 @@
             this.panelMid.Location = new System.Drawing.Point(0, 45);
             this.panelMid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(1158, 557);
+            this.panelMid.Size = new System.Drawing.Size(1158, 541);
             this.panelMid.TabIndex = 1;
             // 
             // lblStatus
@@ -127,6 +127,20 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(933, 35);
             this.progressBar.TabIndex = 20;
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnExportar.Location = new System.Drawing.Point(958, 455);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(128, 38);
+            this.btnExportar.TabIndex = 19;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // dgvListar
             // 
@@ -155,108 +169,6 @@
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.Size = new System.Drawing.Size(1119, 377);
             this.dgvListar.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(609, 26);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Tipo NCF:";
-            // 
-            // cboTipoComprobante
-            // 
-            this.cboTipoComprobante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cboTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboTipoComprobante.FormattingEnabled = true;
-            this.cboTipoComprobante.Items.AddRange(new object[] {
-            "TODOS",
-            "Factura de Crédito Fiscal",
-            "Factura de Consumo"});
-            this.cboTipoComprobante.Location = new System.Drawing.Point(711, 22);
-            this.cboTipoComprobante.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboTipoComprobante.Name = "cboTipoComprobante";
-            this.cboTipoComprobante.Size = new System.Drawing.Size(222, 28);
-            this.cboTipoComprobante.TabIndex = 16;
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.CustomFormat = "dd / MM / yyyy";
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHasta.Location = new System.Drawing.Point(388, 22);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(192, 26);
-            this.dtpHasta.TabIndex = 8;
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.CustomFormat = "dd / MM / yyyy";
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDesde.Location = new System.Drawing.Point(100, 22);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(192, 26);
-            this.dtpDesde.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(318, 26);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Hasta:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 26);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Desde:";
-            // 
-            // backgroundWorker
-            // 
-            this.backgroundWorker.WorkerReportsProgress = true;
-            this.backgroundWorker.WorkerSupportsCancellation = true;
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnExportar.Location = new System.Drawing.Point(958, 455);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(128, 38);
-            this.btnExportar.TabIndex = 19;
-            this.btnExportar.Text = "Exportar";
-            this.btnExportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(958, 17);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(128, 38);
-            this.btnAceptar.TabIndex = 17;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // Column1
             // 
@@ -359,12 +271,100 @@
             this.Column13.ReadOnly = true;
             this.Column13.Visible = false;
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAceptar.Location = new System.Drawing.Point(958, 17);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(128, 38);
+            this.btnAceptar.TabIndex = 17;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(609, 26);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Tipo NCF:";
+            // 
+            // cboTipoComprobante
+            // 
+            this.cboTipoComprobante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cboTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTipoComprobante.FormattingEnabled = true;
+            this.cboTipoComprobante.Items.AddRange(new object[] {
+            "TODOS",
+            "Factura de Crédito Fiscal",
+            "Factura de Consumo"});
+            this.cboTipoComprobante.Location = new System.Drawing.Point(711, 22);
+            this.cboTipoComprobante.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboTipoComprobante.Name = "cboTipoComprobante";
+            this.cboTipoComprobante.Size = new System.Drawing.Size(222, 28);
+            this.cboTipoComprobante.TabIndex = 16;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.CustomFormat = "dd / MM / yyyy";
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHasta.Location = new System.Drawing.Point(388, 22);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(192, 26);
+            this.dtpHasta.TabIndex = 8;
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.CustomFormat = "dd / MM / yyyy";
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDesde.Location = new System.Drawing.Point(100, 22);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(192, 26);
+            this.dtpDesde.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(318, 26);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Hasta:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(30, 26);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Desde:";
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.WorkerReportsProgress = true;
+            this.backgroundWorker.WorkerSupportsCancellation = true;
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
             // FrmReporteComprobantes607
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1158, 602);
+            this.ClientSize = new System.Drawing.Size(1158, 586);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

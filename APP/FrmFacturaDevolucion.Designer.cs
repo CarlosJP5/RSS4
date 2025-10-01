@@ -112,7 +112,7 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1130, 45);
+            this.panelTop.Size = new System.Drawing.Size(1129, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
@@ -122,7 +122,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1128, 43);
+            this.label1.Size = new System.Drawing.Size(1127, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Devolucion Factura";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,7 +168,7 @@
             this.panelMid.Location = new System.Drawing.Point(0, 45);
             this.panelMid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(1130, 647);
+            this.panelMid.Size = new System.Drawing.Size(1129, 631);
             this.panelMid.TabIndex = 1;
             // 
             // lblNCF
@@ -818,7 +818,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1130, 692);
+            this.ClientSize = new System.Drawing.Size(1129, 676);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -57,7 +57,7 @@ namespace APP
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(651, 45);
+            this.panelTop.Size = new System.Drawing.Size(633, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
@@ -67,7 +67,7 @@ namespace APP
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(649, 43);
+            this.label1.Size = new System.Drawing.Size(631, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Marcas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,7 +88,7 @@ namespace APP
             this.panelMid.Location = new System.Drawing.Point(0, 45);
             this.panelMid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(651, 177);
+            this.panelMid.Size = new System.Drawing.Size(633, 161);
             this.panelMid.TabIndex = 1;
             // 
             // btnSalir
@@ -214,7 +214,7 @@ namespace APP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(651, 222);
+            this.ClientSize = new System.Drawing.Size(633, 206);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

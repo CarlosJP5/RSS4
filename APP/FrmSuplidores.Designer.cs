@@ -72,7 +72,7 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(762, 45);
+            this.panelTop.Size = new System.Drawing.Size(729, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
@@ -82,7 +82,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(760, 43);
+            this.label1.Size = new System.Drawing.Size(727, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Suplidores";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -119,7 +119,7 @@
             this.panelMid.Location = new System.Drawing.Point(0, 45);
             this.panelMid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(762, 361);
+            this.panelMid.Size = new System.Drawing.Size(729, 346);
             this.panelMid.TabIndex = 1;
             // 
             // btnSalir
@@ -195,7 +195,7 @@
             // txtCelular
             // 
             this.txtCelular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtCelular.Location = new System.Drawing.Point(546, 183);
+            this.txtCelular.Location = new System.Drawing.Point(519, 183);
             this.txtCelular.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCelular.Mask = "(999) 000-0000";
             this.txtCelular.Name = "txtCelular";
@@ -206,7 +206,7 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtTelefono.Location = new System.Drawing.Point(546, 103);
+            this.txtTelefono.Location = new System.Drawing.Point(519, 103);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelefono.Mask = "(999) 000-0000";
             this.txtTelefono.Name = "txtTelefono";
@@ -217,7 +217,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(447, 228);
+            this.label11.Location = new System.Drawing.Point(420, 228);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 20);
@@ -227,7 +227,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(447, 188);
+            this.label10.Location = new System.Drawing.Point(420, 188);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 20);
@@ -237,7 +237,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(447, 148);
+            this.label9.Location = new System.Drawing.Point(420, 148);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 20);
@@ -247,7 +247,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(447, 108);
+            this.label8.Location = new System.Drawing.Point(420, 108);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 20);
@@ -257,7 +257,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(447, 68);
+            this.label7.Location = new System.Drawing.Point(420, 68);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 20);
@@ -323,7 +323,7 @@
             this.cboCompraA.Items.AddRange(new object[] {
             "CONTADO",
             "CREDITO"});
-            this.cboCompraA.Location = new System.Drawing.Point(546, 223);
+            this.cboCompraA.Location = new System.Drawing.Point(519, 223);
             this.cboCompraA.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboCompraA.Name = "cboCompraA";
             this.cboCompraA.Size = new System.Drawing.Size(148, 28);
@@ -334,7 +334,7 @@
             // 
             this.txtVendedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtVendedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtVendedor.Location = new System.Drawing.Point(546, 143);
+            this.txtVendedor.Location = new System.Drawing.Point(519, 143);
             this.txtVendedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVendedor.MaxLength = 50;
             this.txtVendedor.Name = "txtVendedor";
@@ -346,7 +346,7 @@
             // 
             this.txtRnc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtRnc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRnc.Location = new System.Drawing.Point(546, 63);
+            this.txtRnc.Location = new System.Drawing.Point(519, 63);
             this.txtRnc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRnc.MaxLength = 15;
             this.txtRnc.Name = "txtRnc";
@@ -428,7 +428,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(762, 406);
+            this.ClientSize = new System.Drawing.Size(729, 391);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

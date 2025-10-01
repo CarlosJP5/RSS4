@@ -91,7 +91,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 45);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(488, 224);
+            this.panel2.Size = new System.Drawing.Size(488, 209);
             this.panel2.TabIndex = 1;
             // 
             // lblIdArticulo
@@ -225,7 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(488, 269);
+            this.ClientSize = new System.Drawing.Size(488, 254);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
