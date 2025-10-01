@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,8 +52,6 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -64,17 +64,19 @@
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(715, 30);
+            this.panelTop.Size = new System.Drawing.Size(1072, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(713, 28);
+            this.label1.Size = new System.Drawing.Size(1070, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Suplidores";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -90,17 +92,19 @@
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Location = new System.Drawing.Point(12, 36);
+            this.panel1.Location = new System.Drawing.Point(18, 55);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 67);
+            this.panel1.Size = new System.Drawing.Size(1025, 102);
             this.panel1.TabIndex = 1;
             // 
             // rbtnVendedor
             // 
             this.rbtnVendedor.AutoSize = true;
-            this.rbtnVendedor.Location = new System.Drawing.Point(395, 8);
+            this.rbtnVendedor.Location = new System.Drawing.Point(592, 12);
+            this.rbtnVendedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnVendedor.Name = "rbtnVendedor";
-            this.rbtnVendedor.Size = new System.Drawing.Size(71, 17);
+            this.rbtnVendedor.Size = new System.Drawing.Size(97, 24);
             this.rbtnVendedor.TabIndex = 7;
             this.rbtnVendedor.TabStop = true;
             this.rbtnVendedor.Text = "Vendedor";
@@ -110,9 +114,10 @@
             // rbtnRNC
             // 
             this.rbtnRNC.AutoSize = true;
-            this.rbtnRNC.Location = new System.Drawing.Point(341, 8);
+            this.rbtnRNC.Location = new System.Drawing.Point(512, 12);
+            this.rbtnRNC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnRNC.Name = "rbtnRNC";
-            this.rbtnRNC.Size = new System.Drawing.Size(48, 17);
+            this.rbtnRNC.Size = new System.Drawing.Size(61, 24);
             this.rbtnRNC.TabIndex = 6;
             this.rbtnRNC.TabStop = true;
             this.rbtnRNC.Text = "RNC";
@@ -122,9 +127,10 @@
             // rbtnNombre
             // 
             this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Location = new System.Drawing.Point(273, 8);
+            this.rbtnNombre.Location = new System.Drawing.Point(410, 12);
+            this.rbtnNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnNombre.Name = "rbtnNombre";
-            this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
+            this.rbtnNombre.Size = new System.Drawing.Size(83, 24);
             this.rbtnNombre.TabIndex = 5;
             this.rbtnNombre.TabStop = true;
             this.rbtnNombre.Text = "Nombre";
@@ -134,9 +140,10 @@
             // rbtnCodigo
             // 
             this.rbtnCodigo.AutoSize = true;
-            this.rbtnCodigo.Location = new System.Drawing.Point(209, 8);
+            this.rbtnCodigo.Location = new System.Drawing.Point(314, 12);
+            this.rbtnCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnCodigo.Name = "rbtnCodigo";
-            this.rbtnCodigo.Size = new System.Drawing.Size(58, 17);
+            this.rbtnCodigo.Size = new System.Drawing.Size(77, 24);
             this.rbtnCodigo.TabIndex = 4;
             this.rbtnCodigo.TabStop = true;
             this.rbtnCodigo.Text = "Codigo";
@@ -146,9 +153,10 @@
             // rbtnTodo
             // 
             this.rbtnTodo.AutoSize = true;
-            this.rbtnTodo.Location = new System.Drawing.Point(153, 8);
+            this.rbtnTodo.Location = new System.Drawing.Point(230, 12);
+            this.rbtnTodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnTodo.Name = "rbtnTodo";
-            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
+            this.rbtnTodo.Size = new System.Drawing.Size(63, 24);
             this.rbtnTodo.TabIndex = 3;
             this.rbtnTodo.TabStop = true;
             this.rbtnTodo.Text = "Todo";
@@ -158,9 +166,10 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(488, 28);
+            this.btnBuscar.Location = new System.Drawing.Point(732, 43);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 38);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -171,9 +180,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 34);
+            this.label2.Location = new System.Drawing.Point(152, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Buscar:";
             // 
@@ -181,9 +191,10 @@
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscar.Location = new System.Drawing.Point(150, 31);
+            this.txtBuscar.Location = new System.Drawing.Point(225, 48);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(332, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(496, 26);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
@@ -205,57 +216,87 @@
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvListar.Location = new System.Drawing.Point(12, 109);
+            this.dgvListar.Location = new System.Drawing.Point(18, 168);
+            this.dgvListar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(684, 200);
+            this.dgvListar.Size = new System.Drawing.Size(1026, 308);
             this.dgvListar.TabIndex = 2;
             this.dgvListar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellDoubleClick);
             this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
+            this.btnAceptar.Location = new System.Drawing.Point(765, 494);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(128, 38);
+            this.btnAceptar.TabIndex = 3;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
+            this.btnCancelar.Location = new System.Drawing.Point(916, 494);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(128, 38);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Codigo";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 60;
+            this.Column1.Width = 90;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "RNC";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 90;
+            this.Column2.Width = 120;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Nombre";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 180;
+            this.Column3.Width = 330;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Vendedor";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 150;
+            this.Column4.Width = 205;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Telefono";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 90;
+            this.Column5.Width = 120;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Celular";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 90;
+            this.Column6.Width = 120;
             // 
             // Column7
             // 
@@ -285,46 +326,21 @@
             this.Column10.ReadOnly = true;
             this.Column10.Visible = false;
             // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(510, 321);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
-            this.btnAceptar.TabIndex = 3;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnCancelar.Location = new System.Drawing.Point(611, 321);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 25);
-            this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // FrmBuscarSuplidores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(715, 363);
+            this.ClientSize = new System.Drawing.Size(1072, 558);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmBuscarSuplidores";
             this.ShowIcon = false;

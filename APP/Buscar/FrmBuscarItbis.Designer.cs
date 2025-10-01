@@ -40,11 +40,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -57,17 +57,19 @@
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(446, 30);
+            this.panelTop.Size = new System.Drawing.Size(656, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(444, 28);
+            this.label1.Size = new System.Drawing.Size(654, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Itbis";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,17 +84,19 @@
             this.panel1.Controls.Add(this.rbtnTodo);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Location = new System.Drawing.Point(12, 36);
+            this.panel1.Location = new System.Drawing.Point(18, 55);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 66);
+            this.panel1.Size = new System.Drawing.Size(622, 100);
             this.panel1.TabIndex = 1;
             // 
             // rbtnPorciento
             // 
             this.rbtnPorciento.AutoSize = true;
-            this.rbtnPorciento.Location = new System.Drawing.Point(246, 5);
+            this.rbtnPorciento.Location = new System.Drawing.Point(369, 8);
+            this.rbtnPorciento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnPorciento.Name = "rbtnPorciento";
-            this.rbtnPorciento.Size = new System.Drawing.Size(70, 17);
+            this.rbtnPorciento.Size = new System.Drawing.Size(94, 24);
             this.rbtnPorciento.TabIndex = 6;
             this.rbtnPorciento.TabStop = true;
             this.rbtnPorciento.Text = "Porciento";
@@ -102,9 +106,10 @@
             // rbtnNombre
             // 
             this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Location = new System.Drawing.Point(178, 5);
+            this.rbtnNombre.Location = new System.Drawing.Point(267, 8);
+            this.rbtnNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnNombre.Name = "rbtnNombre";
-            this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
+            this.rbtnNombre.Size = new System.Drawing.Size(83, 24);
             this.rbtnNombre.TabIndex = 5;
             this.rbtnNombre.TabStop = true;
             this.rbtnNombre.Text = "Nombre";
@@ -114,9 +119,10 @@
             // rbtnCodigo
             // 
             this.rbtnCodigo.AutoSize = true;
-            this.rbtnCodigo.Location = new System.Drawing.Point(114, 5);
+            this.rbtnCodigo.Location = new System.Drawing.Point(171, 8);
+            this.rbtnCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnCodigo.Name = "rbtnCodigo";
-            this.rbtnCodigo.Size = new System.Drawing.Size(58, 17);
+            this.rbtnCodigo.Size = new System.Drawing.Size(77, 24);
             this.rbtnCodigo.TabIndex = 4;
             this.rbtnCodigo.TabStop = true;
             this.rbtnCodigo.Text = "Codigo";
@@ -126,9 +132,10 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(316, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(474, 38);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 38);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -139,9 +146,10 @@
             // rbtnTodo
             // 
             this.rbtnTodo.AutoSize = true;
-            this.rbtnTodo.Location = new System.Drawing.Point(58, 5);
+            this.rbtnTodo.Location = new System.Drawing.Point(87, 8);
+            this.rbtnTodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnTodo.Name = "rbtnTodo";
-            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
+            this.rbtnTodo.Size = new System.Drawing.Size(63, 24);
             this.rbtnTodo.TabIndex = 2;
             this.rbtnTodo.TabStop = true;
             this.rbtnTodo.Text = "Todo";
@@ -151,9 +159,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 31);
+            this.label2.Location = new System.Drawing.Point(22, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Buscar:";
             // 
@@ -161,9 +170,10 @@
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscar.Location = new System.Drawing.Point(64, 28);
+            this.txtBuscar.Location = new System.Drawing.Point(96, 43);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(232, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(346, 26);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
@@ -178,44 +188,24 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvListar.Location = new System.Drawing.Point(12, 108);
+            this.dgvListar.Location = new System.Drawing.Point(18, 166);
+            this.dgvListar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(415, 180);
+            this.dgvListar.Size = new System.Drawing.Size(622, 277);
             this.dgvListar.TabIndex = 2;
             this.dgvListar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellDoubleClick);
             this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Codigo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column3.HeaderText = "Porciento";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnCancelar.Location = new System.Drawing.Point(342, 294);
+            this.btnCancelar.Location = new System.Drawing.Point(513, 452);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 25);
+            this.btnCancelar.Size = new System.Drawing.Size(128, 38);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -226,9 +216,10 @@
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(248, 294);
+            this.btnAceptar.Location = new System.Drawing.Point(372, 452);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
+            this.btnAceptar.Size = new System.Drawing.Size(128, 38);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -236,19 +227,46 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Codigo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 120;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 310;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column3.HeaderText = "Porciento";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 120;
+            // 
             // FrmBuscarItbis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(446, 335);
+            this.ClientSize = new System.Drawing.Size(656, 506);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmBuscarItbis";
             this.ShowIcon = false;

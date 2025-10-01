@@ -114,17 +114,19 @@
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(341, 30);
+            this.panelTop.Size = new System.Drawing.Size(512, 45);
             this.panelTop.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 28);
+            this.label1.Size = new System.Drawing.Size(510, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario Permiso";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -140,18 +142,20 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 45);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(341, 393);
+            this.panel1.Size = new System.Drawing.Size(512, 606);
             this.panel1.TabIndex = 2;
             // 
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(216, 350);
+            this.btnSalir.Location = new System.Drawing.Point(324, 538);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 25);
+            this.btnSalir.Size = new System.Drawing.Size(135, 38);
             this.btnSalir.TabIndex = 38;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,9 +166,10 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(120, 350);
+            this.btnSalvar.Location = new System.Drawing.Point(180, 538);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 25);
+            this.btnSalvar.Size = new System.Drawing.Size(135, 38);
             this.btnSalvar.TabIndex = 36;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -175,9 +180,10 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(23, 350);
+            this.btnNuevo.Location = new System.Drawing.Point(34, 538);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(90, 25);
+            this.btnNuevo.Size = new System.Drawing.Size(135, 38);
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -188,9 +194,10 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(223, 29);
+            this.btnBuscar.Location = new System.Drawing.Point(334, 45);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(135, 38);
             this.btnBuscar.TabIndex = 27;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -202,16 +209,18 @@
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtNombre.Enabled = false;
-            this.txtNombre.Location = new System.Drawing.Point(19, 32);
+            this.txtNombre.Location = new System.Drawing.Point(28, 49);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(198, 20);
+            this.txtNombre.Size = new System.Drawing.Size(295, 26);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Schoolbook", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 8);
+            this.label2.Location = new System.Drawing.Point(24, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 19);
             this.label2.TabIndex = 1;
@@ -223,19 +232,21 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(19, 60);
+            this.tabControl1.Location = new System.Drawing.Point(28, 92);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(294, 276);
+            this.tabControl1.Size = new System.Drawing.Size(441, 425);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.treeViewDatos);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(286, 250);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(433, 392);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -244,7 +255,8 @@
             // 
             this.treeViewDatos.CheckBoxes = true;
             this.treeViewDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewDatos.Location = new System.Drawing.Point(3, 3);
+            this.treeViewDatos.Location = new System.Drawing.Point(4, 5);
+            this.treeViewDatos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeViewDatos.Name = "treeViewDatos";
             treeNode1.Name = "detalleArticulo";
             treeNode1.Text = "Detalle Articulo";
@@ -282,7 +294,7 @@
             treeNode17.Text = "Datos";
             this.treeViewDatos.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode17});
-            this.treeViewDatos.Size = new System.Drawing.Size(280, 244);
+            this.treeViewDatos.Size = new System.Drawing.Size(425, 382);
             this.treeViewDatos.TabIndex = 28;
             this.treeViewDatos.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewDatos_AfterCheck);
             // 
@@ -290,9 +302,10 @@
             // 
             this.tabPage2.Controls.Add(this.treeViewFacturacion);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(286, 250);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Size = new System.Drawing.Size(433, 399);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Facturacion";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -301,7 +314,8 @@
             // 
             this.treeViewFacturacion.CheckBoxes = true;
             this.treeViewFacturacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewFacturacion.Location = new System.Drawing.Point(3, 3);
+            this.treeViewFacturacion.Location = new System.Drawing.Point(4, 5);
+            this.treeViewFacturacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeViewFacturacion.Name = "treeViewFacturacion";
             treeNode18.Name = "facturacionNormal";
             treeNode18.Text = "Facturacion Normal";
@@ -315,7 +329,7 @@
             treeNode22.Text = "Facturacion";
             this.treeViewFacturacion.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode22});
-            this.treeViewFacturacion.Size = new System.Drawing.Size(280, 244);
+            this.treeViewFacturacion.Size = new System.Drawing.Size(425, 389);
             this.treeViewFacturacion.TabIndex = 0;
             this.treeViewFacturacion.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewFacturacion_AfterCheck);
             // 
@@ -323,8 +337,9 @@
             // 
             this.tabPage3.Controls.Add(this.treeViewCxc);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(286, 250);
+            this.tabPage3.Size = new System.Drawing.Size(433, 399);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "CxC";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -334,6 +349,7 @@
             this.treeViewCxc.CheckBoxes = true;
             this.treeViewCxc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCxc.Location = new System.Drawing.Point(0, 0);
+            this.treeViewCxc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeViewCxc.Name = "treeViewCxc";
             treeNode23.Name = "reciboIngreso";
             treeNode23.Text = "Recibo Ingreso";
@@ -341,7 +357,7 @@
             treeNode24.Text = "CxC";
             this.treeViewCxc.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode24});
-            this.treeViewCxc.Size = new System.Drawing.Size(286, 250);
+            this.treeViewCxc.Size = new System.Drawing.Size(433, 399);
             this.treeViewCxc.TabIndex = 0;
             this.treeViewCxc.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCxc_AfterCheck);
             // 
@@ -349,8 +365,9 @@
             // 
             this.tabPage4.Controls.Add(this.treeViewCxp);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(286, 250);
+            this.tabPage4.Size = new System.Drawing.Size(433, 399);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "CxP";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -360,6 +377,7 @@
             this.treeViewCxp.CheckBoxes = true;
             this.treeViewCxp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCxp.Location = new System.Drawing.Point(0, 0);
+            this.treeViewCxp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeViewCxp.Name = "treeViewCxp";
             treeNode25.Name = "compra";
             treeNode25.Text = "Compra";
@@ -371,18 +389,20 @@
             treeNode28.Text = "CxP";
             this.treeViewCxp.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode28});
-            this.treeViewCxp.Size = new System.Drawing.Size(286, 250);
+            this.treeViewCxp.Size = new System.Drawing.Size(433, 399);
             this.treeViewCxp.TabIndex = 0;
             this.treeViewCxp.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCxp_AfterCheck);
             // 
             // FrmUsuarioPermiso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(341, 423);
+            this.ClientSize = new System.Drawing.Size(512, 651);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmUsuarioPermiso";
             this.Text = "Usuario Permiso";
             this.Load += new System.EventHandler(this.FrmUsuarioPermiso_Load);

@@ -39,10 +39,10 @@ namespace APP.Buscar
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
@@ -55,17 +55,19 @@ namespace APP.Buscar
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(376, 30);
+            this.panelTop.Size = new System.Drawing.Size(564, 45);
             this.panelTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 28);
+            this.label1.Size = new System.Drawing.Size(562, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Marcas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,17 +81,19 @@ namespace APP.Buscar
             this.panelMid.Controls.Add(this.btnBuscar);
             this.panelMid.Controls.Add(this.label2);
             this.panelMid.Controls.Add(this.txtBuscar);
-            this.panelMid.Location = new System.Drawing.Point(12, 36);
+            this.panelMid.Location = new System.Drawing.Point(18, 55);
+            this.panelMid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(349, 67);
+            this.panelMid.Size = new System.Drawing.Size(522, 102);
             this.panelMid.TabIndex = 1;
             // 
             // rbtnNombre
             // 
             this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Location = new System.Drawing.Point(179, 5);
+            this.rbtnNombre.Location = new System.Drawing.Point(268, 8);
+            this.rbtnNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnNombre.Name = "rbtnNombre";
-            this.rbtnNombre.Size = new System.Drawing.Size(62, 17);
+            this.rbtnNombre.Size = new System.Drawing.Size(83, 24);
             this.rbtnNombre.TabIndex = 5;
             this.rbtnNombre.TabStop = true;
             this.rbtnNombre.Text = "Nombre";
@@ -99,9 +103,10 @@ namespace APP.Buscar
             // rbtnCodigo
             // 
             this.rbtnCodigo.AutoSize = true;
-            this.rbtnCodigo.Location = new System.Drawing.Point(115, 5);
+            this.rbtnCodigo.Location = new System.Drawing.Point(172, 8);
+            this.rbtnCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnCodigo.Name = "rbtnCodigo";
-            this.rbtnCodigo.Size = new System.Drawing.Size(58, 17);
+            this.rbtnCodigo.Size = new System.Drawing.Size(77, 24);
             this.rbtnCodigo.TabIndex = 4;
             this.rbtnCodigo.TabStop = true;
             this.rbtnCodigo.Text = "Codigo";
@@ -111,9 +116,10 @@ namespace APP.Buscar
             // rbtnTodo
             // 
             this.rbtnTodo.AutoSize = true;
-            this.rbtnTodo.Location = new System.Drawing.Point(59, 5);
+            this.rbtnTodo.Location = new System.Drawing.Point(88, 8);
+            this.rbtnTodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbtnTodo.Name = "rbtnTodo";
-            this.rbtnTodo.Size = new System.Drawing.Size(50, 17);
+            this.rbtnTodo.Size = new System.Drawing.Size(63, 24);
             this.rbtnTodo.TabIndex = 3;
             this.rbtnTodo.TabStop = true;
             this.rbtnTodo.Text = "Todo";
@@ -123,9 +129,10 @@ namespace APP.Buscar
             // btnBuscar
             // 
             this.btnBuscar.Image = global::APP.Properties.Resources.Buscar_16;
-            this.btnBuscar.Location = new System.Drawing.Point(260, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(390, 38);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 38);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -136,9 +143,10 @@ namespace APP.Buscar
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 31);
+            this.label2.Location = new System.Drawing.Point(15, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Buscar:";
             // 
@@ -146,9 +154,10 @@ namespace APP.Buscar
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscar.Location = new System.Drawing.Point(59, 28);
+            this.txtBuscar.Location = new System.Drawing.Point(88, 43);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(195, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(290, 26);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
@@ -162,34 +171,23 @@ namespace APP.Buscar
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dgvListar.Location = new System.Drawing.Point(12, 109);
+            this.dgvListar.Location = new System.Drawing.Point(18, 168);
+            this.dgvListar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(349, 177);
+            this.dgvListar.Size = new System.Drawing.Size(524, 272);
             this.dgvListar.TabIndex = 2;
             this.dgvListar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellDoubleClick);
             this.dgvListar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListar_KeyDown);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Codigo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 180;
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Image = global::APP.Properties.Resources.Aceptar_16;
-            this.btnAceptar.Location = new System.Drawing.Point(183, 292);
+            this.btnAceptar.Location = new System.Drawing.Point(274, 449);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(85, 25);
+            this.btnAceptar.Size = new System.Drawing.Size(128, 38);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -201,9 +199,10 @@ namespace APP.Buscar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = global::APP.Properties.Resources.Borrar_16;
-            this.btnCancelar.Location = new System.Drawing.Point(276, 292);
+            this.btnCancelar.Location = new System.Drawing.Point(414, 449);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 25);
+            this.btnCancelar.Size = new System.Drawing.Size(128, 38);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -211,19 +210,35 @@ namespace APP.Buscar
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Codigo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 120;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 330;
+            // 
             // FrmBuscarMarcas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(376, 331);
+            this.ClientSize = new System.Drawing.Size(564, 509);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmBuscarMarcas";
             this.ShowIcon = false;
@@ -248,10 +263,10 @@ namespace APP.Buscar
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

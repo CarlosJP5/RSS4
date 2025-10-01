@@ -57,17 +57,19 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 30);
+            this.panel1.Size = new System.Drawing.Size(488, 45);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 28);
+            this.label1.Size = new System.Drawing.Size(486, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cambiar Codigo";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,17 +88,19 @@
             this.panel2.Controls.Add(this.txtCodigo);
             this.panel2.Controls.Add(this.linkCodigo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 30);
+            this.panel2.Location = new System.Drawing.Point(0, 45);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(325, 145);
+            this.panel2.Size = new System.Drawing.Size(488, 224);
             this.panel2.TabIndex = 1;
             // 
             // lblIdArticulo
             // 
             this.lblIdArticulo.AutoSize = true;
-            this.lblIdArticulo.Location = new System.Drawing.Point(177, 13);
+            this.lblIdArticulo.Location = new System.Drawing.Point(266, 20);
+            this.lblIdArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdArticulo.Name = "lblIdArticulo";
-            this.lblIdArticulo.Size = new System.Drawing.Size(61, 13);
+            this.lblIdArticulo.Size = new System.Drawing.Size(91, 20);
             this.lblIdArticulo.TabIndex = 39;
             this.lblIdArticulo.Text = "lblIdArticulo";
             this.lblIdArticulo.Visible = false;
@@ -104,9 +108,10 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::APP.Properties.Resources.Salir_16;
-            this.btnSalir.Location = new System.Drawing.Point(226, 98);
+            this.btnSalir.Location = new System.Drawing.Point(339, 151);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(85, 25);
+            this.btnSalir.Size = new System.Drawing.Size(128, 38);
             this.btnSalir.TabIndex = 38;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -117,9 +122,10 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::APP.Properties.Resources.Salvar_16;
-            this.btnSalvar.Location = new System.Drawing.Point(115, 98);
+            this.btnSalvar.Location = new System.Drawing.Point(172, 151);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 25);
+            this.btnSalvar.Size = new System.Drawing.Size(135, 38);
             this.btnSalvar.TabIndex = 36;
             this.btnSalvar.Text = "Salvar [F5]";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,9 +136,10 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::APP.Properties.Resources.Nuevo_16;
-            this.btnNuevo.Location = new System.Drawing.Point(10, 98);
+            this.btnNuevo.Location = new System.Drawing.Point(15, 151);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(85, 25);
+            this.btnNuevo.Size = new System.Drawing.Size(128, 38);
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -144,36 +151,40 @@
             // 
             this.txtNuevoCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtNuevoCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNuevoCodigo.Location = new System.Drawing.Point(89, 62);
+            this.txtNuevoCodigo.Location = new System.Drawing.Point(134, 95);
+            this.txtNuevoCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNuevoCodigo.Name = "txtNuevoCodigo";
-            this.txtNuevoCodigo.Size = new System.Drawing.Size(104, 20);
+            this.txtNuevoCodigo.Size = new System.Drawing.Size(154, 26);
             this.txtNuevoCodigo.TabIndex = 5;
             this.txtNuevoCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNuevoCodigo_KeyDown);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 65);
+            this.label3.Location = new System.Drawing.Point(8, 100);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Nuevo Codigo:";
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtNombre.Location = new System.Drawing.Point(75, 36);
+            this.txtNombre.Location = new System.Drawing.Point(112, 55);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(208, 20);
+            this.txtNombre.Size = new System.Drawing.Size(310, 26);
             this.txtNombre.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 39);
+            this.label2.Location = new System.Drawing.Point(8, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombre:";
             // 
@@ -181,9 +192,10 @@
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Location = new System.Drawing.Point(71, 10);
+            this.txtCodigo.Location = new System.Drawing.Point(106, 15);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(148, 26);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
@@ -191,9 +203,10 @@
             // linkCodigo
             // 
             this.linkCodigo.AutoSize = true;
-            this.linkCodigo.Location = new System.Drawing.Point(5, 13);
+            this.linkCodigo.Location = new System.Drawing.Point(8, 20);
+            this.linkCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkCodigo.Name = "linkCodigo";
-            this.linkCodigo.Size = new System.Drawing.Size(64, 13);
+            this.linkCodigo.Size = new System.Drawing.Size(94, 20);
             this.linkCodigo.TabIndex = 1;
             this.linkCodigo.TabStop = true;
             this.linkCodigo.Text = "[F1] Codigo:";
@@ -209,13 +222,15 @@
             // 
             // FrmArticulosCambiarCodigo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(325, 175);
+            this.ClientSize = new System.Drawing.Size(488, 269);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmArticulosCambiarCodigo";
             this.ShowIcon = false;
