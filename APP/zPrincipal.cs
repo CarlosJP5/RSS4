@@ -22,20 +22,20 @@ namespace APP
 
         private void zPrincipal_Load(object sender, EventArgs e)
         {
-            DateTime licenciaLock = DateTime.Parse("08/04/2025");
-            NrptEmpresa lic = new NrptEmpresa();
-            DateTime lisencia = lic.lisencia();
-            if (licenciaLock != lisencia)
-            {
-                MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-            if (lisencia < DateTime.Now)
-            {
-                MessageBox.Show("Licencia del programa vencida");
-                return;
-            }
+            //DateTime licenciaLock = DateTime.Parse("08/04/2025");
+            //NrptEmpresa lic = new NrptEmpresa();
+            //DateTime lisencia = lic.lisencia();
+            //if (licenciaLock != lisencia)
+            //{
+            //    MessageBox.Show("Error de validacion.\nLa licencia del programa ha sido alterada.", "ERROR",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    Application.Exit();
+            //}
+            //if (lisencia < DateTime.Now)
+            //{
+            //    MessageBox.Show("Licencia del programa vencida");
+            //    return;
+            //}
             FrmLogin frm = new FrmLogin();
 
             if (frm.ShowDialog() == DialogResult.OK)
