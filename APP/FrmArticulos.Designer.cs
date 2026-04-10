@@ -95,7 +95,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(555, 28);
@@ -176,7 +176,7 @@
             this.txtBeneficioMinimo.Name = "txtBeneficioMinimo";
             this.txtBeneficioMinimo.Size = new System.Drawing.Size(64, 20);
             this.txtBeneficioMinimo.TabIndex = 39;
-            this.txtBeneficioMinimo.Text = "20.00";
+            this.txtBeneficioMinimo.Text = "1.00";
             this.txtBeneficioMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBeneficioMinimo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBeneficioMinimo_KeyDown);
             this.txtBeneficioMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);

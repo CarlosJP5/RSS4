@@ -15,6 +15,7 @@ namespace APP
             InitializeComponent();
             LlenarMarcas();
             LlenarSuplidor();
+            txtBeneficioMinimo.Text = "1.00";
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
