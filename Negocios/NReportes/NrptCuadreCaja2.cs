@@ -134,7 +134,7 @@ namespace Negocios.NReportes
             }
 
             _ = listaFacturas.OrderBy(k => k.NCF).ToList();
-            totalTotal = totalVentaContado + totalVentaCredito + totalReciboIngreso - totalDevoluciones;
+            totalTotal = totalVentaContado + totalReciboIngreso - totalDevoluciones;
         }
 
         public void createSalesOrderReport(int idCaja)
@@ -252,7 +252,7 @@ namespace Negocios.NReportes
             }
 
             _ = listaFacturas.OrderBy(k => k.NCF).ToList();
-            totalTotal = totalVentaContado + totalVentaCredito + totalReciboIngreso - totalDevoluciones;
+            totalTotal = totalVentaContado + totalReciboIngreso - totalDevoluciones;
         }
     }
 }

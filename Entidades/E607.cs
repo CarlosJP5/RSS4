@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class E607
     {
         public string Rnc { get; set; }
         public string Tipo { get; set; }
         public string Ncf { get; set; }
-        public string Ncf2 { get; set; }
+        public string NcfModificado { get; set; } // Ncf2
         public string Fecha { get; set; }
-        public string ItbisP { get; set; }
-        public string Monto { get; set; }
-        public string Sec { get; set; }
-        public string Factura { get; set; }
+        public decimal Itbis { get; set; }
+        public decimal Monto { get; set; }
+        public int Secuencia { get; set; }
+        public string IdFactura { get; set; }
         public string Cliente { get; set; }
-        public string EmpresaR { get; set; }
+        public string Empresa { get; set; }
     }
 }

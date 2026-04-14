@@ -1,10 +1,15 @@
-﻿using ClosedXML.Excel;
+﻿using Entidades;
 using Negocios;
 using Negocios.NReportes;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using QuestPDF.Previewer; // Opcional
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Mime;
 using System.Windows.Forms;
 
 namespace APP
@@ -14,7 +19,11 @@ namespace APP
         public FrmReporteComprobantes607()
         {
             InitializeComponent();
+            // Configurar licencia de QuestPDF (Requerido)
+            QuestPDF.Settings.License = LicenseType.Community;
         }
+
+        private List<E607> listaReporte = new List<E607>();
 
         private void FrmReporteComprobantes607_Load(object sender, EventArgs e)
         {
@@ -27,6 +36,7 @@ namespace APP
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             dgvListar.Rows.Clear();
+            listaReporte.Clear(); // IMPORTANTE: Limpiar la lista antes de cada consulta
             NComprobantes _comprobante = new NComprobantes();
 
             // --- Query 1: Facturas ---
@@ -67,6 +77,7 @@ namespace APP
             queryDev += string.Format(@" WHERE F.fecha_devolucion BETWEEN '{0}' AND '{1}'", dtpDesde.Value, dtpHasta.Value);
             queryDev += " ORDER BY CD.ncf_comprobante";
             LlenarDataGrid(_comprobante.Reporte607(queryDev));
+
         }
 
         private void LlenarDataGrid(DataTable detalle)
@@ -77,35 +88,46 @@ namespace APP
 
             foreach (DataRow row in detalle.Rows)
             {
-                // Logic for RNC/Cedula
-                string rnc = row[0]?.ToString();
-                if (string.IsNullOrEmpty(rnc)) rnc = row[1]?.ToString() ?? "";
+                // 1. Lógica de RNC y NCF (la misma que ya tenías)
+                string rnc = row[0]?.ToString() ?? row[1]?.ToString() ?? "";
+                string ncfMod = row.Table.Columns.Count > 9 ? row[9]?.ToString() : "";
+                if (ncfMod == "B01" || ncfMod == "B02") ncfMod = "000000000";
 
-                // Logic for NCF Modifica
-                string ncfModifica = row.Table.Columns.Count > 9 ? row[9]?.ToString() : "";
-                if (ncfModifica == "B01" || ncfModifica == "B02") ncfModifica = "000000000";
+                // 2. Crear el objeto
+                E607 entidad = new E607
+                {
+                    Rnc = rnc,
+                    Tipo = rnc.Length == 9 ? "1" : (rnc.Length == 11 ? "2" : ""),
+                    Ncf = row[2]?.ToString(),
+                    NcfModificado = ncfMod,
+                    Fecha = DateTime.TryParse(row[3]?.ToString(), out DateTime dt) ? dt.ToString("dd/MM/yyyy") : "",
+                    Itbis = Convert.ToDecimal(row[4] ?? 0),
+                    Monto = Convert.ToDecimal(row[5] ?? 0),
+                    Secuencia = dgvListar.Rows.Count + 1,
+                    IdFactura = row[6]?.ToString(),
+                    Cliente = row[7]?.ToString(),
+                    Empresa = nombreEmpresa
+                };
 
-                // Type calculation
-                string tp = rnc.Length == 9 ? "1" : (rnc.Length == 11 ? "2" : "");
+                // 3. Agregar a la lista y al Grid
+                listaReporte.Add(entidad);
 
-                // Date formatting
-                string fechaRaw = row[3]?.ToString();
-                string fechaFormateada = DateTime.TryParse(fechaRaw, out DateTime dt)
-                    ? dt.ToString("dd / MM / yyyy") : fechaRaw;
-
-                dgvListar.Rows.Add(
-                    rnc, tp, row[2], fechaFormateada, row[4], row[5], row[6],
-                    dgvListar.Rows.Count + 1, row[7], row[4], row[5],
-                    nombreEmpresa, ncfModifica
-                );
+                dgvListar.Rows.Add(entidad.Rnc, entidad.Tipo, entidad.Ncf, entidad.Fecha, entidad.Itbis,
+                                   entidad.Monto, entidad.IdFactura, entidad.Secuencia, entidad.Cliente,
+                                   entidad.Itbis, entidad.Monto, entidad.Empresa, entidad.NcfModificado);
             }
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            if (dgvListar.Rows.Count == 0) return;
+            // Validación simple: Si la lista está vacía, no hay nada que hacer
+            if (listaReporte == null || listaReporte.Count == 0)
+            {
+                MessageBox.Show("No hay datos cargados para exportar. Primero haga clic en Aceptar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Excel Workbook|*.xlsx", FileName = "Reporte607.xlsx" })
+            using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Archivo PDF|*.pdf", FileName = "Reporte607.pdf" })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -113,64 +135,127 @@ namespace APP
                     lblStatus.Visible = true;
                     progressBar.Value = 0;
 
-                    // IMPORTANT: Extract data to a list first. 
-                    // BackgroundWorker cannot safely touch dgvListar.Rows.
-                    var rowsData = new List<object[]>();
-                    foreach (DataGridViewRow row in dgvListar.Rows)
+                    // PREPARAR CONTENEDOR: Pasamos directamente la listaReporte que ya es List<E607>
+                    var exportData = new ExportContainer
                     {
-                        if (row.IsNewRow) continue;
-                        var cellValues = row.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray();
-                        rowsData.Add(cellValues);
-                    }
+                        Path = sfd.FileName,
+                        Data = listaReporte.ToList() // ToList() crea una copia para evitar problemas de hilos
+                    };
 
-                    // If there is no real data (for example only the NewRow existed), abort and inform the user.
-                    if (rowsData.Count == 0)
-                    {
-                        progressBar.Visible = false;
-                        lblStatus.Visible = false;
-                        MessageBox.Show("No hay datos para exportar.");
-                        return;
-                    }
-
-                    var exportData = new ExportContainer { Path = sfd.FileName, Data = rowsData };
                     backgroundWorker.RunWorkerAsync(exportData);
                 }
             }
         }
 
+        // 1. Modifica el contenedor para que acepte la lista de entidades
+        private class ExportContainer
+        {
+            public string Path { get; set; }
+            public List<E607> Data { get; set; } // Cambiado de object[] a E607
+        }
+
+        // Métodos de ayuda para el estilo del PDF
+        private IContainer CellStyle(IContainer container)
+        {
+            return container.DefaultTextStyle(x => x.SemiBold().FontColor(Colors.White))
+                            .PaddingVertical(5)
+                            .Background(Colors.Blue.Medium)
+                            .AlignCenter();
+        }
+
+        private IContainer ContentStyle(IContainer container)
+        {
+            return container.BorderBottom(0.5f)
+                            .BorderColor(Colors.Grey.Lighten2)
+                            .PaddingVertical(2)
+                            .PaddingHorizontal(2);
+        }
+
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             var container = (ExportContainer)e.Argument;
+            var datos = container.Data;
 
-            using (var workbook = new XLWorkbook())
+            try
             {
-                var ws = workbook.Worksheets.Add("Reporte 607");
-                string[] headers = { "Rnc", "Tipo", "NCF", "NCF2", "Fecha", "itbisp", "monto", "sec", "factura", "Cliente", "compañía" };
-
-                for (int h = 0; h < headers.Length; h++) ws.Cell(1, h + 1).Value = headers[h];
-
-                for (int i = 0; i < container.Data.Count; i++)
+                Document.Create(doc =>
                 {
-                    int rowNum = i + 2;
-                    var data = container.Data[i];
+                    doc.Page(page =>
+                    {
+                        page.Size(PageSizes.A4.Landscape());
+                        page.Margin(1, Unit.Centimetre);
+                        page.DefaultTextStyle(x => x.FontSize(8).FontFamily(Fonts.Verdana));
 
-                    ws.Cell(rowNum, 1).Value = data[0]?.ToString();
-                    ws.Cell(rowNum, 2).Value = data[1]?.ToString();
-                    ws.Cell(rowNum, 3).Value = data[2]?.ToString();
-                    ws.Cell(rowNum, 4).Value = data[12]?.ToString(); // NCF2
-                    ws.Cell(rowNum, 5).Value = data[3]?.ToString();
-                    ws.Cell(rowNum, 6).Value = data[4]?.ToString();
-                    ws.Cell(rowNum, 7).Value = data[5]?.ToString();
-                    ws.Cell(rowNum, 8).Value = data[7]?.ToString();
-                    ws.Cell(rowNum, 9).Value = data[6]?.ToString();
-                    ws.Cell(rowNum, 10).Value = data[8]?.ToString();
-                    ws.Cell(rowNum, 11).Value = data[11]?.ToString();
+                        page.Header().PaddingBottom(10).Row(row =>
+                        {
+                            row.RelativeItem().Column(col =>
+                            {
+                                col.Item().Text("REPORTE DE VENTAS DE BIENES Y SERVICIOS (607)").FontSize(14).SemiBold().FontColor(Colors.Blue.Medium);
+                                col.Item().Text($"Fecha de Generación: {DateTime.Now:dd/MM/yyyy HH:mm}");
+                            });
+                        });
 
-                    backgroundWorker.ReportProgress((i + 1) * 100 / container.Data.Count);
-                }
+                        page.Content().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.RelativeColumn(2);    // RNC
+                                columns.ConstantColumn(30);   // Tipo
+                                columns.RelativeColumn(2.5f); // NCF
+                                columns.RelativeColumn(2.5f); // NCF Modif
+                                columns.RelativeColumn(2);    // Fecha
+                                columns.RelativeColumn(1.5f); // ITBIS
+                                columns.RelativeColumn(1.5f); // Monto
+                                columns.ConstantColumn(30);   // Sec
+                                columns.RelativeColumn(1.5f); // Factura
+                                columns.RelativeColumn(3);    // Cliente
+                                columns.RelativeColumn(2.5f); // Empresa
+                            });
 
-                ws.Columns().AdjustToContents();
-                workbook.SaveAs(container.Path);
+                            table.Header(header =>
+                            {
+                                header.Cell().Element(CellStyle).Text("RNC/Cédula");
+                                header.Cell().Element(CellStyle).Text("Tipo");
+                                header.Cell().Element(CellStyle).Text("NCF");
+                                header.Cell().Element(CellStyle).Text("NCF Modif.");
+                                header.Cell().Element(CellStyle).Text("Fecha");
+                                header.Cell().Element(CellStyle).Text("ITBIS");
+                                header.Cell().Element(CellStyle).Text("Monto");
+                                header.Cell().Element(CellStyle).Text("Sec");
+                                header.Cell().Element(CellStyle).Text("Fact.");
+                                header.Cell().Element(CellStyle).Text("Cliente");
+                                header.Cell().Element(CellStyle).Text("Empresa");
+                            });
+
+                            int i = 0;
+                            foreach (var item in datos)
+                            {
+                                table.Cell().Element(ContentStyle).Text(item.Rnc);
+                                table.Cell().Element(ContentStyle).AlignCenter().Text(item.Tipo);
+                                table.Cell().Element(ContentStyle).Text(item.Ncf);
+                                table.Cell().Element(ContentStyle).Text(item.NcfModificado);
+                                table.Cell().Element(ContentStyle).AlignCenter().Text(item.Fecha);
+                                table.Cell().Element(ContentStyle).AlignRight().Text($"{item.Itbis:N2}");
+                                table.Cell().Element(ContentStyle).AlignRight().Text($"{item.Monto:N2}");
+                                table.Cell().Element(ContentStyle).AlignCenter().Text(item.Secuencia.ToString());
+                                table.Cell().Element(ContentStyle).Text(item.IdFactura);
+                                table.Cell().Element(ContentStyle).Text(item.Cliente);
+                                table.Cell().Element(ContentStyle).Text(item.Empresa);
+
+                                i++;
+                                if (i % 10 == 0) backgroundWorker.ReportProgress((i * 100) / datos.Count);
+                            }
+                        });
+
+                        page.Footer().AlignCenter().Text(x => {
+                            x.Span("Página "); x.CurrentPageNumber(); x.Span(" de "); x.TotalPages();
+                        });
+                    });
+                }).GeneratePdf(container.Path);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error generando PDF: " + ex.Message);
             }
         }
 
@@ -186,13 +271,7 @@ namespace APP
             lblStatus.Visible = false;
 
             if (e.Error != null) MessageBox.Show($"Error: {e.Error.Message}");
-            else MessageBox.Show("Archivo de Excel exportado exitosamente.");
-        }
-
-        private class ExportContainer
-        {
-            public string Path { get; set; }
-            public List<object[]> Data { get; set; }
+            else MessageBox.Show("Archivo de PDF exportado exitosamente.");
         }
     }
 }

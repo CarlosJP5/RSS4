@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
@@ -193,9 +193,9 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column5.HeaderText = "ItbisP";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -203,9 +203,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.HeaderText = "Monto";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -213,8 +213,8 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Fact. Nº";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -355,7 +355,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmReporteComprobantes607";
             this.ShowIcon = false;
-            this.Text = "Reporte Comprobantes 607";
+            this.Text = "Reporte Comprobantes 607 -";
             this.Load += new System.EventHandler(this.FrmReporteComprobantes607_Load);
             this.panelTop.ResumeLayout(false);
             this.panelMid.ResumeLayout(false);
