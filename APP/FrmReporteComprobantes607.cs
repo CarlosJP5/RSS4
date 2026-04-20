@@ -4,12 +4,10 @@ using Negocios.NReportes;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using QuestPDF.Previewer; // Opcional
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Net.Mime;
 using System.Windows.Forms;
 
 namespace APP
@@ -127,7 +125,7 @@ namespace APP
                 return;
             }
 
-            using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Archivo PDF|*.pdf", FileName = "Reporte607.pdf" })
+            using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Archivo PDF|*.pdf", FileName = $"Reporte607 {dtpHasta.Value.Month}.pdf" })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
